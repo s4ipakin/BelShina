@@ -1,0 +1,127 @@
+//CoDeSys Mapping Export V1.2
+//Mapped variable;//Parameter name @ counter in device;//Unit;//Description;//IEC address;//Device name;
+//Important: change only first, third or fourth column in Excel or add variable name before first ;
+;K-BUS diagnostics;;K-BUS diagnostics;%IB0;Kbus
+;K-BUS error;;K-BUS general error flag;%IX0.0;Kbus
+;_PW 1;;Input value signed 1;%IW1;_8AI_0_4_20mA_SE
+;_PW 2;;Input value signed 2;%IW2;_8AI_0_4_20mA_SE
+;_PW 3;;Input value signed 3;%IW3;_8AI_0_4_20mA_SE
+;_PW 4;;Input value signed 4;%IW4;_8AI_0_4_20mA_SE
+;_PW 5;;Input value signed 5;%IW5;_8AI_0_4_20mA_SE
+;_PW 6;;Input value signed 6;%IW6;_8AI_0_4_20mA_SE
+;_PW 7;;Input value signed 7;%IW7;_8AI_0_4_20mA_SE
+;_PW 8;;Input value signed 8;%IW8;_8AI_0_4_20mA_SE
+;_OUT;;Output Channels;%QB0;_8DO_24_VDC_0_5A
+;_OUT@1;;Digital output;%QX0.0;_8DO_24_VDC_0_5A
+;_OUT@2;;Digital output;%QX0.1;_8DO_24_VDC_0_5A
+;_OUT@3;;Digital output;%QX0.2;_8DO_24_VDC_0_5A
+;_OUT@4;;Digital output;%QX0.3;_8DO_24_VDC_0_5A
+;_OUT@5;;Digital output;%QX0.4;_8DO_24_VDC_0_5A
+;_OUT@6;;Digital output;%QX0.5;_8DO_24_VDC_0_5A
+;_OUT@7;;Digital output;%QX0.6;_8DO_24_VDC_0_5A
+;_OUT@8;;Digital output;%QX0.7;_8DO_24_VDC_0_5A
+;status byte S0;;status byte S0;%IB18;Servo_Stepper_Controller_55_VDC_7_5A
+;speed;;speed;%IW10;Servo_Stepper_Controller_55_VDC_7_5A
+;process value;;process value;%IB22;Servo_Stepper_Controller_55_VDC_7_5A
+;process value[2];;process value;%IB22;Servo_Stepper_Controller_55_VDC_7_5A
+;process value[3];;process value;%IB23;Servo_Stepper_Controller_55_VDC_7_5A
+;process value[4];;process value;%IB24;Servo_Stepper_Controller_55_VDC_7_5A
+;process value[5];;process value;%IB25;Servo_Stepper_Controller_55_VDC_7_5A
+;process value[6];;process value;%IB26;Servo_Stepper_Controller_55_VDC_7_5A
+;status byte S3;;status byte S3;%IB27;Servo_Stepper_Controller_55_VDC_7_5A
+;status byte S2;;status byte S2;%IB28;Servo_Stepper_Controller_55_VDC_7_5A
+;status byte S1;;status byte S1;%IB29;Servo_Stepper_Controller_55_VDC_7_5A
+;control byte C0;;control byte C0;%QB2;Servo_Stepper_Controller_55_VDC_7_5A
+;speed@1;;speed;%QW2;Servo_Stepper_Controller_55_VDC_7_5A
+;acceleration;;acceleration;%QW3;Servo_Stepper_Controller_55_VDC_7_5A
+;process value@1;;process value;%QB8;Servo_Stepper_Controller_55_VDC_7_5A
+;process value[4]@1;;process value;%QB8;Servo_Stepper_Controller_55_VDC_7_5A
+;process value[5]@1;;process value;%QB9;Servo_Stepper_Controller_55_VDC_7_5A
+;process value[6]@1;;process value;%QB10;Servo_Stepper_Controller_55_VDC_7_5A
+;control byte C3;;control byte C3;%QB11;Servo_Stepper_Controller_55_VDC_7_5A
+;control byte C2;;control byte C2;%QB12;Servo_Stepper_Controller_55_VDC_7_5A
+;control byte C1;;control byte C1;%QB13;Servo_Stepper_Controller_55_VDC_7_5A
+;status byte S0;;status byte S0;%IB30;Servo_Stepper_Controller_55_VDC_7_5A_1
+;speed;;speed;%IW16;Servo_Stepper_Controller_55_VDC_7_5A_1
+;process value;;process value;%IB34;Servo_Stepper_Controller_55_VDC_7_5A_1
+;process value[2];;process value;%IB34;Servo_Stepper_Controller_55_VDC_7_5A_1
+;process value[3];;process value;%IB35;Servo_Stepper_Controller_55_VDC_7_5A_1
+;process value[4];;process value;%IB36;Servo_Stepper_Controller_55_VDC_7_5A_1
+;process value[5];;process value;%IB37;Servo_Stepper_Controller_55_VDC_7_5A_1
+;process value[6];;process value;%IB38;Servo_Stepper_Controller_55_VDC_7_5A_1
+;status byte S3;;status byte S3;%IB39;Servo_Stepper_Controller_55_VDC_7_5A_1
+;status byte S2;;status byte S2;%IB40;Servo_Stepper_Controller_55_VDC_7_5A_1
+;status byte S1;;status byte S1;%IB41;Servo_Stepper_Controller_55_VDC_7_5A_1
+;control byte C0;;control byte C0;%QB14;Servo_Stepper_Controller_55_VDC_7_5A_1
+;speed@1;;speed;%QW8;Servo_Stepper_Controller_55_VDC_7_5A_1
+;acceleration;;acceleration;%QW9;Servo_Stepper_Controller_55_VDC_7_5A_1
+;process value@1;;process value;%QB20;Servo_Stepper_Controller_55_VDC_7_5A_1
+;process value[4]@1;;process value;%QB20;Servo_Stepper_Controller_55_VDC_7_5A_1
+;process value[5]@1;;process value;%QB21;Servo_Stepper_Controller_55_VDC_7_5A_1
+;process value[6]@1;;process value;%QB22;Servo_Stepper_Controller_55_VDC_7_5A_1
+;control byte C3;;control byte C3;%QB23;Servo_Stepper_Controller_55_VDC_7_5A_1
+;control byte C2;;control byte C2;%QB24;Servo_Stepper_Controller_55_VDC_7_5A_1
+;control byte C1;;control byte C1;%QB25;Servo_Stepper_Controller_55_VDC_7_5A_1
+;status byte S0;;status byte S0;%IB42;Servo_Stepper_Controller_55_VDC_7_5A_2
+;speed;;speed;%IW22;Servo_Stepper_Controller_55_VDC_7_5A_2
+;process value;;process value;%IB46;Servo_Stepper_Controller_55_VDC_7_5A_2
+;process value[2];;process value;%IB46;Servo_Stepper_Controller_55_VDC_7_5A_2
+;process value[3];;process value;%IB47;Servo_Stepper_Controller_55_VDC_7_5A_2
+;process value[4];;process value;%IB48;Servo_Stepper_Controller_55_VDC_7_5A_2
+;process value[5];;process value;%IB49;Servo_Stepper_Controller_55_VDC_7_5A_2
+;process value[6];;process value;%IB50;Servo_Stepper_Controller_55_VDC_7_5A_2
+;status byte S3;;status byte S3;%IB51;Servo_Stepper_Controller_55_VDC_7_5A_2
+;status byte S2;;status byte S2;%IB52;Servo_Stepper_Controller_55_VDC_7_5A_2
+;status byte S1;;status byte S1;%IB53;Servo_Stepper_Controller_55_VDC_7_5A_2
+;control byte C0;;control byte C0;%QB26;Servo_Stepper_Controller_55_VDC_7_5A_2
+;speed@1;;speed;%QW14;Servo_Stepper_Controller_55_VDC_7_5A_2
+;acceleration;;acceleration;%QW15;Servo_Stepper_Controller_55_VDC_7_5A_2
+;process value@1;;process value;%QB32;Servo_Stepper_Controller_55_VDC_7_5A_2
+;process value[4]@1;;process value;%QB32;Servo_Stepper_Controller_55_VDC_7_5A_2
+;process value[5]@1;;process value;%QB33;Servo_Stepper_Controller_55_VDC_7_5A_2
+;process value[6]@1;;process value;%QB34;Servo_Stepper_Controller_55_VDC_7_5A_2
+;control byte C3;;control byte C3;%QB35;Servo_Stepper_Controller_55_VDC_7_5A_2
+;control byte C2;;control byte C2;%QB36;Servo_Stepper_Controller_55_VDC_7_5A_2
+;control byte C1;;control byte C1;%QB37;Servo_Stepper_Controller_55_VDC_7_5A_2
+;_S0;;Status byte S0;%IB54;Inc_Encoder_24_VDC_Diff_32bits
+;_LATC_VAL;;Confirmation of initial point activation;%IX54.0;Inc_Encoder_24_VDC_Diff_32bits
+;_LATEXT_VAL;;External Latch Ack.;%IX54.1;Inc_Encoder_24_VDC_Diff_32bits
+;_CNTSET_ACK;;Counter Set Acknowledge;%IX54.2;Inc_Encoder_24_VDC_Diff_32bits
+;_UFLOW;;Counter Underflow;%IX54.3;Inc_Encoder_24_VDC_Diff_32bits
+;_OFLOW;;Counter Overflow;%IX54.4;Inc_Encoder_24_VDC_Diff_32bits
+;_ACK_LDEXT;;Counter Set Acknowledge;%IX54.5;Inc_Encoder_24_VDC_Diff_32bits
+;_RESERVED;;_RESERVED;%IX54.6;Inc_Encoder_24_VDC_Diff_32bits
+;_RESERVED@1;;_RESERVED;%IX54.7;Inc_Encoder_24_VDC_Diff_32bits
+;_DI01;;Process data bytes 0 and 1;%IW28;Inc_Encoder_24_VDC_Diff_32bits
+;_S1;;Status byte S1;%IB58;Inc_Encoder_24_VDC_Diff_32bits
+;_STATE_MAP_PZD0;;State process data coding Bit 0;%IX58.0;Inc_Encoder_24_VDC_Diff_32bits
+;_STATE_MAP_PZD1;;State process data coding Bit 1;%IX58.1;Inc_Encoder_24_VDC_Diff_32bits
+;_STATE_N1;;State Cam 1;%IX58.2;Inc_Encoder_24_VDC_Diff_32bits
+;_STATE_N2;;State Cam 2;%IX58.3;Inc_Encoder_24_VDC_Diff_32bits
+;_N1;;Cam 1 active;%IX58.4;Inc_Encoder_24_VDC_Diff_32bits
+;_N2;;Cam 2 active;%IX58.5;Inc_Encoder_24_VDC_Diff_32bits
+;_RESERVED@2;;_RESERVED;%IX58.6;Inc_Encoder_24_VDC_Diff_32bits
+;_RESERVED@3;;_RESERVED;%IX58.7;Inc_Encoder_24_VDC_Diff_32bits
+;_DI23;;Process data bytes 2 and 3;%IW30;Inc_Encoder_24_VDC_Diff_32bits
+;_C0;;Control byte C0;%QB38;Inc_Encoder_24_VDC_Diff_32bits
+;_EN_LATC;;Release Index Pulse;%QX38.0;Inc_Encoder_24_VDC_Diff_32bits
+;_EN_LATEXT;;Releas Latched Data;%QX38.1;Inc_Encoder_24_VDC_Diff_32bits
+;_CNT_SET;;Counter Set;%QX38.2;Inc_Encoder_24_VDC_Diff_32bits
+;_RES_UFLOW;;Underflow Reset;%QX38.3;Inc_Encoder_24_VDC_Diff_32bits
+;_RES_OFLOW;;Overflow Reset;%QX38.4;Inc_Encoder_24_VDC_Diff_32bits
+;_SET_LD_EXT;;Set load external;%QX38.5;Inc_Encoder_24_VDC_Diff_32bits
+;_OP_MODE;;Operation mode;%QX38.6;Inc_Encoder_24_VDC_Diff_32bits
+;_RESERVED@4;;_RESERVED;%QX38.7;Inc_Encoder_24_VDC_Diff_32bits
+;_DO01;;Set value byte 0 and 1;%QW20;Inc_Encoder_24_VDC_Diff_32bits
+;_C1;;Control byte C1;%QB42;Inc_Encoder_24_VDC_Diff_32bits
+;_MAP_PZD0;;Code Process Data 0;%QX42.0;Inc_Encoder_24_VDC_Diff_32bits
+;_MAP_PZD1;;Code Process Data 1;%QX42.1;Inc_Encoder_24_VDC_Diff_32bits
+;_DISABLE_N1;;Disable Cam 1;%QX42.2;Inc_Encoder_24_VDC_Diff_32bits
+;_DISABLE_N2;;Disable Cam 2;%QX42.3;Inc_Encoder_24_VDC_Diff_32bits
+;_SET_N1;;Cam 1 set comparison values;%QX42.4;Inc_Encoder_24_VDC_Diff_32bits
+;_SET_N2;;Cam 2 set comparison values;%QX42.5;Inc_Encoder_24_VDC_Diff_32bits
+;_EN_REF;;Input REF Set;%QX42.6;Inc_Encoder_24_VDC_Diff_32bits
+;_RESERVED@5;;_RESERVED;%QX42.7;Inc_Encoder_24_VDC_Diff_32bits
+;_DO23;;Set value byte 2 and 3;%QW22;Inc_Encoder_24_VDC_Diff_32bits
+;_UD;;Bridge voltage;%IW31;_1AI_DMS_125ms
+;_Uref;;Reference voltage;%IW32;_1AI_DMS_125ms
