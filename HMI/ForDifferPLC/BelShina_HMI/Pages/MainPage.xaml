@@ -1,0 +1,199 @@
+﻿<Page
+    x:Class="BelShina_HMI.Pages.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:BelShina_HMI.Pages"
+    xmlns:local1="clr-namespace:BelShina_HMI.ViewModels"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:src="clr-namespace:BelShina_HMI.Converters"
+    Title="MainPage"
+    d:DesignHeight="900"
+    d:DesignWidth="1600"
+    mc:Ignorable="d">
+
+    <Page.DataContext>
+        <local1:MainViewModel />
+    </Page.DataContext>
+
+    <Page.Resources>
+        <Style x:Key="myCheckboxStyle" TargetType="{x:Type CheckBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type CheckBox}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image
+                                x:Name="checkboxImage"
+                                Width="100"
+                                Source="/Pictures/offf.png" />
+                            <ContentPresenter />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="checkboxImage" Property="Source" Value="/Pictures/onn.png" />
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter TargetName="checkboxImage" Property="Source" Value="/Pictures/offf.png" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <src:ForceStateConvert x:Key="forceStateConvert" />
+
+    </Page.Resources>
+
+    <Grid>
+        <TextBlock
+            Width="156"
+            Height="32"
+            Margin="152,219,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Background="#FFF1E8E8"
+            OpacityMask="#FF080808"
+            Text="{Binding ActualPosition, Mode=OneWay}" />
+        <TextBox
+            Width="120"
+            Height="32"
+            Margin="0,28,606,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Text="{Binding SetForce, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <CheckBox
+            x:Name="checkBox"
+            Width="112"
+            Height="84"
+            Margin="28,95,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content=""
+            IsChecked="{Binding Start, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            RenderTransformOrigin="0.478,0.536"
+            Style="{StaticResource myCheckboxStyle}" />
+
+        <CheckBox
+            x:Name="checkBox1"
+            Width="130"
+            Height="84"
+            Margin="262,95,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content=""
+            IsChecked="{Binding Release, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            Style="{StaticResource myCheckboxStyle}" />
+        <TextBlock
+            Width="156"
+            Height="32"
+            Margin="152,299,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Background="#FFF1E8E8"
+            Text="{Binding ActualPosition, Mode=OneWay}" />
+        <TextBlock
+            x:Name="textBlock"
+            Width="88"
+            Height="24"
+            Margin="46,219,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="Положение"
+            TextWrapping="Wrap" />
+        <TextBlock
+            x:Name="textBlock_Copy"
+            Width="102"
+            Height="48"
+            Margin="46,291,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="Измерянная сила"
+            TextWrapping="Wrap" />
+        <TextBlock
+            x:Name="textBlock_Copy1"
+            Width="88"
+            Height="24"
+            Margin="633,36,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="Сила"
+            TextWrapping="Wrap" />
+        <TextBlock
+            x:Name="textBlock_Copy8"
+            Width="139"
+            Height="24"
+            Margin="24,71,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="Применить силу"
+            TextWrapping="Wrap" />
+        <TextBlock
+            x:Name="textBlock_Copy9"
+            Width="88"
+            Height="24"
+            Margin="281,69,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="Отпустить"
+            TextWrapping="Wrap" />
+        <CheckBox
+            x:Name="checkBox_Copy"
+            Width="112"
+            Height="84"
+            Margin="28,0,0,313"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Content=""
+            IsChecked="{Binding JogLeft, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            RenderTransformOrigin="0.478,0.536"
+            Style="{StaticResource myCheckboxStyle}" />
+        <CheckBox
+            x:Name="checkBox_Copy1"
+            Width="112"
+            Height="84"
+            Margin="257,0,0,313"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Content=""
+            IsChecked="{Binding JogRight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            RenderTransformOrigin="0.478,0.536"
+            Style="{StaticResource myCheckboxStyle}" />
+        <TextBlock
+            x:Name="textBlock_Copy10"
+            Width="139"
+            Height="24"
+            Margin="24,0,0,390"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            FontSize="16"
+            Text="Двигать влево"
+            TextWrapping="Wrap" />
+        <TextBlock
+            x:Name="textBlock_Copy11"
+            Width="139"
+            Height="24"
+            Margin="253,0,0,390"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            FontSize="16"
+            Text="Двигать вправо"
+            TextWrapping="Wrap" />
+        <TextBlock
+            x:Name="textBlock_Copy12"
+            Width="262"
+            Height="24"
+            Margin="46,0,0,235"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            FontSize="16"
+            Text="{Binding Path=FS_State, Converter={StaticResource forceStateConvert}}"
+            TextWrapping="Wrap" />
+
+    </Grid>
+</Page>
