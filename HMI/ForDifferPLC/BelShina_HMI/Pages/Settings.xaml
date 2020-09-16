@@ -26,5 +26,14 @@
         <TextBox Text="{Binding SetSpeed, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="32" VerticalAlignment="Top" Margin="0,234,606,0" HorizontalAlignment="Right" Width="120" />
         <TextBox Text="{Binding SetAcceleration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="32" VerticalAlignment="Top" Margin="0,282,606,0" HorizontalAlignment="Right" Width="120" />
         <TextBox Text="{Binding SetDeceleration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="32" VerticalAlignment="Top" Margin="0,334,606,0" HorizontalAlignment="Right" Width="120" />
+        <TextBlock
+            Width="156"
+            Height="32"
+            Margin="152,219,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Background="#FFF1E8E8"
+            OpacityMask="#FF080808"
+            Text="{Binding Test, Mode=OneWay}" />
     </Grid>
 </Page>

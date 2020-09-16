@@ -13,11 +13,28 @@ namespace BelShina_HMI.ViewModels
         [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.wFS_RoughApprox")]
         public ushort RoughApprox
         {
-            get { return this.roughApprox; }
-            set { this.SetProperty(ref this.roughApprox, value); }
+            get 
+            {
+                Test++;
+                return this.roughApprox; 
+            }
+            set 
+            {              
+                this.SetProperty(ref this.roughApprox, value);                
+            }
         }
 
         private ushort roughApprox;
+
+        public int Test
+        {
+            get { return this.test; }
+            set { this.SetProperty(ref this.test, value); }
+        }
+
+        private int test;
+
+
 
         [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.wFS_Step")]
         public ushort Step

@@ -10,8 +10,8 @@
         <StackPanel Height="48" VerticalAlignment="Bottom" RenderTransformOrigin="0.499,0.542" Orientation="Horizontal">
             <Button Content="Главный" MinWidth="200" Click="MainBtcClck"/>
             <Button Content="Настройки" MinWidth="200" Margin="10,0,0,0" Click="SettingsBtnClck"/>
-            <Button Content="График 1" MinWidth="200" Margin="10,0,0,0" Click="btnCondClck" />
-            <!--<Button Content="График 2" MinWidth="200" Margin="10,0,0,0" Click="btnFlawClck" />
+            <!--<Button Content="График 1" MinWidth="200" Margin="10,0,0,0" Click="btnCondClck" />
+            <Button Content="График 2" MinWidth="200" Margin="10,0,0,0" Click="btnFlawClck" />
             <Button Content="График 3" MinWidth="200" Margin="10,0,0,0" Click="btnLewelClck" />
             <Button Content="График 4" MinWidth="200" Margin="10,0,0,0" Click="Button_Click" />
             <Button Content="Аварии" MinWidth="100" Margin="10,0,0,0" Click="btnChooseFile_clk" />-->
