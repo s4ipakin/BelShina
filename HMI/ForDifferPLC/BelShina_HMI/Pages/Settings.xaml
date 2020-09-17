@@ -35,5 +35,14 @@
             Background="#FFF1E8E8"
             OpacityMask="#FF080808"
             Text="{Binding Test, Mode=OneWay}" />
+        <TextBlock
+            Width="156"
+            Height="32"
+            Margin="152,305,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Background="#FFF1E8E8"
+            OpacityMask="#FF080808"
+            Text="{Binding ActualPosition, Mode=OneWay}" />
     </Grid>
 </Page>

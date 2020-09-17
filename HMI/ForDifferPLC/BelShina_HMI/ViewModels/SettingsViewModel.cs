@@ -15,7 +15,7 @@ namespace BelShina_HMI.ViewModels
         {
             get 
             {
-                Test++;
+                
                 return this.roughApprox; 
             }
             set 
@@ -25,6 +25,21 @@ namespace BelShina_HMI.ViewModels
         }
 
         private ushort roughApprox;
+
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.wFS_ActualPos")]
+        public long ActualPosition
+        {
+            get 
+            {
+                Test++;
+                return this.actualPosition; 
+            }
+            set { this.SetProperty(ref this.actualPosition, value); }
+        }
+
+        private long actualPosition;
 
         public int Test
         {

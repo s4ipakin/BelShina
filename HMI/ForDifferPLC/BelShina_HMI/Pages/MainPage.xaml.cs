@@ -23,6 +23,10 @@ namespace BelShina_HMI.Pages
         public MainPage()
         {
             InitializeComponent();
+
+            
         }
+        
+
     }
 }

@@ -25,11 +25,13 @@ namespace BelShina_HMI
 
         MainPage mainPage;
         Settings settingsPage;
+        GrafPage grafPage;
         public MainWindow()
         {
             InitializeComponent();
             mainPage = new MainPage();
             settingsPage = new Settings();
+            grafPage = new GrafPage();
             Main.Content = mainPage;
         }
 
@@ -43,6 +45,12 @@ namespace BelShina_HMI
         {
             //new Thread(() => this.Dispatcher.Invoke(() => Main.Content = mainPage)).Start();
             Main.Content = settingsPage;
+        }
+
+        private void btnCondClck(object sender, RoutedEventArgs e)
+        {
+            //new Thread(() => this.Dispatcher.Invoke(() => Main.Content = mainPage)).Start();
+            Main.Content = grafPage;
         }
     }
 }

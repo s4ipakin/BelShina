@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BelShina_HMI.Chart
 {
-    class SeriesCollectionHandler
+    public class SeriesCollectionHandler
     {
         public string[] SetValues(IChartValues collection, DataTable dataTable, int dataXcolumn, int dataYcolumn)
         {
@@ -21,7 +21,8 @@ namespace BelShina_HMI.Chart
             for (int j = 0; j < dataTable.Rows.Count; j++)
             {
                 queue.Enqueue(dataTable.Rows[j][dataXcolumn].ToString());
-                collection.Add(dataTable.Rows[j][dataYcolumn].ToString());
+                double st = Convert.ToDouble(dataTable.Rows[j][dataYcolumn]);
+                collection.Add(st);
             }
             labels = queue.ToArray();
             return labels;
