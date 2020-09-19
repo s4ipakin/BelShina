@@ -1,21 +1,66 @@
-﻿<Page x:Class="BelShina_HMI.Pages.GrafPage"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:BelShina_HMI.Pages"
-      xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-      mc:Ignorable="d" 
-      d:DesignHeight="900" d:DesignWidth="1600"
-      Title="GrafPage">
+﻿<Page
+    x:Class="BelShina_HMI.Pages.GrafPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:BelShina_HMI.Pages"
+    xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+    xmlns:src="clr-namespace:BelShina_HMI.Converters"
+
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="GrafPage"
+    d:DesignHeight="900"
+    d:DesignWidth="1600"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <Style x:Key="myCheckboxStyle" TargetType="{x:Type CheckBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type CheckBox}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image
+                                x:Name="checkboxImage"
+                                Width="100"
+                                Source="/Pictures/offf.png" />
+                            <ContentPresenter />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="checkboxImage" Property="Source" Value="/Pictures/onn.png" />
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter TargetName="checkboxImage" Property="Source" Value="/Pictures/offf.png" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <src:ForceStateConvert x:Key="forceStateConvert" />
+    </Page.Resources>
+
 
     <Grid>
-        <lvc:CartesianChart x:Name="Chart_P" Series="{Binding SeriesCollection}" LegendLocation="Right" Margin="0,42,0,230" >
+        <lvc:CartesianChart
+            x:Name="Chart_P"
+            Margin="0,42,0,230"
+            LegendLocation="Right"
+            Series="{Binding SeriesCollection}">
             <lvc:CartesianChart.AxisY>
-                <lvc:Axis x:Name="chartAxisY" Title="Скорость потока" LabelFormatter="{Binding YFormatter}" MaxValue="25000" FontSize="16" FontWeight="UltraBold"></lvc:Axis>
+                <lvc:Axis
+                    x:Name="chartAxisY"
+                    Title="Скорость потока"
+                    FontSize="16"
+                    FontWeight="UltraBold"
+                    LabelFormatter="{Binding YFormatter}"
+                    MaxValue="25000" />
             </lvc:CartesianChart.AxisY>
             <lvc:CartesianChart.AxisX>
-                <lvc:Axis Title="Время" Labels="{Binding Labels}" FontWeight="Black" FontSize="16"></lvc:Axis>
+                <lvc:Axis
+                    Title="Время"
+                    FontSize="16"
+                    FontWeight="Black"
+                    Labels="{Binding Labels}" />
             </lvc:CartesianChart.AxisX>
         </lvc:CartesianChart>
         <TextBlock
@@ -36,5 +81,25 @@
             Background="#FFF1E8E8"
             OpacityMask="#FF080808"
             Text="{Binding GetForse, Mode=OneWay}" />
+        <CheckBox
+            x:Name="checkBox_Copy2"
+            Height="84"
+            Margin="752,0,736,100"
+            VerticalAlignment="Bottom"
+            Content=""
+            IsChecked="{Binding ProcFinished, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            RenderTransformOrigin="0.478,0.536"
+            Style="{StaticResource myCheckboxStyle}" />
+        <TextBlock
+            x:Name="textBlock_Copy12"
+            Width="210"
+            Height="24"
+            Margin="0,270,20,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="{Binding Path=FS_State, Converter={StaticResource forceStateConvert}}"
+            TextWrapping="Wrap" 
+            Visibility="Visible"/>
     </Grid>
 </Page>

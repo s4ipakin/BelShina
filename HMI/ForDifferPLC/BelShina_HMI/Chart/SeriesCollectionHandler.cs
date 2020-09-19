@@ -27,5 +27,7 @@ namespace BelShina_HMI.Chart
             labels = queue.ToArray();
             return labels;
         }
+
+        
     }
 }

@@ -24,13 +24,13 @@ namespace BelShina_HMI.Pages
     public partial class GrafPage : Page
     {
         private readonly GrafViewModel grafViewModel;
-        public GrafPage()
+        public GrafPage(GrafViewModel grafViewModel)
         {
             InitializeComponent();
-            ForceGrafSet forceGrafSet = new ForceGrafSet();
-            grafViewModel = new GrafViewModel(forceGrafSet);
-            //this.grafViewModel = grafViewModel;
-            DataContext = grafViewModel;
+            //ForceGrafSet forceGrafSet = new ForceGrafSet();
+            //grafViewModel = new GrafViewModel(forceGrafSet);
+            this.grafViewModel = grafViewModel;
+            DataContext = this.grafViewModel;
             Chart_P.ZoomingSpeed = 0.7;
             Chart_P.DisableAnimations = true;
             Chart_P.Zoom = ZoomingOptions.Y;

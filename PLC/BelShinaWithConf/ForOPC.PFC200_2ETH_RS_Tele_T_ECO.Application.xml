@@ -40,8 +40,8 @@
       <Node name="HMI_Process">
         <Node name="rDistance_1" type="T_REAL" access="ReadWrite" />
         <Node name="rDistance_2" type="T_REAL" access="ReadWrite" />
-        <Node name="rDistance_3" type="T_REAL" access="ReadWrite" />
-        <Node name="rDistance_4" type="T_REAL" access="ReadWrite" />
+        <Node name="rLaserDistance_1" type="T_REAL" access="ReadWrite" />
+        <Node name="rLaserDistance_2" type="T_REAL" access="ReadWrite" />
         <Node name="rST_GetForce_1" type="T_REAL" access="ReadWrite" />
         <Node name="rST_GetForce_2" type="T_REAL" access="ReadWrite" />
         <Node name="rST_Koef_1" type="T_REAL" access="ReadWrite" />
@@ -66,13 +66,20 @@
         <Node name="xGC_Start_2" type="T_BOOL" access="ReadWrite" />
         <Node name="xGS_StartProc_1" type="T_BOOL" access="ReadWrite" />
         <Node name="xGS_StartProc_2" type="T_BOOL" access="ReadWrite" />
+        <Node name="xProcFinished" type="T_BOOL" access="ReadWrite" />
         <Node name="xST_Ready_1" type="T_BOOL" access="ReadWrite" />
         <Node name="xST_Ready_2" type="T_BOOL" access="ReadWrite" />
       </Node>
       <Node name="HMI_Stepper">
+        <Node name="rFS_CycledWay" type="T_REAL" access="ReadWrite" />
         <Node name="rFS_GetForce" type="T_REAL" access="ReadWrite" />
+        <Node name="rFS_GetForce_check" type="T_REAL" access="ReadWrite" />
+        <Node name="rFS_LinedWay_1" type="T_REAL" access="ReadWrite" />
+        <Node name="rFS_LinedWay_2" type="T_REAL" access="ReadWrite" />
         <Node name="rFS_Sensativity" type="T_REAL" access="ReadWrite" />
         <Node name="rFS_SetForce" type="T_REAL" access="ReadWrite" />
+        <Node name="rLS_RealPos_1" type="T_REAL" access="ReadWrite" />
+        <Node name="rLS_RealPos_2" type="T_REAL" access="ReadWrite" />
         <Node name="wFS_ActualPos" type="T_DWORD" access="ReadWrite" />
         <Node name="wFS_RoughApprox" type="T_WORD" access="ReadWrite" />
         <Node name="wFS_SetAcceleration" type="T_WORD" access="ReadWrite" />

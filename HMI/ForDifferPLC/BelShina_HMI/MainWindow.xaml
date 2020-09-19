@@ -1,21 +1,61 @@
-﻿<Window x:Class="BelShina_HMI.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:BelShina_HMI"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="900" Width="1600">
+﻿<Window
+    x:Class="BelShina_HMI.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:BelShina_HMI"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="1600"
+    Height="900"
+    mc:Ignorable="d">
     <Grid>
-        <StackPanel Height="48" VerticalAlignment="Bottom" RenderTransformOrigin="0.499,0.542" Orientation="Horizontal">
-            <Button Content="Главный" MinWidth="200" Click="MainBtcClck"/>
-            <Button Content="Настройки" MinWidth="200" Margin="10,0,0,0" Click="SettingsBtnClck"/>
-            <Button Content="График 1" MinWidth="200" Margin="10,0,0,0" Click="btnCondClck" />
-            <!--<Button Content="График 2" MinWidth="200" Margin="10,0,0,0" Click="btnFlawClck" />
-            <Button Content="График 3" MinWidth="200" Margin="10,0,0,0" Click="btnLewelClck" />
-            <Button Content="График 4" MinWidth="200" Margin="10,0,0,0" Click="Button_Click" />
-            <Button Content="Аварии" MinWidth="100" Margin="10,0,0,0" Click="btnChooseFile_clk" />-->
+        <StackPanel
+            Height="48"
+            VerticalAlignment="Bottom"
+            Orientation="Horizontal"
+            RenderTransformOrigin="0.499,0.542">
+            <Button
+                Width="90"
+                MinWidth="150"
+                Click="MainBtcClck"
+                Content="Главный" />
+            <Button
+                MinWidth="150"
+                Margin="10,0,0,0"
+                Click="SettingsBtnClck"
+                Content="Настройки" />
+            <Button
+                MinWidth="150"
+                Margin="10,0,0,0"
+                Click="btnGragClk_1"
+                Content="График 1" />
+            <Button
+                MinWidth="150"
+                Margin="10,0,0,0"
+                Click="btnGragClk_2"
+                Content="График 2" />
+            <Button
+                MinWidth="150"
+                Margin="10,0,0,0"
+                Click="btnGragClk_3"
+                Content="График 3" />
+            <Button
+                MinWidth="150"
+                Margin="10,0,0,0"
+                Click="btnContClk_1"
+                Content="Контур 1" />
+            <Button
+                MinWidth="150"
+                Margin="10,0,0,0"
+                Click="btnContClk_2"
+                Content="Контур 2" />
+            <Button
+                MinWidth="150"
+                Margin="10,0,0,0"
+                Click="btnAlmClk"
+                Content="Аварии" />
         </StackPanel>
-        <Frame Name="Main" NavigationUIVisibility="Hidden"/>
+        <Frame Name="Main" NavigationUIVisibility="Hidden" />
     </Grid>
 </Window>
