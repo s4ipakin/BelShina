@@ -10,6 +10,7 @@ using Workstation.ServiceModel.Ua;
 using System.Diagnostics;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Messaging;
+using System.Collections.ObjectModel;
 
 namespace BelShina_HMI.ViewModels
 {
@@ -20,6 +21,13 @@ namespace BelShina_HMI.ViewModels
         public MainViewModel()
         {
             ButtonReportsCommand = new RelayCommand(o => ReportsButtonClick("ReportsButton"));
+            TestTypes = new ObservableCollection<TestType>()
+            {
+              new TestType(){ Id=1, Name="Поворот"}
+                    ,new TestType(){Id=2,Name="Продольная жесткость"}
+                    ,new TestType(){Id=3 , Name="Поперечная жесткость"}
+                    ,new TestType(){Id=4 , Name="Тангенциаотная"}
+            };
         }
 
         private void ReportsButtonClick(object sender)
@@ -92,6 +100,34 @@ namespace BelShina_HMI.ViewModels
 
         private ushort fS_State;
 
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.wProcType")]
+        public ushort ProcessType
+        {
+            get { return this.processType; }
+            set { this.SetProperty(ref this.processType, value); }
+        }
+
+        private ushort processType;
+
+        private ObservableCollection<TestType> _testTypes;
+
+        public ObservableCollection<TestType> TestTypes
+        {
+            get { return _testTypes; }
+            set { _testTypes = value; }
+        }
+        private TestType _testType;
+
+        public TestType TestType
+        {
+            get { return _testType; }
+            set 
+            { 
+                _testType = value;
+                ProcessType = _testType.Id;
+            }
+        }
+
         //[MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.xProcFinished")]
         //public bool ProcFinished
         //{
@@ -106,7 +142,7 @@ namespace BelShina_HMI.ViewModels
         //    set { this.SetProperty(ref this.procFinished, value); }
         //}
 
-        
+
 
         protected bool procFinished;
 
@@ -130,11 +166,7 @@ namespace BelShina_HMI.ViewModels
 
         private string tireType;
 
-        public string TestType
-        {
-            get { return this.testTipe; }
-            set { this.SetProperty(ref this.testTipe, value); }
-        }
+        
 
         private string testTipe;
 

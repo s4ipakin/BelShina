@@ -58,6 +58,7 @@
         <Node name="wGS_State_2" type="T_CurveStates" access="ReadWrite" />
         <Node name="wGS_WaitTillDone_1" type="T_WORD" access="ReadWrite" />
         <Node name="wGS_WaitTillDone_2" type="T_WORD" access="ReadWrite" />
+        <Node name="wProcType" type="T_WORD" access="ReadWrite" />
         <Node name="wST_HalfPos_1" type="T_DWORD" access="ReadWrite" />
         <Node name="wST_HalfPos_2" type="T_DWORD" access="ReadWrite" />
         <Node name="wST_State_1" type="T_StiffnessTestStates" access="ReadWrite" />
