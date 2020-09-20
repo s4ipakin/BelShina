@@ -51,6 +51,9 @@ namespace BelShina_HMI.ViewModels
             YFormatter = value => value.ToString() + this.grafSet.unit;
             dataTable.Columns.Add("FirstValue");
             dataTable.Columns.Add("SecondValue");
+            YaxesName = grafSet.yAxesName;
+            YaxesMaxValue = grafSet.maxValue;
+            XaxesName = grafSet.xAxesName;
             for (int i = 0; i < arSeries.Length; i++)
             {
                 SeriesCollection.Add(arSeries[i].LineSeries);
@@ -61,6 +64,30 @@ namespace BelShina_HMI.ViewModels
             Messenger.Default.Register<GenerateReportsMessage>(this, GenerateReports);
             _ = Task();
         }
+
+        protected string yaxesName;
+        public string YaxesName
+        {
+            get { return yaxesName; }
+            set { yaxesName = value; }
+        }
+
+        protected double yaxesMaxValue;
+        public double YaxesMaxValue
+        {
+            get { return yaxesMaxValue; }
+            set { yaxesMaxValue = value; }
+        }
+
+        protected string xaxesName;
+        public string XaxesName
+        {
+            get { return xaxesName; }
+            set { xaxesName = value; }
+        }
+
+        
+
         protected async Task Task()
         {
             await OPC_UA.SetChanel();

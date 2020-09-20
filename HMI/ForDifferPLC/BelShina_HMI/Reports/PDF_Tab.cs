@@ -253,11 +253,17 @@ namespace BelShina_HMI.Reports
             //paragraph.AddLineBreak();
             //paragraph.AddText(GetValue(item, "address/postalCode") + " " + GetValue(item, "address/city"));
             var paragraph = _addressFrame.AddParagraph();
-            paragraph.AddText(dataTable.Rows[0][1].ToString());
+            paragraph.AddText("Подразделение: " + dataTable.Rows[0][1].ToString());
             paragraph.AddLineBreak();
-            paragraph.AddText(dataTable.Rows[1][1].ToString());
+            paragraph.AddText("Оператор: " + dataTable.Rows[1][1].ToString());
             paragraph.AddLineBreak();
-            paragraph.AddText(dataTable.Rows[2][1].ToString());
+            paragraph.AddText("Тип шины: " + dataTable.Rows[2][1].ToString());
+            paragraph.AddLineBreak();
+            paragraph.AddText("Номер шины: " + dataTable.Rows[3][1].ToString());
+            paragraph.AddLineBreak();
+            paragraph.AddText("Размер шины: " + dataTable.Rows[4][1].ToString());
+            paragraph.AddLineBreak();
+            paragraph.AddText("Методика: " + dataTable.Rows[5][1].ToString());
             // Iterate the invoice items.
             double totalExtendedPrice = 0;
             var iter = _navigator.Select("/invoice/items/*");
@@ -302,7 +308,7 @@ namespace BelShina_HMI.Reports
             //    _table.SetEdge(0, _table.Rows.Count - 2, 6, 2, Edge.Box, BorderStyle.Single, 0.75);
             //}
 
-            for(int i = 3; i < dataTable.Rows.Count; i++)
+            for(int i = 6; i < dataTable.Rows.Count; i++)
             {
                 var row1 = this._table.AddRow();
                 row1.Cells[0].Shading.Color = TableGray;

@@ -5,9 +5,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:BelShina_HMI.Pages"
     xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-    xmlns:src="clr-namespace:BelShina_HMI.Converters"
-
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:src="clr-namespace:BelShina_HMI.Converters"
     Title="GrafPage"
     d:DesignHeight="900"
     d:DesignWidth="1600"
@@ -49,15 +48,15 @@
             <lvc:CartesianChart.AxisY>
                 <lvc:Axis
                     x:Name="chartAxisY"
-                    Title="Скорость потока"
+                    Title="{Binding YaxesName}"
                     FontSize="16"
                     FontWeight="UltraBold"
                     LabelFormatter="{Binding YFormatter}"
-                    MaxValue="25000" />
+                    MaxValue="{Binding YaxesMaxValue}" />
             </lvc:CartesianChart.AxisY>
             <lvc:CartesianChart.AxisX>
                 <lvc:Axis
-                    Title="Время"
+                    Title="{Binding XaxesName}"
                     FontSize="16"
                     FontWeight="Black"
                     Labels="{Binding Labels}" />
@@ -99,7 +98,7 @@
             VerticalAlignment="Top"
             FontSize="16"
             Text="{Binding Path=FS_State, Converter={StaticResource forceStateConvert}}"
-            TextWrapping="Wrap" 
-            Visibility="Visible"/>
+            TextWrapping="Wrap"
+            Visibility="Visible" />
     </Grid>
 </Page>

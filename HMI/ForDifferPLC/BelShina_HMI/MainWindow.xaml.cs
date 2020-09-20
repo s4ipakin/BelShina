@@ -42,9 +42,11 @@ namespace BelShina_HMI
         GrafPage grafPage_3;
         GrafPage ConturPage_1;
         GrafPage ConturPage_2;
+        
         public MainWindow()
         {
             InitializeComponent();
+            
             mainPage = new MainPage();
             settingsPage = new Settings();
             forceGrafSet = new ForceGrafSet();

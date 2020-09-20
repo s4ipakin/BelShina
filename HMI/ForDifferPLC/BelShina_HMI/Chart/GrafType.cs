@@ -25,6 +25,8 @@ namespace BelShina_HMI.Chart
         public abstract GrafType GrafType { get; }
         public abstract string yAxesName { get; }
         public abstract string unit { get; }
+        public abstract string xAxesName { get; }
+        public abstract string xUnit { get; }
         public abstract double maxValue { get; }
         public abstract GrafSeries[] GetSettings();
     }
@@ -34,6 +36,8 @@ namespace BelShina_HMI.Chart
         public override GrafType GrafType => GrafType.Force;
         public override string yAxesName => "Сила";
         public override string unit => "N";
+        public override string xAxesName => "Перемещение";
+        public override string xUnit => "мм";
         public override double maxValue => 150000;
         public override GrafSeries[] GetSettings()
         {
@@ -49,6 +53,8 @@ namespace BelShina_HMI.Chart
         public override GrafType GrafType => GrafType.LineForce;
         public override string yAxesName => "Сила";
         public override string unit => "N";
+        public override string xAxesName => "Перемещение";
+        public override string xUnit => "мм";
         public override double maxValue => 150000;
         public override GrafSeries[] GetSettings()
         {
@@ -64,6 +70,8 @@ namespace BelShina_HMI.Chart
         public override GrafType GrafType => GrafType.LineForce;
         public override string yAxesName => "Сила";
         public override string unit => "N";
+        public override string xAxesName => "Перемещение";
+        public override string xUnit => "мм";
         public override double maxValue => 150000;
         public override GrafSeries[] GetSettings()
         {
@@ -80,6 +88,8 @@ namespace BelShina_HMI.Chart
         public override GrafType GrafType => GrafType.Contur;
         public override string yAxesName => "Расстояние";
         public override string unit => "мм";
+        public override string xAxesName => "Положение лазера";
+        public override string xUnit => "мм";
         public override double maxValue => 150000;
         public override GrafSeries[] GetSettings()
         {
