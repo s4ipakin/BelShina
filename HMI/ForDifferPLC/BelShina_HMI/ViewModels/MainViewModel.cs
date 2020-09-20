@@ -451,7 +451,7 @@ namespace BelShina_HMI.ViewModels
             dataTable.Rows.Add(dr5);
             DataRow dr6 = dataTable.NewRow();
             dr6[0] = "";
-            dr6[1] = TestTypeProp.Formula;
+            dr6[1] = TestTypeProp.Name;
             dr6[2] = "";
             dataTable.Rows.Add(dr6);
             DataRow dr7 = dataTable.NewRow();
@@ -459,10 +459,71 @@ namespace BelShina_HMI.ViewModels
             dr7[1] = temperature;
             dr7[2] = "°C";
             dataTable.Rows.Add(dr7);
+            DataRow dr8 = dataTable.NewRow();
+            dr8[0] = "";
+            dr8[1] = "Формула";
+            dr8[2] = "";
+            dataTable.Rows.Add(dr8);
+            DataRow dr9 = dataTable.NewRow();
+            dr9[0] = "";
+            dr9[1] = TestTypeProp.ForceName;
+            dr9[2] = "";
+            dataTable.Rows.Add(dr9);
+            DataRow dr10 = dataTable.NewRow();
+            dr10[0] = "";
+            dr10[1] = TestTypeProp.HalfForceName;
+            dr10[2] = "";
+            dataTable.Rows.Add(dr10);
+            DataRow dr11 = dataTable.NewRow();
+            dr11[0] = "";
+            dr11[1] = TestTypeProp.WayName;
+            dr11[2] = "";
+            dataTable.Rows.Add(dr11);
+            DataRow dr12 = dataTable.NewRow();
+            dr12[0] = "";
+            dr12[1] = TestTypeProp.HalfWayName;
+            dr12[2] = "";
+            dataTable.Rows.Add(dr12);
+            DataRow dr13 = dataTable.NewRow();
+            dr13[0] = "";
+            dr13[1] = TestTypeProp.KoefName;
+            dr13[2] = "";
+            dataTable.Rows.Add(dr13);
 
-            try
-            {
-                PDF_Tab pDF_Tab = new PDF_Tab("/Projects/PDF/Invoice/invoice.xml", dataTable);
+            DataRow dr14 = dataTable.NewRow();
+            dr14[0] = "";
+            dr14[1] = TestTypeProp.Formula;
+            dr14[2] = "";
+            dataTable.Rows.Add(dr14);
+            DataRow dr15 = dataTable.NewRow();
+            dr15[0] = "";
+            dr15[1] = TestTypeProp.ForceValue;
+            dr15[2] = "";
+            dataTable.Rows.Add(dr15);
+            DataRow dr16 = dataTable.NewRow();
+            dr16[0] = "";
+            dr16[1] = TestTypeProp.HalfForceValue;
+            dr16[2] = "";
+            dataTable.Rows.Add(dr16);
+            DataRow dr17 = dataTable.NewRow();
+            dr17[0] = "";
+            dr17[1] = TestTypeProp.WayValue;
+            dr17[2] = "";
+            dataTable.Rows.Add(dr17);
+            DataRow dr18 = dataTable.NewRow();
+            dr18[0] = "";
+            dr18[1] = TestTypeProp.HalfWayValue;
+            dr18[2] = "";
+            dataTable.Rows.Add(dr18);
+            DataRow dr19 = dataTable.NewRow();
+            dr19[0] = "";
+            dr19[1] = TestTypeProp.KoefValue;
+            dr19[2] = "";
+            dataTable.Rows.Add(dr19);
+
+            //try
+            //{
+            PDF_Tab pDF_Tab = new PDF_Tab("/Projects/PDF/Invoice/invoice.xml", dataTable);
                 var document = pDF_Tab.CreateDocument();
                 document.UseCmykColor = true;
                 var pdfRenderer = new PdfDocumentRenderer(true);
@@ -471,8 +532,8 @@ namespace BelShina_HMI.ViewModels
                 var filename = "Invoice.pdf";
                 pdfRenderer.Save(filename);
                 Process.Start(filename);
-            }
-            catch (Exception ex) { }
+            //}
+            //catch (Exception ex) { }
         }
 
     }

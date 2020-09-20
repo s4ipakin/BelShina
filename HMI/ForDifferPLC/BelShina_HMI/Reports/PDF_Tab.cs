@@ -181,23 +181,23 @@ namespace BelShina_HMI.Reports
             _table.Rows.LeftIndent = 0;
 
             // Before you can add a row, you must define the columns.
-            var column = _table.AddColumn("10cm");
+            var column = _table.AddColumn("4cm");
             column.Format.Alignment = ParagraphAlignment.Center;
 
-            column = _table.AddColumn("2.5cm");
+            column = _table.AddColumn("2cm");
             column.Format.Alignment = ParagraphAlignment.Center;
 
-            column = _table.AddColumn("3cm");
+            column = _table.AddColumn("2cm");
             column.Format.Alignment = ParagraphAlignment.Center;
 
-            //column = _table.AddColumn("3.5cm");
-            //column.Format.Alignment = ParagraphAlignment.Right;
+            column = _table.AddColumn("2cm");
+            column.Format.Alignment = ParagraphAlignment.Center;
 
-            //column = _table.AddColumn("2cm");
-            //column.Format.Alignment = ParagraphAlignment.Center;
+            column = _table.AddColumn("2cm");
+            column.Format.Alignment = ParagraphAlignment.Center;
 
-            //column = _table.AddColumn("4cm");
-            //column.Format.Alignment = ParagraphAlignment.Right;
+            column = _table.AddColumn("2cm");
+            column.Format.Alignment = ParagraphAlignment.Center;
 
             // Create the header of the table.
             var row = _table.AddRow();
@@ -205,20 +205,32 @@ namespace BelShina_HMI.Reports
             row.Format.Alignment = ParagraphAlignment.Center;
             row.Format.Font.Bold = true;
             row.Shading.Color = TableBlue;
-            row.Cells[0].AddParagraph("Параметр");
+            row.Cells[0].AddParagraph(dataTable.Rows[7][1].ToString());
             row.Cells[0].Format.Font.Bold = false;
             row.Cells[0].Format.Alignment = ParagraphAlignment.Center;
             row.Cells[0].VerticalAlignment = VerticalAlignment.Center;
             row.Cells[0].MergeDown = 1;
-            row.Cells[1].AddParagraph("Значение");
+            row.Cells[1].AddParagraph(dataTable.Rows[8][1].ToString());
             row.Cells[1].Format.Alignment = ParagraphAlignment.Center;
-            row.Cells[0].VerticalAlignment = VerticalAlignment.Center;
+            row.Cells[1].VerticalAlignment = VerticalAlignment.Center;
             //row.Cells[1].MergeRight = 3;
             row.Cells[1].MergeDown = 1;
-            row.Cells[2].AddParagraph("Единица измерения");
+            row.Cells[2].AddParagraph(dataTable.Rows[9][1].ToString());
             row.Cells[2].Format.Alignment = ParagraphAlignment.Center;
             row.Cells[2].VerticalAlignment = VerticalAlignment.Center;
             row.Cells[2].MergeDown = 1;
+            row.Cells[3].AddParagraph(dataTable.Rows[10][1].ToString());
+            row.Cells[3].Format.Alignment = ParagraphAlignment.Center;
+            row.Cells[3].VerticalAlignment = VerticalAlignment.Center;
+            row.Cells[3].MergeDown = 1;
+            row.Cells[4].AddParagraph(dataTable.Rows[11][1].ToString());
+            row.Cells[4].Format.Alignment = ParagraphAlignment.Center;
+            row.Cells[4].VerticalAlignment = VerticalAlignment.Center;
+            //row.Cells[4].MergeDown = 1;
+            row.Cells[5].AddParagraph(dataTable.Rows[12][1].ToString());
+            row.Cells[5].Format.Alignment = ParagraphAlignment.Center;
+            row.Cells[5].VerticalAlignment = VerticalAlignment.Center;
+            row.Cells[5].MergeDown = 1;
 
             row = _table.AddRow();
             row.HeadingFormat = true;
@@ -234,7 +246,7 @@ namespace BelShina_HMI.Reports
             //row.Cells[4].AddParagraph("Taxable");
             //row.Cells[4].Format.Alignment = ParagraphAlignment.Left;
 
-            _table.SetEdge(0, 0, 3, 2, Edge.Box, BorderStyle.Single, 0.75, Color.Empty);
+            _table.SetEdge(0, 0, 6, 2, Edge.Box, BorderStyle.Single, 0.75, Color.Empty);
         }
 
         /// <summary>
@@ -264,6 +276,8 @@ namespace BelShina_HMI.Reports
             paragraph.AddText("Размер шины: " + dataTable.Rows[4][1].ToString());
             paragraph.AddLineBreak();
             paragraph.AddText("Методика: " + dataTable.Rows[5][1].ToString());
+            paragraph.AddLineBreak();
+            paragraph.AddText("Температура в помещении: " + dataTable.Rows[6][1].ToString() + "°С");
             // Iterate the invoice items.
             double totalExtendedPrice = 0;
             var iter = _navigator.Select("/invoice/items/*");
@@ -307,21 +321,34 @@ namespace BelShina_HMI.Reports
 
             //    _table.SetEdge(0, _table.Rows.Count - 2, 6, 2, Edge.Box, BorderStyle.Single, 0.75);
             //}
-
-            for(int i = 6; i < dataTable.Rows.Count; i++)
+            var row1 = this._table.AddRow();
+            int index = 0;
+            for (int i = 13; i < dataTable.Rows.Count; i++)
             {
-                var row1 = this._table.AddRow();
-                row1.Cells[0].Shading.Color = TableGray;
-                row1.Cells[0].VerticalAlignment = VerticalAlignment.Center;
-                row1.Cells[0].AddParagraph(dataTable.Rows[i][0].ToString());
-                row1.Cells[1].Shading.Color = TableGray;
-                row1.Cells[1].VerticalAlignment = VerticalAlignment.Center;
-                row1.Cells[1].AddParagraph(dataTable.Rows[i][1].ToString());
-                row1.Cells[2].Shading.Color = TableGray;
-                row1.Cells[2].VerticalAlignment = VerticalAlignment.Center;
-                row1.Cells[2].AddParagraph(dataTable.Rows[i][2].ToString());
-                _table.SetEdge(0, _table.Rows.Count - 2, 3, 2, Edge.Box, BorderStyle.Single, 0.75);
+                
+                row1.Cells[index].Shading.Color = TableGray;
+                row1.Cells[index].VerticalAlignment = VerticalAlignment.Center;
+                row1.Cells[index].AddParagraph(dataTable.Rows[i][1].ToString());
+                //row1.Cells[1].Shading.Color = TableGray;
+                //row1.Cells[1].VerticalAlignment = VerticalAlignment.Center;
+                //row1.Cells[1].AddParagraph(dataTable.Rows[i][1].ToString());
+                //row1.Cells[2].Shading.Color = TableGray;
+                //row1.Cells[2].VerticalAlignment = VerticalAlignment.Center;
+                //row1.Cells[2].AddParagraph(dataTable.Rows[i][2].ToString());
+                _table.SetEdge(0, _table.Rows.Count - 2, 6, 2, Edge.Box, BorderStyle.Single, 0.75);
+                index++;
             }
+
+            // Add the notes paragraph.
+            paragraph = _document.LastSection.AddParagraph();
+            paragraph.Format.Alignment = ParagraphAlignment.Left;
+            paragraph.Format.SpaceBefore = "1cm";
+            //paragraph.Format.Borders.Width = 0.75;
+            //paragraph.Format.Borders.Distance = 3;
+            //paragraph.Format.Borders.Color = TableBorder;
+            //paragraph.Format.Shading.Color = TableGray;
+            //item = SelectItem("/invoice");
+            paragraph.AddText("Где альфа - ");
 
             //// Add an invisible row as a space line to the table.
             //var row = _table.AddRow();
