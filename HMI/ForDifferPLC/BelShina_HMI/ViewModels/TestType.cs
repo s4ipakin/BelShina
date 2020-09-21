@@ -99,5 +99,47 @@ namespace BelShina_HMI.ViewModels
             get { return _koefName; }
             set { _koefName = value; }
         }
+
+        private string _wayDiscr;
+        public string WayDiscr
+        {
+            get { return _wayDiscr; }
+            set { _wayDiscr = value; }
+        }
+
+        private string _halfwayDiscr;
+        public string HalfWayDiscr
+        {
+            get { return _halfwayDiscr; }
+            set { _halfwayDiscr = value; }
+        }
+
+        private string _forceDiscr;
+        public string ForceDiscr
+        {
+            get { return _forceDiscr; }
+            set { _forceDiscr = value; }
+        }
+
+        private string _halfforceDiscr;
+        public string HalfForceDiscr
+        {
+            get { return _halfforceDiscr; }
+            set { _halfforceDiscr = value; }
+        }
+
+        private string _koefDiscr;
+        public string KoefForceDiscr
+        {
+            get { return _koefDiscr; }
+            set { _koefDiscr = value; }
+        }
+
+        private string _unit;
+        public string Unit
+        {
+            get { return _unit; }
+            set { _unit = value; }
+        }
     }
 }

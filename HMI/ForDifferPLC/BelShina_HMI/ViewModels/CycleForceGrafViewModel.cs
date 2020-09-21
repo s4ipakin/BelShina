@@ -34,8 +34,11 @@ namespace BelShina_HMI.ViewModels
         {
             get
             {
-                Read("Application.HMI_Stepper.rFS_CycledWay", "Application.HMI_Stepper.rFS_GetForce");//  
-                GetGrafPoints();
+                if ((FS_State != 0) && (FS_State < 5))
+                {
+                    Read("Application.HMI_Stepper.rFS_CycledWay", "Application.HMI_Stepper.rFS_GetForce");//  
+                    GetGrafPoints();
+                }               
                 return this._actualPosition;
             }
             set { this.SetProperty(ref this._actualPosition, value); }

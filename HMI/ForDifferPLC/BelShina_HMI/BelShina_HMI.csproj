@@ -248,5 +248,11 @@
     <Resource Include="Pictures\offf.png" />
     <Resource Include="Pictures\onn.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Start.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Stop.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

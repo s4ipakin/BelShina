@@ -11,6 +11,7 @@ using MigraDoc.DocumentObjectModel.Shapes;
 using System.Diagnostics;
 using System.Globalization;
 using System.Data;
+using BelShina_HMI.ViewModels;
 
 namespace BelShina_HMI.Reports
 {
@@ -40,9 +41,11 @@ namespace BelShina_HMI.Reports
         /// <summary>
         /// Initializes a new instance of the class InvoiceForm and opens the specified XML document.
         /// </summary>
-        public PDF_Tab(string filename, DataTable dataTable)
+        TestType testType;
+        public PDF_Tab(string filename, DataTable dataTable, TestType testType)
         {
             this.dataTable = dataTable;
+            this.testType = testType;
             //dataTable.Columns.Add("Parametr");
             //dataTable.Columns.Add("Value");
             //dataTable.Columns.Add("Unit");
@@ -181,7 +184,7 @@ namespace BelShina_HMI.Reports
             _table.Rows.LeftIndent = 0;
 
             // Before you can add a row, you must define the columns.
-            var column = _table.AddColumn("4cm");
+            var column = _table.AddColumn("5cm");
             column.Format.Alignment = ParagraphAlignment.Center;
 
             column = _table.AddColumn("2cm");
@@ -205,29 +208,29 @@ namespace BelShina_HMI.Reports
             row.Format.Alignment = ParagraphAlignment.Center;
             row.Format.Font.Bold = true;
             row.Shading.Color = TableBlue;
-            row.Cells[0].AddParagraph(dataTable.Rows[7][1].ToString());
+            row.Cells[0].AddParagraph("Формула");
             row.Cells[0].Format.Font.Bold = false;
             row.Cells[0].Format.Alignment = ParagraphAlignment.Center;
             row.Cells[0].VerticalAlignment = VerticalAlignment.Center;
             row.Cells[0].MergeDown = 1;
-            row.Cells[1].AddParagraph(dataTable.Rows[8][1].ToString());
+            row.Cells[1].AddParagraph(testType.ForceName);
             row.Cells[1].Format.Alignment = ParagraphAlignment.Center;
             row.Cells[1].VerticalAlignment = VerticalAlignment.Center;
             //row.Cells[1].MergeRight = 3;
             row.Cells[1].MergeDown = 1;
-            row.Cells[2].AddParagraph(dataTable.Rows[9][1].ToString());
+            row.Cells[2].AddParagraph(testType.HalfForceName);
             row.Cells[2].Format.Alignment = ParagraphAlignment.Center;
             row.Cells[2].VerticalAlignment = VerticalAlignment.Center;
             row.Cells[2].MergeDown = 1;
-            row.Cells[3].AddParagraph(dataTable.Rows[10][1].ToString());
+            row.Cells[3].AddParagraph(testType.WayName);
             row.Cells[3].Format.Alignment = ParagraphAlignment.Center;
             row.Cells[3].VerticalAlignment = VerticalAlignment.Center;
             row.Cells[3].MergeDown = 1;
-            row.Cells[4].AddParagraph(dataTable.Rows[11][1].ToString());
+            row.Cells[4].AddParagraph(testType.HalfWayName);
             row.Cells[4].Format.Alignment = ParagraphAlignment.Center;
             row.Cells[4].VerticalAlignment = VerticalAlignment.Center;
             //row.Cells[4].MergeDown = 1;
-            row.Cells[5].AddParagraph(dataTable.Rows[12][1].ToString());
+            row.Cells[5].AddParagraph(testType.KoefName);
             row.Cells[5].Format.Alignment = ParagraphAlignment.Center;
             row.Cells[5].VerticalAlignment = VerticalAlignment.Center;
             row.Cells[5].MergeDown = 1;
@@ -323,12 +326,12 @@ namespace BelShina_HMI.Reports
             //}
             var row1 = this._table.AddRow();
             int index = 0;
-            for (int i = 13; i < dataTable.Rows.Count; i++)
+            for (int i = 0; i < 6; i++)
             {
                 
-                row1.Cells[index].Shading.Color = TableGray;
-                row1.Cells[index].VerticalAlignment = VerticalAlignment.Center;
-                row1.Cells[index].AddParagraph(dataTable.Rows[i][1].ToString());
+                row1.Cells[i].Shading.Color = TableGray;
+                row1.Cells[i].VerticalAlignment = VerticalAlignment.Center;
+                //row1.Cells[index].AddParagraph(dataTable.Rows[i][1].ToString());
                 //row1.Cells[1].Shading.Color = TableGray;
                 //row1.Cells[1].VerticalAlignment = VerticalAlignment.Center;
                 //row1.Cells[1].AddParagraph(dataTable.Rows[i][1].ToString());
@@ -338,6 +341,13 @@ namespace BelShina_HMI.Reports
                 _table.SetEdge(0, _table.Rows.Count - 2, 6, 2, Edge.Box, BorderStyle.Single, 0.75);
                 index++;
             }
+            row1.Cells[0].AddParagraph(testType.Formula);
+            row1.Cells[1].AddParagraph(testType.ForceValue.ToString());
+            row1.Cells[2].AddParagraph(testType.HalfForceValue.ToString());
+            row1.Cells[3].AddParagraph(testType.WayValue.ToString());
+            row1.Cells[4].AddParagraph(testType.HalfWayValue.ToString());
+            row1.Cells[5].AddParagraph(testType.KoefValue.ToString());
+
 
             // Add the notes paragraph.
             paragraph = _document.LastSection.AddParagraph();
@@ -348,7 +358,17 @@ namespace BelShina_HMI.Reports
             //paragraph.Format.Borders.Color = TableBorder;
             //paragraph.Format.Shading.Color = TableGray;
             //item = SelectItem("/invoice");
-            paragraph.AddText("Где альфа - ");
+            paragraph.AddText("Где: ");
+            paragraph.AddLineBreak();
+            paragraph.AddText(testType.ForceName + " - " + testType.ForceDiscr);
+            paragraph.AddLineBreak();
+            paragraph.AddText(testType.HalfForceName + " - " + testType.HalfForceDiscr);
+            paragraph.AddLineBreak();
+            paragraph.AddText(testType.WayName + " - " + testType.WayDiscr);
+            paragraph.AddLineBreak();
+            paragraph.AddText(testType.HalfWayName + " - " + testType.HalfWayDiscr);
+            paragraph.AddLineBreak();
+            paragraph.AddText(testType.KoefName + " - " + testType.KoefForceDiscr);
 
             //// Add an invisible row as a space line to the table.
             //var row = _table.AddRow();

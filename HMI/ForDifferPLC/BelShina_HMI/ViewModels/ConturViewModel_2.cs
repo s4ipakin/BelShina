@@ -30,24 +30,28 @@ namespace BelShina_HMI.ViewModels
         {
             get
             {
-                Read("Application.HMI_Stepper.rLS_RealPos_2", "Application.HMI_Stepper.rLaserDistance_2");//  
-                GetGrafPoints();
+                if ((FS_State != 0) && (FS_State < 6) && (FS_State > 3))
+                {
+                    Read("Application.HMI_Stepper.rLS_RealPos_2", "Application.HMI_Stepper.rLaserDistance_2");//  
+                    GetGrafPoints();
+                }                   
                 return this._actualPosition;
             }
             set { this.SetProperty(ref this._actualPosition, value); }
         }
         private float _actualPosition;
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.xProcFinished")]
-        public override bool ProcFinished
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.wLS_StepperState_2")]
+        public override ushort FS_State
         {
-            get
-            {
-                SaveToCSV(this.procFinished, cSvPath, "Distance", "LaserData");
-                
-                return this.procFinished;
-            }
-            set { this.SetProperty(ref this.procFinished, value); }
+            get { return this.lS_State; }
+            set { this.SetProperty(ref this.lS_State, value); }
+        }
+        private ushort lS_State;
+
+        public override void GenerateReports(GenerateReportsMessage generate)
+        {
+            SaveToCSV(true, cSvPath, "Distance", "LaserData");
         }
     }
 }

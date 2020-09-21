@@ -180,7 +180,7 @@ namespace BelShina_HMI.ViewModels
         protected bool run = false;
         protected void GetGrafPoints()
         {
-            if ((grafValueY != null) && (grafValueY != "") && (FS_State != 0) && (FS_State < 5))
+            if ((grafValueY != null) && (grafValueY != ""))
             {
                 if (!run)
                 {

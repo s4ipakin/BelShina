@@ -18,54 +18,93 @@ namespace BelShina_HMI.ViewModels
     public class MainViewModel : SubscriptionBase
     {
         public ICommand ButtonReportsCommand { get; set; }
-        
+        public ICommand ButtonLSStopCommand_1 { get; set; }
+        public ICommand ButtonLSStopCommand_2 { get; set; }
+        Dictionary<ushort, TestType> TestTypeDic;
         public MainViewModel()
         {
-            
+            TestTypeDic = new Dictionary<ushort, TestType>();
             ButtonReportsCommand = new RelayCommand(o => ReportsButtonClick("ReportsButton"));
+            ButtonLSStopCommand_1 = new RelayCommand(o => StopLaserCommand_1("ReportsButton"));
+            ButtonLSStopCommand_2 = new RelayCommand(o => StopLaserCommand_2("ReportsButton"));
             TestTypes = new ObservableCollection<TestType>()
             {
+                
               new TestType(){   Id=1, 
                                 Name="Поворот", 
                                 Formula="Кугл=(Mα2-Mα1)/(α2-α2)", 
-                                HalfForceName = "Mα2",
-                                HalfWayName = "α2",
-                                ForceName = "Mα1",
-                                WayName = "α1",
-                                KoefName = "Кугл"
+                                HalfForceName = "Mα1, [H*m]",
+                                HalfWayName = "α1, [град]",
+                                ForceName = "Mα2, [H*m]",
+                                WayName = "α2, [град]",
+                                KoefName = "Кугл",
+                                HalfForceDiscr = "50% от максимально зафиксированного момента сил",
+                                ForceDiscr = "максимальный зафиксированный момент сил",
+                                HalfWayDiscr = "угол поворота стола при 50% от максимально зафиксированного момента сил",
+                                WayDiscr = "угол поворота стола при максимальном зафиксированном моменте сил",
+                                KoefForceDiscr = "коэффициент угловой жесткости",
+                                
                             }
                     ,new TestType(){
                                         Id=2,
                                         Name="Продольная жесткость",
                                         Formula="Кбок=(Fhб2-Fhб1)/(hб2-hб1)",
-                                        HalfForceName = "Fhб2",
-                                        HalfWayName = "hб2",
-                                        ForceName = "Fhб1",
-                                        WayName = "hб1",
-                                        KoefName = "Кбок"
+                                        HalfForceName = "Fhб1, [H]",
+                                        HalfWayName = "hб1, [mm]",
+                                        ForceName = "Fhб2, [H]",
+                                        WayName = "hб2, [mm]",
+                                        KoefName = "Кбок",
+                                        HalfForceDiscr = "50% от максимально зафиксированного бокового усилия",
+                                        ForceDiscr = "максимальное зафиксированное боковое усилие",
+                                        HalfWayDiscr = "поперечное перемещение при 50% от максимального зафиксированного бокового усилия",
+                                        WayDiscr = "поперечное перемещение при максимально зафиксированном боковом усилии",
+                                        KoefForceDiscr = "коэффициент боковой жесткости"
+
                                     }
                     ,new TestType(){
                                         Id=3 , 
                                         Name="Тангенцияльная жесткость",
                                         Formula="Ктанг=(Fhт2-Fhт1)/(hт2-hт1)",
-                                        HalfForceName = "Fhт2",
-                                        HalfWayName = "hт2",
-                                        ForceName = "Fhт1",
-                                        WayName = "hт1",
-                                        KoefName = "Ктанг"
+                                        HalfForceName = "Fhт1, [H]",
+                                        HalfWayName = "hт1, [mm]",
+                                        ForceName = "Fhт2, [H]",
+                                        WayName = "hт2, [mm]",
+                                        KoefName = "Ктанг",
+                                        HalfForceDiscr = "50% от максимально зафиксированного тангенциального усилия",
+                                        ForceDiscr = "максимальное зафиксированное тангенциальное усилие",
+                                        HalfWayDiscr = "продольное перемещение при 50% от максимального зафиксированного тангенциального усилия",
+                                        WayDiscr = "продольное перемещение при максимально зафиксированном тангенциальном усилии",
+                                        KoefForceDiscr = "коэффициент тангенциальной жесткости"
+
                                     }
-                    ,new TestType(){Id=4 , Name="Тангенциаотная"}
+                    
             };
 
-            _testType = TestTypes[0];
+            foreach (TestType testType in TestTypes)
+            {
+                TestTypeDic.Add(testType.Id, testType);
+            }
+            //_testType = TestTypes[0];
+            //_testType = TestTypeDic[ProcessType];
 
         }
 
         private void ReportsButtonClick(object sender)
         {
             CreatePDF();
+            //LS_Stop_1 = true;
             var generateReportsMessage = new GenerateReportsMessage();
             Messenger.Default.Send(generateReportsMessage);
+        }
+
+        private void StopLaserCommand_1(object sender)
+        {
+            LS_Stop_1 = true;
+        }
+
+        private void StopLaserCommand_2(object sender)
+        {
+            LS_Stop_2 = true;
         }
         #region Subscribe
 
@@ -183,8 +222,19 @@ namespace BelShina_HMI.ViewModels
         [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.wProcType")]
         public ushort ProcessType
         {
-            get { return this.processType; }
-            set { this.SetProperty(ref this.processType, value); }
+            get 
+            {
+                //_testType = TestTypeDic[this.processType];
+                //_testType = TestTypes[this.processType];
+                
+                                     
+                return this.processType; 
+            }
+            set 
+            {
+                //_testType = TestTypeDic[value];
+                this.SetProperty(ref this.processType, value); 
+            }
         }
         private ushort processType;
 
@@ -341,6 +391,151 @@ namespace BelShina_HMI.ViewModels
         }
         private float getForce;
 
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.xLS_MoveToPos_1")]
+        public bool MoveToPos_1
+        {
+            get { return this.moveToPos_1; }
+            set { this.SetProperty(ref this.moveToPos_1, value); }
+        }
+        private bool moveToPos_1;
+
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.xLS_MoveHome_1")]
+        public bool MoveHome_1
+        {
+            get { return this.moveHome_1; }
+            set { this.SetProperty(ref this.moveHome_1, value); }
+        }
+        private bool moveHome_1;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.rLS_RealPos_1")]
+        public float LS_GetPos_1
+        {
+            get { return this.lS_GetPos_1; }
+            set { this.SetProperty(ref this.lS_GetPos_1, value); }
+        }
+        private float lS_GetPos_1;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.wLS_StepperState_1")]
+        public ushort LS_StepperState_1
+        {
+            get { return this.lS_StepperState_1; }
+            set { this.SetProperty(ref this.lS_StepperState_1, value); }
+        }
+        private ushort lS_StepperState_1;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.xLS_Initilized_1")]
+        public bool LS_Initilized_1
+        {
+            get { return this.lS_Initilized_1; }
+            set { this.SetProperty(ref this.lS_Initilized_1, value); }
+        }
+        private bool lS_Initilized_1;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.xLS_MoveToPos_2")]
+        public bool MoveToPos_2
+        {
+            get { return this.moveToPos_2; }
+            set { this.SetProperty(ref this.moveToPos_2, value); }
+        }
+        private bool moveToPos_2;
+
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.xLS_MoveHome_2")]
+        public bool MoveHome_2
+        {
+            get { return this.moveHome_2; }
+            set { this.SetProperty(ref this.moveHome_2, value); }
+        }
+        private bool moveHome_2;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.rLS_RealPos_2")]
+        public float LS_GetPos_2
+        {
+            get { return this.lS_GetPos_2; }
+            set { this.SetProperty(ref this.lS_GetPos_2, value); }
+        }
+        private float lS_GetPos_2;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.wLS_StepperState_2")]
+        public ushort LS_StepperState_2
+        {
+            get { return this.lS_StepperState_2; }
+            set { this.SetProperty(ref this.lS_StepperState_2, value); }
+        }
+        private ushort lS_StepperState_2;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.xLS_Initilized_2")]
+        public bool LS_Initilized_2
+        {
+            get { return this.lS_Initilized_2; }
+            set { this.SetProperty(ref this.lS_Initilized_2, value); }
+        }
+        private bool lS_Initilized_2;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.xGS_StartProc_1")]
+        public bool StartProc_1
+        {
+            get { return this.startProc_1; }
+            set { this.SetProperty(ref this.startProc_1, value); }
+        }
+        private bool startProc_1;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.wST_State_1")]
+        public ushort ProcessState
+        {
+            get { return this.processState; }
+            set { this.SetProperty(ref this.processState, value); }
+        }
+        private ushort processState;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.wLS_SetPos_1")]
+        public ushort LS_SetPos_1
+        {
+            get { return this.lS_SetPos_1; }
+            set { this.SetProperty(ref this.lS_SetPos_1, value); }
+        }
+        private ushort lS_SetPos_1;
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.wLS_SetPos_2")]
+        public ushort LS_SetPos_2
+        {
+            get { return this.lS_SetPos_2; }
+            set { this.SetProperty(ref this.lS_SetPos_2, value); }
+        }
+        private ushort lS_SetPos_2;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.xLS_Stop_1")]
+        public bool LS_Stop_1
+        {
+            get { return this.lS_Stop_1; }
+            set { this.SetProperty(ref this.lS_Stop_1, value); }
+        }
+        private bool lS_Stop_1;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.xLS_Stop_2")]
+        public bool LS_Stop_2
+        {
+            get { return this.lS_Stop_2; }
+            set { this.SetProperty(ref this.lS_Stop_2, value); }
+        }
+        private bool lS_Stop_2;
 
         #endregion
 
@@ -521,9 +716,34 @@ namespace BelShina_HMI.ViewModels
             dr19[2] = "";
             dataTable.Rows.Add(dr19);
 
+            switch (_testType.Id)
+            {
+                case 1:
+                    _testType.HalfForceValue = HalfForce_1;
+                    _testType.HalfWayValue = HalfPos_1;
+                    _testType.ForceValue = GetForce;
+                    _testType.WayValue = CycledWay;
+                    _testType.KoefValue = Koef_1;
+                    break;
+                case 2:
+                    _testType.HalfForceValue = HalfForce_2;
+                    _testType.HalfWayValue = HalfPos_2;
+                    _testType.ForceValue = GetForce;
+                    _testType.WayValue = LinedWay_1;
+                    _testType.KoefValue = Koef_2;
+                    break;
+                case 3:
+                    _testType.HalfForceValue = HalfForce_3;
+                    _testType.HalfWayValue = HalfPos_3;
+                    _testType.ForceValue = GetForce;
+                    _testType.WayValue = LinedWay_2;
+                    _testType.KoefValue = Koef_3;
+                    break;
+            }
+
             //try
             //{
-            PDF_Tab pDF_Tab = new PDF_Tab("/Projects/PDF/Invoice/invoice.xml", dataTable);
+            PDF_Tab pDF_Tab = new PDF_Tab("/Projects/PDF/Invoice/invoice.xml", dataTable, _testType);
                 var document = pDF_Tab.CreateDocument();
                 document.UseCmykColor = true;
                 var pdfRenderer = new PdfDocumentRenderer(true);

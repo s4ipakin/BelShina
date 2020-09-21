@@ -34,9 +34,6 @@
   </TypeList>
   <NodeList>
     <Node name="Application">
-      <Node name="HMI_Alm">
-        <Node name="xResetAlm" type="T_BOOL" access="ReadWrite" />
-      </Node>
       <Node name="HMI_Process">
         <Node name="rDistance_1" type="T_REAL" access="ReadWrite" />
         <Node name="rDistance_2" type="T_REAL" access="ReadWrite" />
@@ -66,7 +63,7 @@
         <Node name="wST_HalfPos_1" type="T_REAL" access="ReadWrite" />
         <Node name="wST_HalfPos_2" type="T_REAL" access="ReadWrite" />
         <Node name="wST_HalfPos_3" type="T_REAL" access="ReadWrite" />
-        <Node name="wST_State_1" type="T_StiffnessTestStates" access="ReadWrite" />
+        <Node name="wST_State_1" type="T_WORD" access="ReadWrite" />
         <Node name="wST_State_2" type="T_StiffnessTestStates" access="ReadWrite" />
         <Node name="wST_State_3" type="T_StiffnessTestStates" access="ReadWrite" />
         <Node name="xGC_Start_1" type="T_BOOL" access="ReadWrite" />
