@@ -15,6 +15,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.Diagnostics;
+//using System.Drawing.Imaging;
 
 namespace BelShina_HMI.Pages
 {
@@ -34,6 +39,7 @@ namespace BelShina_HMI.Pages
             Chart_P.ZoomingSpeed = 0.7;
             Chart_P.DisableAnimations = true;
             Chart_P.Zoom = ZoomingOptions.Y;
+            Chart_P.AxisX[0].Separator.Step = 1;
             //this.grid.PreviewMouseRightButtonDown += Grid_PreviewMouseRightButtonDown;
             //this.grid.PreviewMouseRightButtonUp += Grid_PreviewMouseRightButtonUp;
             Chart_P.PreviewMouseRightButtonDown += Chart_P_PreviewMouseRightButtonDown;
@@ -58,6 +64,29 @@ namespace BelShina_HMI.Pages
         private void Grid_PreviewMouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             Chart_P.Zoom = ZoomingOptions.X;
+        }
+
+        private void Print_Click(object sender, RoutedEventArgs e)
+        {
+            int width = (int)Chart_P.ActualWidth;
+            int height = (int)Chart_P.ActualHeight;
+            System.Windows.Point position = Chart_P.PointToScreen(new System.Windows.Point(0d, 0d));
+
+            System.Drawing.Rectangle bounds = new System.Drawing.Rectangle(/*(int)position.X*/0, /*(int)position.Y*/0, width, height + 86);
+            using (Bitmap bitmap = new Bitmap(bounds.Width, bounds.Height))
+            {
+                using (Graphics g = Graphics.FromImage(bitmap))
+                {
+                    g.CopyFromScreen(new System.Drawing.Point((int)position.X, (int)position.Y - 36), System.Drawing.Point.Empty, bounds.Size);
+                }
+                System.Windows.Forms.SaveFileDialog saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+                //saveFileDialog1.Filter = "JPeg Image|*.jpg";
+                //saveFileDialog1.Title = "Сохранить график как изображение JPeg";
+                //saveFileDialog1.ShowDialog();
+                string imagePath = "hern.jpeg";//saveFileDialog1.FileName;
+                bitmap.Save(imagePath, ImageFormat.Jpeg);
+                Process.Start(imagePath);
+            }
         }
     }
 }

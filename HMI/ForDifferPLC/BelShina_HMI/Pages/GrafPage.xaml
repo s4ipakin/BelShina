@@ -70,6 +70,7 @@
             VerticalAlignment="Bottom"
             Background="#FFF1E8E8"
             OpacityMask="#FF080808"
+            Visibility="Hidden"
             Text="{Binding ActualPosition, Mode=OneWay}" />
         <TextBlock
             Width="156"
@@ -79,16 +80,8 @@
             VerticalAlignment="Bottom"
             Background="#FFF1E8E8"
             OpacityMask="#FF080808"
+            Visibility="Hidden"
             Text="{Binding GetForse, Mode=OneWay}" />
-        <CheckBox
-            x:Name="checkBox_Copy2"
-            Height="84"
-            Margin="752,0,736,100"
-            VerticalAlignment="Bottom"
-            Content=""
-            IsChecked="{Binding ProcFinished, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-            RenderTransformOrigin="0.478,0.536"
-            Style="{StaticResource myCheckboxStyle}" />
         <TextBlock
             x:Name="textBlock_Copy12"
             Width="210"
@@ -99,6 +92,7 @@
             FontSize="16"
             Text="{Binding Path=FS_State, Converter={StaticResource forceStateConvert}}"
             TextWrapping="Wrap"
-            Visibility="Visible" />
+            Visibility="Hidden" />
+        <Button x:Name="Распечать" Content="Печатать" HorizontalAlignment="Right" Height="39" Margin="0,0,270,96" VerticalAlignment="Bottom" Width="212" Click="Print_Click"/>
     </Grid>
 </Page>

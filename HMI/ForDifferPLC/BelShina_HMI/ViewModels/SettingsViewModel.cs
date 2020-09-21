@@ -95,5 +95,105 @@ namespace BelShina_HMI.ViewModels
         }
 
         private ushort setDeceleration;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.wLS_SetSpeed_1")]
+        public ushort LS_SetSpeed_1
+        {
+            get { return this.lS_SetSpeed_1; }
+            set { this.SetProperty(ref this.lS_SetSpeed_1, value); }
+        }
+
+        private ushort lS_SetSpeed_1;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.wLS_Acceleration_1")]
+        public ushort LS_Acceleration_1
+        {
+            get { return this.lS_Acceleration_1; }
+            set { this.SetProperty(ref this.lS_Acceleration_1, value); }
+        }
+
+        private ushort lS_Acceleration_1;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.wLS_Deceleration_1")]
+        public ushort LS_Deceleration_1
+        {
+            get { return this.lS_Deceleration_1; }
+            set { this.SetProperty(ref this.lS_Deceleration_1, value); }
+        }
+
+        private ushort lS_Deceleration_1;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.wLS_SetSpeed_2")]
+        public ushort LS_SetSpeed_2
+        {
+            get { return this.lS_SetSpeed_2; }
+            set { this.SetProperty(ref this.lS_SetSpeed_2, value); }
+        }
+
+        private ushort lS_SetSpeed_2;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.wLS_Acceleration_2")]
+        public ushort LS_Acceleration_2
+        {
+            get { return this.lS_Acceleration_2; }
+            set { this.SetProperty(ref this.lS_Acceleration_2, value); }
+        }
+
+        private ushort lS_Acceleration_2;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.wLS_Deceleration_2")]
+        public ushort LS_Deceleration_2
+        {
+            get { return this.lS_Deceleration_2; }
+            set { this.SetProperty(ref this.lS_Deceleration_2, value); }
+        }
+
+        private ushort lS_Deceleration_2;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.k_1")]
+        public float K_1
+        {
+            get { return this.k_1; }
+            set { this.SetProperty(ref this.k_1, value); }
+        }
+
+        private float k_1;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.k_2")]
+        public float K_2
+        {
+            get { return this.k_2; }
+            set { this.SetProperty(ref this.k_2, value); }
+        }
+
+        private float k_2;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.k_3")]
+        public float K_3
+        {
+            get { return this.k_3; }
+            set { this.SetProperty(ref this.k_3, value); }
+        }
+
+        private float k_3;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.k_4")]
+        public float K_4
+        {
+            get { return this.k_4; }
+            set { this.SetProperty(ref this.k_4, value); }
+        }
+
+        private float k_4;
     }
 }

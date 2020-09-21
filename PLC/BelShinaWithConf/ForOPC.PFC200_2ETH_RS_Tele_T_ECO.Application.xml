@@ -35,6 +35,10 @@
   <NodeList>
     <Node name="Application">
       <Node name="HMI_Process">
+        <Node name="k_1" type="T_REAL" access="ReadWrite" />
+        <Node name="k_2" type="T_REAL" access="ReadWrite" />
+        <Node name="k_3" type="T_REAL" access="ReadWrite" />
+        <Node name="k_4" type="T_REAL" access="ReadWrite" />
         <Node name="rDistance_1" type="T_REAL" access="ReadWrite" />
         <Node name="rDistance_2" type="T_REAL" access="ReadWrite" />
         <Node name="rLaserDistance_1" type="T_REAL" access="ReadWrite" />
