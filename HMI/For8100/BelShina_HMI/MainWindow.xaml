@@ -1,0 +1,63 @@
+﻿<Window
+    x:Class="BelShina_HMI.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:BelShina_HMI"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="1600"
+    Height="900"
+    WindowStartupLocation="CenterScreen"
+    WindowState="Maximized"
+    mc:Ignorable="d">
+    <Grid>
+        <StackPanel
+            Height="48"
+            VerticalAlignment="Bottom"
+            Orientation="Horizontal"
+            RenderTransformOrigin="0.499,0.542">
+            <Button
+                Width="90"
+                MinWidth="150"
+                Click="MainBtcClck"
+                Content="Главный" />
+            <Button
+                MinWidth="150"
+                Margin="10,0,0,0"
+                Click="SettingsBtnClck"
+                Content="Настройки" />
+            <Button
+                MinWidth="150"
+                Margin="10,0,0,0"
+                Click="btnGragClk_1"
+                Content=" График кругового усиления " />
+            <Button
+                MinWidth="150"
+                Margin="10,0,0,0"
+                Click="btnGragClk_2"
+                Content=" График бокового усиления " />
+            <Button
+                MinWidth="150"
+                Margin="10,0,0,0"
+                Click="btnGragClk_3"
+                Content=" График тангенциального усиления " />
+            <Button
+                MinWidth="150"
+                Margin="10,0,0,0"
+                Click="btnContClk_1"
+                Content="Контур 1" />
+            <Button
+                MinWidth="150"
+                Margin="10,0,0,0"
+                Click="btnContClk_2"
+                Content="Контур 2" />
+            <!--<Button
+                MinWidth="150"
+                Margin="10,0,0,0"
+                Click="btnAlmClk"
+                Content="Аварии" />-->
+        </StackPanel>
+        <Frame Name="Main" NavigationUIVisibility="Hidden" />
+    </Grid>
+</Window>

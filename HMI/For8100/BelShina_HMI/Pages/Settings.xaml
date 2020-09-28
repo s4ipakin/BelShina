@@ -1,0 +1,346 @@
+﻿<Page
+    x:Class="BelShina_HMI.Pages.Settings"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:BelShina_HMI.Pages"
+    xmlns:local1="clr-namespace:BelShina_HMI.ViewModels"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Settings"
+    d:DesignHeight="900"
+    d:DesignWidth="1600"
+    mc:Ignorable="d">
+
+    <Page.DataContext>
+        <local1:SettingsViewModel />
+    </Page.DataContext>
+
+    <Grid>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="36,44,0,192" Background="#FFEAE5CF" HorizontalAlignment="Left" Width="465"/>
+
+        <TextBlock
+            x:Name="textBlock_Copy2"
+            Width="197"
+            Height="24"
+            Margin="71,142,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="Начальное усиление, [%]"
+            TextWrapping="Wrap" />
+        <TextBlock
+            x:Name="textBlock_Copy3"
+            Width="62"
+            Height="24"
+            Margin="71,193,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="Шаг"
+            TextWrapping="Wrap" />
+        <TextBlock
+            x:Name="textBlock_Copy4"
+            Width="139"
+            Height="24"
+            Margin="71,241,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="Чувствительность"
+            TextWrapping="Wrap" />
+        <TextBlock
+            x:Name="textBlock_Copy5"
+            Width="139"
+            Height="24"
+            Margin="71,290,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="Скорость"
+            TextWrapping="Wrap" />
+        <TextBlock
+            x:Name="textBlock_Copy6"
+            Width="139"
+            Height="24"
+            Margin="71,338,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="Ускорение"
+            TextWrapping="Wrap" />
+        <TextBlock
+            x:Name="textBlock_Copy7"
+            Width="139"
+            Height="24"
+            Margin="71,390,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="Торможение"
+            TextWrapping="Wrap" />
+        <TextBox
+            Width="120"
+            Height="32"
+            Margin="312,134,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Text="{Binding RoughApprox, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox
+            Width="120"
+            Height="32"
+            Margin="312,193,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Text="{Binding Step, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox
+            Width="120"
+            Height="32"
+            Margin="312,241,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Text="{Binding Sensativity, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
+        <TextBox
+            Width="120"
+            Height="32"
+            Margin="312,290,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Text="{Binding SetSpeed, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox
+            Width="120"
+            Height="32"
+            Margin="312,338,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Text="{Binding SetAcceleration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox
+            Width="120"
+            Height="32"
+            Margin="312,390,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Text="{Binding SetDeceleration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <Border BorderBrush="Black" BorderThickness="1" Margin="516,44,619,0" Background="#FFEAE5CF" Height="318" VerticalAlignment="Top"/>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="0,44,139,0" Background="#FFEAE5CF" HorizontalAlignment="Right" Width="465" Height="318" VerticalAlignment="Top"/>
+        <TextBlock
+            x:Name="textBlock_Copy"
+            Width="139"
+            Height="24"
+            Margin="574,141,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="Скорость"
+            TextWrapping="Wrap" />
+        <TextBlock
+            x:Name="textBlock_Copy1"
+            Width="139"
+            Height="24"
+            Margin="574,189,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="Ускорение"
+            TextWrapping="Wrap" />
+        <TextBlock
+            x:Name="textBlock_Copy8"
+            Width="139"
+            Height="24"
+            Margin="574,241,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="Торможение"
+            TextWrapping="Wrap" />
+        <TextBox
+            Width="120"
+            Height="32"
+            Margin="0,141,665,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Text="{Binding LS_SetSpeed_1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox
+            Width="120"
+            Height="32"
+            Margin="0,189,665,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Text="{Binding LS_Acceleration_1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox
+            Width="120"
+            Height="32"
+            Margin="0,241,665,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Text="{Binding LS_Deceleration_1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBlock
+            x:Name="textBlock_Copy9"
+            Width="139"
+            Height="24"
+            Margin="0,141,404,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="Скорость"
+            TextWrapping="Wrap" />
+        <TextBlock
+            x:Name="textBlock_Copy10"
+            Width="139"
+            Height="24"
+            Margin="0,189,404,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="Ускорение"
+            TextWrapping="Wrap" />
+        <TextBlock
+            x:Name="textBlock_Copy11"
+            Width="139"
+            Height="24"
+            Margin="0,241,404,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="Торможение"
+            TextWrapping="Wrap" />
+        <TextBox
+            Width="120"
+            Height="32"
+            Margin="0,141,182,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Text="{Binding LS_SetSpeed_2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox
+            Width="120"
+            Height="32"
+            Margin="0,189,182,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Text="{Binding LS_Acceleration_2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox
+            Width="120"
+            Height="32"
+            Margin="0,241,182,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Text="{Binding LS_Deceleration_1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBlock
+            x:Name="textBlock_Copy12"
+            Width="197"
+            Height="24"
+            Margin="171,74,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="18"
+            Text="Настройки стола"
+            TextWrapping="Wrap" />
+        <TextBlock
+            x:Name="textBlock_Copy13"
+            Height="24"
+            Margin="659,74,744,0"
+            VerticalAlignment="Top"
+            FontSize="18"
+            Text="Настройки лазера 1"
+            TextWrapping="Wrap" />
+        <TextBlock
+            x:Name="textBlock_Copy14"
+            Width="197"
+            Height="24"
+            Margin="0,74,210,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            FontSize="18"
+            Text="Настройки лазера 2"
+            TextWrapping="Wrap" />
+        <Border BorderBrush="Black" BorderThickness="1" Margin="516,390,139,192" Background="#FFEAE5CF"/>
+        <TextBlock
+            x:Name="textBlock_Copy15"
+            Height="24"
+            Margin="574,417,547,0"
+            VerticalAlignment="Top"
+            FontSize="18"
+            Text="Настройки коэффициентов измерителей расстояния"
+            TextWrapping="Wrap" />
+        <TextBlock
+            x:Name="textBlock_Copy16"
+            Width="139"
+            Height="24"
+            Margin="574,0,0,414"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            FontSize="16"
+            Text="Линейка 1"
+            TextWrapping="Wrap" />
+        <TextBlock
+            x:Name="textBlock_Copy17"
+            Width="139"
+            Height="24"
+            Margin="574,0,0,366"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            FontSize="16"
+            Text="Линейка 2"
+            TextWrapping="Wrap" />
+        <TextBlock
+            x:Name="textBlock_Copy18"
+            Width="154"
+            Height="24"
+            Margin="574,0,0,314"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            FontSize="16"
+            Text="Лазерный датчик 1"
+            TextWrapping="Wrap" />
+        <TextBox
+            Width="120"
+            Height="32"
+            Margin="0,0,665,406"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Text="{Binding K_1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox
+            Width="120"
+            Height="32"
+            Margin="0,0,665,358"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Text="{Binding K_2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox
+            Width="120"
+            Height="32"
+            Margin="0,0,665,306"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Text="{Binding K_3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBlock
+            x:Name="textBlock_Copy19"
+            Width="154"
+            Height="24"
+            Margin="574,0,0,264"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            FontSize="16"
+            Text="Лазерный датчик 2"
+            TextWrapping="Wrap" />
+        <TextBox
+            Width="120"
+            Height="32"
+            Margin="0,0,665,256"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Text="{Binding K_4, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox
+            Width="120"
+            Margin="312,438,0,430"
+            HorizontalAlignment="Left"
+            Text="{Binding EncoderImpulseCount, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
+        <TextBlock
+            x:Name="textBlock_Copy20"
+            Width="197"
+            Margin="71,429,0,418"
+            HorizontalAlignment="Left"
+            FontSize="16"
+            Text="Количество импульсов енкодера на оборот"
+            TextWrapping="Wrap" />
+    </Grid>
+</Page>

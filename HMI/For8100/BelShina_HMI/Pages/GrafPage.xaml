@@ -1,0 +1,99 @@
+﻿<Page
+    x:Class="BelShina_HMI.Pages.GrafPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:BelShina_HMI.Pages"
+    xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:src="clr-namespace:BelShina_HMI.Converters"
+    Title="GrafPage"
+    d:DesignHeight="900"
+    d:DesignWidth="1600"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <Style x:Key="myCheckboxStyle" TargetType="{x:Type CheckBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type CheckBox}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image
+                                x:Name="checkboxImage"
+                                Width="100"
+                                Source="/Pictures/offf.png" />
+                            <ContentPresenter />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="checkboxImage" Property="Source" Value="/Pictures/onn.png" />
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter TargetName="checkboxImage" Property="Source" Value="/Pictures/offf.png" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <src:ForceStateConvert x:Key="forceStateConvert" />
+    </Page.Resources>
+
+
+    <Grid>
+        <lvc:CartesianChart
+            x:Name="Chart_P"
+            Margin="0,42,0,230"
+            LegendLocation="Right"
+            Series="{Binding SeriesCollection}">
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis
+                    x:Name="chartAxisY"
+                    Title="{Binding YaxesName}"
+                    FontSize="16"
+                    FontWeight="UltraBold"
+                    LabelFormatter="{Binding YFormatter}"
+                    MaxValue="{Binding YaxesMaxValue}" />
+            </lvc:CartesianChart.AxisY>
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis
+                    Title="{Binding XaxesName}"
+                    FontSize="16"
+                    FontWeight="Black"
+                    Labels="{Binding Labels}" />
+            </lvc:CartesianChart.AxisX>
+        </lvc:CartesianChart>
+        <TextBlock
+            Width="156"
+            Height="32"
+            Margin="157,0,0,139"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Background="#FFF1E8E8"
+            OpacityMask="#FF080808"
+            Visibility="Hidden"
+            Text="{Binding ActualPosition, Mode=OneWay}" />
+        <TextBlock
+            Width="156"
+            Height="32"
+            Margin="393,0,0,139"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Background="#FFF1E8E8"
+            OpacityMask="#FF080808"
+            Visibility="Hidden"
+            Text="{Binding GetForse, Mode=OneWay}" />
+        <TextBlock
+            x:Name="textBlock_Copy12"
+            Width="210"
+            Height="24"
+            Margin="0,270,20,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="{Binding Path=FS_State, Converter={StaticResource forceStateConvert}}"
+            TextWrapping="Wrap"
+            Visibility="Hidden" />
+        <Button x:Name="Распечать" Content="Печатать" HorizontalAlignment="Right" Height="39" Margin="0,0,270,96" VerticalAlignment="Bottom" Width="212" Click="Print_Click"/>
+        <Label x:Name="label" Content="{Binding ProcType_1}" HorizontalAlignment="Left" Margin="393,0,0,70" VerticalAlignment="Bottom"/>
+    </Grid>
+</Page>
