@@ -42,6 +42,7 @@ namespace BelShina_HMI
         GrafPage grafPage_3;
         GrafPage ConturPage_1;
         GrafPage ConturPage_2;
+        ConturPage conturPage;
         
         public MainWindow()
         {
@@ -64,6 +65,7 @@ namespace BelShina_HMI
             grafPage_3 = new GrafPage(lineForceGrafViewModel_2);
             ConturPage_1 = new GrafPage(conturViewModel_1);
             ConturPage_2 = new GrafPage(conturViewModel_2);
+            conturPage = new ConturPage();
             Main.Content = mainPage;
         }
 
@@ -100,7 +102,7 @@ namespace BelShina_HMI
         }
         private void btnAlmClk(object sender, RoutedEventArgs e)
         {
-            Main.Content = grafPage_1;
+            Main.Content = conturPage;
         }
     }
 }

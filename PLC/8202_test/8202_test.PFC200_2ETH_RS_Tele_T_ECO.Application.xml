@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Symbolconfiguration xmlns="http://www.3s-software.com/schemas/Symbolconfiguration.xsd">
+  <Header>
+    <Version>3.5.14.0</Version>
+    <SymbolConfigObject version="3.5.14.30" runtimeid="3.5.13.2" libversion="3.5.14.0" compiler="3.5.14.30" lmm="3.5.14.0" profile="e!COCKPIT" settings="SupportOPCUA, LayoutCalculator=OptimizedClientSideLayoutCalculator" />
+    <ProjectInfo name="8202_test" devicename="PFC200_2ETH_RS_Tele_T_ECO" appname="Application" />
+  </Header>
+  <TypeList>
+    <TypeSimple name="T_BOOL" size="1" swapsize="0" typeclass="Bool" iecname="BOOL" />
+    <TypeSimple name="T_DINT" size="4" swapsize="4" typeclass="DInt" iecname="DINT" />
+    <TypeSimple name="T_DWORD" size="4" swapsize="4" typeclass="DWord" iecname="DWORD" />
+    <TypeSimple name="T_INT" size="2" swapsize="2" typeclass="Int" iecname="INT" />
+    <TypeSimple name="T_REAL" size="4" swapsize="4" typeclass="Real" iecname="REAL" />
+    <TypeSimple name="T_WORD" size="2" swapsize="2" typeclass="Word" iecname="WORD" />
+    <TypeUserDef name="T_CurveStates" size="2" nativesize="2" swapsize="2" typeclass="Enum" iecname="CurveStates" basetype="T_INT">
+      <UserDefElement type="T_CurveStates" iecname="CS_Stop" enumvalue="0" />
+      <UserDefElement type="T_CurveStates" iecname="CS_Done" enumvalue="1" />
+      <UserDefElement type="T_CurveStates" iecname="CS_Stopping" enumvalue="2" />
+      <UserDefElement type="T_CurveStates" iecname="CS_SetStep" enumvalue="3" />
+      <UserDefElement type="T_CurveStates" iecname="CS_WaitInitial" enumvalue="4" />
+      <UserDefElement type="T_CurveStates" iecname="CS_SetMeassure" enumvalue="5" />
+      <UserDefElement type="T_CurveStates" iecname="CS_Measuring" enumvalue="6" />
+      <UserDefElement type="T_CurveStates" iecname="CS_ReadingOPC" enumvalue="7" />
+    </TypeUserDef>
+    <TypeUserDef name="T_StiffnessTestStates" size="2" nativesize="2" swapsize="2" typeclass="Enum" iecname="StiffnessTestStates" basetype="T_INT">
+      <UserDefElement type="T_StiffnessTestStates" iecname="ST_Proc_Stop" enumvalue="0" />
+      <UserDefElement type="T_StiffnessTestStates" iecname="ST_Proc_GettingForce" enumvalue="1" />
+      <UserDefElement type="T_StiffnessTestStates" iecname="ST_Proc_GettingHalfKoef" enumvalue="2" />
+      <UserDefElement type="T_StiffnessTestStates" iecname="ST_Proc_CalcKoef" enumvalue="3" />
+      <UserDefElement type="T_StiffnessTestStates" iecname="ST_Proc_GettingCurve" enumvalue="4" />
+      <UserDefElement type="T_StiffnessTestStates" iecname="ST_Proc_Done" enumvalue="5" />
+      <UserDefElement type="T_StiffnessTestStates" iecname="ST_Proc_Releasing" enumvalue="6" />
+      <UserDefElement type="T_StiffnessTestStates" iecname="ST_Proc_Stopping" enumvalue="7" />
+      <UserDefElement type="T_StiffnessTestStates" iecname="ST_Proc_GettingFirstCurve" enumvalue="8" />
+    </TypeUserDef>
+  </TypeList>
+  <NodeList>
+    <Node name="Application">
+      <Node name="HMI_Process">
+        <Node name="rDistance_1" type="T_REAL" access="ReadWrite" />
+        <Node name="rDistance_2" type="T_REAL" access="ReadWrite" />
+        <Node name="rLaserDistance_1" type="T_REAL" access="ReadWrite" />
+        <Node name="rLaserDistance_2" type="T_REAL" access="ReadWrite" />
+        <Node name="rST_Force_1" type="T_REAL" access="ReadWrite" />
+        <Node name="rST_Force_2" type="T_REAL" access="ReadWrite" />
+        <Node name="rST_Force_3" type="T_REAL" access="ReadWrite" />
+        <Node name="rST_GetForce_1" type="T_REAL" access="ReadWrite" />
+        <Node name="rST_GetForce_2" type="T_REAL" access="ReadWrite" />
+        <Node name="rST_Koef_1" type="T_REAL" access="ReadWrite" />
+        <Node name="rST_Koef_2" type="T_REAL" access="ReadWrite" />
+        <Node name="rST_Koef_3" type="T_REAL" access="ReadWrite" />
+        <Node name="rST_SetForce_1" type="T_REAL" access="ReadWrite" />
+        <Node name="rST_SetForce_2" type="T_REAL" access="ReadWrite" />
+        <Node name="rST_Way_1" type="T_REAL" access="ReadWrite" />
+        <Node name="rST_Way_2" type="T_REAL" access="ReadWrite" />
+        <Node name="rST_Way_3" type="T_REAL" access="ReadWrite" />
+        <Node name="wGC_Distance_1" type="T_WORD" access="ReadWrite" />
+        <Node name="wGC_Distance_2" type="T_WORD" access="ReadWrite" />
+        <Node name="wGC_EndPos_1" type="T_WORD" access="ReadWrite" />
+        <Node name="wGC_EndPos_2" type="T_WORD" access="ReadWrite" />
+        <Node name="wGC_InitialPos_1" type="T_WORD" access="ReadWrite" />
+        <Node name="wGC_InitialPos_2" type="T_WORD" access="ReadWrite" />
+        <Node name="wGS_State_1" type="T_CurveStates" access="ReadWrite" />
+        <Node name="wGS_State_2" type="T_CurveStates" access="ReadWrite" />
+        <Node name="wGS_WaitTillDone_1" type="T_WORD" access="ReadWrite" />
+        <Node name="wGS_WaitTillDone_2" type="T_WORD" access="ReadWrite" />
+        <Node name="wProcType" type="T_WORD" access="ReadWrite" />
+        <Node name="wST_HalfForce_1" type="T_REAL" access="ReadWrite" />
+        <Node name="wST_HalfForce_2" type="T_REAL" access="ReadWrite" />
+        <Node name="wST_HalfForce_3" type="T_REAL" access="ReadWrite" />
+        <Node name="wST_HalfPos_1" type="T_REAL" access="ReadWrite" />
+        <Node name="wST_HalfPos_2" type="T_REAL" access="ReadWrite" />
+        <Node name="wST_HalfPos_3" type="T_REAL" access="ReadWrite" />
+        <Node name="wST_State_1" type="T_StiffnessTestStates" access="ReadWrite" />
+        <Node name="wST_State_2" type="T_StiffnessTestStates" access="ReadWrite" />
+        <Node name="wST_State_3" type="T_StiffnessTestStates" access="ReadWrite" />
+        <Node name="xCurveStarted_1" type="T_BOOL" access="ReadWrite" />
+        <Node name="xCurveStarted_2" type="T_BOOL" access="ReadWrite" />
+        <Node name="xGC_Start_1" type="T_BOOL" access="ReadWrite" />
+        <Node name="xGC_Start_2" type="T_BOOL" access="ReadWrite" />
+        <Node name="xGS_StartProc_1" type="T_BOOL" access="ReadWrite" />
+        <Node name="xGS_StartProc_2" type="T_BOOL" access="ReadWrite" />
+        <Node name="xGS_StartProc_3" type="T_BOOL" access="ReadWrite" />
+        <Node name="xProcFinished" type="T_BOOL" access="ReadWrite" />
+        <Node name="xReadOPC_1" type="T_BOOL" access="ReadWrite" />
+        <Node name="xReadOPC_2" type="T_BOOL" access="ReadWrite" />
+        <Node name="xST_Ready_1" type="T_BOOL" access="ReadWrite" />
+        <Node name="xST_Ready_2" type="T_BOOL" access="ReadWrite" />
+        <Node name="xST_Ready_3" type="T_BOOL" access="ReadWrite" />
+      </Node>
+      <Node name="HMI_Stepper">
+        <Node name="k_1" type="T_REAL" access="ReadWrite" />
+        <Node name="k_2" type="T_REAL" access="ReadWrite" />
+        <Node name="k_3" type="T_REAL" access="ReadWrite" />
+        <Node name="k_4" type="T_REAL" access="ReadWrite" />
+        <Node name="rAngle" type="T_REAL" access="ReadWrite" />
+        <Node name="rEncoderImpulseCount" type="T_WORD" access="ReadWrite" />
+        <Node name="rForceSensorScale" type="T_REAL" access="ReadWrite" />
+        <Node name="rFS_CycledWay" type="T_REAL" access="ReadWrite" />
+        <Node name="rFS_GetForce" type="T_REAL" access="ReadWrite" />
+        <Node name="rFS_GetForce_check" type="T_REAL" access="ReadWrite" />
+        <Node name="rFS_LinedWay_1" type="T_REAL" access="ReadWrite" />
+        <Node name="rFS_LinedWay_2" type="T_REAL" access="ReadWrite" />
+        <Node name="rFS_Sensativity" type="T_REAL" access="ReadWrite" />
+        <Node name="rFS_SetForce" type="T_REAL" access="ReadWrite" />
+        <Node name="rLS_RealPos_1" type="T_REAL" access="ReadWrite" />
+        <Node name="rLS_RealPos_2" type="T_REAL" access="ReadWrite" />
+        <Node name="wFS_ActualPos" type="T_DWORD" access="ReadWrite" />
+        <Node name="wFS_RoughApprox" type="T_WORD" access="ReadWrite" />
+        <Node name="wFS_SetAcceleration" type="T_WORD" access="ReadWrite" />
+        <Node name="wFS_SetDeceleration" type="T_WORD" access="ReadWrite" />
+        <Node name="wFS_SetSpeed" type="T_WORD" access="ReadWrite" />
+        <Node name="wFS_State" type="T_WORD" access="ReadWrite" />
+        <Node name="wFS_Step" type="T_WORD" access="ReadWrite" />
+        <Node name="wLS_Acceleration_1" type="T_WORD" access="ReadWrite" />
+        <Node name="wLS_Acceleration_2" type="T_WORD" access="ReadWrite" />
+        <Node name="wLS_Deceleration_1" type="T_WORD" access="ReadWrite" />
+        <Node name="wLS_Deceleration_2" type="T_WORD" access="ReadWrite" />
+        <Node name="wLS_GetPos_1" type="T_DINT" access="ReadWrite" />
+        <Node name="wLS_GetPos_2" type="T_DINT" access="ReadWrite" />
+        <Node name="wLS_SetPos_1" type="T_WORD" access="ReadWrite" />
+        <Node name="wLS_SetPos_2" type="T_WORD" access="ReadWrite" />
+        <Node name="wLS_SetSpeed_1" type="T_WORD" access="ReadWrite" />
+        <Node name="wLS_SetSpeed_2" type="T_WORD" access="ReadWrite" />
+        <Node name="wLS_StepperState_1" type="T_WORD" access="ReadWrite" />
+        <Node name="wLS_StepperState_2" type="T_WORD" access="ReadWrite" />
+        <Node name="xFS_DirNeg" type="T_BOOL" access="ReadWrite" />
+        <Node name="xFS_JogLeft" type="T_BOOL" access="ReadWrite" />
+        <Node name="xFS_JogRight" type="T_BOOL" access="ReadWrite" />
+        <Node name="xFS_Release" type="T_BOOL" access="ReadWrite" />
+        <Node name="xFS_Start" type="T_BOOL" access="ReadWrite" />
+        <Node name="xLS_DirNeg_1" type="T_BOOL" access="ReadWrite" />
+        <Node name="xLS_DirNeg_2" type="T_BOOL" access="ReadWrite" />
+        <Node name="xLS_Initilized_1" type="T_BOOL" access="ReadWrite" />
+        <Node name="xLS_Initilized_2" type="T_BOOL" access="ReadWrite" />
+        <Node name="xLS_MoveHome_1" type="T_BOOL" access="ReadWrite" />
+        <Node name="xLS_MoveHome_2" type="T_BOOL" access="ReadWrite" />
+        <Node name="xLS_MoveToPos_1" type="T_BOOL" access="ReadWrite" />
+        <Node name="xLS_MoveToPos_2" type="T_BOOL" access="ReadWrite" />
+        <Node name="xLS_StandStill_1" type="T_BOOL" access="ReadWrite" />
+        <Node name="xLS_StandStill_2" type="T_BOOL" access="ReadWrite" />
+        <Node name="xLS_Stop_1" type="T_BOOL" access="ReadWrite" />
+        <Node name="xLS_Stop_2" type="T_BOOL" access="ReadWrite" />
+      </Node>
+    </Node>
+  </NodeList>
+</Symbolconfiguration>

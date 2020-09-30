@@ -70,8 +70,8 @@
             VerticalAlignment="Bottom"
             Background="#FFF1E8E8"
             OpacityMask="#FF080808"
-            Visibility="Hidden"
-            Text="{Binding ActualPosition, Mode=OneWay}" />
+            Text="{Binding ActualPosition, Mode=OneWay}"
+            Visibility="Hidden" />
         <TextBlock
             Width="156"
             Height="32"
@@ -80,8 +80,8 @@
             VerticalAlignment="Bottom"
             Background="#FFF1E8E8"
             OpacityMask="#FF080808"
-            Visibility="Hidden"
-            Text="{Binding GetForse, Mode=OneWay}" />
+            Text="{Binding GetForse, Mode=OneWay}"
+            Visibility="Hidden" />
         <TextBlock
             x:Name="textBlock_Copy12"
             Width="210"
@@ -93,7 +93,20 @@
             Text="{Binding Path=FS_State, Converter={StaticResource forceStateConvert}}"
             TextWrapping="Wrap"
             Visibility="Hidden" />
-        <Button x:Name="Распечать" Content="Печатать" HorizontalAlignment="Right" Height="39" Margin="0,0,270,96" VerticalAlignment="Bottom" Width="212" Click="Print_Click"/>
-        <Label x:Name="label" Content="{Binding ProcType_1}" HorizontalAlignment="Left" Margin="393,0,0,70" VerticalAlignment="Bottom"/>
+        <Button
+            x:Name="Распечать"
+            Width="212"
+            Height="39"
+            Margin="0,0,270,96"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Click="Print_Click"
+            Content="Печатать" />
+        <Label
+            x:Name="label"
+            Margin="393,0,0,70"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Content="{Binding ProcType_1}" />
     </Grid>
 </Page>

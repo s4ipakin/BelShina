@@ -168,6 +168,9 @@
     <Compile Include="Converters\ForceStateConvert.cs" />
     <Compile Include="OPC\ListOfItemsOPC.cs" />
     <Compile Include="OPC\OPC_UA_Client.cs" />
+    <Compile Include="Pages\ConturPage.xaml.cs">
+      <DependentUpon>ConturPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\GrafPage.xaml.cs">
       <DependentUpon>GrafPage.xaml</DependentUpon>
     </Compile>
@@ -188,6 +191,7 @@
     <Compile Include="ViewModels\RelayCommand .cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\TestType.cs" />
+    <Compile Include="ViewModels\VerticalConturViewModer.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Page Include="MainWindow.xaml">
@@ -202,6 +206,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\ConturPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\GrafPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

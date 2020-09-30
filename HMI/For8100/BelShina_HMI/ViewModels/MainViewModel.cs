@@ -204,7 +204,7 @@ namespace BelShina_HMI.ViewModels
         }
         #region Subscribe
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.rFS_SetForce")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.rFS_SetForce")]
         public float SetForce
         {
             get { return this.setForce; }
@@ -213,7 +213,7 @@ namespace BelShina_HMI.ViewModels
         private float setForce;
  
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.xFS_Release")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.xFS_Release")]
         public bool Release
         {
             get { return this.release; }
@@ -222,7 +222,7 @@ namespace BelShina_HMI.ViewModels
         private bool release;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.xFS_Start")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.xFS_Start")]
         public bool Start
         {
             get { return this.start; }
@@ -231,7 +231,7 @@ namespace BelShina_HMI.ViewModels
         private bool start;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.wFS_ActualPos")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.wFS_ActualPos")]
         public long ActualPosition
         {
             get { return this.actualPosition; }
@@ -240,7 +240,7 @@ namespace BelShina_HMI.ViewModels
         private long actualPosition;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.rFS_CycledWay")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.rFS_CycledWay")]
         public float CycledWay
         {
             get 
@@ -256,7 +256,7 @@ namespace BelShina_HMI.ViewModels
         private float cycledWay;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.rFS_LinedWay_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.rFS_LinedWay_1")]
         public float LinedWay_1
         {
             get 
@@ -272,7 +272,7 @@ namespace BelShina_HMI.ViewModels
         private float linedWay_1;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.rFS_LinedWay_2")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.rFS_LinedWay_2")]
         public float LinedWay_2
         {
             get
@@ -288,7 +288,7 @@ namespace BelShina_HMI.ViewModels
         private float linedWay_2;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.xFS_JogLeft")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.xFS_JogLeft")]
         public bool JogLeft
         {
             get { return this.jogLeft; }
@@ -297,7 +297,7 @@ namespace BelShina_HMI.ViewModels
         private bool jogLeft;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.xFS_JogRight")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.xFS_JogRight")]
         public bool JogRight
         {
             get { return this.jogRight; }
@@ -306,7 +306,7 @@ namespace BelShina_HMI.ViewModels
         private bool jogRight;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.wFS_State")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.wFS_State")]
         public ushort FS_State
         {
             get { return this.fS_State; }
@@ -315,7 +315,7 @@ namespace BelShina_HMI.ViewModels
         private ushort fS_State;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.wProcType")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.wProcType")]
         public ushort ProcessType
         {
             get 
@@ -335,7 +335,7 @@ namespace BelShina_HMI.ViewModels
         private ushort processType;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.wST_HalfPos_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.wST_HalfPos_1")]
         public float HalfPos_1
         {
             get 
@@ -351,7 +351,7 @@ namespace BelShina_HMI.ViewModels
         private float halfPos_1;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.wST_HalfPos_2")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.wST_HalfPos_2")]
         public float HalfPos_2
         {
             get
@@ -367,7 +367,7 @@ namespace BelShina_HMI.ViewModels
         private float halfPos_2;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.wST_HalfPos_3")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.wST_HalfPos_3")]
         public float HalfPos_3
         {
             get
@@ -383,7 +383,7 @@ namespace BelShina_HMI.ViewModels
         private float halfPos_3;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.wST_HalfForce_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.wST_HalfForce_1")]
         public float HalfForce_1
         {
             get 
@@ -399,7 +399,7 @@ namespace BelShina_HMI.ViewModels
         private float halfForce_1;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.wST_HalfForce_2")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.wST_HalfForce_2")]
         public float HalfForce_2
         {
             get
@@ -415,7 +415,7 @@ namespace BelShina_HMI.ViewModels
         private float halfForce_2;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.wST_HalfForce_3")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.wST_HalfForce_3")]
         public float HalfForce_3
         {
             get
@@ -431,7 +431,7 @@ namespace BelShina_HMI.ViewModels
         private float halfForce_3;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rST_Koef_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rST_Koef_1")]
         public float Koef_1
         {
             get 
@@ -447,7 +447,7 @@ namespace BelShina_HMI.ViewModels
         private float koef_1;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rST_Koef_2")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rST_Koef_2")]
         public float Koef_2
         {
             get
@@ -463,7 +463,7 @@ namespace BelShina_HMI.ViewModels
         private float koef_2;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rST_Koef_3")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rST_Koef_3")]
         public float Koef_3
         {
             get
@@ -479,7 +479,7 @@ namespace BelShina_HMI.ViewModels
         private float koef_3;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.rFS_GetForce")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.rFS_GetForce")]
         public float GetForce
         {
             get { return this.getForce; }
@@ -489,7 +489,7 @@ namespace BelShina_HMI.ViewModels
 
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.xLS_MoveToPos_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.xLS_MoveToPos_1")]
         public bool MoveToPos_1
         {
             get { return this.moveToPos_1; }
@@ -499,7 +499,7 @@ namespace BelShina_HMI.ViewModels
 
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.xLS_MoveHome_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.xLS_MoveHome_1")]
         public bool MoveHome_1
         {
             get { return this.moveHome_1; }
@@ -508,7 +508,7 @@ namespace BelShina_HMI.ViewModels
         private bool moveHome_1;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.rLS_RealPos_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.rLS_RealPos_1")]
         public float LS_GetPos_1
         {
             get { return this.lS_GetPos_1; }
@@ -517,7 +517,7 @@ namespace BelShina_HMI.ViewModels
         private float lS_GetPos_1;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.wLS_StepperState_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.wLS_StepperState_1")]
         public ushort LS_StepperState_1
         {
             get { return this.lS_StepperState_1; }
@@ -526,7 +526,7 @@ namespace BelShina_HMI.ViewModels
         private ushort lS_StepperState_1;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.xLS_Initilized_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.xLS_Initilized_1")]
         public bool LS_Initilized_1
         {
             get { return this.lS_Initilized_1; }
@@ -535,7 +535,7 @@ namespace BelShina_HMI.ViewModels
         private bool lS_Initilized_1;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.xLS_MoveToPos_2")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.xLS_MoveToPos_2")]
         public bool MoveToPos_2
         {
             get { return this.moveToPos_2; }
@@ -545,7 +545,7 @@ namespace BelShina_HMI.ViewModels
 
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.xLS_MoveHome_2")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.xLS_MoveHome_2")]
         public bool MoveHome_2
         {
             get { return this.moveHome_2; }
@@ -554,7 +554,7 @@ namespace BelShina_HMI.ViewModels
         private bool moveHome_2;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.rLS_RealPos_2")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.rLS_RealPos_2")]
         public float LS_GetPos_2
         {
             get { return this.lS_GetPos_2; }
@@ -563,7 +563,7 @@ namespace BelShina_HMI.ViewModels
         private float lS_GetPos_2;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.wLS_StepperState_2")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.wLS_StepperState_2")]
         public ushort LS_StepperState_2
         {
             get { return this.lS_StepperState_2; }
@@ -572,7 +572,7 @@ namespace BelShina_HMI.ViewModels
         private ushort lS_StepperState_2;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.xLS_Initilized_2")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.xLS_Initilized_2")]
         public bool LS_Initilized_2
         {
             get { return this.lS_Initilized_2; }
@@ -581,7 +581,7 @@ namespace BelShina_HMI.ViewModels
         private bool lS_Initilized_2;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.xGS_StartProc_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.xGS_StartProc_1")]
         public bool StartProc_1
         {
             get { return this.startProc_1; }
@@ -590,7 +590,7 @@ namespace BelShina_HMI.ViewModels
         private bool startProc_1;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.wST_State_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.wST_State_1")]
         public ushort ProcessState
         {
             get { return this.processState; }
@@ -599,7 +599,7 @@ namespace BelShina_HMI.ViewModels
         private ushort processState;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.wLS_SetPos_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.wLS_SetPos_1")]
         public ushort LS_SetPos_1
         {
             get { return this.lS_SetPos_1; }
@@ -607,7 +607,7 @@ namespace BelShina_HMI.ViewModels
         }
         private ushort lS_SetPos_1;
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.wLS_SetPos_2")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.wLS_SetPos_2")]
         public ushort LS_SetPos_2
         {
             get { return this.lS_SetPos_2; }
@@ -616,7 +616,7 @@ namespace BelShina_HMI.ViewModels
         private ushort lS_SetPos_2;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.xLS_Stop_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.xLS_Stop_1")]
         public bool LS_Stop_1
         {
             get { return this.lS_Stop_1; }
@@ -625,7 +625,7 @@ namespace BelShina_HMI.ViewModels
         private bool lS_Stop_1;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.xLS_Stop_2")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.xLS_Stop_2")]
         public bool LS_Stop_2
         {
             get { return this.lS_Stop_2; }
@@ -634,7 +634,7 @@ namespace BelShina_HMI.ViewModels
         private bool lS_Stop_2;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rST_Force_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rST_Force_1")]
         public float ST_Force_1
         {
             get { return this.sT_Force_1; }
@@ -643,7 +643,7 @@ namespace BelShina_HMI.ViewModels
         private float sT_Force_1;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rST_Force_2")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rST_Force_2")]
         public float ST_Force_2
         {
             get { return this.sT_Force_2; }
@@ -652,7 +652,7 @@ namespace BelShina_HMI.ViewModels
         private float sT_Force_2;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rST_Force_3")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rST_Force_3")]
         public float ST_Force_3
         {
             get { return this.sT_Force_3; }
@@ -661,7 +661,7 @@ namespace BelShina_HMI.ViewModels
         private float sT_Force_3;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rST_Way_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rST_Way_1")]
         public float ST_Way_1
         {
             get { return this.sT_Way_1; }
@@ -670,7 +670,7 @@ namespace BelShina_HMI.ViewModels
         private float sT_Way_1;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rST_Way_2")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rST_Way_2")]
         public float ST_Way_2
         {
             get { return this.sT_Way_2; }
@@ -679,7 +679,7 @@ namespace BelShina_HMI.ViewModels
         private float sT_Way_2;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rST_Way_3")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rST_Way_3")]
         public float ST_Way_3
         {
             get { return this.sT_Way_3; }
@@ -688,7 +688,7 @@ namespace BelShina_HMI.ViewModels
         private float sT_Way_3;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.rAngle")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.rAngle")]
         public float Angle
         {
             get { return this.rAngle; }
@@ -697,7 +697,7 @@ namespace BelShina_HMI.ViewModels
         private float rAngle;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rDistance_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rDistance_1")]
         public float Distance_1
         {
             get { return this.rDistance_1; }
@@ -706,7 +706,7 @@ namespace BelShina_HMI.ViewModels
         private float rDistance_1;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rDistance_2")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rDistance_2")]
         public float Distance_2
         {
             get { return this.rDistance_2; }
@@ -714,7 +714,7 @@ namespace BelShina_HMI.ViewModels
         }
         private float rDistance_2;
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.wGC_Distance_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.wGC_Distance_1")]
         public virtual ushort ProcType_1
         {
             get { return this.wProcType_1; }

@@ -103,6 +103,30 @@ namespace BelShina_HMI.OPC
             return item;
         }
 
+
+        public async Task WriteBool(string name, bool value)
+        {
+            var writeRequest = new Workstation.ServiceModel.Ua.WriteRequest
+            {
+                NodesToWrite = new[]
+                    {
+                        new Workstation.ServiceModel.Ua.WriteValue
+                        {
+                            NodeId = Workstation.ServiceModel.Ua.NodeId.Parse("ns=4;s=|var|" + serverName + "." + name),
+                            AttributeId = AttributeIds.Value,
+                            Value = new Workstation.ServiceModel.Ua.DataValue(value)
+                        }
+                    }
+            };
+
+            try
+            {
+                var writeResult = await channel.WriteAsync(writeRequest);
+            }
+            catch (Exception ex)
+            { }
+        }
+
         public async Task SetChanel()
         {
             var clientDescription = new ApplicationDescription
@@ -116,8 +140,8 @@ namespace BelShina_HMI.OPC
             channel = new UaTcpSessionChannel(
             clientDescription,
             null, // no x509 certificates
-            //new AnonymousIdentity(),
-            new UserNameIdentity("admin", "wago"),
+            new AnonymousIdentity(),
+            //new UserNameIdentity("admin", "wago"),
             url,
             SecurityPolicyUris.None);
 

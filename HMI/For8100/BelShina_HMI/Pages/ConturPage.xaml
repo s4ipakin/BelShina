@@ -1,0 +1,51 @@
+﻿<Page
+    x:Class="BelShina_HMI.Pages.ConturPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:BelShina_HMI.Pages"
+    xmlns:local1="clr-namespace:BelShina_HMI.ViewModels"
+    xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="ConturPage"
+    d:DesignHeight="900"
+    d:DesignWidth="1600"
+    mc:Ignorable="d">
+    <Page.DataContext>
+        <local1:VerticalConturViewModer />
+    </Page.DataContext>
+
+    <Grid>
+        <lvc:CartesianChart x:Name="Chart_P" Margin="0,0,0,213">
+            <lvc:CartesianChart.Series >
+                <!--<lvc:RowSeries Values="{Binding Values2}" Panel.ZIndex="1"></lvc:RowSeries>-->
+                <lvc:VerticalLineSeries Values="{Binding ValuesBefore1}" Fill="Transparent" Stroke="Black" Panel.ZIndex="0"></lvc:VerticalLineSeries>
+                <lvc:VerticalLineSeries Values="{Binding ValuesAfter1}" Fill="Transparent" Stroke="Blue" Panel.ZIndex="1"></lvc:VerticalLineSeries>
+                <lvc:VerticalLineSeries Values="{Binding ValuesBefore2}" Fill="Transparent" Stroke="Black" Panel.ZIndex="0"></lvc:VerticalLineSeries>
+                <lvc:VerticalLineSeries Values="{Binding ValuesAfter2}" Fill="Transparent" Stroke="Blue" Panel.ZIndex="1"></lvc:VerticalLineSeries>
+            </lvc:CartesianChart.Series>
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis>
+                    <lvc:Axis.Separator>
+                        <lvc:Separator Step="1"></lvc:Separator>
+                    </lvc:Axis.Separator>
+                </lvc:Axis>
+            </lvc:CartesianChart.AxisY>
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis MinValue="0"></lvc:Axis>
+            </lvc:CartesianChart.AxisX>
+            <lvc:CartesianChart.DataTooltip>
+                <lvc:DefaultTooltip SelectionMode="SharedYValues"></lvc:DefaultTooltip>
+            </lvc:CartesianChart.DataTooltip>
+        </lvc:CartesianChart>
+        
+        <CheckBox
+            x:Name="checkBox"
+            Margin="236,0,0,160"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Content="CheckBox"
+            IsChecked="{Binding CurveStarted_1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+    </Grid>
+</Page>
