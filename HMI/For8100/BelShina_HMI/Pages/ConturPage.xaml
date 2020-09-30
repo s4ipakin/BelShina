@@ -46,6 +46,28 @@
             VerticalAlignment="Bottom"
             Content="CheckBox"
             IsChecked="{Binding CurveStarted_1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <CheckBox
+            x:Name="checkBox1"
+            Margin="236,0,0,127"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Content="CheckBox"
+            IsChecked="{Binding CurveStarted_2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <CheckBox
+            x:Name="checkBox2"
+            Margin="236,0,0,95"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Content="CheckBox"
+            IsChecked="{Binding ReadOPC_1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <CheckBox
+            x:Name="checkBox3"
+            Margin="236,0,0,61"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Content="CheckBox"
+            IsChecked="{Binding ReadOPC_2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <Label x:Name="label" Content="{Binding ST_State_1}" HorizontalAlignment="Left" Margin="74,0,0,101" VerticalAlignment="Bottom"/>
 
     </Grid>
 </Page>

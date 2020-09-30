@@ -14,12 +14,12 @@ namespace BelShina_HMI.ViewModels
     [Subscription(endpointUrl: "opc.tcp://192.168.1.17:4840", publishingInterval: 500, keepAliveCount: 20)]
     public class VerticalConturViewModer : SubscriptionBase
     {
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.wST_State_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.wST_State_1")]
         public ushort ST_State_1
         {
             get 
-            { 
-                
+            {
+                //MessageBox.Show(this.gT_State_1.ToString());
                 return this.gT_State_1; 
             }
             set { this.SetProperty(ref this.gT_State_1, value); }
@@ -40,22 +40,22 @@ namespace BelShina_HMI.ViewModels
         private ushort gS_State_1;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.rLS_RealPos_1")]
-        public float LS_RealPos_1
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rLaserDistance_1")]
+        public float LaserDistance_1
         {
-            get { return this.lS_RealPos_1; }
-            set { this.SetProperty(ref this.lS_RealPos_1, value); }
+            get { return this.laserDistance_1; }
+            set { this.SetProperty(ref this.laserDistance_1, value); }
         }
-        private float lS_RealPos_1;
+        private float laserDistance_1;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.rLS_RealPos_2")]
-        public float LS_RealPos_2
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rLaserDistance_2")]
+        public float LaserDistance_2
         {
-            get { return this.lS_RealPos_2; }
-            set { this.SetProperty(ref this.lS_RealPos_2, value); }
+            get { return this.laserDistance_2; }
+            set { this.SetProperty(ref this.laserDistance_2, value); }
         }
-        private float lS_RealPos_2;
+        private float laserDistance_2;
 
 
         [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.xReadOPC_1")]
@@ -65,7 +65,8 @@ namespace BelShina_HMI.ViewModels
             { 
                 if (this.readOPC_1)
                 {
-                    SetValues(ST_State_1, ValuesBefore1, ValuesAfter1, LS_RealPos_1);
+                    //MessageBox.Show("get");
+                    SetValues(ST_State_1, ValuesBefore1, ValuesAfter1, LaserDistance_1);
                     WriteBool("Application.HMI_Process.xReadOPC_1", false);
                 }
                 return this.readOPC_1; 
@@ -83,7 +84,7 @@ namespace BelShina_HMI.ViewModels
             {
                 if (this.readOPC_2)
                 {
-                    SetValues(ST_State_1, ValuesBefore2, ValuesAfter2, LS_RealPos_2);
+                    SetValues(ST_State_1, ValuesBefore2, ValuesAfter2, LaserDistance_2);
                     WriteBool("Application.HMI_Process.xReadOPC_2", false);
                 }
                 return this.readOPC_2;
@@ -197,6 +198,8 @@ namespace BelShina_HMI.ViewModels
         {           
             switch(procState)
             {
+                case 1:
+                case 3:
                 case 4:
                     valuesAfter.Clear();
                     break;

@@ -71,7 +71,7 @@
         <Node name="wST_HalfPos_1" type="T_REAL" access="ReadWrite" />
         <Node name="wST_HalfPos_2" type="T_REAL" access="ReadWrite" />
         <Node name="wST_HalfPos_3" type="T_REAL" access="ReadWrite" />
-        <Node name="wST_State_1" type="T_StiffnessTestStates" access="ReadWrite" />
+        <Node name="wST_State_1" type="T_WORD" access="ReadWrite" />
         <Node name="wST_State_2" type="T_StiffnessTestStates" access="ReadWrite" />
         <Node name="wST_State_3" type="T_StiffnessTestStates" access="ReadWrite" />
         <Node name="xCurveStarted_1" type="T_BOOL" access="ReadWrite" />
