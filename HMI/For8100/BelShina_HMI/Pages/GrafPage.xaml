@@ -43,15 +43,21 @@
         <lvc:CartesianChart
             x:Name="Chart_P"
             Margin="0,42,0,230"
-            LegendLocation="Right"
-            Series="{Binding SeriesCollection}">
+            LegendLocation="Right">
+            <lvc:CartesianChart.Series >
+                <lvc:LineSeries Values="{Binding ChartValues}" 
+                                Title="{Binding SeriesName}" 
+                                LineSmoothness="1"
+                                StrokeThickness="1" 
+                                Stroke="Blue"
+                                />
+            </lvc:CartesianChart.Series>
             <lvc:CartesianChart.AxisY>
                 <lvc:Axis
                     x:Name="chartAxisY"
                     Title="{Binding YaxesName}"
                     FontSize="16"
-                    FontWeight="UltraBold"
-                    LabelFormatter="{Binding YFormatter}"
+                    FontWeight="UltraBold"                   
                     MaxValue="{Binding YaxesMaxValue}" />
             </lvc:CartesianChart.AxisY>
             <lvc:CartesianChart.AxisX>
@@ -59,7 +65,7 @@
                     Title="{Binding XaxesName}"
                     FontSize="16"
                     FontWeight="Black"
-                    Labels="{Binding Labels}" />
+                     />
             </lvc:CartesianChart.AxisX>
         </lvc:CartesianChart>
         <TextBlock

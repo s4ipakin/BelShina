@@ -164,6 +164,7 @@
     </ApplicationDefinition>
     <Compile Include="Chart\GrafSeries.cs" />
     <Compile Include="Chart\GrafType.cs" />
+    <Compile Include="Chart\MeasureModel.cs" />
     <Compile Include="Chart\SeriesCollectionHandler.cs" />
     <Compile Include="Converters\ForceStateConvert.cs" />
     <Compile Include="OPC\ListOfItemsOPC.cs" />

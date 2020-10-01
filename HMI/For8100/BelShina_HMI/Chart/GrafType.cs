@@ -29,6 +29,7 @@ namespace BelShina_HMI.Chart
         public abstract string xUnit { get; }
         public abstract double maxValue { get; }
         public abstract GrafSeries[] GetSettings();
+        public abstract string seriesName { get; }
     }
 
     public class ForceGrafSet : GrafSet
@@ -39,6 +40,7 @@ namespace BelShina_HMI.Chart
         public override string xAxesName => "Перемещение";
         public override string xUnit => "мм";
         public override double maxValue => 10000;
+        public override string seriesName => "Зависимость углового\r\nусиления от угла поворота";
         public override GrafSeries[] GetSettings()
         {
             return new GrafSeries[]
@@ -56,6 +58,7 @@ namespace BelShina_HMI.Chart
         public override string xAxesName => "Перемещение";
         public override string xUnit => "мм";
         public override double maxValue => 10000;
+        public override string seriesName => "Зависимость бокового\r\nусиления от перемещения";
         public override GrafSeries[] GetSettings()
         {
             return new GrafSeries[]
@@ -73,6 +76,7 @@ namespace BelShina_HMI.Chart
         public override string xAxesName => "Перемещение";
         public override string xUnit => "мм";
         public override double maxValue => 10000;
+        public override string seriesName => "Зависимость тангенциального\r\nусиления от перемещения";
         public override GrafSeries[] GetSettings()
         {
             return new GrafSeries[]
@@ -91,6 +95,7 @@ namespace BelShina_HMI.Chart
         public override string xAxesName => "Положение лазера";
         public override string xUnit => "мм";
         public override double maxValue => 1000;
+        public override string seriesName => "";
         public override GrafSeries[] GetSettings()
         {
             return new GrafSeries[]

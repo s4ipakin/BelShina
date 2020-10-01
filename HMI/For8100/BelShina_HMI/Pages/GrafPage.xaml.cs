@@ -40,8 +40,6 @@ namespace BelShina_HMI.Pages
             Chart_P.DisableAnimations = true;
             Chart_P.Zoom = ZoomingOptions.Y;
             Chart_P.AxisX[0].Separator.Step = 1;
-            //this.grid.PreviewMouseRightButtonDown += Grid_PreviewMouseRightButtonDown;
-            //this.grid.PreviewMouseRightButtonUp += Grid_PreviewMouseRightButtonUp;
             Chart_P.PreviewMouseRightButtonDown += Chart_P_PreviewMouseRightButtonDown;
             Chart_P.PreviewMouseRightButtonUp += Chart_P_PreviewMouseRightButtonUp;
         }

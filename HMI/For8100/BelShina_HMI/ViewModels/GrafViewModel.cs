@@ -3,6 +3,7 @@ using BelShina_HMI.OPC;
 using BelShina_HMI.Reports;
 using GalaSoft.MvvmLight.Messaging;
 using LiveCharts;
+using LiveCharts.Configurations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -56,15 +57,31 @@ namespace BelShina_HMI.ViewModels
             YaxesName = grafSet.yAxesName;
             YaxesMaxValue = grafSet.maxValue;
             XaxesName = grafSet.xAxesName;
+            SeriesName = grafSet.seriesName;
             for (int i = 0; i < arSeries.Length; i++)
             {
                 SeriesCollection.Add(arSeries[i].LineSeries);
             }
+
+            var mapper = Mappers.Xy<MeasureModel>()
+               .X(model => model.ValueX)   
+               .Y(model => model.ValueY);
+            Charting.For<MeasureModel>(mapper);
+            ChartValues = new ChartValues<MeasureModel>();
             ListOfItemsOPC listOfItemsOPC = new ListOfItemsOPC();
             OPC_UA = new OPC_UA_Client("192.168.1.17", 2000d, listOfItemsOPC.GetOPCitems());
             //OPC_UA.ItemsChanged += OPC_UA_ItemsChanged;
             Messenger.Default.Register<GenerateReportsMessage>(this, GenerateReports);
             _ = Task();
+        }
+
+        public ChartValues<MeasureModel> ChartValues { get; set; }
+
+        protected string seriesName;
+        public string SeriesName
+        {
+            get { return seriesName; }
+            set { seriesName = value; }
         }
 
         protected string yaxesName;
@@ -201,12 +218,22 @@ namespace BelShina_HMI.ViewModels
                 if (!run)
                 {
                     dataTable.Clear();
+                    ChartValues.Clear();
+                    grafValueX = "0";
+                    grafValueY = "0";
+
                     run = true;
                 }
                 DataRow dr = dataTable.NewRow();
                 dr[0] = grafValueX;
                 dr[1] = grafValueY;
                 dataTable.Rows.Add(dr);
+
+                ChartValues.Add(new MeasureModel
+                {
+                    ValueX = Convert.ToDouble(grafValueX),
+                    ValueY = Convert.ToDouble(grafValueY)
+                });
                 Labels = seriesCollectionHandler.SetValues(SeriesCollection[0].Values, dataTable, 0, 1);
             }
             else 
