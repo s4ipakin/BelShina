@@ -16,7 +16,7 @@
     </Page.DataContext>
 
     <Grid>
-        <lvc:CartesianChart x:Name="Chart_P" Margin="0,0,0,213">
+        <lvc:CartesianChart x:Name="Chart_P" Margin="0,0,0,202">
             <lvc:CartesianChart.Series >
                 <!--<lvc:RowSeries Values="{Binding Values2}" Panel.ZIndex="1"></lvc:RowSeries>-->
                 <lvc:VerticalLineSeries Values="{Binding ValuesBefore1}" Fill="Transparent" Stroke="Black" Panel.ZIndex="0"></lvc:VerticalLineSeries>
@@ -31,8 +31,8 @@
                     </lvc:Axis.Separator>
                 </lvc:Axis>
             </lvc:CartesianChart.AxisY>
-            <lvc:CartesianChart.AxisX>
-                <lvc:Axis MinValue="0"></lvc:Axis>
+            <lvc:CartesianChart.AxisX >
+                <lvc:Axis LabelsRotation="-90" MinValue="0" ></lvc:Axis>
             </lvc:CartesianChart.AxisX>
             <lvc:CartesianChart.DataTooltip>
                 <lvc:DefaultTooltip SelectionMode="SharedYValues"></lvc:DefaultTooltip>
