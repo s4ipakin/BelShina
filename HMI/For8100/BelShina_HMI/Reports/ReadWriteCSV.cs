@@ -16,11 +16,27 @@ namespace BelShina_HMI.Reports
             this.path = path;
         }
 
-        public void WriteToCSV(string time, string value)
+        public void WriteToCSV(string time, string value, string optValue1 = "", string optValue2 = "", string optValue3 = "")
         {
             using (var w = new StreamWriter(path, true))
             {
-                var line = string.Format("{0};{1}", time, value);
+                var line = "";
+                if (optValue1 == "")
+                {
+                    line = string.Format("{0};{1}", time, value);
+                }
+                else if (optValue2 == "")
+                {
+                    line = string.Format("{0};{1};{2}", time, value, optValue1);
+                }
+                else if (optValue3 == "")
+                {
+                    line = string.Format("{0};{1};{2};{3}", time, value, optValue1, optValue2);
+                }
+                else
+                {
+                    line = string.Format("{0};{1};{2};{3};{4}", time, value, optValue1, optValue2, optValue3);
+                }
                 w.WriteLine(line);
                 w.Flush();
             }

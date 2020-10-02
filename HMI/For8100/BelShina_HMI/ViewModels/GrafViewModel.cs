@@ -201,7 +201,9 @@ namespace BelShina_HMI.ViewModels
                 string day = System.DateTime.Now.Day.ToString();
                 string hour = System.DateTime.Now.Hour.ToString();
                 string minute = System.DateTime.Now.Minute.ToString();
-                ReadWriteCSV readWriteCSV = new ReadWriteCSV(@"D:\Протоколы\" + hour + "_" + minute + "_" + day + "_" + month + "_" + year + "_" + name + ".csv");
+                string path = @"D:\Протоколы\" + name + @"\";
+                System.IO.Directory.CreateDirectory(path);
+                ReadWriteCSV readWriteCSV = new ReadWriteCSV(path + day + "_" + month + "_" + year + "_" + hour + "_" + minute + "_" + name + ".csv");
                 readWriteCSV.WriteToCSV(column1, column2);
                 for (int i = 0; i < dataTable.Rows.Count; i++)
                 {

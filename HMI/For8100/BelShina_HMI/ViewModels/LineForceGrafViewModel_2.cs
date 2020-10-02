@@ -53,6 +53,7 @@ namespace BelShina_HMI.ViewModels
                     if (!send)
                     {
                         send = true;
+                        SaveToCSV(true, cSvPath, "Distance", "Force");
                         SentTabToMain();
                     }
                 }
@@ -85,7 +86,7 @@ namespace BelShina_HMI.ViewModels
 
         public override void GenerateReports(GenerateReportsMessage generate)
         {
-            SaveToCSV(true, cSvPath, "Distance", "Force");
+            //SaveToCSV(true, cSvPath, "Distance", "Force");
         }
     }
 }

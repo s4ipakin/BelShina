@@ -136,7 +136,8 @@
             Margin="10,433,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Orientation="Horizontal" d:LayoutOverrides="VerticalAlignment">
+            Orientation="Horizontal"
+            d:LayoutOverrides="VerticalAlignment">
             <Border Width="252" Style="{StaticResource MyBorderStyle}">
                 <Label
                     HorizontalContentAlignment="Center"
@@ -396,8 +397,8 @@
             Margin="0,299,442,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
-            FontSize="16"
             Background="{Binding LS_StepperState_1, Converter={StaticResource laserStateConvertToColor}}"
+            FontSize="16"
             Text="{Binding LS_StepperState_1, Converter={StaticResource laserStateConvert}}"
             TextWrapping="Wrap" />
         <CheckBox
@@ -866,15 +867,18 @@
             VerticalAlignment="Top"
             Background="#FFEAE5CF"
             BorderBrush="Black"
-            BorderThickness="1" >
-            <Button x:Name="buttonStart" 
-                    Content="{Binding StartProc_1, Converter={StaticResource startBtnText}}"
-                    Command="{Binding ProcessStartStopCommand}"
-                    Height="38"
-                    FontSize="16"
-                    Margin="9,0,0,9" 
-                    VerticalAlignment="Bottom" 
-                    Background="{Binding StartProc_1, Converter={StaticResource ctartBtnColor} }" HorizontalAlignment="Left" Width="183"/>
+            BorderThickness="1">
+            <Button
+                x:Name="buttonStart"
+                Width="183"
+                Height="38"
+                Margin="9,0,0,9"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Background="{Binding StartProc_1, Converter={StaticResource ctartBtnColor}}"
+                Command="{Binding ProcessStartStopCommand}"
+                Content="{Binding StartProc_1, Converter={StaticResource startBtnText}}"
+                FontSize="16" />
 
         </Border>
         <TextBox
@@ -991,11 +995,11 @@
             Width="183"
             Height="35"
             Margin="562,288,0,0"
-            FontSize="16"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Command="{Binding ButtonReportsCommand}"
-            Content="Генерировать отчеты" />
+            Content="Генерировать отчеты"
+            FontSize="16" />
         <CheckBox
             x:Name="checkBox_Copy"
             Height="48"
@@ -1005,7 +1009,7 @@
             IsChecked="{Binding StartProc_1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             RenderTransformOrigin="0.478,0.536"
             Style="{StaticResource myCheckboxStyleStart}"
-            Visibility="Hidden"/>
+            Visibility="Hidden" />
         <TextBox
             Width="120"
             Height="32"
@@ -1031,10 +1035,19 @@
             Margin="210,24,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
+            Background="{Binding ProcessState, Converter={StaticResource processStateConvertToColor}}"
             FontSize="16"
             Text="{Binding ProcessState, Converter={StaticResource processStateConvert}}"
-            TextWrapping="Wrap" Background="{Binding ProcessState, Converter={StaticResource processStateConvertToColor}}" />
-        <Border BorderBrush="Black" BorderThickness="1" Height="24" Width="284" HorizontalAlignment="Left" Margin="210,25,0,0" VerticalAlignment="Top" d:LayoutOverrides="Width, Height" />
+            TextWrapping="Wrap" />
+        <Border
+            Width="284"
+            Height="24"
+            Margin="210,25,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            BorderBrush="Black"
+            BorderThickness="1"
+            d:LayoutOverrides="Width, Height" />
         <TextBlock
             x:Name="textBlock_Copy4"
             Width="175"
@@ -1112,8 +1125,8 @@
             Background="#FFF1E8E8"
             FontSize="14"
             OpacityMask="#FF080808"
-            Text="{Binding ProcessState, Mode=OneWay}" 
-            Visibility="Visible"/>
+            Text="{Binding ProcessState, Mode=OneWay}"
+            Visibility="Visible" />
         <TextBox
             Width="120"
             Height="32"
@@ -1132,7 +1145,14 @@
             RenderTransformOrigin="0.489,1.083"
             Text="Размер шины под нагрузкой"
             TextWrapping="Wrap" />
-        <Rectangle Fill="#FFE8FFE7" HorizontalAlignment="Left" Height="33" Margin="41,356,0,0" Stroke="Black" VerticalAlignment="Top" Width="81"/>
+        <Rectangle
+            Width="81"
+            Height="33"
+            Margin="41,356,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Fill="#FFE8FFE7"
+            Stroke="Black" />
 
 
 

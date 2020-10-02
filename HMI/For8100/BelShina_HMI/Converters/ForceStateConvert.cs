@@ -120,12 +120,12 @@ namespace BelShina_HMI.Converters
                 case 0:
                     return " Остановлен";
                 case 1:
-                    return " Установка усиление";
+                    return " Установка усиления";
                 case 2:                    
                 case 3:
                     return " Расчеты";
                 case 4:
-                    return " Измерение контуров первичное";
+                    return " Измерение контуров вторичное";
                 case 5:
                     return " Завершен";
                 case 6:
@@ -133,7 +133,7 @@ namespace BelShina_HMI.Converters
                 case 7:
                     return " Остановка";
                 case 8:
-                    return " Измерение контуров вторичное";
+                    return " Измерение контуров первичное";
 
 
                 default:
