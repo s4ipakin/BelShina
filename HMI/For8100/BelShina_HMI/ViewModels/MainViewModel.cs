@@ -12,6 +12,7 @@ using System.Windows.Input;
 using GalaSoft.MvvmLight.Messaging;
 using System.Collections.ObjectModel;
 using System.Windows;
+using System.Drawing;
 
 namespace BelShina_HMI.ViewModels
 {
@@ -21,13 +22,16 @@ namespace BelShina_HMI.ViewModels
         public ICommand ButtonReportsCommand { get; set; }
         public ICommand ButtonLSStopCommand_1 { get; set; }
         public ICommand ButtonLSStopCommand_2 { get; set; }
+        public ICommand ProcessStartStopCommand { get; set; }
         Dictionary<ushort, TestType> TestTypeDic;
+
         public MainViewModel()
         {
             TestTypeDic = new Dictionary<ushort, TestType>();
             ButtonReportsCommand = new RelayCommand(o => ReportsButtonClick("ReportsButton"));
             ButtonLSStopCommand_1 = new RelayCommand(o => StopLaserCommand_1("ReportsButton"));
             ButtonLSStopCommand_2 = new RelayCommand(o => StopLaserCommand_2("ReportsButton"));
+            ProcessStartStopCommand = new RelayCommand(o => StartStopProcess("ReportsButton"));
             TestTypes = new ObservableCollection<TestType>()
             {
                 
@@ -87,97 +91,61 @@ namespace BelShina_HMI.ViewModels
             }
             //_testType = TestTypes[0];
             //_testType = TestTypeDic[ProcessType];
-            Messenger.Default.Register<SentDataTab>(this, CalculateKoef);
+            Messenger.Default.Register<SentDataTab>(this, Calculate);
 
         }
 
-        public virtual void CalculateKoef(SentDataTab dataTab)
+        public virtual void Calculate(SentDataTab dataTab)
         {
-            //ProcessType
-            switch (ProcessType)
+            if (dataTab.DataTable.Rows.Count > 1)
             {
+                switch (ProcessType)
+                {
 
-                case 1:
-                    if (dataTab.DataTable.Rows.Count > 1)
-                    {
-                        ST_Force_1 = GetForce;
-                        HalfForce_1 = GetForce / 2;
-                        string way_1 = dataTab.DataTable.Rows[1][0].ToString();
-                        ST_Way_1 = (float)(Convert.ToDouble(way_1) - Convert.ToDouble(Distance_1));
-                        //ST_Way_2 = (float)(Convert.ToDouble(Distance_1) - Convert.ToDouble(way_2));
-                        for (int i = 1; i < dataTab.DataTable.Rows.Count; i++)
-                        {
-                            string sForce = dataTab.DataTable.Rows[i][1].ToString();
-                            double dForce = Convert.ToDouble(sForce);
-                            if ((float)dForce > HalfForce_3)
-                            {
-                                string sHalfPos = dataTab.DataTable.Rows[i][0].ToString();
-                                double dHalfPos = Convert.ToDouble(sHalfPos);
-                                string sFirstPos = dataTab.DataTable.Rows[1][0].ToString();
-                                double dFirstPos = Convert.ToDouble(sFirstPos);
-                                HalfPos_1 = (float)(dFirstPos - dHalfPos);
-                                break;
-                            }
-                        }
-                        Koef_1 = (ST_Force_1 - HalfForce_1) / (ST_Way_1 - HalfPos_1);
-                    }
+                    case 1:
+                        Koef_1 = CalcCoef(dataTab, ST_Force_1, ST_Way_1, HalfForce_1, HalfPos_1);
+                        break;
 
-                    break;
+                    case 2:          
+                        Koef_2 = CalcCoef(dataTab, ST_Force_2, ST_Way_2, HalfForce_2, HalfPos_2);
+                        break;
 
-                case 2:
-                    if (dataTab.DataTable.Rows.Count > 1)
-                    {
-                        ST_Force_2 = GetForce;
-                        HalfForce_2 = GetForce / 2;
-                        string way_2 = dataTab.DataTable.Rows[1][0].ToString();
-                        ST_Way_2 = (float)(Convert.ToDouble(way_2) - Convert.ToDouble(Distance_1));
-                        //ST_Way_2 = (float)(Convert.ToDouble(Distance_1) - Convert.ToDouble(way_2));
-                        for (int i = 1; i < dataTab.DataTable.Rows.Count; i++)
-                        {
-                            string sForce = dataTab.DataTable.Rows[i][1].ToString();
-                            double dForce = Convert.ToDouble(sForce);
-                            if ((float)dForce > HalfForce_2)
-                            {
-                                string sHalfPos = dataTab.DataTable.Rows[i][0].ToString();
-                                double dHalfPos = Convert.ToDouble(sHalfPos);
-                                string sFirstPos = dataTab.DataTable.Rows[1][0].ToString();
-                                double dFirstPos = Convert.ToDouble(sFirstPos);
-                                HalfPos_2 = (float)(dFirstPos - dHalfPos);
-                                break;
-                            }
-                        }
-                        Koef_2 = (ST_Force_2 - HalfForce_2) / (ST_Way_2 - HalfPos_2);
-                    }
-                    
-                    break;
-
-                case 3:
-                    if (dataTab.DataTable.Rows.Count > 1)
-                    {
-                        ST_Force_3 = GetForce;
-                        HalfForce_3 = GetForce / 2;
-                        string way_3 = dataTab.DataTable.Rows[1][0].ToString();
-                        ST_Way_3 = (float)(Convert.ToDouble(way_3) - Convert.ToDouble(Distance_1));
-                        //ST_Way_2 = (float)(Convert.ToDouble(Distance_1) - Convert.ToDouble(way_2));
-                        for (int i = 1; i < dataTab.DataTable.Rows.Count; i++)
-                        {
-                            string sForce = dataTab.DataTable.Rows[i][1].ToString();
-                            double dForce = Convert.ToDouble(sForce);
-                            if ((float)dForce > HalfForce_3)
-                            {
-                                string sHalfPos = dataTab.DataTable.Rows[i][0].ToString();
-                                double dHalfPos = Convert.ToDouble(sHalfPos);
-                                string sFirstPos = dataTab.DataTable.Rows[1][0].ToString();
-                                double dFirstPos = Convert.ToDouble(sFirstPos);
-                                HalfPos_3 = (float)(dFirstPos - dHalfPos);
-                                break;
-                            }
-                        }
-                        Koef_3 = (ST_Force_3 - HalfForce_3) / (ST_Way_3 - HalfPos_3);
-                    }
-
-                    break;
+                    case 3:
+                        Koef_3 = CalcCoef(dataTab, ST_Force_3, ST_Way_3, HalfForce_3, HalfPos_3);
+                        break;
+                }
             }
+                
+        }
+
+        private float CalcCoef(SentDataTab dataTab, float force, float way, float halfForce, float halfWay)
+        {
+            string sForce = dataTab.DataTable.Rows[dataTab.DataTable.Rows.Count - 1][1].ToString();
+            force = (float)(Convert.ToDouble(sForce));
+            string sWay = dataTab.DataTable.Rows[dataTab.DataTable.Rows.Count - 1][0].ToString();
+            way = (float)(Convert.ToDouble(sWay));
+            float fHalfForce = force / 2;
+
+            for (int i = 1; i < dataTab.DataTable.Rows.Count; i++)
+            {
+                string sForce_i = dataTab.DataTable.Rows[i][1].ToString();
+                double dForce_i = Convert.ToDouble(sForce_i);
+                if ((float)dForce_i > fHalfForce)
+                {
+                    string sHalfPos = dataTab.DataTable.Rows[i][0].ToString();
+                    double dHalfPos = Convert.ToDouble(sHalfPos);
+                    string sFirstPos = dataTab.DataTable.Rows[1][0].ToString();
+                    double dFirstPos = Convert.ToDouble(sFirstPos);
+                    halfWay = (float)(dHalfPos - dFirstPos);
+
+                    string sHalfForce = dataTab.DataTable.Rows[i][1].ToString();
+                    double dHalfForce = Convert.ToDouble(sHalfForce);
+                    halfForce = (float)dHalfForce;
+                    break;
+                }
+            }
+            float Kst = (force - halfForce) / (way - halfWay);
+            return Kst;
         }
 
         private void ReportsButtonClick(object sender)
@@ -201,6 +169,11 @@ namespace BelShina_HMI.ViewModels
         private void StopLaserCommand_2(object sender)
         {
             LS_Stop_2 = true;
+        }
+
+        private void StartStopProcess(object sender)
+        {
+            StartProc_1 = StartProc_1 ? false : true;            
         }
         #region Subscribe
 
@@ -735,6 +708,15 @@ namespace BelShina_HMI.ViewModels
             get { return _testTypes; }
             set { _testTypes = value; }
         }
+
+        //private Brushes processStateColor;
+
+        //public Brushes ProcessStateColor
+        //{
+        //    get { return processStateColor; }
+        //    set { processStateColor = value; }
+        //}
+
         private TestType _testType;
 
         public TestType TestTypeProp

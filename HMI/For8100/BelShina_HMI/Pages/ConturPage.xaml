@@ -17,28 +17,52 @@
 
     <Grid>
         <lvc:CartesianChart x:Name="Chart_P" Margin="0,0,0,202">
-            <lvc:CartesianChart.Series >
+            <lvc:CartesianChart.Series>
                 <!--<lvc:RowSeries Values="{Binding Values2}" Panel.ZIndex="1"></lvc:RowSeries>-->
-                <lvc:VerticalLineSeries Values="{Binding ValuesBefore1}" Fill="Transparent" Stroke="Black" Panel.ZIndex="0"></lvc:VerticalLineSeries>
-                <lvc:VerticalLineSeries Values="{Binding ValuesAfter1}" Fill="Transparent" Stroke="Blue" Panel.ZIndex="1"></lvc:VerticalLineSeries>
-                <lvc:VerticalLineSeries Values="{Binding ValuesBefore2}" Fill="Transparent" Stroke="Black" Panel.ZIndex="0"></lvc:VerticalLineSeries>
-                <lvc:VerticalLineSeries Values="{Binding ValuesAfter2}" Fill="Transparent" Stroke="Blue" Panel.ZIndex="1"></lvc:VerticalLineSeries>
+                <lvc:VerticalLineSeries
+                    Panel.ZIndex="0"
+                    Fill="Transparent"
+                    Stroke="Black"
+                    Values="{Binding ValuesBefore1}" />
+                <lvc:VerticalLineSeries
+                    Panel.ZIndex="1"
+                    Fill="Transparent"
+                    Stroke="Blue"
+                    Values="{Binding ValuesAfter1}" />
+                <lvc:VerticalLineSeries
+                    Panel.ZIndex="0"
+                    Fill="Transparent"
+                    Stroke="Black"
+                    Values="{Binding ValuesBefore2}" />
+                <lvc:VerticalLineSeries
+                    Panel.ZIndex="1"
+                    Fill="Transparent"
+                    Stroke="Blue"
+                    Values="{Binding ValuesAfter2}" />
             </lvc:CartesianChart.Series>
             <lvc:CartesianChart.AxisY>
-                <lvc:Axis>
+                <lvc:Axis
+                    Title="{Binding YaxesName}"
+                    FontSize="16"
+                    FontWeight="Black">
                     <lvc:Axis.Separator>
-                        <lvc:Separator Step="1"></lvc:Separator>
+                        <lvc:Separator Step="1" />
                     </lvc:Axis.Separator>
                 </lvc:Axis>
             </lvc:CartesianChart.AxisY>
-            <lvc:CartesianChart.AxisX >
-                <lvc:Axis LabelsRotation="-90" MinValue="0" ></lvc:Axis>
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis
+                    Title="{Binding XaxesName}"
+                    FontSize="16"
+                    FontWeight="Black"
+                    LabelsRotation="-90"
+                    MinValue="0" />
             </lvc:CartesianChart.AxisX>
             <lvc:CartesianChart.DataTooltip>
-                <lvc:DefaultTooltip SelectionMode="SharedYValues"></lvc:DefaultTooltip>
+                <lvc:DefaultTooltip SelectionMode="SharedYValues" />
             </lvc:CartesianChart.DataTooltip>
         </lvc:CartesianChart>
-        
+
         <CheckBox
             x:Name="checkBox"
             Margin="236,0,0,160"
@@ -67,7 +91,12 @@
             VerticalAlignment="Bottom"
             Content="CheckBox"
             IsChecked="{Binding ReadOPC_2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-        <Label x:Name="label" Content="{Binding ST_State_1}" HorizontalAlignment="Left" Margin="74,0,0,101" VerticalAlignment="Bottom"/>
+        <Label
+            x:Name="label"
+            Margin="74,0,0,101"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Content="{Binding ST_State_1}" />
 
     </Grid>
 </Page>

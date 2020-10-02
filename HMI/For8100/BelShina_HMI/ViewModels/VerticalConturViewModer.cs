@@ -148,17 +148,34 @@ namespace BelShina_HMI.ViewModels
         protected OPC_UA_Client OPC_UA;
         //OPC_UA = new OPC_UA_Client("192.168.1.17", 2000d, listOfItemsOPC.GetOPCitems());
         protected Dictionary<string, string> itemDict = new Dictionary<string, string>();
-        
 
+        ConturGrafSet conturGrafSet;
         public VerticalConturViewModer()
         {
             ValuesBefore1 = new ChartValues<double>();
             ValuesBefore2 = new ChartValues<double>();
             ValuesAfter1 = new ChartValues<double>();
             ValuesAfter2 = new ChartValues<double>();
+            conturGrafSet = new ConturGrafSet();
+            YaxesName = conturGrafSet.yAxesName;
+            XaxesName = conturGrafSet.xAxesName;
             ListOfItemsOPC listOfItemsOPC = new ListOfItemsOPC();
             OPC_UA = new OPC_UA_Client("192.168.1.17", 500d, listOfItemsOPC.GetOPCitems());
             _ = Task();
+        }
+
+        protected string yaxesName;
+        public string YaxesName
+        {
+            get { return yaxesName; }
+            set { yaxesName = value; }
+        }
+
+        protected string xaxesName;
+        public string XaxesName
+        {
+            get { return xaxesName; }
+            set { xaxesName = value; }
         }
 
         protected async Task Task()

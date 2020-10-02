@@ -68,6 +68,10 @@
         <src:ForceStateConvert x:Key="forceStateConvert" />
         <src:ProcessStateConvert x:Key="processStateConvert" />
         <src:LaserStateConvert x:Key="laserStateConvert" />
+        <src:ProcessStateConvertToColor x:Key="processStateConvertToColor" />
+        <src:LaserStateConvertToColor x:Key="laserStateConvertToColor" />
+        <src:StartBtnText x:Key="startBtnText" />
+        <src:StartBtnColor x:Key="ctartBtnColor" />
         <Style x:Key="MyBorderStyle" TargetType="Border">
             <Setter Property="BorderBrush" Value="Black" />
             <Setter Property="BorderThickness" Value="1" />
@@ -79,7 +83,7 @@
         <StackPanel
             Width="769"
             Height="37"
-            Margin="10,352,0,0"
+            Margin="10,396,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Orientation="Horizontal">
@@ -129,10 +133,10 @@
         <StackPanel
             Width="779"
             Height="37"
-            Margin="10,389,0,0"
+            Margin="10,433,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Orientation="Horizontal">
+            Orientation="Horizontal" d:LayoutOverrides="VerticalAlignment">
             <Border Width="252" Style="{StaticResource MyBorderStyle}">
                 <Label
                     HorizontalContentAlignment="Center"
@@ -179,7 +183,7 @@
         <StackPanel
             Width="769"
             Height="37"
-            Margin="10,470,0,0"
+            Margin="10,528,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Orientation="Horizontal">
@@ -229,7 +233,7 @@
         <StackPanel
             Width="779"
             Height="37"
-            Margin="10,507,0,0"
+            Margin="10,565,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Orientation="Horizontal">
@@ -279,7 +283,7 @@
         <StackPanel
             Width="769"
             Height="37"
-            Margin="10,588,0,0"
+            Margin="10,665,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Orientation="Horizontal">
@@ -329,7 +333,7 @@
         <StackPanel
             Width="779"
             Height="37"
-            Margin="10,625,0,0"
+            Margin="10,702,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Orientation="Horizontal">
@@ -393,6 +397,7 @@
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             FontSize="16"
+            Background="{Binding LS_StepperState_1, Converter={StaticResource laserStateConvertToColor}}"
             Text="{Binding LS_StepperState_1, Converter={StaticResource laserStateConvert}}"
             TextWrapping="Wrap" />
         <CheckBox
@@ -512,7 +517,7 @@
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             FontSize="16"
-            Text="{Binding LS_StepperState_1, Converter={StaticResource laserStateConvert}}"
+            Text="{Binding LS_StepperState_2, Converter={StaticResource laserStateConvert}}"
             TextWrapping="Wrap" />
         <CheckBox
             x:Name="checkBox_Copy2"
@@ -855,17 +860,27 @@
             TextWrapping="Wrap" />
         <Border
             Width="753"
-            Height="267"
+            Height="316"
             Margin="10,20,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Background="#FFEAE5CF"
             BorderBrush="Black"
-            BorderThickness="1" />
+            BorderThickness="1" >
+            <Button x:Name="buttonStart" 
+                    Content="{Binding StartProc_1, Converter={StaticResource startBtnText}}"
+                    Command="{Binding ProcessStartStopCommand}"
+                    Height="38"
+                    FontSize="16"
+                    Margin="9,0,0,9" 
+                    VerticalAlignment="Bottom" 
+                    Background="{Binding StartProc_1, Converter={StaticResource ctartBtnColor} }" HorizontalAlignment="Left" Width="183"/>
+
+        </Border>
         <TextBox
             Width="120"
             Height="32"
-            Margin="198,69,0,0"
+            Margin="198,101,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Text="{Binding Department, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
@@ -873,7 +888,7 @@
             x:Name="textBlock_Copy10"
             Width="130"
             Height="24"
-            Margin="34,69,0,0"
+            Margin="34,101,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -882,7 +897,7 @@
         <TextBox
             Width="120"
             Height="32"
-            Margin="198,105,0,0"
+            Margin="198,137,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Text="{Binding Fio, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
@@ -890,7 +905,7 @@
             x:Name="textBlock_Copy11"
             Width="88"
             Height="24"
-            Margin="34,106,0,0"
+            Margin="34,138,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -900,7 +915,7 @@
             x:Name="textBlock_Copy33"
             Width="88"
             Height="24"
-            Margin="34,145,0,0"
+            Margin="34,177,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -910,14 +925,14 @@
         <TextBox
             Width="120"
             Height="32"
-            Margin="198,141,0,0"
+            Margin="198,173,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Text="{Binding TireType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBox
             Width="120"
             Height="32"
-            Margin="562,65,0,0"
+            Margin="562,101,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Text="{Binding TireNomber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
@@ -925,7 +940,7 @@
             x:Name="comboBox_Copy"
             Width="192"
             Height="27"
-            Margin="562,145,0,0"
+            Margin="562,210,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             DisplayMemberPath="Name"
@@ -935,7 +950,7 @@
             x:Name="textBlock_Copy34"
             Width="130"
             Height="24"
-            Margin="387,69,0,0"
+            Margin="387,101,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -945,7 +960,7 @@
         <TextBox
             Width="120"
             Height="32"
-            Margin="562,103,0,0"
+            Margin="562,137,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Text="{Binding TireSize, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
@@ -953,7 +968,7 @@
             x:Name="textBlock_Copy35"
             Width="130"
             Height="24"
-            Margin="387,107,0,0"
+            Margin="387,139,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -964,7 +979,7 @@
             x:Name="textBlock_Copy36"
             Width="130"
             Height="24"
-            Margin="387,145,0,0"
+            Margin="387,213,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -973,28 +988,28 @@
             TextWrapping="Wrap" />
         <Button
             x:Name="reportsBtn_Copy"
-            Width="142"
-            Height="48"
-            Margin="594,221,0,0"
+            Width="183"
+            Height="35"
+            Margin="562,288,0,0"
+            FontSize="16"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Command="{Binding ButtonReportsCommand}"
             Content="Генерировать отчеты" />
         <CheckBox
             x:Name="checkBox_Copy"
-            Width="95"
             Height="48"
-            Margin="452,221,0,0"
-            HorizontalAlignment="Left"
+            Margin="731,341,774,0"
             VerticalAlignment="Top"
             Content=""
             IsChecked="{Binding StartProc_1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             RenderTransformOrigin="0.478,0.536"
-            Style="{StaticResource myCheckboxStyleStart}" />
+            Style="{StaticResource myCheckboxStyleStart}"
+            Visibility="Hidden"/>
         <TextBox
             Width="120"
             Height="32"
-            Margin="198,178,0,0"
+            Margin="198,210,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Text="{Binding Temperature, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
@@ -1002,7 +1017,7 @@
             x:Name="textBlock_Copy2"
             Width="130"
             Height="24"
-            Margin="34,186,0,0"
+            Margin="34,218,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -1013,17 +1028,18 @@
             x:Name="textBlock_Copy3"
             Width="284"
             Height="24"
-            Margin="34,245,0,0"
+            Margin="210,24,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
             Text="{Binding ProcessState, Converter={StaticResource processStateConvert}}"
-            TextWrapping="Wrap" />
+            TextWrapping="Wrap" Background="{Binding ProcessState, Converter={StaticResource processStateConvertToColor}}" />
+        <Border BorderBrush="Black" BorderThickness="1" Height="24" Width="284" HorizontalAlignment="Left" Margin="210,25,0,0" VerticalAlignment="Top" d:LayoutOverrides="Width, Height" />
         <TextBlock
             x:Name="textBlock_Copy4"
             Width="175"
             Height="24"
-            Margin="34,221,0,0"
+            Margin="34,24,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -1034,7 +1050,7 @@
             x:Name="textBlock_Copy5"
             Width="229"
             Height="24"
-            Margin="299,33,0,0"
+            Margin="288,53,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="18"
@@ -1044,7 +1060,7 @@
             x:Name="textBlock_Copy6"
             Width="502"
             Height="24"
-            Margin="140,317,0,0"
+            Margin="140,367,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="18"
@@ -1054,7 +1070,7 @@
             x:Name="textBlock_Copy37"
             Width="502"
             Height="24"
-            Margin="140,560,0,0"
+            Margin="140,623,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="18"
@@ -1064,7 +1080,7 @@
             x:Name="textBlock_Copy7"
             Width="570"
             Height="24"
-            Margin="140,441,0,0"
+            Margin="140,499,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="18"
@@ -1074,7 +1090,7 @@
             x:Name="textBlock_Copy38"
             Width="150"
             Height="24"
-            Margin="387,183,0,0"
+            Margin="387,254,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -1083,10 +1099,40 @@
         <TextBox
             Width="120"
             Height="32"
-            Margin="562,178,0,0"
+            Margin="562,249,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Text="{Binding SetForce, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBlock
+            Width="86"
+            Height="32"
+            Margin="0,0,664,149"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Background="#FFF1E8E8"
+            FontSize="14"
+            OpacityMask="#FF080808"
+            Text="{Binding ProcessState, Mode=OneWay}" 
+            Visibility="Visible"/>
+        <TextBox
+            Width="120"
+            Height="32"
+            Margin="562,173,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Text="{Binding TireSize, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBlock
+            x:Name="textBlock_Copy39"
+            Width="170"
+            Height="42"
+            Margin="387,166,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            RenderTransformOrigin="0.489,1.083"
+            Text="Размер шины под нагрузкой"
+            TextWrapping="Wrap" />
+        <Rectangle Fill="#FFE8FFE7" HorizontalAlignment="Left" Height="33" Margin="41,356,0,0" Stroke="Black" VerticalAlignment="Top" Width="81"/>
 
 
 

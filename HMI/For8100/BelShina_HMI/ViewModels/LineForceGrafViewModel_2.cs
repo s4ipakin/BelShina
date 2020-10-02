@@ -67,16 +67,7 @@ namespace BelShina_HMI.ViewModels
         }
 
         private bool send = false;
-        private void SentTabToMain()
-        {
-            //MessageBox.Show(ProcType_1.ToString());
-            if (ProcType_1 == 3)
-            {
-
-                var generateReportsMessage = new SentDataTab(dataTable);
-                Messenger.Default.Send(generateReportsMessage);
-            }
-        }
+        
 
         private ushort lS_State;
 
