@@ -98,14 +98,14 @@
                 <Label
                     HorizontalContentAlignment="Center"
                     Background="#FFDCD99F"
-                    Content="Khб2"
+                    Content="Fhб2"
                     FontSize="14" />
             </Border>
             <Border Width="100" Style="{StaticResource MyBorderStyle}">
                 <Label
                     HorizontalContentAlignment="Center"
                     Background="#FFDCD99F"
-                    Content="Khб1"
+                    Content="Fhб1"
                     FontSize="14" />
             </Border>
             <Border Width="100" Style="{StaticResource MyBorderStyle}">
@@ -199,14 +199,14 @@
                 <Label
                     HorizontalContentAlignment="Center"
                     Background="#FFDCD99F"
-                    Content="Khт2"
+                    Content="Fhт2"
                     FontSize="14" />
             </Border>
             <Border Width="100" Style="{StaticResource MyBorderStyle}">
                 <Label
                     HorizontalContentAlignment="Center"
                     Background="#FFDCD99F"
-                    Content="Khт1"
+                    Content="Fhт1"
                     FontSize="14" />
             </Border>
             <Border Width="100" Style="{StaticResource MyBorderStyle}">
@@ -517,6 +517,7 @@
             Margin="0,299,62,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
+            Background="{Binding LS_StepperState_2, Converter={StaticResource laserStateConvertToColor}}"
             FontSize="16"
             Text="{Binding LS_StepperState_2, Converter={StaticResource laserStateConvert}}"
             TextWrapping="Wrap" />
@@ -801,12 +802,13 @@
 
         <TextBlock
             x:Name="textBlock_Copy112"
-            Width="210"
+            Width="263"
             Height="24"
-            Margin="0,0,416,201"
+            Margin="0,0,363,201"
             HorizontalAlignment="Right"
             VerticalAlignment="Bottom"
             FontSize="16"
+            Background="{Binding FS_State, Converter={StaticResource processStateConvertToColor}}"
             Text="{Binding Path=FS_State, Converter={StaticResource forceStateConvert}}"
             TextWrapping="Wrap"
             Visibility="Visible" />
@@ -829,7 +831,7 @@
             Background="#FFF1E8E8"
             FontSize="14"
             OpacityMask="#FF080808"
-            Text="{Binding Distance_1, Mode=OneWay}" />
+            Text="{Binding TablePos_1, Mode=OneWay}" />
         <TextBlock
             x:Name="textBlock_Copy8"
             Width="242"
@@ -850,7 +852,7 @@
             FontSize="14"
             OpacityMask="#FF080808"
             RenderTransformOrigin="0.495,1.469"
-            Text="{Binding Distance_2, Mode=OneWay}" />
+            Text="{Binding TablePos_2, Mode=OneWay}" />
         <TextBlock
             x:Name="textBlock_Copy9"
             Width="202"

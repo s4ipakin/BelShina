@@ -300,4 +300,49 @@ namespace BelShina_HMI.Converters
             return DependencyProperty.UnsetValue;
         }
     }
+
+
+    [ValueConversion(typeof(ushort), typeof(System.Windows.Media.Brushes))]
+    public class ForceStateConvertToColor : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            ushort state = (ushort)value;
+            var bc = new BrushConverter();
+            switch (state)
+            {
+                case 0:
+                    return (Brush)bc.ConvertFrom("#FFE2E0E0");
+                case 1:
+                    return (Brush)bc.ConvertFrom("#FFA8F9A0");
+                case 2:
+                case 3:
+                case 4:
+                    return (Brush)bc.ConvertFrom("#FFA8F9A0");
+                case 5:
+                    return (Brush)bc.ConvertFrom("#FF1CF307"); // #FF1CF307
+                case 6:
+                // #FFD9F5F7
+                case 7:
+                    return (Brush)bc.ConvertFrom("#FFF7DEDB");
+                case 8:
+                    return (Brush)bc.ConvertFrom("#FFA8F9A0");
+
+
+                default:
+                    return (Brush)bc.ConvertFrom("#FFE2E0E0");
+            }
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            string strValue = value as string;
+            ushort resultUshort;
+            if (ushort.TryParse(strValue, out resultUshort))
+            {
+                return resultUshort;
+            }
+            return DependencyProperty.UnsetValue;
+        }
+    }
 }

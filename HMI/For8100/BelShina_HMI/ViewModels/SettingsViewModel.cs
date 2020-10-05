@@ -157,7 +157,7 @@ namespace BelShina_HMI.ViewModels
         private ushort lS_Deceleration_2;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.k_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.k_1")]
         public float K_1
         {
             get { return this.k_1; }
@@ -167,7 +167,7 @@ namespace BelShina_HMI.ViewModels
         private float k_1;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.k_2")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.k_2")]
         public float K_2
         {
             get { return this.k_2; }
@@ -177,7 +177,7 @@ namespace BelShina_HMI.ViewModels
         private float k_2;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.k_3")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.k_3")]
         public float K_3
         {
             get { return this.k_3; }
@@ -187,7 +187,7 @@ namespace BelShina_HMI.ViewModels
         private float k_3;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.k_4")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.k_4")]
         public float K_4
         {
             get { return this.k_4; }
@@ -204,5 +204,104 @@ namespace BelShina_HMI.ViewModels
             set { this.SetProperty(ref this.rEncoderImpulseCount, value); }
         }
         private ushort rEncoderImpulseCount;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rKforce_1")]
+        public float Kforce_1
+        {
+            get { return this.kforce_1; }
+            set { this.SetProperty(ref this.kforce_1, value); }
+        }
+        private float kforce_1;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rKforce_2")]
+        public float Kforce_2
+        {
+            get { return this.kforce_2; }
+            set { this.SetProperty(ref this.kforce_2, value); }
+        }
+        private float kforce_2;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rKforce_Ctcle")]
+        public float Kforce_Ctcle
+        {
+            get { return this.kForce_Ctcle; }
+            set { this.SetProperty(ref this.kForce_Ctcle, value); }
+        }
+        private float kForce_Ctcle;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rRadius")]
+        public float Radius
+        {
+            get { return this.radius; }
+            set { this.SetProperty(ref this.radius, value); }
+        }
+        private float radius;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.StepAngle_1")]
+        public float StepAngle_1
+        {
+            get { return this.stepAngle_1; }
+            set { this.SetProperty(ref this.stepAngle_1, value); }
+        }
+        private float stepAngle_1;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.StepAngle_2")]
+        public float StepAngle_2
+        {
+            get { return this.stepAngle_2; }
+            set { this.SetProperty(ref this.stepAngle_2, value); }
+        }
+        private float stepAngle_2;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.ScrewStep_1")]
+        public float ScrewStep_1
+        {
+            get { return this.screwStep_1; }
+            set { this.SetProperty(ref this.screwStep_1, value); }
+        }
+        private float screwStep_1;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.ScrewStep_2")]
+        public float ScrewStep_2
+        {
+            get { return this.screwStep_2; }
+            set { this.SetProperty(ref this.screwStep_2, value); }
+        }
+        private float screwStep_2;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.rForceSensorScale")]
+        public float ForceSensorScale
+        {
+            get { return this.forceSensorScale; }
+            set { this.SetProperty(ref this.forceSensorScale, value); }
+        }
+        private float forceSensorScale;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.wGC_InitialPos_1")]
+        public float GC_InitialPos_1
+        {
+            get { return this.gC_InitialPos_1; }
+            set { this.SetProperty(ref this.gC_InitialPos_1, value); }
+        }
+        private float gC_InitialPos_1;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.wGC_InitialPos_2")]
+        public float GC_InitialPos_2
+        {
+            get { return this.gC_InitialPos_2; }
+            set { this.SetProperty(ref this.gC_InitialPos_2, value); }
+        }
+        private float gC_InitialPos_2;
     }
 }

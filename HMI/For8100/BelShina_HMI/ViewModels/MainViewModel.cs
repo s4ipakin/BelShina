@@ -89,7 +89,7 @@ namespace BelShina_HMI.ViewModels
             {
                 TestTypeDic.Add(testType.Id, testType);
             }
-            //_testType = TestTypes[0];
+            _testType = TestTypes[0];
             //_testType = TestTypeDic[ProcessType];
             Messenger.Default.Register<SentDataTab>(this, Calculate);
 
@@ -103,28 +103,31 @@ namespace BelShina_HMI.ViewModels
                 {
 
                     case 1:
-                        Koef_1 = CalcCoef(dataTab, ST_Force_1, ST_Way_1, HalfForce_1, HalfPos_1);
+                        Koef_1 = CalcCoef(dataTab, this, nameof(ST_Force_1), nameof(ST_Way_1), nameof(HalfForce_1), nameof(HalfPos_1));
                         break;
 
                     case 2:          
-                        Koef_2 = CalcCoef(dataTab, ST_Force_2, ST_Way_2, HalfForce_2, HalfPos_2);
+                        Koef_2 = CalcCoef(dataTab, this, nameof(ST_Force_2), nameof(ST_Way_2), nameof(HalfForce_2), nameof(HalfPos_2));
                         break;
 
                     case 3:
-                        Koef_3 = CalcCoef(dataTab, ST_Force_3, ST_Way_3, HalfForce_3, HalfPos_3);
+                        Koef_3 = CalcCoef(dataTab, this, nameof(ST_Force_3), nameof(ST_Way_3), nameof(HalfForce_3), nameof(HalfPos_3));
                         break;
                 }
             }
                 
         }
 
-        private float CalcCoef(SentDataTab dataTab, float force, float way, float halfForce, float halfWay)
+        private float CalcCoef(SentDataTab dataTab, object targetClass, string forceName, string wayName, string halfForceName, string halfWayName)
         {
+            
             string sForce = dataTab.DataTable.Rows[dataTab.DataTable.Rows.Count - 1][1].ToString();
-            force = (float)(Convert.ToDouble(sForce));
+            float force = (float)(Convert.ToDouble(sForce));
             string sWay = dataTab.DataTable.Rows[dataTab.DataTable.Rows.Count - 1][0].ToString();
-            way = (float)(Convert.ToDouble(sWay));
+            float way = (float)(Convert.ToDouble(sWay));
             float fHalfForce = force / 2;
+            float halfForce = 0f;
+            float halfWay = 0f;
 
             for (int i = 1; i < dataTab.DataTable.Rows.Count; i++)
             {
@@ -136,7 +139,7 @@ namespace BelShina_HMI.ViewModels
                     double dHalfPos = Convert.ToDouble(sHalfPos);
                     string sFirstPos = dataTab.DataTable.Rows[1][0].ToString();
                     double dFirstPos = Convert.ToDouble(sFirstPos);
-                    halfWay = (float)(dHalfPos - dFirstPos);
+                    halfWay = (float)(dHalfPos);
 
                     string sHalfForce = dataTab.DataTable.Rows[i][1].ToString();
                     double dHalfForce = Convert.ToDouble(sHalfForce);
@@ -145,6 +148,15 @@ namespace BelShina_HMI.ViewModels
                 }
             }
             float Kst = (force - halfForce) / (way - halfWay);
+            var forceProp = targetClass.GetType().GetProperty(forceName);
+            forceProp.SetValue(targetClass, force);
+            var wayProp = targetClass.GetType().GetProperty(wayName);
+            wayProp.SetValue(targetClass, way);
+            var halfForceProp = targetClass.GetType().GetProperty(halfForceName);
+            halfForceProp.SetValue(targetClass, halfForce);
+            var halfWayProp = targetClass.GetType().GetProperty(halfWayName);
+            halfWayProp.SetValue(targetClass, halfWay);
+
             return Kst;
         }
 
@@ -697,6 +709,24 @@ namespace BelShina_HMI.ViewModels
         private ushort wProcType_1;
 
 
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rTablePos_1")]
+        public float TablePos_1
+        {
+            get { return this.tablePos_1; }
+            set { this.SetProperty(ref this.tablePos_1, value); }
+        }
+        private float tablePos_1;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rTablePos_2")]
+        public float TablePos_2
+        {
+            get { return this.tablePos_2; }
+            set { this.SetProperty(ref this.tablePos_2, value); }
+        }
+        private float tablePos_2;
+
+
 
 
         #endregion
@@ -784,8 +814,11 @@ namespace BelShina_HMI.ViewModels
         ///////////////////////
         ///
 
+        
+
         private void CreatePDF()
         {
+            #region FillDataTab
             DataTable dataTable = new DataTable();
             dataTable.Columns.Add("Parametr");
             dataTable.Columns.Add("Value");
@@ -886,27 +919,28 @@ namespace BelShina_HMI.ViewModels
             dr19[1] = TestTypeProp.KoefValue;
             dr19[2] = "";
             dataTable.Rows.Add(dr19);
+            #endregion
 
             switch (_testType.Id)
             {
                 case 1:
                     _testType.HalfForceValue = HalfForce_1;
                     _testType.HalfWayValue = HalfPos_1;
-                    _testType.ForceValue = GetForce;
+                    _testType.ForceValue = ST_Force_1;
                     _testType.WayValue = ST_Way_1;
                     _testType.KoefValue = Koef_1;
                     break;
                 case 2:
                     _testType.HalfForceValue = HalfForce_2;
                     _testType.HalfWayValue = HalfPos_2;
-                    _testType.ForceValue = GetForce;
+                    _testType.ForceValue = ST_Force_2;
                     _testType.WayValue = ST_Way_2;
                     _testType.KoefValue = Koef_2;
                     break;
                 case 3:
                     _testType.HalfForceValue = HalfForce_3;
                     _testType.HalfWayValue = HalfPos_3;
-                    _testType.ForceValue = GetForce;
+                    _testType.ForceValue = ST_Force_3;
                     _testType.WayValue = ST_Way_3;
                     _testType.KoefValue = Koef_3;
                     break;
@@ -914,7 +948,7 @@ namespace BelShina_HMI.ViewModels
 
             //try
             //{
-            PDF_Tab pDF_Tab = new PDF_Tab("/Projects/PDF/Invoice/invoice.xml", dataTable, _testType);
+            PDF_Tab pDF_Tab = new PDF_Tab(/*"/Projects/PDF/Invoice/invoice.xml",*/ dataTable, _testType);
                 var document = pDF_Tab.CreateDocument();
                 document.UseCmykColor = true;
                 var pdfRenderer = new PdfDocumentRenderer(true);

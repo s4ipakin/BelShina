@@ -42,17 +42,17 @@ namespace BelShina_HMI.Reports
         /// Initializes a new instance of the class InvoiceForm and opens the specified XML document.
         /// </summary>
         TestType testType;
-        public PDF_Tab(string filename, DataTable dataTable, TestType testType)
+        public PDF_Tab(/*string filename,*/ DataTable dataTable, TestType testType)
         {
             this.dataTable = dataTable;
             this.testType = testType;
             //dataTable.Columns.Add("Parametr");
             //dataTable.Columns.Add("Value");
             //dataTable.Columns.Add("Unit");
-            var invoice = new XmlDocument();
+            //var invoice = new XmlDocument();
             // An XML invoice based on a sample created with Microsoft InfoPath.
-            invoice.Load(filename);
-            _navigator = invoice.CreateNavigator();
+            //invoice.Load(filename);
+            //_navigator = invoice.CreateNavigator();
         }
 
         /// <summary>
@@ -263,7 +263,7 @@ namespace BelShina_HMI.Reports
             const double vat = 0.07;
 
             // Fill the address in the address text frame.
-            var item = SelectItem("/invoice/to");
+            //var item = SelectItem("/invoice/to");
             //var paragraph = _addressFrame.AddParagraph();
             //paragraph.AddText(GetValue(item, "name/singleName"));
             //paragraph.AddLineBreak();
@@ -286,7 +286,7 @@ namespace BelShina_HMI.Reports
             paragraph.AddText("Температура в помещении: " + dataTable.Rows[6][1].ToString() + "°С");
             // Iterate the invoice items.
             double totalExtendedPrice = 0;
-            var iter = _navigator.Select("/invoice/items/*");
+            //var iter = _navigator.Select("/invoice/items/*");
             //while (iter.MoveNext())
             //{
             //    item = iter.Current;
