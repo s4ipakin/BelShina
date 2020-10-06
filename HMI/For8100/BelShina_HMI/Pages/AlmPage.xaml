@@ -46,28 +46,30 @@
     </Page.Resources>
 
     <Grid>
-        
-            <ListView 
+
+        <ListView 
       Name="listView"
+            
       ItemContainerStyle="{StaticResource ItemContStyle}"
-      DataContext="{Binding EventTable}"
-      ItemsSource="{Binding}" Margin="10,10,10,201"           
+      
+      ItemsSource="{Binding EventTable}" Margin="10,10,10,201"
+      SelectedIndex="{Binding SelectedInde1}"          
       >
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="Дата / время" DisplayMemberBinding="{Binding Date}" />
-                        <GridViewColumn Header="Событие" DisplayMemberBinding="{Binding Message}" />
-                        <GridViewColumn Header="Тип" Width="140">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding EntryType}" TextAlignment="Right" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                    </GridView>
-                </ListView.View>
-            </ListView>
-        
+            <ListView.View>
+                <GridView >
+                    <GridViewColumn Header="Дата / время" DisplayMemberBinding="{Binding Date}"/>
+                    <GridViewColumn Header="Событие" DisplayMemberBinding="{Binding Message}" />
+                    <GridViewColumn Header="Тип" Width="140">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding EntryType}" TextAlignment="Right" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
         <Label
             x:Name="label"
             Margin="74,0,0,101"
@@ -92,5 +94,29 @@
                 Command="{Binding ButtonShowCurrentCommand}" 
                 Margin="782,0,684,77" 
                 VerticalAlignment="Bottom"/>
+
+        <Label
+            x:Name="label_2"
+            Margin="89,0,0,101"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Content="{Binding SelectedInde1}" />
+        <TextBox x:Name="TextBox2" Text="{Binding SelectedIndex, ElementName=listView}" Height="36" VerticalAlignment="Bottom" Margin="0,0,10,160" HorizontalAlignment="Right" Width="226"/>
+        <Button 
+            x:Name="button1" 
+            Content="Квитировать" 
+            HorizontalAlignment="Left" 
+            Margin="596,0,0,91" 
+            VerticalAlignment="Bottom" 
+            Command="{Binding ButtonAcknowlage}"
+            Width="75"/>
+        <Button 
+            x:Name="button2" 
+            Content="Очистить историю" 
+            HorizontalAlignment="Right" 
+            Margin="0,0,319,77" 
+            VerticalAlignment="Bottom"
+            Command="{Binding ButtonClear}"
+            Width="75"/>
     </Grid>
 </Page>

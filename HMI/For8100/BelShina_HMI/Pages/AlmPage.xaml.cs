@@ -23,6 +23,9 @@ namespace BelShina_HMI.Pages
         public AlmPage()
         {
             InitializeComponent();
+            
         }
+
+        
     }
 }
