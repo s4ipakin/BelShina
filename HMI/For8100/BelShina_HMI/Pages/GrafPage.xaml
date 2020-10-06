@@ -49,7 +49,7 @@
                     Title="{Binding SeriesName}"
                     LineSmoothness="1"
                     Stroke="Blue"
-                    StrokeThickness="1"
+                    StrokeThickness="3"
                     Values="{Binding ChartValues}" />
             </lvc:CartesianChart.Series>
             <lvc:CartesianChart.AxisY>

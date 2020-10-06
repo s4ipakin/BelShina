@@ -169,6 +169,9 @@
     <Compile Include="Converters\ForceStateConvert.cs" />
     <Compile Include="OPC\ListOfItemsOPC.cs" />
     <Compile Include="OPC\OPC_UA_Client.cs" />
+    <Compile Include="Pages\AlmPage.xaml.cs">
+      <DependentUpon>AlmPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ConturPage.xaml.cs">
       <DependentUpon>ConturPage.xaml</DependentUpon>
     </Compile>
@@ -181,6 +184,7 @@
     <Compile Include="Reports\PDF_Tab.cs" />
     <Compile Include="Reports\ReadWriteCSV.cs" />
     <Compile Include="TabHolder\TabHolder.cs" />
+    <Compile Include="ViewModels\AlmViewModel.cs" />
     <Compile Include="ViewModels\ConturViewModel_1.cs" />
     <Compile Include="ViewModels\ConturViewModel_2.cs" />
     <Compile Include="ViewModels\CycleForceGrafViewModel.cs" />
@@ -207,6 +211,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AlmPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\ConturPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

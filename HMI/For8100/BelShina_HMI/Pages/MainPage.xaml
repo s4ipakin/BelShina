@@ -807,8 +807,8 @@
             Margin="0,0,363,201"
             HorizontalAlignment="Right"
             VerticalAlignment="Bottom"
-            FontSize="16"
             Background="{Binding FS_State, Converter={StaticResource processStateConvertToColor}}"
+            FontSize="16"
             Text="{Binding Path=FS_State, Converter={StaticResource forceStateConvert}}"
             TextWrapping="Wrap"
             Visibility="Visible" />

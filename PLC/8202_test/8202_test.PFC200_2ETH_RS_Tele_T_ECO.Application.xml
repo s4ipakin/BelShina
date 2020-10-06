@@ -36,6 +36,10 @@
   </TypeList>
   <NodeList>
     <Node name="Application">
+      <Node name="HMI_Alm">
+        <Node name="wForceStepAlm" type="T_WORD" access="ReadWrite" />
+        <Node name="xResetAlm" type="T_BOOL" access="ReadWrite" />
+      </Node>
       <Node name="HMI_Process">
         <Node name="rDistance_1" type="T_REAL" access="ReadWrite" />
         <Node name="rDistance_2" type="T_REAL" access="ReadWrite" />

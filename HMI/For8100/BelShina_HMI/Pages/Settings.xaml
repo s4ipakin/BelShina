@@ -16,7 +16,13 @@
     </Page.DataContext>
 
     <Grid>
-        <Border BorderBrush="Black" BorderThickness="1" Margin="36,44,0,89" Background="#FFEAE5CF" HorizontalAlignment="Left" Width="465"/>
+        <Border
+            Width="465"
+            Margin="36,44,0,89"
+            HorizontalAlignment="Left"
+            Background="#FFEAE5CF"
+            BorderBrush="Black"
+            BorderThickness="1" />
 
         <TextBlock
             x:Name="textBlock_Copy2"
@@ -120,8 +126,22 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Text="{Binding SetDeceleration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-        <Border BorderBrush="Black" BorderThickness="1" Margin="516,44,619,0" Background="#FFEAE5CF" Height="318" VerticalAlignment="Top"/>
-        <Border BorderBrush="Black" BorderThickness="1" Margin="0,44,139,0" Background="#FFEAE5CF" HorizontalAlignment="Right" Width="465" Height="318" VerticalAlignment="Top"/>
+        <Border
+            Height="318"
+            Margin="516,44,619,0"
+            VerticalAlignment="Top"
+            Background="#FFEAE5CF"
+            BorderBrush="Black"
+            BorderThickness="1" />
+        <Border
+            Width="465"
+            Height="318"
+            Margin="0,44,139,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Background="#FFEAE5CF"
+            BorderBrush="Black"
+            BorderThickness="1" />
         <TextBlock
             x:Name="textBlock_Copy"
             Width="139"
@@ -252,7 +272,11 @@
             FontSize="18"
             Text="Настройки лазера 2"
             TextWrapping="Wrap" />
-        <Border BorderBrush="Black" BorderThickness="1" Margin="516,390,139,192" Background="#FFEAE5CF"/>
+        <Border
+            Margin="516,390,139,192"
+            Background="#FFEAE5CF"
+            BorderBrush="Black"
+            BorderThickness="1" />
         <TextBlock
             x:Name="textBlock_Copy15"
             Height="24"
@@ -331,10 +355,12 @@
             Text="{Binding K_4, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBox
             Width="120"
+            Height="32"
             Margin="312,363,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Text="{Binding EncoderImpulseCount, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Height="32" d:LayoutOverrides="VerticalAlignment" />
+            Text="{Binding EncoderImpulseCount, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+            d:LayoutOverrides="VerticalAlignment" />
         <TextBlock
             x:Name="textBlock_Copy21"
             Width="213"
@@ -343,73 +369,93 @@
             VerticalAlignment="Top"
             FontSize="16"
             Text="Количество импульсов энкодера на оборот"
-            TextWrapping="Wrap" d:LayoutOverrides="VerticalAlignment" />
+            TextWrapping="Wrap"
+            d:LayoutOverrides="VerticalAlignment" />
         <TextBox
             Width="120"
+            Height="32"
             Margin="312,434,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Text="{Binding ForceSensorScale, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Height="32"  />
+            Text="{Binding ForceSensorScale, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
         <TextBlock
             x:Name="textBlock_Copy22"
             Width="224"
+            Height="87"
             Margin="71,409,0,0"
             HorizontalAlignment="Left"
+            VerticalAlignment="Top"
             FontSize="16"
             Text="Номинальная нагрузка тензодатчика с рабочим коэффиуиентом передачи 2 mV/V, [N]"
-            TextWrapping="Wrap" Height="87" VerticalAlignment="Top" />
+            TextWrapping="Wrap" />
         <TextBox
             Width="120"
+            Height="32"
             Margin="312,517,0,0"
             HorizontalAlignment="Left"
-            Text="{Binding Kforce_Ctcle, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Height="32" VerticalAlignment="Top" />
+            VerticalAlignment="Top"
+            Text="{Binding Kforce_Ctcle, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
         <TextBlock
             x:Name="textBlock_Copy23"
             Width="236"
+            Height="51"
             Margin="71,509,0,0"
             HorizontalAlignment="Left"
+            VerticalAlignment="Top"
             FontSize="16"
             Text="Поправочный коэффициент измерения силы при повороте"
-            TextWrapping="Wrap" Height="51" VerticalAlignment="Top" />
+            TextWrapping="Wrap" />
         <TextBox
             Width="120"
+            Height="32"
             Margin="312,584,0,0"
             HorizontalAlignment="Left"
-            Text="{Binding Kforce_1, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Height="32" VerticalAlignment="Top" />
+            VerticalAlignment="Top"
+            Text="{Binding Kforce_1, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
         <TextBlock
             x:Name="textBlock_Copy20"
             Width="224"
+            Height="66"
             Margin="71,569,0,0"
             HorizontalAlignment="Left"
+            VerticalAlignment="Top"
             FontSize="16"
             Text="Поправочный коэффициент измерения силы при боковом перемещении"
-            TextWrapping="Wrap" Height="66" VerticalAlignment="Top" />
+            TextWrapping="Wrap" />
         <TextBox
             Width="120"
+            Height="32"
             Margin="312,661,0,0"
             HorizontalAlignment="Left"
-            Text="{Binding Kforce_2, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Height="32" VerticalAlignment="Top" />
+            VerticalAlignment="Top"
+            Text="{Binding Kforce_2, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
         <TextBlock
             x:Name="textBlock_Copy24"
             Width="236"
+            Height="70"
             Margin="71,644,0,0"
             HorizontalAlignment="Left"
+            VerticalAlignment="Top"
             FontSize="16"
             Text="Поправочный коэффициент измерения силы при тангенциальном перемещении"
-            TextWrapping="Wrap" Height="70" VerticalAlignment="Top" />
+            TextWrapping="Wrap" />
         <TextBox
             Width="120"
+            Height="32"
             Margin="312,720,0,0"
             HorizontalAlignment="Left"
-            Text="{Binding Radius, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Height="32" VerticalAlignment="Top" />
+            VerticalAlignment="Top"
+            Text="{Binding Radius, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
         <TextBlock
             x:Name="textBlock_Copy25"
             Width="197"
+            Height="32"
             Margin="71,724,0,0"
             HorizontalAlignment="Left"
+            VerticalAlignment="Top"
             FontSize="16"
             Text="Радиус стола, [m]"
-            TextWrapping="Wrap" Height="32" VerticalAlignment="Top" />
+            TextWrapping="Wrap" />
         <TextBlock
             x:Name="textBlock_Copy26"
             Width="223"

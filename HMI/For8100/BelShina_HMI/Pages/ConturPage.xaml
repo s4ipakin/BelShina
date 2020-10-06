@@ -97,6 +97,15 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
             Content="{Binding ST_State_1}" />
+        <Button
+            x:Name="Распечать"
+            Width="212"
+            Height="39"
+            Margin="0,0,270,96"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Click="Print_Click"
+            Content="Печатать" />
 
     </Grid>
 </Page>

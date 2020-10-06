@@ -1,0 +1,96 @@
+﻿<Page x:Class="BelShina_HMI.Pages.AlmPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BelShina_HMI.Pages"
+      xmlns:local1="clr-namespace:BelShina_HMI.ViewModels"
+      xmlns:local2="clr-namespace:BelShina_HMI.Converters"
+      mc:Ignorable="d" 
+      d:DesignHeight="900" d:DesignWidth="1600"
+      Title="AlmPage">
+    <Page.DataContext>
+        <local1:AlmViewModel />
+    </Page.DataContext>
+
+    <Page.Resources>
+        <Style x:Key="ItemContStyle" TargetType="{x:Type ListViewItem}">
+            <Style.Resources>
+                <LinearGradientBrush x:Key="ProfitBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Offset="0.1" Color="#AA00CC00" />
+                    <GradientStop Offset="0.8" Color="#55008800" />
+                </LinearGradientBrush>
+                <LinearGradientBrush x:Key="LossBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Offset="0.1" Color="#AACC0000" />
+                    <GradientStop Offset="0.8" Color="#55880000" />
+                </LinearGradientBrush>
+                <!-- Reduces a customer's Balance to either -1, 0, or +1 -->
+                <local2:EntryTypetoValueConverter x:Key="PolarValueConv" />
+            </Style.Resources>
+
+            <!-- Stretch the content so that we can right-align values 
+           in the Balance column. -->
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+
+            <Style.Triggers>
+                <!-- When a customer owes money, color them green. -->
+                <DataTrigger Binding="{Binding EntryType, Converter={StaticResource PolarValueConv}}" Value="1">
+                    <Setter Property="Background" Value="{StaticResource ProfitBrush}" />
+                </DataTrigger>
+                <!-- When a customer is owed money, color them red. -->
+                <DataTrigger Binding="{Binding EntryType, Converter={StaticResource PolarValueConv}}" Value="0">
+                    <Setter Property="Background" Value="{StaticResource LossBrush}" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        
+            <ListView 
+      Name="listView"
+      ItemContainerStyle="{StaticResource ItemContStyle}"
+      DataContext="{Binding EventTable}"
+      ItemsSource="{Binding}" Margin="10,10,10,201"           
+      >
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Дата / время" DisplayMemberBinding="{Binding Date}" />
+                        <GridViewColumn Header="Событие" DisplayMemberBinding="{Binding Message}" />
+                        <GridViewColumn Header="Тип" Width="140">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding EntryType}" TextAlignment="Right" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        
+        <Label
+            x:Name="label"
+            Margin="74,0,0,101"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Content="{Binding ForceStepAlm}" />
+        <Label
+            x:Name="label_1"
+            Margin="120,0,0,101"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Content="{Binding FS_State}" />
+        <Button x:Name="button" 
+                Content="Прочитать историю"
+                Command="{Binding ButtonShowHystoryCommand}"
+                HorizontalAlignment="Right" 
+                Margin="0,0,521,77" 
+                VerticalAlignment="Bottom" 
+                Width="134"/>
+        <Button x:Name="buttonCurrent" 
+                Content="Текущие"
+                Command="{Binding ButtonShowCurrentCommand}" 
+                Margin="782,0,684,77" 
+                VerticalAlignment="Bottom"/>
+    </Grid>
+</Page>

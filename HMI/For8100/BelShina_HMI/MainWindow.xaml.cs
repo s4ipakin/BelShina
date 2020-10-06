@@ -43,7 +43,8 @@ namespace BelShina_HMI
         GrafPage ConturPage_1;
         GrafPage ConturPage_2;
         ConturPage conturPage;
-        
+        AlmPage almPage;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -66,6 +67,7 @@ namespace BelShina_HMI
             ConturPage_1 = new GrafPage(conturViewModel_1);
             ConturPage_2 = new GrafPage(conturViewModel_2);
             conturPage = new ConturPage();
+            almPage = new AlmPage();
             Main.Content = mainPage;
         }
 
@@ -94,7 +96,7 @@ namespace BelShina_HMI
         }
         private void btnContClk_1(object sender, RoutedEventArgs e)
         {
-            Main.Content = ConturPage_1;
+            Main.Content = conturPage;
         }
         private void btnContClk_2(object sender, RoutedEventArgs e)
         {
@@ -102,7 +104,7 @@ namespace BelShina_HMI
         }
         private void btnAlmClk(object sender, RoutedEventArgs e)
         {
-            Main.Content = conturPage;
+            Main.Content = almPage;
         }
     }
 }
