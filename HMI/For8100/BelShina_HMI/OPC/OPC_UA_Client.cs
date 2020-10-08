@@ -69,7 +69,7 @@ namespace BelShina_HMI.OPC
                     {
                         itemDict.Add(names[i], readResult.Results[i].Value.ToString());
                     }
-                   // MessageBox.Show(itemDict["Application.HMI_Stepper.rLS_RealPos_1"]);
+                    //MessageBox.Show(itemDict["Application.HMI_Stepper.rLS_RealPos_1"]);
 
                 }
                 catch (Exception ex) { MessageBox.Show(ex.Message); }

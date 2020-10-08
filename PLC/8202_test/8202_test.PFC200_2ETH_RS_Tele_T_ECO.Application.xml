@@ -46,6 +46,8 @@
         <Node name="rKforce_1" type="T_REAL" access="ReadWrite" />
         <Node name="rKforce_2" type="T_REAL" access="ReadWrite" />
         <Node name="rKforce_Ctcle" type="T_REAL" access="ReadWrite" />
+        <Node name="rLaserData_1" type="T_REAL" access="ReadWrite" />
+        <Node name="rLaserData_2" type="T_REAL" access="ReadWrite" />
         <Node name="rLaserDistance_1" type="T_REAL" access="ReadWrite" />
         <Node name="rLaserDistance_2" type="T_REAL" access="ReadWrite" />
         <Node name="rRadius" type="T_REAL" access="ReadWrite" />
@@ -62,6 +64,8 @@
         <Node name="rST_Way_1" type="T_REAL" access="ReadWrite" />
         <Node name="rST_Way_2" type="T_REAL" access="ReadWrite" />
         <Node name="rST_Way_3" type="T_REAL" access="ReadWrite" />
+        <Node name="rStepPos_1" type="T_REAL" access="ReadWrite" />
+        <Node name="rStepPos_2" type="T_REAL" access="ReadWrite" />
         <Node name="rTablePos_1" type="T_REAL" access="ReadWrite" />
         <Node name="rTablePos_2" type="T_REAL" access="ReadWrite" />
         <Node name="wGC_Distance_1" type="T_WORD" access="ReadWrite" />
@@ -115,8 +119,11 @@
         <Node name="rFS_SetForce" type="T_REAL" access="ReadWrite" />
         <Node name="rLS_RealPos_1" type="T_REAL" access="ReadWrite" />
         <Node name="rLS_RealPos_2" type="T_REAL" access="ReadWrite" />
+        <Node name="rReductCoef" type="T_REAL" access="ReadWrite" />
+        <Node name="rStepAngleForce" type="T_REAL" access="ReadWrite" />
         <Node name="ScrewStep_1" type="T_REAL" access="ReadWrite" />
         <Node name="ScrewStep_2" type="T_REAL" access="ReadWrite" />
+        <Node name="ScrewStepForce" type="T_REAL" access="ReadWrite" />
         <Node name="StepAngle_1" type="T_REAL" access="ReadWrite" />
         <Node name="StepAngle_2" type="T_REAL" access="ReadWrite" />
         <Node name="wFS_ActualPos" type="T_DWORD" access="ReadWrite" />

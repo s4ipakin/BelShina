@@ -162,6 +162,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Chart\ConturApprox.cs" />
     <Compile Include="Chart\GrafSeries.cs" />
     <Compile Include="Chart\GrafType.cs" />
     <Compile Include="Chart\MeasureModel.cs" />
@@ -196,6 +197,7 @@
     <Compile Include="ViewModels\RelayCommand .cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\TestType.cs" />
+    <Compile Include="ViewModels\ValuePair.cs" />
     <Compile Include="ViewModels\VerticalConturViewModer.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />

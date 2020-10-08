@@ -138,16 +138,7 @@ namespace BelShina_HMI.ViewModels
             set { tbl = value; }
         }
 
-        public DataRow SelectedRow
-        {
-            get { return iSelectedRow; }
-            set
-            {
-                
-                iSelectedRow = value;
-            }
-        }
-        private DataRow iSelectedRow = null;
+        
 
         [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.wFS_State")]
         public ushort FS_State

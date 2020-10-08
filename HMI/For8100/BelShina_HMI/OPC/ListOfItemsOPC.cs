@@ -19,7 +19,11 @@ namespace BelShina_HMI.OPC
             "Application.HMI_Process.rLaserDistance_1",
             "Application.HMI_Process.rLaserDistance_2",
             "Application.HMI_Process.rDistance_1",
-            "Application.HMI_Process.rDistance_2"
+            "Application.HMI_Process.rDistance_2",
+            "Application.HMI_Process.rStepPos_2",
+            "Application.HMI_Process.rLaserData_2",
+            "Application.HMI_Process.rStepPos_1",
+            "Application.HMI_Process.rLaserData_1"
         };
 
         public List<string> GetOPCitems()
