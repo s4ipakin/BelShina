@@ -173,7 +173,7 @@ namespace BelShina_HMI.Converters
                 case 4:
                     return (Brush)bc.ConvertFrom("#FFA8F9A0");
                 case 5:
-                    return (Brush)bc.ConvertFrom("#FF1CF307"); // #FF1CF307
+                    return (Brush)bc.ConvertFrom("#FFA8F9A0"); // #FF1CF307
                 case 6:
                      // #FFD9F5F7
                 case 7:
@@ -320,7 +320,7 @@ namespace BelShina_HMI.Converters
                 case 4:
                     return (Brush)bc.ConvertFrom("#FFA8F9A0");
                 case 5:
-                    return (Brush)bc.ConvertFrom("#FF1CF307"); // #FF1CF307
+                    return (Brush)bc.ConvertFrom("#FFA8F9A0"); // #FF1CF307
                 case 6:
                 // #FFD9F5F7
                 case 7:

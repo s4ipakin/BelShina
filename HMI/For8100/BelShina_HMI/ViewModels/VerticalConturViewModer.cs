@@ -25,7 +25,15 @@ namespace BelShina_HMI.ViewModels
                 {
                     SaveToCSV(true, "Профиль", "Before Laser 1", "Before Laser 2", "After Laser 1", "After Laser 2");
                 }
-                return this.gT_State_1; 
+                if (gT_State_1 == 4)
+                {
+                    doAfter = true;
+                }
+                if (gT_State_1 == 8)
+                {
+                    doAfter = false;
+                }
+                    return this.gT_State_1; 
             }
             set { this.SetProperty(ref this.gT_State_1, value); }
         }
@@ -91,8 +99,10 @@ namespace BelShina_HMI.ViewModels
                     if (/*conturApprox_1.Check(lS_RealPos_1, LaserDistance_1)*/true)
                     {
                         List<ValuePair> values = new List<ValuePair>();
-                        values = GetApproxValues("Application.HMI_Process.rStepPos_1", "Application.HMI_Process.rLaserData_1", conturApprox_1);
-                        SetValues(ST_State_1, ValuesBefore1, ValuesAfter1, values);
+                        //values = GetApproxValues("Application.HMI_Process.rStepPos_1", "Application.HMI_Process.rLaserData_1", conturApprox_1);
+                        values = conturApprox_1.GetPoints(StepPos_1, LaserData_1);
+                        
+                        SetValues(ValuesBefore1, ValuesAfter1, ChartValuesBefore1, ChartValuesAfter1, values);
                         WriteBool("Application.HMI_Process.xReadOPC_1", false);
                     }
                     
@@ -115,8 +125,9 @@ namespace BelShina_HMI.ViewModels
                     if(/*conturApprox_2.Check(lS_RealPos_2, LaserDistance_2)*/true)
                     {
                         List<ValuePair> values = new List<ValuePair>();
-                        values = GetApproxValues("Application.HMI_Process.rStepPos_2", "Application.HMI_Process.rLaserData_2", conturApprox_2);
-                        SetValues(ST_State_1, ValuesBefore2, ValuesAfter2, values);
+                        //values = GetApproxValues("Application.HMI_Process.rStepPos_2", "Application.HMI_Process.rLaserData_2", conturApprox_2);
+                        values = conturApprox_2.GetPoints(StepPos_2, LaserData_2);
+                        SetValues(ValuesBefore2, ValuesAfter2, ChartValuesBefore2, ChartValuesAfter2, values);
                         WriteBool("Application.HMI_Process.xReadOPC_2", false);
                     }
                     
@@ -138,7 +149,7 @@ namespace BelShina_HMI.ViewModels
                 if (this.curveStarted_1)
                 {
                     conturApprox_1.Reset();
-                    ClearCurves(ST_State_1, ValuesBefore1, ValuesAfter1);
+                    ClearCurves(ST_State_1, ValuesBefore1, ValuesAfter1, ChartValuesBefore1, ChartValuesAfter1);
                     WriteBool("Application.HMI_Process.xCurveStarted_1", false);
                 }
                 return this.curveStarted_1;
@@ -158,7 +169,7 @@ namespace BelShina_HMI.ViewModels
                 if (this.curveStarted_2)
                 {
                     conturApprox_2.Reset();
-                    ClearCurves(ST_State_1, ValuesBefore2, ValuesAfter2);
+                    ClearCurves(ST_State_1, ValuesBefore2, ValuesAfter2, ChartValuesBefore2, ChartValuesAfter2);
                     WriteBool("Application.HMI_Process.xCurveStarted_2", false);
                 }
                 return this.curveStarted_2; 
@@ -168,7 +179,42 @@ namespace BelShina_HMI.ViewModels
         private bool curveStarted_2;
 
 
-        
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rStepPos_1")]
+        public float StepPos_1
+        {
+            get { return this.stepPos_1; }
+            set { this.SetProperty(ref this.stepPos_1, value); }
+        }
+        private float stepPos_1;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rStepPos_2")]
+        public float StepPos_2
+        {
+            get { return this.stepPos_2; }
+            set { this.SetProperty(ref this.stepPos_2, value); }
+        }
+        private float stepPos_2;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rLaserData_1")]
+        public float LaserData_1
+        {
+            get { return this.laserData_1; }
+            set { this.SetProperty(ref this.laserData_1, value); }
+        }
+        private float laserData_1;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rLaserData_2")]
+        public float LaserData_2
+        {
+            get { return this.laserData_2; }
+            set { this.SetProperty(ref this.laserData_2, value); }
+        }
+        private float laserData_2;
+
 
         protected int run1 = 0;
         protected int run2 = 0;
@@ -178,6 +224,12 @@ namespace BelShina_HMI.ViewModels
         public ChartValues<double> ValuesBefore2 { get; set; }
         public ChartValues<double> ValuesAfter1 { get; set; }
         public ChartValues<double> ValuesAfter2 { get; set; }
+
+        public ChartValues<MeasureModel> ChartValuesBefore1 { get; set; }
+        public ChartValues<MeasureModel> ChartValuesBefore2 { get; set; }
+        public ChartValues<MeasureModel> ChartValuesAfter1 { get; set; }
+        public ChartValues<MeasureModel> ChartValuesAfter2 { get; set; }
+        //public ChartValues<MeasureModel> ChartValues { get; set; }
 
 
         //ListOfItemsOPC listOfItemsOPC = new ListOfItemsOPC();
@@ -194,6 +246,11 @@ namespace BelShina_HMI.ViewModels
             ValuesBefore2 = new ChartValues<double>();
             ValuesAfter1 = new ChartValues<double>();
             ValuesAfter2 = new ChartValues<double>();
+            ChartValuesBefore1 = new ChartValues<MeasureModel>();
+            ChartValuesBefore2 = new ChartValues<MeasureModel>();
+            ChartValuesAfter1 = new ChartValues<MeasureModel>();
+            ChartValuesAfter2 = new ChartValues<MeasureModel>();
+            //ChartValues = new ChartValues<MeasureModel>();
             conturGrafSet = new ConturGrafSet();
             YaxesName = conturGrafSet.yAxesName;
             XaxesName = conturGrafSet.xAxesName;
@@ -266,7 +323,7 @@ namespace BelShina_HMI.ViewModels
             }
         }
 
-        protected void ClearCurves(ushort procState, ChartValues<double> valuesBefore, ChartValues<double> valuesAfter)
+        protected void ClearCurves(ushort procState, ChartValues<double> valuesBefore, ChartValues<double> valuesAfter, ChartValues<MeasureModel> chartValuesBefore, ChartValues<MeasureModel> chartValuesAfter)
         {           
             switch(procState)
             {
@@ -274,37 +331,56 @@ namespace BelShina_HMI.ViewModels
                 case 3:
                 case 4:
                     valuesAfter.Clear();
+                    chartValuesAfter.Clear();
                     break;
                 case 8:
                     valuesBefore.Clear();
+                    chartValuesBefore.Clear();
                     break;
                 default:
                     valuesAfter.Clear();
                     valuesBefore.Clear();
+                    chartValuesAfter.Clear();
+                    chartValuesBefore.Clear();
                     break;
             }
 
         }
+        bool doAfter = false;
+        
 
-        protected void SetValues(ushort procState, ChartValues<double> valuesBefore, ChartValues<double> valuesAfter, List<ValuePair> approxValues)
+        protected void SetValues(ChartValues<double> valuesBefore, ChartValues<double> valuesAfter, ChartValues<MeasureModel> chartValuesBefore,
+                                    ChartValues<MeasureModel> chartValuesAfter, List<ValuePair> approxValues)
         {
             
             
-            if (procState == 4)
+            if (!doAfter)
+            {
+                for (int i = 0; i < approxValues.Count; i++)
+                {
+                    valuesBefore.Add(approxValues[i].LaserDistance);
+                    
+                }
+                //chartValuesBefore.Add(approxValues[approxValues.Count - 1].LaserDistance);
+                chartValuesBefore.Add(new MeasureModel
+                {
+                    ValueX = Convert.ToDouble(approxValues[approxValues.Count - 1].LaserDistance),
+                    ValueY = Convert.ToDouble(approxValues[approxValues.Count - 1].StepDistance)
+                });
+
+            }
+            else 
             {
                 for (int i = 0; i < approxValues.Count; i++)
                 {
                     valuesAfter.Add(approxValues[i].LaserDistance);
                 }
-                
-            }
-            else
-            {
-                for (int i = 0; i < approxValues.Count; i++)
+                //chartValuesAfter.Add(approxValues[approxValues.Count - 1].LaserDistance);
+                chartValuesAfter.Add(new MeasureModel
                 {
-                    valuesBefore.Add(approxValues[i].LaserDistance);
-                }
-                    
+                    ValueX = Convert.ToDouble(approxValues[approxValues.Count - 1].LaserDistance),
+                    ValueY = Convert.ToDouble(approxValues[approxValues.Count - 1].StepDistance)
+                });
             }
         }
 
@@ -339,6 +415,7 @@ namespace BelShina_HMI.ViewModels
                 System.IO.Directory.CreateDirectory(path);
                 ReadWriteCSV readWriteCSV = new ReadWriteCSV(path + day + "_" + month + "_" + year + "_" + hour + "_" + minute + "_" + name + ".csv");
                 readWriteCSV.WriteToCSV("Height", column1, column2, column3, column4);
+                //MessageBox.Show(ValuesBefore1.Count.ToString());
                 for (int i = 0; i < ValuesBefore1.Count; i++)
                 {
                     if (i < ValuesAfter1.Count)

@@ -16,29 +16,30 @@
     </Page.DataContext>
 
     <Grid>
-        <lvc:CartesianChart x:Name="Chart_P" Margin="0,0,0,202">
+        <lvc:CartesianChart x:Name="Chart_P" Margin="0,32,0,228" DisableAnimations="True">
             <lvc:CartesianChart.Series>
                 <!--<lvc:RowSeries Values="{Binding Values2}" Panel.ZIndex="1"></lvc:RowSeries>-->
                 <lvc:VerticalLineSeries
                     Panel.ZIndex="0"
                     Fill="Transparent"
                     Stroke="Black"
-                    Values="{Binding ValuesBefore1}" />
+                    PointGeometrySize="2"
+                    Values="{Binding ChartValuesBefore1}" />
                 <lvc:VerticalLineSeries
                     Panel.ZIndex="1"
                     Fill="Transparent"
                     Stroke="Blue"
-                    Values="{Binding ValuesAfter1}" />
+                    Values="{Binding ChartValuesAfter1}" />
                 <lvc:VerticalLineSeries
                     Panel.ZIndex="0"
                     Fill="Transparent"
                     Stroke="Black"
-                    Values="{Binding ValuesBefore2}" />
+                    Values="{Binding ChartValuesBefore2}" />
                 <lvc:VerticalLineSeries
                     Panel.ZIndex="1"
                     Fill="Transparent"
                     Stroke="Blue"
-                    Values="{Binding ValuesAfter2}" />
+                    Values="{Binding ChartValuesAfter2}" />
             </lvc:CartesianChart.Series>
             <lvc:CartesianChart.AxisY>
                 <lvc:Axis
@@ -46,7 +47,7 @@
                     FontSize="16"
                     FontWeight="Black">
                     <lvc:Axis.Separator>
-                        <lvc:Separator Step="1" />
+                        <lvc:Separator Step="10" />
                     </lvc:Axis.Separator>
                 </lvc:Axis>
             </lvc:CartesianChart.AxisY>
@@ -56,7 +57,11 @@
                     FontSize="16"
                     FontWeight="Black"
                     LabelsRotation="-90"
-                    MinValue="0" />
+                    MinValue="0" >
+                    <lvc:Axis.Separator>
+                        <lvc:Separator Step="10" />
+                    </lvc:Axis.Separator>
+                </lvc:Axis>
             </lvc:CartesianChart.AxisX>
             <lvc:CartesianChart.DataTooltip>
                 <lvc:DefaultTooltip SelectionMode="SharedYValues" />
@@ -97,6 +102,30 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
             Content="{Binding ST_State_1}" />
+        <Label
+            x:Name="labe2"
+            Margin="74,0,0,125"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Content="{Binding LaserData_1}" />
+        <Label
+            x:Name="labe3"
+            Margin="49,0,0,160"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Content="{Binding LaserData_3}" />
+        <Label
+            x:Name="labe4"
+            Margin="74,0,0,160"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Content="{Binding StepPos_1}" />
+        <Label
+            x:Name="labe5"
+            Margin="112,0,0,160"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Content="{Binding StepPos_2}" />
         <Button
             x:Name="Распечать"
             Width="212"

@@ -727,6 +727,44 @@ namespace BelShina_HMI.ViewModels
         private float tablePos_2;
 
 
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.xGC_Start_1")]
+        public bool GC_Start_1
+        {
+            get { return this.gC_Start_1; }
+            set { this.SetProperty(ref this.gC_Start_1, value); }
+        }
+        private bool gC_Start_1;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.wGC_EndPos_1")]
+        public virtual ushort GC_EndPos_1
+        {
+            get { return this.gC_EndPos_1; }
+            set { this.SetProperty(ref this.gC_EndPos_1, value); }
+        }
+
+        private ushort gC_EndPos_1;
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.wTyreSizeFirst")]
+        public virtual ushort TyreSizeFirst
+        {
+            get { return this.tyreSizeFirst; }
+            set { this.SetProperty(ref this.tyreSizeFirst, value); }
+        }
+
+        private ushort tyreSizeFirst;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.wTyreSizeAfter")]
+        public virtual ushort TyreSizeAfter
+        {
+            get { return this.tyreSizeAfter; }
+            set { this.SetProperty(ref this.tyreSizeAfter, value); }
+        }
+
+        private ushort tyreSizeAfter;
+
+
 
 
         #endregion

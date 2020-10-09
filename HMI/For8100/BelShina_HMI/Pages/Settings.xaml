@@ -250,27 +250,27 @@
 
         <TextBlock
             x:Name="textBlock_Copy15"
-            Height="24"
-            Margin="46,0,0,314"
-            VerticalAlignment="Bottom"
+            Height="32"
+            Margin="46,540,0,0"
+            VerticalAlignment="Top"
             FontSize="18"
             Text="Настройки коэффициентов измерителей расстояния"
             TextWrapping="Wrap" HorizontalAlignment="Left" Width="442" />
         <TextBlock
             x:Name="textBlock_Copy16"
             Width="139"
-            Margin="82,0,0,269"
+            Margin="82,579,0,0"
             HorizontalAlignment="Left"
             FontSize="16"
             Text="Линейка 1"
-            TextWrapping="Wrap" Height="24" VerticalAlignment="Bottom" />
+            TextWrapping="Wrap" Height="24" VerticalAlignment="Top" />
         <TextBlock
             x:Name="textBlock_Copy17"
             Width="139"
             Height="24"
-            Margin="82,0,0,221"
+            Margin="82,622,0,0"
             HorizontalAlignment="Left"
-            VerticalAlignment="Bottom"
+            VerticalAlignment="Top"
             FontSize="16"
             Text="Линейка 2"
             TextWrapping="Wrap" />
@@ -278,47 +278,45 @@
             x:Name="textBlock_Copy18"
             Width="154"
             Height="24"
-            Margin="82,0,0,169"
+            Margin="82,665,0,0"
             HorizontalAlignment="Left"
-            VerticalAlignment="Bottom"
+            VerticalAlignment="Top"
             FontSize="16"
             Text="Лазерный датчик 1"
             TextWrapping="Wrap" />
         <TextBox
             Width="120"
-            Margin="323,0,0,261"
+            Margin="323,575,0,0"
             HorizontalAlignment="Left"
-            Text="{Binding K_1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="32" VerticalAlignment="Bottom" />
+            Text="{Binding K_1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="32" VerticalAlignment="Top" />
         <TextBox
             Width="120"
             Height="32"
-            Margin="323,0,0,213"
+            Margin="323,617,0,0"
             HorizontalAlignment="Left"
-            VerticalAlignment="Bottom"
+            VerticalAlignment="Top"
             Text="{Binding K_2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBox
             Width="120"
-            Height="32"
-            Margin="323,0,0,161"
+            Margin="323,660,0,0"
             HorizontalAlignment="Left"
-            VerticalAlignment="Bottom"
-            Text="{Binding K_3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            Text="{Binding K_3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="32" VerticalAlignment="Top" />
         <TextBlock
             x:Name="textBlock_Copy19"
             Width="154"
             Height="24"
-            Margin="82,0,0,119"
+            Margin="82,705,0,175"
             HorizontalAlignment="Left"
-            VerticalAlignment="Bottom"
+            VerticalAlignment="Top"
             FontSize="16"
             Text="Лазерный датчик 2"
             TextWrapping="Wrap" />
         <TextBox
             Width="120"
             Height="32"
-            Margin="323,0,0,111"
+            Margin="323,700,0,167"
             HorizontalAlignment="Left"
-            VerticalAlignment="Bottom"
+            VerticalAlignment="Top"
             Text="{Binding K_4, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBox
             Width="120"
@@ -460,32 +458,50 @@
         <TextBlock
             x:Name="textBlock_Copy28"
             Width="223"
-            Margin="82,0,0,426"
+            Margin="82,450,0,0"
             HorizontalAlignment="Left"
             FontSize="16"
             Text="Начальное положение, [мм]"
-            TextWrapping="Wrap" Height="24" VerticalAlignment="Bottom" />
+            TextWrapping="Wrap" Height="24" VerticalAlignment="Top" />
         <TextBox
             Width="120"
-            Margin="323,446,0,422"
+            Margin="323,446,0,0"
             HorizontalAlignment="Left"
-            Text="{Binding GC_InitialPos_2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            VerticalAlignment="Top"
+            Text="{Binding GC_InitialPos_2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="30" />
         <TextBlock
             x:Name="textBlock_Copy29"
             Width="223"
             Height="24"
-            Margin="82,0,0,382"
+            Margin="82,495,0,0"
             HorizontalAlignment="Left"
-            VerticalAlignment="Bottom"
+            VerticalAlignment="Top"
             FontSize="16"
             Text="Шаг резьбы, [мм]"
             TextWrapping="Wrap" />
         <TextBox
             Width="120"
             Height="32"
-            Margin="323,0,0,378"
+            Margin="323,490,0,0"
             HorizontalAlignment="Left"
-            VerticalAlignment="Bottom"
+            VerticalAlignment="top"
             Text="{Binding ScrewStep_2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBlock
+            x:Name="textBlock_Copy30"
+            Width="223"
+            Height="24"
+            Margin="82,745,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="Расстояние между лазерами"
+            TextWrapping="Wrap" />
+        <TextBox
+            Width="120"
+            Height="32"
+            Margin="323,740,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Text="{Binding DistanceBetweenLasers, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
     </Grid>
 </Page>

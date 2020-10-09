@@ -623,17 +623,19 @@
             TextWrapping="Wrap" />
         <Border
             Width="736"
-            Margin="0,412,14,186"
+            Margin="0,537,14,0"
+            Height="262"
             HorizontalAlignment="Right"
+            VerticalAlignment="Top"
             Background="#FFEAE5CF"
             BorderBrush="Black"
             BorderThickness="1" />
         <TextBlock
             Width="92"
             Height="32"
-            Margin="0,0,28,292"
+            Margin="0,660,28,0"
             HorizontalAlignment="Right"
-            VerticalAlignment="Bottom"
+            VerticalAlignment="Top"
             Background="#FFF1E8E8"
             FontSize="14"
             OpacityMask="#FF080808"
@@ -642,9 +644,9 @@
             x:Name="checkBox_Copy4"
             Width="86"
             Height="84"
-            Margin="0,0,616,328"
+            Margin="0,585,616,0"
             HorizontalAlignment="Right"
-            VerticalAlignment="Bottom"
+            VerticalAlignment="top"
             Content=""
             IsChecked="{Binding Start, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             RenderTransformOrigin="0.478,0.536"
@@ -654,9 +656,9 @@
             x:Name="checkBox1_Copy"
             Width="86"
             Height="84"
-            Margin="0,0,490,328"
+            Margin="0,585,490,0"
             HorizontalAlignment="Right"
-            VerticalAlignment="Bottom"
+            VerticalAlignment="Top"
             Content=""
             IsChecked="{Binding Release, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             Style="{StaticResource myCheckboxStyle}"
@@ -665,9 +667,9 @@
             x:Name="textBlock_Copy22"
             Width="62"
             Height="24"
-            Margin="0,0,296,298"
+            Margin="0,665,296,0"
             HorizontalAlignment="Right"
-            VerticalAlignment="Bottom"
+            VerticalAlignment="Top"
             FontSize="16"
             Text="Угол"
             TextWrapping="Wrap" />
@@ -675,9 +677,9 @@
             x:Name="textBlock_Copy23"
             Width="190"
             Height="33"
-            Margin="0,0,542,246"
+            Margin="0,705,542,0"
             HorizontalAlignment="Right"
-            VerticalAlignment="Bottom"
+            VerticalAlignment="Top"
             FontSize="16"
             Text="Измерянная сила, [H]"
             TextWrapping="Wrap" />
@@ -685,9 +687,9 @@
             x:Name="textBlock_Copy26"
             Width="150"
             Height="24"
-            Margin="0,0,580,297"
+            Margin="0,665,580,0"
             HorizontalAlignment="Right"
-            VerticalAlignment="Bottom"
+            VerticalAlignment="Top"
             FontSize="16"
             Text="Заданная сила, [H]"
             TextWrapping="Wrap" />
@@ -695,9 +697,9 @@
             x:Name="textBlock_Copy27"
             Width="138"
             Height="24"
-            Margin="0,0,568,386"
+            Margin="0,585,568,0"
             HorizontalAlignment="Right"
-            VerticalAlignment="Bottom"
+            VerticalAlignment="top"
             FontSize="16"
             Text="Применить силу"
             TextWrapping="Wrap" />
@@ -705,9 +707,9 @@
             x:Name="textBlock_Copy30"
             Width="88"
             Height="24"
-            Margin="0,0,480,386"
+            Margin="0,585,480,0"
             HorizontalAlignment="Right"
-            VerticalAlignment="Bottom"
+            VerticalAlignment="Top"
             FontSize="16"
             Text="Отпустить"
             TextWrapping="Wrap" />
@@ -715,9 +717,9 @@
             x:Name="checkBox_Copy5"
             Width="86"
             Height="84"
-            Margin="0,0,226,324"
+            Margin="0,585,226,0"
             HorizontalAlignment="Right"
-            VerticalAlignment="Bottom"
+            VerticalAlignment="Top"
             Content=""
             IsChecked="{Binding JogLeft, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             RenderTransformOrigin="0.478,0.536"
@@ -726,9 +728,9 @@
             x:Name="textBlock_Copy31"
             Width="140"
             Height="24"
-            Margin="0,0,192,386"
+            Margin="0,585,192,0"
             HorizontalAlignment="Right"
-            VerticalAlignment="Bottom"
+            VerticalAlignment="Top"
             FontSize="16"
             Text="Прямое усилие"
             TextWrapping="Wrap" />
@@ -736,9 +738,9 @@
             x:Name="textBlock_Copy32"
             Width="150"
             Height="24"
-            Margin="0,0,36,386"
+            Margin="0,585,36,0"
             HorizontalAlignment="Right"
-            VerticalAlignment="Bottom"
+            VerticalAlignment="Top"
             FontSize="16"
             Text="Обратное усилие"
             TextWrapping="Wrap" />
@@ -746,9 +748,9 @@
             x:Name="checkBox_Copy8"
             Width="86"
             Height="84"
-            Margin="0,0,100,324"
+            Margin="0,585,100,0"
             HorizontalAlignment="Right"
-            VerticalAlignment="Bottom"
+            VerticalAlignment="Top"
             Content=""
             IsChecked="{Binding JogRight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             RenderTransformOrigin="0.478,0.536"
@@ -756,9 +758,9 @@
         <TextBox
             Width="120"
             Height="32"
-            Margin="0,0,448,289"
+            Margin="0,660,448,0"
             HorizontalAlignment="Right"
-            VerticalAlignment="Bottom"
+            VerticalAlignment="Top"
             Text="{Binding SetForce, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBlock
             Width="86"
@@ -783,9 +785,9 @@
         <TextBlock
             Width="120"
             Height="32"
-            Margin="0,0,448,248"
+            Margin="0,705,448,0"
             HorizontalAlignment="Right"
-            VerticalAlignment="Bottom"
+            VerticalAlignment="Top"
             Background="#FFF1E8E8"
             RenderTransformOrigin="0.489,0.573"
             Text="{Binding GetForce, Mode=OneWay}" />
@@ -793,9 +795,9 @@
             x:Name="textBlock_Copy1"
             Width="150"
             Height="24"
-            Margin="0,0,580,201"
+            Margin="0,745,580,0"
             HorizontalAlignment="Right"
-            VerticalAlignment="Bottom"
+            VerticalAlignment="Top"
             FontSize="16"
             Text="Состояние:"
             TextWrapping="Wrap" />
@@ -804,9 +806,9 @@
             x:Name="textBlock_Copy112"
             Width="263"
             Height="24"
-            Margin="0,0,363,201"
+            Margin="0,745,363,0"
             HorizontalAlignment="Right"
-            VerticalAlignment="Bottom"
+            VerticalAlignment="Top"
             Background="{Binding FS_State, Converter={StaticResource processStateConvertToColor}}"
             FontSize="16"
             Text="{Binding Path=FS_State, Converter={StaticResource forceStateConvert}}"
@@ -816,18 +818,18 @@
             x:Name="textBlock_Copy"
             Width="242"
             Height="24"
-            Margin="0,0,116,256"
+            Margin="0,705,116,0"
             HorizontalAlignment="Right"
-            VerticalAlignment="Bottom"
+            VerticalAlignment="Top"
             FontSize="16"
             Text="Поперечное положение, [mm]"
             TextWrapping="Wrap" />
         <TextBlock
             Width="92"
             Height="32"
-            Margin="0,0,28,252"
+            Margin="0,705,28,0"
             HorizontalAlignment="Right"
-            VerticalAlignment="Bottom"
+            VerticalAlignment="Top"
             Background="#FFF1E8E8"
             FontSize="14"
             OpacityMask="#FF080808"
@@ -836,18 +838,18 @@
             x:Name="textBlock_Copy8"
             Width="242"
             Height="24"
-            Margin="0,0,116,216"
+            Margin="0,745,116,0"
             HorizontalAlignment="Right"
-            VerticalAlignment="Bottom"
+            VerticalAlignment="Top"
             FontSize="16"
             Text="Продольное положение, [mm]"
             TextWrapping="Wrap" />
         <TextBlock
             Width="92"
             Height="32"
-            Margin="0,0,28,214"
+            Margin="0,745,28,0"
             HorizontalAlignment="Right"
-            VerticalAlignment="Bottom"
+            VerticalAlignment="top"
             Background="#FFF1E8E8"
             FontSize="14"
             OpacityMask="#FF080808"
@@ -856,11 +858,11 @@
         <TextBlock
             x:Name="textBlock_Copy9"
             Width="202"
-            Margin="0,420,268,0"
+            Margin="0,540,268,0"
             HorizontalAlignment="Right"
             FontSize="20"
             Text="Положение стола"
-            TextWrapping="Wrap" />
+            TextWrapping="Wrap" VerticalAlignment="Top" />
         <Border
             Width="753"
             Height="316"
@@ -969,7 +971,7 @@
             Margin="562,137,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Text="{Binding TireSize, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            Text="{Binding TyreSizeFirst, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBlock
             x:Name="textBlock_Copy35"
             Width="130"
@@ -1121,21 +1123,21 @@
         <TextBlock
             Width="86"
             Height="32"
-            Margin="0,0,664,149"
-            HorizontalAlignment="Right"
+            Margin="703,0,0,240"
+            HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
             Background="#FFF1E8E8"
             FontSize="14"
             OpacityMask="#FF080808"
             Text="{Binding ProcessState, Mode=OneWay}"
-            Visibility="Visible" />
+            Visibility="Hidden" />
         <TextBox
             Width="120"
             Height="32"
             Margin="562,173,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Text="{Binding TireSize, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            Text="{Binding TyreSizeAfter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBlock
             x:Name="textBlock_Copy39"
             Width="170"
@@ -1147,14 +1149,63 @@
             RenderTransformOrigin="0.489,1.083"
             Text="Размер шины под нагрузкой"
             TextWrapping="Wrap" />
-        <Rectangle
-            Width="81"
-            Height="33"
-            Margin="41,356,0,0"
-            HorizontalAlignment="Left"
+        
+        <Border
+            Width="736"
+            Margin="0,403,14,0"
+            Height="125"
+            HorizontalAlignment="Right"
             VerticalAlignment="Top"
-            Fill="#FFE8FFE7"
-            Stroke="Black" />
+            Background="#FFEAE5CF"
+            BorderBrush="Black"
+            BorderThickness="1" />
+        <TextBlock
+            x:Name="textBlock_Copy40"
+            Width="150"
+            Margin="0,405,300,0"
+            HorizontalAlignment="Right"
+            FontSize="20"
+            Text="Сканирование"
+            TextWrapping="Wrap" VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment" />
+        <CheckBox
+            x:Name="checkBox_Copy1"
+            Width="86"
+            Height="84"
+            Margin="0,442,616,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="top"
+            Content=""
+            IsChecked="{Binding GC_Start_1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            RenderTransformOrigin="0.478,0.536"
+            Style="{StaticResource myCheckboxStyle}"
+    d:LayoutOverrides="Height" />
+        <TextBox
+            Width="120"
+            Height="32"
+            Margin="0,478,127,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Text="{Binding GC_EndPos_1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBlock
+            x:Name="textBlock_Copy41"
+            Width="172"
+            Height="24"
+            Margin="0,442,94,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="Высота профиля, [мм]"
+            TextWrapping="Wrap" />
+        <TextBlock
+            x:Name="textBlock_Copy42"
+            Width="106"
+            Height="24"
+            Margin="0,442,595,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="Сканировать"
+            TextWrapping="Wrap" />
 
 
 

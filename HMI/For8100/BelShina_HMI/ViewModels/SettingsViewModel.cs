@@ -303,5 +303,14 @@ namespace BelShina_HMI.ViewModels
             set { this.SetProperty(ref this.gC_InitialPos_2, value); }
         }
         private float gC_InitialPos_2;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rDistanceBetweenLasers")]
+        public float DistanceBetweenLasers
+        {
+            get { return this.distanceBetweenLasers; }
+            set { this.SetProperty(ref this.distanceBetweenLasers, value); }
+        }
+        private float distanceBetweenLasers;
     }
 }

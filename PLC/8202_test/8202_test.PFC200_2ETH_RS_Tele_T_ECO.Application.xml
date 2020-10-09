@@ -43,6 +43,7 @@
       <Node name="HMI_Process">
         <Node name="rDistance_1" type="T_REAL" access="ReadWrite" />
         <Node name="rDistance_2" type="T_REAL" access="ReadWrite" />
+        <Node name="rDistanceBetweenLasers" type="T_REAL" access="ReadWrite" />
         <Node name="rKforce_1" type="T_REAL" access="ReadWrite" />
         <Node name="rKforce_2" type="T_REAL" access="ReadWrite" />
         <Node name="rKforce_Ctcle" type="T_REAL" access="ReadWrite" />
@@ -68,6 +69,8 @@
         <Node name="rStepPos_2" type="T_REAL" access="ReadWrite" />
         <Node name="rTablePos_1" type="T_REAL" access="ReadWrite" />
         <Node name="rTablePos_2" type="T_REAL" access="ReadWrite" />
+        <Node name="wBufferState_1" type="T_WORD" access="ReadWrite" />
+        <Node name="wBufferState_2" type="T_WORD" access="ReadWrite" />
         <Node name="wGC_Distance_1" type="T_WORD" access="ReadWrite" />
         <Node name="wGC_Distance_2" type="T_WORD" access="ReadWrite" />
         <Node name="wGC_EndPos_1" type="T_WORD" access="ReadWrite" />
@@ -88,6 +91,8 @@
         <Node name="wST_State_1" type="T_WORD" access="ReadWrite" />
         <Node name="wST_State_2" type="T_StiffnessTestStates" access="ReadWrite" />
         <Node name="wST_State_3" type="T_StiffnessTestStates" access="ReadWrite" />
+        <Node name="wTyreSizeAfter" type="T_WORD" access="ReadWrite" />
+        <Node name="wTyreSizeFirst" type="T_WORD" access="ReadWrite" />
         <Node name="xCurveStarted_1" type="T_BOOL" access="ReadWrite" />
         <Node name="xCurveStarted_2" type="T_BOOL" access="ReadWrite" />
         <Node name="xGC_Start_1" type="T_BOOL" access="ReadWrite" />
