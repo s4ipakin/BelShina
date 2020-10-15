@@ -106,6 +106,7 @@
         <Node name="xST_Ready_1" type="T_BOOL" access="ReadWrite" />
         <Node name="xST_Ready_2" type="T_BOOL" access="ReadWrite" />
         <Node name="xST_Ready_3" type="T_BOOL" access="ReadWrite" />
+        <Node name="xStartAllCurves" type="T_BOOL" access="ReadWrite" />
       </Node>
       <Node name="HMI_Stepper">
         <Node name="k_1" type="T_REAL" access="ReadWrite" />

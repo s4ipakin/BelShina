@@ -362,11 +362,15 @@ namespace BelShina_HMI.ViewModels
                     
                 }
                 //chartValuesBefore.Add(approxValues[approxValues.Count - 1].LaserDistance);
-                chartValuesBefore.Add(new MeasureModel
+                if (approxValues.Count > 0)
                 {
-                    ValueX = Convert.ToDouble(approxValues[approxValues.Count - 1].LaserDistance),
-                    ValueY = Convert.ToDouble(approxValues[approxValues.Count - 1].StepDistance)
-                });
+                    chartValuesBefore.Add(new MeasureModel
+                    {
+                        ValueX = Convert.ToDouble(approxValues[approxValues.Count - 1].LaserDistance),
+                        ValueY = Convert.ToDouble(approxValues[approxValues.Count - 1].StepDistance)
+                    });
+                }
+                
 
             }
             else 
@@ -376,11 +380,15 @@ namespace BelShina_HMI.ViewModels
                     valuesAfter.Add(approxValues[i].LaserDistance);
                 }
                 //chartValuesAfter.Add(approxValues[approxValues.Count - 1].LaserDistance);
-                chartValuesAfter.Add(new MeasureModel
+                if (approxValues.Count > 0)
                 {
-                    ValueX = Convert.ToDouble(approxValues[approxValues.Count - 1].LaserDistance),
-                    ValueY = Convert.ToDouble(approxValues[approxValues.Count - 1].StepDistance)
-                });
+                    chartValuesAfter.Add(new MeasureModel
+                    {
+                        ValueX = Convert.ToDouble(approxValues[approxValues.Count - 1].LaserDistance),
+                        ValueY = Convert.ToDouble(approxValues[approxValues.Count - 1].StepDistance)
+                    });
+                }
+                
             }
         }
 

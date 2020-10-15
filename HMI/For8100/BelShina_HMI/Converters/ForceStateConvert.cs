@@ -72,9 +72,9 @@ namespace BelShina_HMI.Converters
             {
                 case 0:
                     return " Не определен";
-                case 1:
+                case 1:                   
+                case 2:
                     return " Инициализация";
-                case 2:                   
                 case 3:
                     return " Инициализирован";
                 case 4:
@@ -82,7 +82,7 @@ namespace BelShina_HMI.Converters
                 case 5:
                     return " На позиции";
                 case 6:
-                    return " Даижение в позицию";
+                    return " Движение в позицию";
                 case 7:
                     return " На позиции";
                 case 8:
@@ -368,4 +368,99 @@ namespace BelShina_HMI.Converters
             throw new NotSupportedException("ConvertBack not supported");
         }
     }
+
+
+    [ValueConversion(typeof(ushort), typeof(System.Windows.Media.Brushes))]
+    public class CurveStateConvertToColor : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            ushort state = (ushort)value;
+            var bc = new BrushConverter();
+            switch (state)
+            {
+                case 0:
+                    return (Brush)bc.ConvertFrom("#FFE2E0E0");
+                case 1:
+                    return (Brush)bc.ConvertFrom("#FFA8F9A0");
+                case 2:
+                    return (Brush)bc.ConvertFrom("#FFF7DEDB");        //# FFF7DEDB
+                case 3:
+                case 4:
+                    return (Brush)bc.ConvertFrom("#FFF7DEDB");
+                case 5:                    
+                case 6:
+                    return (Brush)bc.ConvertFrom("#FFE8FFE7");
+                // #FFD9F5F7
+                case 7:
+                    return (Brush)bc.ConvertFrom("#FFA8F9A0");
+                case 8:
+                    return (Brush)bc.ConvertFrom("#FFA8F9A0");
+
+
+                default:
+                    return (Brush)bc.ConvertFrom("#FFE2E0E0");
+            }
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            string strValue = value as string;
+            ushort resultUshort;
+            if (ushort.TryParse(strValue, out resultUshort))
+            {
+                return resultUshort;
+            }
+            return DependencyProperty.UnsetValue;
+        }
+    }
+
+
+    [ValueConversion(typeof(ushort), typeof(String))]
+    public class CurveStateConvert : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            ushort state = (ushort)value;
+
+            switch (state)
+            {
+                case 0:
+                    return " Остановлен";
+                case 1:
+                    return " Завершен";
+                case 2:
+                    return " Остановка";
+                case 3:
+                    return " Установка шага";
+                case 4:
+                    return " Установка в начальное положение";
+                case 5:
+                    return " Измерение";
+                case 6:
+                    return " Измерение";
+                case 7:
+                    return " Сохранение данных";
+                
+
+
+                default:
+                    return " Не определен";
+            }
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            string strValue = value as string;
+            ushort resultUshort;
+            if (ushort.TryParse(strValue, out resultUshort))
+            {
+                return resultUshort;
+            }
+            return DependencyProperty.UnsetValue;
+        }
+    }
+
+
+
 }

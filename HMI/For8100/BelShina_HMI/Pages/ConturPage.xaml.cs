@@ -27,7 +27,7 @@ namespace BelShina_HMI.Pages
         public ConturPage()
         {
             InitializeComponent();
-            Chart_P.ZoomingSpeed = 0.7;
+            Chart_P.ZoomingSpeed = 1;
             Chart_P.DisableAnimations = true;
             Chart_P.Zoom = ZoomingOptions.Y;
             Chart_P.AxisX[0].Separator.Step = 10;

@@ -20,6 +20,7 @@
       <UserDefElement type="T_CurveStates" iecname="CS_WaitInitial" enumvalue="4" />
       <UserDefElement type="T_CurveStates" iecname="CS_SetMeassure" enumvalue="5" />
       <UserDefElement type="T_CurveStates" iecname="CS_Measuring" enumvalue="6" />
+      <UserDefElement type="T_CurveStates" iecname="CS_ReadingOPC" enumvalue="7" />
     </TypeUserDef>
     <TypeUserDef name="T_StiffnessTestStates" size="2" nativesize="2" swapsize="2" typeclass="Enum" iecname="StiffnessTestStates" basetype="T_INT">
       <UserDefElement type="T_StiffnessTestStates" iecname="ST_Proc_Stop" enumvalue="0" />
@@ -30,18 +31,27 @@
       <UserDefElement type="T_StiffnessTestStates" iecname="ST_Proc_Done" enumvalue="5" />
       <UserDefElement type="T_StiffnessTestStates" iecname="ST_Proc_Releasing" enumvalue="6" />
       <UserDefElement type="T_StiffnessTestStates" iecname="ST_Proc_Stopping" enumvalue="7" />
+      <UserDefElement type="T_StiffnessTestStates" iecname="ST_Proc_GettingFirstCurve" enumvalue="8" />
     </TypeUserDef>
   </TypeList>
   <NodeList>
     <Node name="Application">
       <Node name="HMI_Alm">
+        <Node name="wForceStepAlm" type="T_WORD" access="ReadWrite" />
         <Node name="xResetAlm" type="T_BOOL" access="ReadWrite" />
       </Node>
       <Node name="HMI_Process">
         <Node name="rDistance_1" type="T_REAL" access="ReadWrite" />
         <Node name="rDistance_2" type="T_REAL" access="ReadWrite" />
+        <Node name="rDistanceBetweenLasers" type="T_REAL" access="ReadWrite" />
+        <Node name="rKforce_1" type="T_REAL" access="ReadWrite" />
+        <Node name="rKforce_2" type="T_REAL" access="ReadWrite" />
+        <Node name="rKforce_Ctcle" type="T_REAL" access="ReadWrite" />
+        <Node name="rLaserData_1" type="T_REAL" access="ReadWrite" />
+        <Node name="rLaserData_2" type="T_REAL" access="ReadWrite" />
         <Node name="rLaserDistance_1" type="T_REAL" access="ReadWrite" />
         <Node name="rLaserDistance_2" type="T_REAL" access="ReadWrite" />
+        <Node name="rRadius" type="T_REAL" access="ReadWrite" />
         <Node name="rST_Force_1" type="T_REAL" access="ReadWrite" />
         <Node name="rST_Force_2" type="T_REAL" access="ReadWrite" />
         <Node name="rST_Force_3" type="T_REAL" access="ReadWrite" />
@@ -55,6 +65,12 @@
         <Node name="rST_Way_1" type="T_REAL" access="ReadWrite" />
         <Node name="rST_Way_2" type="T_REAL" access="ReadWrite" />
         <Node name="rST_Way_3" type="T_REAL" access="ReadWrite" />
+        <Node name="rStepPos_1" type="T_REAL" access="ReadWrite" />
+        <Node name="rStepPos_2" type="T_REAL" access="ReadWrite" />
+        <Node name="rTablePos_1" type="T_REAL" access="ReadWrite" />
+        <Node name="rTablePos_2" type="T_REAL" access="ReadWrite" />
+        <Node name="wBufferState_1" type="T_WORD" access="ReadWrite" />
+        <Node name="wBufferState_2" type="T_WORD" access="ReadWrite" />
         <Node name="wGC_Distance_1" type="T_WORD" access="ReadWrite" />
         <Node name="wGC_Distance_2" type="T_WORD" access="ReadWrite" />
         <Node name="wGC_EndPos_1" type="T_WORD" access="ReadWrite" />
@@ -72,18 +88,25 @@
         <Node name="wST_HalfPos_1" type="T_REAL" access="ReadWrite" />
         <Node name="wST_HalfPos_2" type="T_REAL" access="ReadWrite" />
         <Node name="wST_HalfPos_3" type="T_REAL" access="ReadWrite" />
-        <Node name="wST_State_1" type="T_StiffnessTestStates" access="ReadWrite" />
+        <Node name="wST_State_1" type="T_WORD" access="ReadWrite" />
         <Node name="wST_State_2" type="T_StiffnessTestStates" access="ReadWrite" />
         <Node name="wST_State_3" type="T_StiffnessTestStates" access="ReadWrite" />
+        <Node name="wTyreSizeAfter" type="T_WORD" access="ReadWrite" />
+        <Node name="wTyreSizeFirst" type="T_WORD" access="ReadWrite" />
+        <Node name="xCurveStarted_1" type="T_BOOL" access="ReadWrite" />
+        <Node name="xCurveStarted_2" type="T_BOOL" access="ReadWrite" />
         <Node name="xGC_Start_1" type="T_BOOL" access="ReadWrite" />
         <Node name="xGC_Start_2" type="T_BOOL" access="ReadWrite" />
         <Node name="xGS_StartProc_1" type="T_BOOL" access="ReadWrite" />
         <Node name="xGS_StartProc_2" type="T_BOOL" access="ReadWrite" />
         <Node name="xGS_StartProc_3" type="T_BOOL" access="ReadWrite" />
         <Node name="xProcFinished" type="T_BOOL" access="ReadWrite" />
+        <Node name="xReadOPC_1" type="T_BOOL" access="ReadWrite" />
+        <Node name="xReadOPC_2" type="T_BOOL" access="ReadWrite" />
         <Node name="xST_Ready_1" type="T_BOOL" access="ReadWrite" />
         <Node name="xST_Ready_2" type="T_BOOL" access="ReadWrite" />
         <Node name="xST_Ready_3" type="T_BOOL" access="ReadWrite" />
+        <Node name="xStartAllCurves" type="T_BOOL" access="ReadWrite" />
       </Node>
       <Node name="HMI_Stepper">
         <Node name="k_1" type="T_REAL" access="ReadWrite" />
@@ -102,6 +125,13 @@
         <Node name="rFS_SetForce" type="T_REAL" access="ReadWrite" />
         <Node name="rLS_RealPos_1" type="T_REAL" access="ReadWrite" />
         <Node name="rLS_RealPos_2" type="T_REAL" access="ReadWrite" />
+        <Node name="rReductCoef" type="T_REAL" access="ReadWrite" />
+        <Node name="rStepAngleForce" type="T_REAL" access="ReadWrite" />
+        <Node name="ScrewStep_1" type="T_REAL" access="ReadWrite" />
+        <Node name="ScrewStep_2" type="T_REAL" access="ReadWrite" />
+        <Node name="ScrewStepForce" type="T_REAL" access="ReadWrite" />
+        <Node name="StepAngle_1" type="T_REAL" access="ReadWrite" />
+        <Node name="StepAngle_2" type="T_REAL" access="ReadWrite" />
         <Node name="wFS_ActualPos" type="T_DWORD" access="ReadWrite" />
         <Node name="wFS_RoughApprox" type="T_WORD" access="ReadWrite" />
         <Node name="wFS_SetAcceleration" type="T_WORD" access="ReadWrite" />

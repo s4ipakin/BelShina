@@ -90,9 +90,9 @@ namespace BelShina_HMI.Chart
     public class ConturGrafSet : GrafSet
     {
         public override GrafType GrafType => GrafType.Contur;
-        public override string yAxesName => "Расстояние";
+        public override string yAxesName => "Положение лазера";
         public override string unit => "мм";
-        public override string xAxesName => "Положение лазера";
+        public override string xAxesName => "Расстояние";
         public override string xUnit => "мм";
         public override double maxValue => 1000;
         public override string seriesName => "";

@@ -220,7 +220,7 @@
             Margin="323,406,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Text="{Binding LS_Deceleration_1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            Text="{Binding LS_Deceleration_2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBlock
             x:Name="textBlock_Copy12"
             Height="24"
@@ -231,12 +231,14 @@
             TextWrapping="Wrap" />
         <TextBlock
             x:Name="textBlock_Copy13"
+            Width="197"
             Height="24"
             Margin="167,30,0,0"
+            HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="18"
             Text="Настройки лазера 1"
-            TextWrapping="Wrap" HorizontalAlignment="Left" Width="197" />
+            TextWrapping="Wrap" />
         <TextBlock
             x:Name="textBlock_Copy14"
             Width="197"
@@ -250,20 +252,24 @@
 
         <TextBlock
             x:Name="textBlock_Copy15"
+            Width="442"
             Height="32"
             Margin="46,540,0,0"
+            HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="18"
             Text="Настройки коэффициентов измерителей расстояния"
-            TextWrapping="Wrap" HorizontalAlignment="Left" Width="442" />
+            TextWrapping="Wrap" />
         <TextBlock
             x:Name="textBlock_Copy16"
             Width="139"
+            Height="24"
             Margin="82,579,0,0"
             HorizontalAlignment="Left"
+            VerticalAlignment="Top"
             FontSize="16"
             Text="Линейка 1"
-            TextWrapping="Wrap" Height="24" VerticalAlignment="Top" />
+            TextWrapping="Wrap" />
         <TextBlock
             x:Name="textBlock_Copy17"
             Width="139"
@@ -286,9 +292,11 @@
             TextWrapping="Wrap" />
         <TextBox
             Width="120"
+            Height="32"
             Margin="323,575,0,0"
             HorizontalAlignment="Left"
-            Text="{Binding K_1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="32" VerticalAlignment="Top" />
+            VerticalAlignment="Top"
+            Text="{Binding K_1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBox
             Width="120"
             Height="32"
@@ -298,9 +306,11 @@
             Text="{Binding K_2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBox
             Width="120"
+            Height="32"
             Margin="323,660,0,0"
             HorizontalAlignment="Left"
-            Text="{Binding K_3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="32" VerticalAlignment="Top" />
+            VerticalAlignment="Top"
+            Text="{Binding K_3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBlock
             x:Name="textBlock_Copy19"
             Width="154"
@@ -342,7 +352,8 @@
             Margin="0,123,114,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
-            Text="{Binding ForceSensorScale, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" d:LayoutOverrides="VerticalAlignment" />
+            Text="{Binding ForceSensorScale, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+            d:LayoutOverrides="VerticalAlignment" />
         <TextBlock
             x:Name="textBlock_Copy22"
             Width="224"
@@ -352,14 +363,16 @@
             VerticalAlignment="Top"
             FontSize="16"
             Text="Номинальная нагрузка тензодатчика с рабочим коэффиуиентом передачи 2 mV/V, [N]"
-            TextWrapping="Wrap" d:LayoutOverrides="VerticalAlignment" />
+            TextWrapping="Wrap"
+            d:LayoutOverrides="VerticalAlignment" />
         <TextBox
             Width="120"
             Height="32"
             Margin="0,207,114,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
-            Text="{Binding Kforce_Ctcle, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" d:LayoutOverrides="VerticalAlignment" />
+            Text="{Binding Kforce_Ctcle, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+            d:LayoutOverrides="VerticalAlignment" />
         <TextBlock
             x:Name="textBlock_Copy23"
             Width="236"
@@ -369,14 +382,16 @@
             VerticalAlignment="Top"
             FontSize="16"
             Text="Поправочный коэффициент измерения силы при повороте"
-            TextWrapping="Wrap" d:LayoutOverrides="VerticalAlignment" />
+            TextWrapping="Wrap"
+            d:LayoutOverrides="VerticalAlignment" />
         <TextBox
             Width="120"
             Height="32"
             Margin="0,273,114,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
-            Text="{Binding Kforce_1, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" d:LayoutOverrides="VerticalAlignment" />
+            Text="{Binding Kforce_1, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+            d:LayoutOverrides="VerticalAlignment" />
         <TextBlock
             x:Name="textBlock_Copy20"
             Width="224"
@@ -386,14 +401,16 @@
             VerticalAlignment="Top"
             FontSize="16"
             Text="Поправочный коэффициент измерения силы при боковом перемещении"
-            TextWrapping="Wrap" d:LayoutOverrides="VerticalAlignment" />
+            TextWrapping="Wrap"
+            d:LayoutOverrides="VerticalAlignment" />
         <TextBox
             Width="120"
             Height="32"
             Margin="0,351,114,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
-            Text="{Binding Kforce_2, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" d:LayoutOverrides="VerticalAlignment" />
+            Text="{Binding Kforce_2, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+            d:LayoutOverrides="VerticalAlignment" />
         <TextBlock
             x:Name="textBlock_Copy24"
             Width="236"
@@ -403,14 +420,16 @@
             VerticalAlignment="Top"
             FontSize="16"
             Text="Поправочный коэффициент измерения силы при тангенциальном перемещении"
-            TextWrapping="Wrap" d:LayoutOverrides="VerticalAlignment" />
+            TextWrapping="Wrap"
+            d:LayoutOverrides="VerticalAlignment" />
         <TextBox
             Width="120"
             Height="32"
             Margin="0,409,114,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
-            Text="{Binding Radius, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" d:LayoutOverrides="VerticalAlignment" />
+            Text="{Binding Radius, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+            d:LayoutOverrides="VerticalAlignment" />
         <TextBlock
             x:Name="textBlock_Copy25"
             Width="196"
@@ -420,7 +439,8 @@
             VerticalAlignment="Top"
             FontSize="16"
             Text="Радиус стола, [m]"
-            TextWrapping="Wrap" d:LayoutOverrides="VerticalAlignment" />
+            TextWrapping="Wrap"
+            d:LayoutOverrides="VerticalAlignment" />
         <TextBlock
             x:Name="textBlock_Copy26"
             Width="223"
@@ -458,17 +478,20 @@
         <TextBlock
             x:Name="textBlock_Copy28"
             Width="223"
+            Height="24"
             Margin="82,450,0,0"
             HorizontalAlignment="Left"
+            VerticalAlignment="Top"
             FontSize="16"
             Text="Начальное положение, [мм]"
-            TextWrapping="Wrap" Height="24" VerticalAlignment="Top" />
+            TextWrapping="Wrap" />
         <TextBox
             Width="120"
+            Height="30"
             Margin="323,446,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Text="{Binding GC_InitialPos_2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="30" />
+            Text="{Binding GC_InitialPos_2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBlock
             x:Name="textBlock_Copy29"
             Width="223"

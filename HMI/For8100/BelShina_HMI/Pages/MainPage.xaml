@@ -24,16 +24,16 @@
                         <StackPanel Orientation="Horizontal">
                             <Image
                                 x:Name="checkboxImage"
-                                Width="100"
-                                Source="/Pictures/offf.png" />
+                                Width="70"
+                                Source="/Pictures/Off.png" />
                             <ContentPresenter />
                         </StackPanel>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsChecked" Value="True">
-                                <Setter TargetName="checkboxImage" Property="Source" Value="/Pictures/onn.png" />
+                                <Setter TargetName="checkboxImage" Property="Source" Value="/Pictures/On.png" />
                             </Trigger>
                             <Trigger Property="IsChecked" Value="False">
-                                <Setter TargetName="checkboxImage" Property="Source" Value="/Pictures/offf.png" />
+                                <Setter TargetName="checkboxImage" Property="Source" Value="/Pictures/Off.png" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -68,8 +68,10 @@
         <src:ForceStateConvert x:Key="forceStateConvert" />
         <src:ProcessStateConvert x:Key="processStateConvert" />
         <src:LaserStateConvert x:Key="laserStateConvert" />
+        <src:CurveStateConvert x:Key="curveStateConvert" />
         <src:ProcessStateConvertToColor x:Key="processStateConvertToColor" />
         <src:LaserStateConvertToColor x:Key="laserStateConvertToColor" />
+        <src:CurveStateConvertToColor x:Key="curveStateConvertToColor" />
         <src:StartBtnText x:Key="startBtnText" />
         <src:StartBtnColor x:Key="ctartBtnColor" />
         <Style x:Key="MyBorderStyle" TargetType="Border">
@@ -92,42 +94,42 @@
                     HorizontalContentAlignment="Center"
                     Background="#FFDCD99F"
                     Content="Формула"
-                    FontSize="14" />
+                    FontSize="16" />
             </Border>
             <Border Width="100" Style="{StaticResource MyBorderStyle}">
                 <Label
                     HorizontalContentAlignment="Center"
                     Background="#FFDCD99F"
                     Content="Fhб2"
-                    FontSize="14" />
+                    FontSize="16" />
             </Border>
             <Border Width="100" Style="{StaticResource MyBorderStyle}">
                 <Label
                     HorizontalContentAlignment="Center"
                     Background="#FFDCD99F"
                     Content="Fhб1"
-                    FontSize="14" />
+                    FontSize="16" />
             </Border>
             <Border Width="100" Style="{StaticResource MyBorderStyle}">
                 <Label
                     HorizontalContentAlignment="Center"
                     Background="#FFDCD99F"
                     Content="hб2"
-                    FontSize="14" />
+                    FontSize="16" />
             </Border>
             <Border Width="100" Style="{StaticResource MyBorderStyle}">
                 <Label
                     HorizontalContentAlignment="Center"
                     Background="#FFDCD99F"
                     Content="hб1"
-                    FontSize="14" />
+                    FontSize="16" />
             </Border>
             <Border Width="100" Style="{StaticResource MyBorderStyle}">
                 <Label
                     HorizontalContentAlignment="Center"
                     Background="#FFDCD99F"
                     Content="Кбок"
-                    FontSize="14" />
+                    FontSize="16" />
             </Border>
         </StackPanel>
         <StackPanel
@@ -150,35 +152,35 @@
                     HorizontalContentAlignment="Center"
                     Background="#FFE8E7DC"
                     Content="{Binding ST_Force_2}"
-                    FontSize="14" />
+                    FontSize="16" />
             </Border>
             <Border Width="100" Style="{StaticResource MyBorderStyle}">
                 <Label
                     HorizontalContentAlignment="Center"
                     Background="#FFE8E7DC"
                     Content="{Binding HalfForce_2}"
-                    FontSize="14" />
+                    FontSize="16" />
             </Border>
             <Border Width="100" Style="{StaticResource MyBorderStyle}">
                 <Label
                     HorizontalContentAlignment="Center"
                     Background="#FFE8E7DC"
                     Content="{Binding ST_Way_2}"
-                    FontSize="14" />
+                    FontSize="16" />
             </Border>
             <Border Width="100" Style="{StaticResource MyBorderStyle}">
                 <Label
                     HorizontalContentAlignment="Center"
                     Background="#FFE8E7DC"
                     Content="{Binding HalfPos_2}"
-                    FontSize="14" />
+                    FontSize="16" />
             </Border>
             <Border Width="100" Style="{StaticResource MyBorderStyle}">
                 <Label
                     HorizontalContentAlignment="Center"
                     Background="#FFE8E7DC"
                     Content="{Binding Koef_2}"
-                    FontSize="14" />
+                    FontSize="16" />
             </Border>
         </StackPanel>
         <StackPanel
@@ -193,42 +195,42 @@
                     HorizontalContentAlignment="Center"
                     Background="#FFDCD99F"
                     Content="Формула"
-                    FontSize="14" />
+                    FontSize="16" />
             </Border>
             <Border Width="100" Style="{StaticResource MyBorderStyle}">
                 <Label
                     HorizontalContentAlignment="Center"
                     Background="#FFDCD99F"
                     Content="Fhт2"
-                    FontSize="14" />
+                    FontSize="16" />
             </Border>
             <Border Width="100" Style="{StaticResource MyBorderStyle}">
                 <Label
                     HorizontalContentAlignment="Center"
                     Background="#FFDCD99F"
                     Content="Fhт1"
-                    FontSize="14" />
+                    FontSize="16" />
             </Border>
             <Border Width="100" Style="{StaticResource MyBorderStyle}">
                 <Label
                     HorizontalContentAlignment="Center"
                     Background="#FFDCD99F"
                     Content="hт2"
-                    FontSize="14" />
+                    FontSize="16" />
             </Border>
             <Border Width="100" Style="{StaticResource MyBorderStyle}">
                 <Label
                     HorizontalContentAlignment="Center"
                     Background="#FFDCD99F"
                     Content="hт1"
-                    FontSize="14" />
+                    FontSize="16" />
             </Border>
             <Border Width="100" Style="{StaticResource MyBorderStyle}">
                 <Label
                     HorizontalContentAlignment="Center"
                     Background="#FFDCD99F"
                     Content="Ктанг"
-                    FontSize="14" />
+                    FontSize="16" />
             </Border>
         </StackPanel>
         <StackPanel
@@ -243,42 +245,42 @@
                     HorizontalContentAlignment="Center"
                     Background="#FFE8E7DC"
                     Content="Ктанг=(Fhт2-Fhт1)/(hт2-hт1)"
-                    FontSize="14" />
+                    FontSize="16" />
             </Border>
             <Border Width="100" Style="{StaticResource MyBorderStyle}">
                 <Label
                     HorizontalContentAlignment="Center"
                     Background="#FFE8E7DC"
                     Content="{Binding ST_Force_3}"
-                    FontSize="14" />
+                    FontSize="16" />
             </Border>
             <Border Width="100" Style="{StaticResource MyBorderStyle}">
                 <Label
                     HorizontalContentAlignment="Center"
                     Background="#FFE8E7DC"
                     Content="{Binding HalfForce_3}"
-                    FontSize="14" />
+                    FontSize="16" />
             </Border>
             <Border Width="100" Style="{StaticResource MyBorderStyle}">
                 <Label
                     HorizontalContentAlignment="Center"
                     Background="#FFE8E7DC"
                     Content="{Binding ST_Way_3}"
-                    FontSize="14" />
+                    FontSize="16" />
             </Border>
             <Border Width="100" Style="{StaticResource MyBorderStyle}">
                 <Label
                     HorizontalContentAlignment="Center"
                     Background="#FFE8E7DC"
                     Content="{Binding HalfPos_3}"
-                    FontSize="14" />
+                    FontSize="16" />
             </Border>
             <Border Width="100" Style="{StaticResource MyBorderStyle}">
                 <Label
                     HorizontalContentAlignment="Center"
                     Background="#FFE8E7DC"
                     Content="{Binding Koef_3}"
-                    FontSize="14" />
+                    FontSize="16" />
             </Border>
         </StackPanel>
         <StackPanel
@@ -293,42 +295,42 @@
                     HorizontalContentAlignment="Center"
                     Background="#FFDCD99F"
                     Content="Формула"
-                    FontSize="14" />
+                    FontSize="16" />
             </Border>
             <Border Width="100" Style="{StaticResource MyBorderStyle}">
                 <Label
                     HorizontalContentAlignment="Center"
                     Background="#FFDCD99F"
                     Content="Mα2"
-                    FontSize="14" />
+                    FontSize="16" />
             </Border>
             <Border Width="100" Style="{StaticResource MyBorderStyle}">
                 <Label
                     HorizontalContentAlignment="Center"
                     Background="#FFDCD99F"
                     Content="Mα1"
-                    FontSize="14" />
+                    FontSize="16" />
             </Border>
             <Border Width="100" Style="{StaticResource MyBorderStyle}">
                 <Label
                     HorizontalContentAlignment="Center"
                     Background="#FFDCD99F"
                     Content="α2"
-                    FontSize="14" />
+                    FontSize="16" />
             </Border>
             <Border Width="100" Style="{StaticResource MyBorderStyle}">
                 <Label
                     HorizontalContentAlignment="Center"
                     Background="#FFDCD99F"
                     Content="α1"
-                    FontSize="14" />
+                    FontSize="16" />
             </Border>
             <Border Width="100" Style="{StaticResource MyBorderStyle}">
                 <Label
                     HorizontalContentAlignment="Center"
                     Background="#FFDCD99F"
                     Content="Кугл"
-                    FontSize="14" />
+                    FontSize="16" />
             </Border>
         </StackPanel>
         <StackPanel
@@ -343,50 +345,48 @@
                     HorizontalContentAlignment="Center"
                     Background="#FFE8E7DC"
                     Content="Кугл=(Mα2-Mα1)/(α2-α2)"
-                    FontSize="14" />
+                    FontSize="16" />
             </Border>
             <Border Width="100" Style="{StaticResource MyBorderStyle}">
                 <Label
                     HorizontalContentAlignment="Center"
                     Background="#FFE8E7DC"
                     Content="{Binding ST_Force_1}"
-                    FontSize="14" />
+                    FontSize="16" />
             </Border>
             <Border Width="100" Style="{StaticResource MyBorderStyle}">
                 <Label
                     HorizontalContentAlignment="Center"
                     Background="#FFE8E7DC"
                     Content="{Binding HalfForce_1}"
-                    FontSize="14" />
+                    FontSize="16" />
             </Border>
             <Border Width="100" Style="{StaticResource MyBorderStyle}">
                 <Label
                     HorizontalContentAlignment="Center"
                     Background="#FFE8E7DC"
                     Content="{Binding ST_Way_1}"
-                    FontSize="14" />
+                    FontSize="16" />
             </Border>
             <Border Width="100" Style="{StaticResource MyBorderStyle}">
                 <Label
                     HorizontalContentAlignment="Center"
                     Background="#FFE8E7DC"
                     Content="{Binding HalfPos_1}"
-                    FontSize="14" />
+                    FontSize="16" />
             </Border>
             <Border Width="100" Style="{StaticResource MyBorderStyle}">
                 <Label
                     HorizontalContentAlignment="Center"
                     Background="#FFE8E7DC"
                     Content="{Binding Koef_1}"
-                    FontSize="14" />
+                    FontSize="16" />
             </Border>
         </StackPanel>
         <Border
             Width="356"
-            Height="374"
-            Margin="0,20,394,0"
+            Margin="0,428,396,98"
             HorizontalAlignment="Right"
-            VerticalAlignment="Top"
             Background="#FFEAE5CF"
             BorderBrush="Black"
             BorderThickness="1" />
@@ -394,48 +394,49 @@
             x:Name="textBlock_Copy24"
             Width="242"
             Height="24"
-            Margin="0,299,442,0"
+            Margin="0,0,444,169"
             HorizontalAlignment="Right"
-            VerticalAlignment="Top"
+            VerticalAlignment="Bottom"
             Background="{Binding LS_StepperState_1, Converter={StaticResource laserStateConvertToColor}}"
             FontSize="16"
             Text="{Binding LS_StepperState_1, Converter={StaticResource laserStateConvert}}"
             TextWrapping="Wrap" />
         <CheckBox
             x:Name="checkBox_Copy6"
-            Width="112"
-            Height="84"
-            Margin="0,89,580,0"
+            Width="72"
+            Height="38"
+            Margin="0,0,622,336"
             HorizontalAlignment="Right"
-            VerticalAlignment="Top"
+            VerticalAlignment="Bottom"
             Content=""
             IsChecked="{Binding MoveToPos_1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             RenderTransformOrigin="0.478,0.536"
             Style="{StaticResource myCheckboxStyle}" />
         <TextBox
             Width="86"
-            Height="32"
-            Margin="0,187,442,0"
+            Height="24"
+            Margin="0,0,444,276"
             HorizontalAlignment="Right"
-            VerticalAlignment="Top"
+            VerticalAlignment="Bottom"
+            FontSize="16"
             Text="{Binding LS_SetPos_1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBlock
             x:Name="textBlock_Copy25"
             Width="183"
             Height="24"
-            Margin="0,191,533,0"
+            Margin="0,0,535,277"
             HorizontalAlignment="Right"
-            VerticalAlignment="Top"
+            VerticalAlignment="Bottom"
             FontSize="16"
             Text="Заданная позиция, [mm]"
             TextWrapping="Wrap" />
         <CheckBox
             x:Name="checkBox_Copy7"
-            Width="112"
-            Height="84"
-            Margin="0,87,416,0"
+            Width="72"
+            Height="38"
+            Margin="0,0,440,336"
             HorizontalAlignment="Right"
-            VerticalAlignment="Top"
+            VerticalAlignment="Bottom"
             Content=""
             IsChecked="{Binding MoveHome_1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             RenderTransformOrigin="0.478,0.536"
@@ -444,9 +445,9 @@
             x:Name="textBlock_Copy28"
             Width="150"
             Height="24"
-            Margin="0,233,566,0"
+            Margin="0,0,568,235"
             HorizontalAlignment="Right"
-            VerticalAlignment="Top"
+            VerticalAlignment="Bottom"
             FontSize="16"
             Text="Текущая позиция, [mm]"
             TextWrapping="Wrap" />
@@ -454,9 +455,9 @@
             x:Name="textBlock_Copy29"
             Width="150"
             Height="24"
-            Margin="0,263,566,0"
+            Margin="0,0,568,205"
             HorizontalAlignment="Right"
-            VerticalAlignment="Top"
+            VerticalAlignment="Bottom"
             FontSize="16"
             Text="Состояние:"
             TextWrapping="Wrap" />
@@ -464,9 +465,9 @@
             x:Name="button_Copy1"
             Width="242"
             Height="34"
-            Margin="0,329,442,0"
+            Margin="0,0,444,129"
             HorizontalAlignment="Right"
-            VerticalAlignment="Top"
+            VerticalAlignment="Bottom"
             Background="#FFF77878"
             Command="{Binding ButtonLSStopCommand_1}"
             Content="Стоп"
@@ -475,9 +476,9 @@
             x:Name="textBlock_Copy12"
             Width="182"
             Height="24"
-            Margin="0,87,550,0"
+            Margin="0,0,552,381"
             HorizontalAlignment="Right"
-            VerticalAlignment="Top"
+            VerticalAlignment="Bottom"
             FontSize="16"
             Text="Установить на позицию"
             TextWrapping="Wrap" />
@@ -485,28 +486,24 @@
             x:Name="textBlock_Copy13"
             Width="150"
             Height="24"
-            Margin="0,87,394,0"
+            Margin="0,0,396,381"
             HorizontalAlignment="Right"
-            VerticalAlignment="Top"
+            VerticalAlignment="Bottom"
             FontSize="16"
             Text="Инициализировать"
             TextWrapping="Wrap" />
         <TextBlock
             x:Name="textBlock_Copy14"
             Width="203"
-            Height="24"
-            Margin="0,37,458,0"
+            Margin="0,445,460,431"
             HorizontalAlignment="Right"
-            VerticalAlignment="Top"
             FontSize="20"
             Text="Положение лазера 1"
             TextWrapping="Wrap" />
         <Border
             Width="356"
-            Height="374"
-            Margin="0,20,14,0"
+            Margin="0,428,16,98"
             HorizontalAlignment="Right"
-            VerticalAlignment="Top"
             Background="#FFEAE5CF"
             BorderBrush="Black"
             BorderThickness="1" />
@@ -514,48 +511,49 @@
             x:Name="textBlock_Copy15"
             Width="242"
             Height="24"
-            Margin="0,299,62,0"
+            Margin="0,0,64,169"
             HorizontalAlignment="Right"
-            VerticalAlignment="Top"
+            VerticalAlignment="Bottom"
             Background="{Binding LS_StepperState_2, Converter={StaticResource laserStateConvertToColor}}"
             FontSize="16"
             Text="{Binding LS_StepperState_2, Converter={StaticResource laserStateConvert}}"
             TextWrapping="Wrap" />
         <CheckBox
             x:Name="checkBox_Copy2"
-            Width="112"
-            Height="84"
-            Margin="0,89,200,0"
+            Width="72"
+            Height="38"
+            Margin="0,0,240,336"
             HorizontalAlignment="Right"
-            VerticalAlignment="Top"
+            VerticalAlignment="Bottom"
             Content=""
             IsChecked="{Binding MoveToPos_2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             RenderTransformOrigin="0.478,0.536"
             Style="{StaticResource myCheckboxStyle}" />
         <TextBox
             Width="86"
-            Height="32"
-            Margin="0,187,62,0"
+            Height="24"
+            Margin="0,0,64,276"
             HorizontalAlignment="Right"
-            VerticalAlignment="Top"
+            VerticalAlignment="Bottom"
+            FontSize="16"
             Text="{Binding LS_SetPos_2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBlock
             x:Name="textBlock_Copy16"
             Width="183"
             Height="24"
-            Margin="0,191,153,0"
+            Margin="0,0,155,277"
             HorizontalAlignment="Right"
-            VerticalAlignment="Top"
+            VerticalAlignment="Bottom"
             FontSize="16"
             Text="Заданная позиция, [mm]"
             TextWrapping="Wrap" />
         <CheckBox
             x:Name="checkBox_Copy3"
-            Width="112"
-            Height="84"
-            Margin="0,87,36,0"
+            Width="72"
+            Height="38"
+            Margin="0,0,59,336"
             HorizontalAlignment="Right"
-            VerticalAlignment="Top"
+            VerticalAlignment="Bottom"
             Content=""
             IsChecked="{Binding MoveHome_2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             RenderTransformOrigin="0.478,0.536"
@@ -564,9 +562,9 @@
             x:Name="textBlock_Copy17"
             Width="183"
             Height="24"
-            Margin="0,233,153,0"
+            Margin="0,0,155,235"
             HorizontalAlignment="Right"
-            VerticalAlignment="Top"
+            VerticalAlignment="Bottom"
             FontSize="16"
             Text="Текущая позиция, [mm]"
             TextWrapping="Wrap" />
@@ -574,9 +572,9 @@
             x:Name="textBlock_Copy18"
             Width="150"
             Height="24"
-            Margin="0,263,186,0"
+            Margin="0,0,188,205"
             HorizontalAlignment="Right"
-            VerticalAlignment="Top"
+            VerticalAlignment="Bottom"
             FontSize="16"
             Text="Состояние:"
             TextWrapping="Wrap" />
@@ -584,9 +582,9 @@
             x:Name="button_Copy"
             Width="242"
             Height="34"
-            Margin="0,329,62,0"
+            Margin="0,0,64,129"
             HorizontalAlignment="Right"
-            VerticalAlignment="Top"
+            VerticalAlignment="Bottom"
             Background="#FFF77878"
             Command="{Binding ButtonLSStopCommand_2}"
             Content="Стоп"
@@ -595,9 +593,9 @@
             x:Name="textBlock_Copy19"
             Width="182"
             Height="24"
-            Margin="0,87,170,0"
+            Margin="0,0,172,381"
             HorizontalAlignment="Right"
-            VerticalAlignment="Top"
+            VerticalAlignment="Bottom"
             FontSize="16"
             Text="Установить на позицию"
             TextWrapping="Wrap" />
@@ -605,264 +603,264 @@
             x:Name="textBlock_Copy20"
             Width="150"
             Height="24"
-            Margin="0,87,14,0"
+            Margin="0,0,16,381"
             HorizontalAlignment="Right"
-            VerticalAlignment="Top"
+            VerticalAlignment="Bottom"
             FontSize="16"
             Text="Инициализировать"
             TextWrapping="Wrap" />
         <TextBlock
             x:Name="textBlock_Copy21"
             Width="202"
-            Height="24"
-            Margin="0,37,78,0"
+            Margin="0,445,80,431"
             HorizontalAlignment="Right"
-            VerticalAlignment="Top"
             FontSize="20"
             Text="Положение лазера 2"
             TextWrapping="Wrap" />
         <Border
             Width="736"
-            Margin="0,537,14,0"
+            Margin="0,20,16,0"
             Height="262"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             Background="#FFEAE5CF"
             BorderBrush="Black"
-            BorderThickness="1" />
+            BorderThickness="1" d:LayoutOverrides="VerticalAlignment" />
         <TextBlock
             Width="92"
-            Height="32"
-            Margin="0,660,28,0"
+            Height="24"
+            Margin="0,148,30,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             Background="#FFF1E8E8"
-            FontSize="14"
+            FontSize="16"
             OpacityMask="#FF080808"
-            Text="{Binding Angle, Mode=OneWay}" />
+            Text="{Binding Angle, Mode=OneWay}" d:LayoutOverrides="VerticalAlignment" />
         <CheckBox
             x:Name="checkBox_Copy4"
-            Width="86"
-            Height="84"
-            Margin="0,585,616,0"
+            Width="72"
+            Height="38"
+            Margin="0,92,614,0"
             HorizontalAlignment="Right"
             VerticalAlignment="top"
             Content=""
             IsChecked="{Binding Start, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             RenderTransformOrigin="0.478,0.536"
-            Style="{StaticResource myCheckboxStyle}"
-            d:LayoutOverrides="Height" />
+            Style="{StaticResource myCheckboxStyle}" d:LayoutOverrides="VerticalAlignment" />
         <CheckBox
             x:Name="checkBox1_Copy"
-            Width="86"
-            Height="84"
-            Margin="0,585,490,0"
+            Width="72"
+            Height="38"
+            Margin="0,92,498,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             Content=""
             IsChecked="{Binding Release, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             Style="{StaticResource myCheckboxStyle}"
-            d:LayoutOverrides="Height" />
+            d:LayoutOverrides="VerticalAlignment, Height" />
         <TextBlock
             x:Name="textBlock_Copy22"
-            Width="62"
+            Width="90"
             Height="24"
-            Margin="0,665,296,0"
+            Margin="0,148,270,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             FontSize="16"
-            Text="Угол"
-            TextWrapping="Wrap" />
+            Text="Угол, [град.]"
+            TextWrapping="Wrap" d:LayoutOverrides="VerticalAlignment" />
         <TextBlock
             x:Name="textBlock_Copy23"
             Width="190"
             Height="33"
-            Margin="0,705,542,0"
+            Margin="0,188,544,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             FontSize="16"
             Text="Измерянная сила, [H]"
-            TextWrapping="Wrap" />
+            TextWrapping="Wrap" d:LayoutOverrides="VerticalAlignment" />
         <TextBlock
             x:Name="textBlock_Copy26"
             Width="150"
             Height="24"
-            Margin="0,665,580,0"
+            Margin="0,148,582,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             FontSize="16"
             Text="Заданная сила, [H]"
-            TextWrapping="Wrap" />
+            TextWrapping="Wrap" d:LayoutOverrides="VerticalAlignment" />
         <TextBlock
             x:Name="textBlock_Copy27"
             Width="138"
             Height="24"
-            Margin="0,585,568,0"
+            Margin="0,68,570,0"
             HorizontalAlignment="Right"
             VerticalAlignment="top"
             FontSize="16"
             Text="Применить силу"
-            TextWrapping="Wrap" />
+            TextWrapping="Wrap" d:LayoutOverrides="VerticalAlignment" />
         <TextBlock
             x:Name="textBlock_Copy30"
             Width="88"
             Height="24"
-            Margin="0,585,480,0"
+            Margin="0,68,482,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             FontSize="16"
             Text="Отпустить"
-            TextWrapping="Wrap" />
+            TextWrapping="Wrap" d:LayoutOverrides="VerticalAlignment" />
         <CheckBox
             x:Name="checkBox_Copy5"
-            Width="86"
-            Height="84"
-            Margin="0,585,226,0"
+            Width="72"
+            Height="38"
+            Margin="0,92,244,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             Content=""
             IsChecked="{Binding JogLeft, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             RenderTransformOrigin="0.478,0.536"
-            Style="{StaticResource myCheckboxStyle}" />
+            Style="{StaticResource myCheckboxStyle}" d:LayoutOverrides="VerticalAlignment" />
         <TextBlock
             x:Name="textBlock_Copy31"
             Width="140"
             Height="24"
-            Margin="0,585,192,0"
+            Margin="0,68,194,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             FontSize="16"
             Text="Прямое усилие"
-            TextWrapping="Wrap" />
+            TextWrapping="Wrap" d:LayoutOverrides="VerticalAlignment" />
         <TextBlock
             x:Name="textBlock_Copy32"
             Width="150"
             Height="24"
-            Margin="0,585,36,0"
+            Margin="0,68,38,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             FontSize="16"
             Text="Обратное усилие"
-            TextWrapping="Wrap" />
+            TextWrapping="Wrap" d:LayoutOverrides="VerticalAlignment" />
         <CheckBox
             x:Name="checkBox_Copy8"
-            Width="86"
-            Height="84"
-            Margin="0,585,100,0"
+            Width="72"
+            Height="38"
+            Margin="0,92,84,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             Content=""
             IsChecked="{Binding JogRight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             RenderTransformOrigin="0.478,0.536"
-            Style="{StaticResource myCheckboxStyle}" />
+            Style="{StaticResource myCheckboxStyle}" d:LayoutOverrides="VerticalAlignment" />
         <TextBox
             Width="120"
-            Height="32"
-            Margin="0,660,448,0"
+            Height="24"
+            Margin="0,148,450,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
-            Text="{Binding SetForce, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            FontSize="16"
+            
+            Text="{Binding SetForce, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" d:LayoutOverrides="VerticalAlignment" />
         <TextBlock
             Width="86"
-            Height="32"
-            Margin="0,233,442,0"
+            Height="24"
+            Margin="0,0,444,234"
             HorizontalAlignment="Right"
-            VerticalAlignment="Top"
+            VerticalAlignment="Bottom"
             Background="#FFF1E8E8"
-            FontSize="14"
+            FontSize="16"
             OpacityMask="#FF080808"
             Text="{Binding LS_GetPos_1, Mode=OneWay}" />
         <TextBlock
             Width="86"
-            Height="32"
-            Margin="0,233,62,0"
+            Height="24"
+            Margin="0,0,64,234"
             HorizontalAlignment="Right"
-            VerticalAlignment="Top"
+            VerticalAlignment="Bottom"
             Background="#FFF1E8E8"
-            FontSize="14"
+            FontSize="16"
             OpacityMask="#FF080808"
             Text="{Binding LS_GetPos_2, Mode=OneWay}" />
         <TextBlock
             Width="120"
-            Height="32"
-            Margin="0,705,448,0"
+            Height="24"
+            Margin="0,188,450,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             Background="#FFF1E8E8"
             RenderTransformOrigin="0.489,0.573"
-            Text="{Binding GetForce, Mode=OneWay}" />
+            FontSize="16"
+            Text="{Binding GetForce, Mode=OneWay}" d:LayoutOverrides="VerticalAlignment" />
         <TextBlock
             x:Name="textBlock_Copy1"
             Width="150"
             Height="24"
-            Margin="0,745,580,0"
+            Margin="0,228,582,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             FontSize="16"
             Text="Состояние:"
-            TextWrapping="Wrap" />
+            TextWrapping="Wrap" d:LayoutOverrides="VerticalAlignment" />
 
         <TextBlock
             x:Name="textBlock_Copy112"
-            Width="263"
+            Width="262"
             Height="24"
-            Margin="0,745,363,0"
+            Margin="0,228,366,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             Background="{Binding FS_State, Converter={StaticResource processStateConvertToColor}}"
             FontSize="16"
             Text="{Binding Path=FS_State, Converter={StaticResource forceStateConvert}}"
             TextWrapping="Wrap"
-            Visibility="Visible" />
+            Visibility="Visible" d:LayoutOverrides="VerticalAlignment" />
         <TextBlock
             x:Name="textBlock_Copy"
             Width="242"
             Height="24"
-            Margin="0,705,116,0"
+            Margin="0,188,118,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             FontSize="16"
             Text="Поперечное положение, [mm]"
-            TextWrapping="Wrap" />
+            TextWrapping="Wrap" d:LayoutOverrides="VerticalAlignment" />
         <TextBlock
             Width="92"
-            Height="32"
-            Margin="0,705,28,0"
+            Height="24"
+            Margin="0,188,30,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             Background="#FFF1E8E8"
-            FontSize="14"
+            FontSize="16"
             OpacityMask="#FF080808"
-            Text="{Binding TablePos_1, Mode=OneWay}" />
+            Text="{Binding TablePos_1, Mode=OneWay}" d:LayoutOverrides="VerticalAlignment" />
         <TextBlock
             x:Name="textBlock_Copy8"
             Width="242"
             Height="24"
-            Margin="0,745,116,0"
+            Margin="0,228,118,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             FontSize="16"
             Text="Продольное положение, [mm]"
-            TextWrapping="Wrap" />
+            TextWrapping="Wrap" d:LayoutOverrides="VerticalAlignment" />
         <TextBlock
             Width="92"
-            Height="32"
-            Margin="0,745,28,0"
+            Height="24"
+            Margin="0,228,30,0"
             HorizontalAlignment="Right"
             VerticalAlignment="top"
             Background="#FFF1E8E8"
-            FontSize="14"
+            FontSize="16"
             OpacityMask="#FF080808"
             RenderTransformOrigin="0.495,1.469"
-            Text="{Binding TablePos_2, Mode=OneWay}" />
+            Text="{Binding TablePos_2, Mode=OneWay}" d:LayoutOverrides="VerticalAlignment" />
         <TextBlock
             x:Name="textBlock_Copy9"
             Width="202"
-            Margin="0,540,268,0"
+            Margin="0,23,270,0"
             HorizontalAlignment="Right"
             FontSize="20"
-            Text="Положение стола"
-            TextWrapping="Wrap" VerticalAlignment="Top" />
+            Text="Создание усилия"
+            TextWrapping="Wrap" VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment" />
         <Border
             Width="753"
             Height="316"
@@ -886,11 +884,12 @@
 
         </Border>
         <TextBox
-            Width="120"
-            Height="32"
-            Margin="198,101,0,0"
+            Width="225"
+            Height="24"
+            Margin="178,101,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
+            FontSize="16"
             Text="{Binding Department, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBlock
             x:Name="textBlock_Copy10"
@@ -903,17 +902,18 @@
             Text="Подразделение"
             TextWrapping="Wrap" />
         <TextBox
-            Width="120"
-            Height="32"
-            Margin="198,137,0,0"
+            Width="225"
+            Height="24"
+            Margin="178,131,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
+            FontSize="16"
             Text="{Binding Fio, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBlock
             x:Name="textBlock_Copy11"
             Width="88"
             Height="24"
-            Margin="34,138,0,0"
+            Margin="34,131,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -923,7 +923,7 @@
             x:Name="textBlock_Copy33"
             Width="88"
             Height="24"
-            Margin="34,177,0,0"
+            Margin="34,161,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -931,24 +931,26 @@
             Text="Тип шины"
             TextWrapping="Wrap" />
         <TextBox
-            Width="120"
-            Height="32"
-            Margin="198,173,0,0"
+            Width="225"
+            Height="24"
+            Margin="178,161,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
+            FontSize="16"
             Text="{Binding TireType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBox
-            Width="120"
-            Height="32"
-            Margin="562,101,0,0"
+            Width="225"
+            Height="24"
+            Margin="178,251,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
+            FontSize="16"
             Text="{Binding TireNomber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <ComboBox
             x:Name="comboBox_Copy"
-            Width="192"
+            Width="165"
             Height="27"
-            Margin="562,210,0,0"
+            Margin="580,204,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             DisplayMemberPath="Name"
@@ -958,7 +960,7 @@
             x:Name="textBlock_Copy34"
             Width="130"
             Height="24"
-            Margin="387,101,0,0"
+            Margin="34,251,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -967,16 +969,17 @@
             TextWrapping="Wrap" />
         <TextBox
             Width="120"
-            Height="32"
-            Margin="562,137,0,0"
+            Height="24"
+            Margin="580,111,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
+            FontSize="16"
             Text="{Binding TyreSizeFirst, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBlock
             x:Name="textBlock_Copy35"
             Width="130"
             Height="24"
-            Margin="387,139,0,0"
+            Margin="34,221,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -985,14 +988,14 @@
             TextWrapping="Wrap" />
         <TextBlock
             x:Name="textBlock_Copy36"
-            Width="130"
-            Height="24"
-            Margin="387,213,0,0"
+            Width="150"
+            Height="44"
+            Margin="418,202,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
             RenderTransformOrigin="0.489,1.083"
-            Text="Тип испытания"
+            Text="Тип определяемой жесткости"
             TextWrapping="Wrap" />
         <Button
             x:Name="reportsBtn_Copy"
@@ -1015,17 +1018,18 @@
             Style="{StaticResource myCheckboxStyleStart}"
             Visibility="Hidden" />
         <TextBox
-            Width="120"
-            Height="32"
-            Margin="198,210,0,0"
+            Width="225"
+            Height="24"
+            Margin="178,191,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
+            FontSize="16"
             Text="{Binding Temperature, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBlock
             x:Name="textBlock_Copy2"
             Width="130"
             Height="24"
-            Margin="34,218,0,0"
+            Margin="34,191,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -1067,7 +1071,7 @@
             x:Name="textBlock_Copy5"
             Width="229"
             Height="24"
-            Margin="288,53,0,0"
+            Margin="288,59,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="18"
@@ -1107,7 +1111,7 @@
             x:Name="textBlock_Copy38"
             Width="150"
             Height="24"
-            Margin="387,254,0,0"
+            Margin="418,250,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -1115,10 +1119,11 @@
             TextWrapping="Wrap" />
         <TextBox
             Width="120"
-            Height="32"
-            Margin="562,249,0,0"
+            Height="24"
+            Margin="580,249,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
+            FontSize="16"
             Text="{Binding SetForce, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBlock
             Width="86"
@@ -1133,79 +1138,153 @@
             Visibility="Hidden" />
         <TextBox
             Width="120"
-            Height="32"
-            Margin="562,173,0,0"
+            Height="24"
+            Margin="580,161,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
+            FontSize="16"
             Text="{Binding TyreSizeAfter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBlock
             x:Name="textBlock_Copy39"
             Width="170"
             Height="42"
-            Margin="387,166,0,0"
+            Margin="418,152,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
             RenderTransformOrigin="0.489,1.083"
-            Text="Размер шины под нагрузкой"
+            Text="Высота профиля под нагрузкой"
             TextWrapping="Wrap" />
-        
+
         <Border
             Width="736"
-            Margin="0,403,14,0"
+            Margin="0,294,16,0"
             Height="125"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             Background="#FFEAE5CF"
             BorderBrush="Black"
-            BorderThickness="1" />
+            BorderThickness="1" d:LayoutOverrides="VerticalAlignment" />
         <TextBlock
             x:Name="textBlock_Copy40"
             Width="150"
-            Margin="0,405,300,0"
+            Margin="0,296,302,0"
             HorizontalAlignment="Right"
             FontSize="20"
             Text="Сканирование"
             TextWrapping="Wrap" VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment" />
         <CheckBox
             x:Name="checkBox_Copy1"
-            Width="86"
-            Height="84"
-            Margin="0,442,616,0"
+            Width="72"
+            Height="38"
+            Margin="0,361,622,0"
             HorizontalAlignment="Right"
             VerticalAlignment="top"
             Content=""
             IsChecked="{Binding GC_Start_1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             RenderTransformOrigin="0.478,0.536"
             Style="{StaticResource myCheckboxStyle}"
-    d:LayoutOverrides="Height" />
+    d:LayoutOverrides="VerticalAlignment, Height" />
         <TextBox
             Width="120"
-            Height="32"
-            Margin="0,478,127,0"
+            Height="24"
+            Margin="0,369,47,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
-            Text="{Binding GC_EndPos_1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            FontSize="16"
+            Text="{Binding GC_EndPos_1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" d:LayoutOverrides="VerticalAlignment" />
         <TextBlock
             x:Name="textBlock_Copy41"
             Width="172"
             Height="24"
-            Margin="0,442,94,0"
+            Margin="0,333,22,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             FontSize="16"
             Text="Высота профиля, [мм]"
-            TextWrapping="Wrap" />
+            TextWrapping="Wrap" d:LayoutOverrides="VerticalAlignment" />
         <TextBlock
             x:Name="textBlock_Copy42"
             Width="106"
             Height="24"
-            Margin="0,442,595,0"
+            Margin="0,333,597,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             FontSize="16"
             Text="Сканировать"
+            TextWrapping="Wrap" d:LayoutOverrides="VerticalAlignment" />
+        <TextBlock
+            x:Name="textBlock_Copy43"
+            Width="242"
+            Height="24"
+            Margin="0,0,444,169"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Background="{Binding LS_StepperState_1, Converter={StaticResource laserStateConvertToColor}}"
+            FontSize="16"
+            Text="{Binding LS_StepperState_1, Converter={StaticResource laserStateConvert}}"
             TextWrapping="Wrap" />
+        <Label
+            HorizontalContentAlignment="Center"
+            Background="#FFE8E7DC"
+            Content="{Binding GS_State_1}"
+            Visibility="Hidden"
+            FontSize="14" HorizontalAlignment="Left" Height="14" Margin="1,1,0,0" VerticalAlignment="Top" Width="98" />
+        <TextBlock
+            x:Name="textBlock_Copy44"
+            Width="185"
+            Margin="0,337,207,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Background="{Binding GS_State_1, Converter={StaticResource curveStateConvertToColor}}"
+            FontSize="16"
+            Text="{Binding GS_State_1, Converter={StaticResource curveStateConvert}}"
+            TextWrapping="Wrap" d:LayoutOverrides="VerticalAlignment" />
+        <TextBlock
+            x:Name="textBlock_Copy45"
+            Width="185"
+            Margin="0,378,207,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Background="{Binding GS_State_2, Converter={StaticResource curveStateConvertToColor}}"
+            FontSize="16"
+            Text="{Binding GS_State_2, Converter={StaticResource curveStateConvert}}"
+            TextWrapping="Wrap" d:LayoutOverrides="VerticalAlignment" />
+        <TextBox
+            Width="225"
+            Height="24"
+            Margin="178,221,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="{Binding TireSize, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBlock
+            x:Name="textBlock_Copy46"
+            Width="170"
+            Height="42"
+            Margin="418,101,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            RenderTransformOrigin="0.489,1.083"
+            Text="Высота профиля без нагрузки"
+            TextWrapping="Wrap" />
+        <TextBlock
+            x:Name="textBlock_Copy47"
+            Width="139"
+            Margin="0,336,419,0"
+            HorizontalAlignment="Right"
+            FontSize="16"
+            Text="Этап для лазера 1:"
+            TextWrapping="Wrap" Height="24" VerticalAlignment="Top" />
+        <TextBlock
+            x:Name="textBlock_Copy48"
+            Width="139"
+            Margin="0,376,419,0"
+            HorizontalAlignment="Right"
+            FontSize="16"
+            Text="Этап для лазера 2:"
+            TextWrapping="Wrap" Height="24" VerticalAlignment="Top" />
 
 
 

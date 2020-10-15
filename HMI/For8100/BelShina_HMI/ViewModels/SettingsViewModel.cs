@@ -288,21 +288,21 @@ namespace BelShina_HMI.ViewModels
 
 
         [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.wGC_InitialPos_1")]
-        public float GC_InitialPos_1
+        public ushort GC_InitialPos_1
         {
             get { return this.gC_InitialPos_1; }
             set { this.SetProperty(ref this.gC_InitialPos_1, value); }
         }
-        private float gC_InitialPos_1;
+        private ushort gC_InitialPos_1;
 
 
         [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.wGC_InitialPos_2")]
-        public float GC_InitialPos_2
+        public ushort GC_InitialPos_2
         {
             get { return this.gC_InitialPos_2; }
             set { this.SetProperty(ref this.gC_InitialPos_2, value); }
         }
-        private float gC_InitialPos_2;
+        private ushort gC_InitialPos_2;
 
 
         [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rDistanceBetweenLasers")]

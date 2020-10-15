@@ -36,7 +36,7 @@ namespace BelShina_HMI.ViewModels
             {
                 
               new TestType(){   Id=1, 
-                                Name="Угловое", 
+                                Name="Угловая", 
                                 Formula="Кугл=(Mα2-Mα1)/(α2-α2)", 
                                 HalfForceName = "Mα1, [H*m]",
                                 HalfWayName = "α1, [град]",
@@ -727,7 +727,7 @@ namespace BelShina_HMI.ViewModels
         private float tablePos_2;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.xGC_Start_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.xStartAllCurves")]
         public bool GC_Start_1
         {
             get { return this.gC_Start_1; }
@@ -763,6 +763,24 @@ namespace BelShina_HMI.ViewModels
         }
 
         private ushort tyreSizeAfter;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.wGS_State_1")]
+        public virtual ushort GS_State_1
+        {
+            get { return this.gS_State_1; }
+            set { this.SetProperty(ref this.gS_State_1, value); }
+        }
+        private ushort gS_State_1;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.wGS_State_2")]
+        public virtual ushort GS_State_2
+        {
+            get { return this.gS_State_2; }
+            set { this.SetProperty(ref this.gS_State_2, value); }
+        }
+        private ushort gS_State_2;
 
 
 

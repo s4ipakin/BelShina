@@ -16,36 +16,42 @@
     </Page.DataContext>
 
     <Grid>
-        <lvc:CartesianChart x:Name="Chart_P" Margin="0,32,0,228" DisableAnimations="True">
+        <lvc:CartesianChart
+            x:Name="Chart_P"
+            Margin="0,32,0,228"
+            DisableAnimations="True">
             <lvc:CartesianChart.Series>
                 <!--<lvc:RowSeries Values="{Binding Values2}" Panel.ZIndex="1"></lvc:RowSeries>-->
                 <lvc:VerticalLineSeries
                     Panel.ZIndex="0"
                     Fill="Transparent"
-                    Stroke="Black"
                     PointGeometrySize="2"
+                    Stroke="Black"
                     Values="{Binding ChartValuesBefore1}" />
                 <lvc:VerticalLineSeries
                     Panel.ZIndex="1"
                     Fill="Transparent"
+                    PointGeometrySize="2"
                     Stroke="Blue"
                     Values="{Binding ChartValuesAfter1}" />
                 <lvc:VerticalLineSeries
                     Panel.ZIndex="0"
                     Fill="Transparent"
+                    PointGeometrySize="2"
                     Stroke="Black"
                     Values="{Binding ChartValuesBefore2}" />
                 <lvc:VerticalLineSeries
                     Panel.ZIndex="1"
                     Fill="Transparent"
+                    PointGeometrySize="2"
                     Stroke="Blue"
                     Values="{Binding ChartValuesAfter2}" />
             </lvc:CartesianChart.Series>
             <lvc:CartesianChart.AxisY>
                 <lvc:Axis
                     Title="{Binding YaxesName}"
-                    FontSize="16"
-                    FontWeight="Black">
+                    FontSize="14"
+                    FontWeight="Light">
                     <lvc:Axis.Separator>
                         <lvc:Separator Step="10" />
                     </lvc:Axis.Separator>
@@ -54,10 +60,10 @@
             <lvc:CartesianChart.AxisX>
                 <lvc:Axis
                     Title="{Binding XaxesName}"
-                    FontSize="16"
-                    FontWeight="Black"
+                    FontSize="14"
+                    FontWeight="Light"
                     LabelsRotation="-90"
-                    MinValue="0" >
+                    MinValue="0">
                     <lvc:Axis.Separator>
                         <lvc:Separator Step="10" />
                     </lvc:Axis.Separator>
