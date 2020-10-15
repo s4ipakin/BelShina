@@ -13,6 +13,7 @@ using GalaSoft.MvvmLight.Messaging;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Drawing;
+using MigraDoc.RtfRendering;
 
 namespace BelShina_HMI.ViewModels
 {
@@ -1013,6 +1014,10 @@ namespace BelShina_HMI.ViewModels
                 var filename = "Invoice.pdf";
                 pdfRenderer.Save(filename);
                 Process.Start(filename);
+            var filenameRTF = "Invoice.rtf";
+            RtfDocumentRenderer rtf = new RtfDocumentRenderer();
+            rtf.Render(document, filenameRTF, null);
+            Process.Start(filenameRTF);
             //}
             //catch (Exception ex) { }
         }

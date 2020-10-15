@@ -150,7 +150,7 @@ namespace BelShina_HMI.Reports
 
             // Create the text frame for the address.
             _addressFrame = section.AddTextFrame();
-            _addressFrame.Height = "3.0cm";
+            _addressFrame.Height = "5.0cm";
             _addressFrame.Width = "15.0cm";
             _addressFrame.Left = ShapePosition.Center;
             _addressFrame.RelativeHorizontal = RelativeHorizontal.Margin;
