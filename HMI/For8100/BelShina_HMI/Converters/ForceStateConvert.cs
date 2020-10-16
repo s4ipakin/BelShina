@@ -451,9 +451,34 @@ namespace BelShina_HMI.Converters
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            ushort alm = (ushort)value;
+            if (alm == 0)
+            {
+                return Visibility.Hidden;
+            }
+            return DependencyProperty.UnsetValue;
+        }
+    }
+
+
+    [ValueConversion(typeof(ushort), typeof(Visibility))]
+    public class AlmVisible : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            ushort alm = (ushort)value;
+            if (alm == 0)
+            {
+                return Visibility.Hidden;
+            }
+            return Visibility.Visible;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
             string strValue = value as string;
-            ushort resultUshort;
-            if (ushort.TryParse(strValue, out resultUshort))
+            bool resultUshort;
+            if (bool.TryParse(strValue, out resultUshort))
             {
                 return resultUshort;
             }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Messaging;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Input;
 using Workstation.ServiceModel.Ua;
 
@@ -37,17 +39,30 @@ namespace BelShina_HMI.ViewModels
             tbl.Columns.Add("Message", typeof(string));
             tbl.Columns.Add("EntryType", typeof(EventLogEntryType));
             tblCurrent = tbl.Copy();
+            Messenger.Default.Register<SentDict>(this, GetAlms);
+        }
+
+        private void GetAlms(SentDict almDict)
+        {
+            //throw new NotImplementedException();
         }
 
         private void ClearHystory(string v)
         {
-            using (EventLog eventLog = new EventLog("MyNewLog"))
+            DialogResult dialogResult = System.Windows.Forms.MessageBox.Show("Вся история будет безвозвратно удалена. Продолжить?",
+            "Удаление", MessageBoxButtons.YesNo);
+
+            if (dialogResult == System.Windows.Forms.DialogResult.Yes)
             {
-                eventLog.Source = "MySourceOPC";
-                eventLog.Clear();
-                tbl.Clear();
-                tblCurrent.Clear();
+                using (EventLog eventLog = new EventLog("MyNewLog"))
+                {
+                    eventLog.Source = "MySourceOPC";
+                    eventLog.Clear();
+                    tbl.Clear();
+                    tblCurrent.Clear();
+                }
             }
+            
         }
 
         private void Acknowlage(string v)
@@ -147,7 +162,7 @@ namespace BelShina_HMI.ViewModels
             { 
                 if (this.fS_State == 2)
                 {
-                    EnterEvent("Усилие через метод", EventLogEntryType.Information);
+                    //EnterEvent("Усилие через метод", EventLogEntryType.Information);
                 }
                 return this.fS_State; 
             }
@@ -163,12 +178,80 @@ namespace BelShina_HMI.ViewModels
             { 
                 if (this.forceStepAlm > 0)
                 {
-                    EnterEvent("Некая авария", EventLogEntryType.Error);
+                    EnterEvent("Авария двигателя усиления", EventLogEntryType.Error);
                 }
                 return this.forceStepAlm; 
             }
             set { this.SetProperty(ref this.forceStepAlm, value); }
         }
         private ushort forceStepAlm;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Alm.wAlmLaser_1")]
+        public ushort AlmLaser_1
+        {
+            get 
+            {
+                if (this.almLaser_1 > 0)
+                {
+                    EnterEvent("Авария двигателя лазерного датчика 1", EventLogEntryType.Error);
+                }
+                return this.almLaser_1; 
+            }
+            set { this.SetProperty(ref this.almLaser_1, value); }
+        }
+        private ushort almLaser_1;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Alm.wAlmLaser_2")]
+        public ushort AlmLaser_2
+        {
+            get 
+            {
+                if (this.almLaser_2 > 0)
+                {
+                    EnterEvent("Авария двигателя лазерного датчика 2", EventLogEntryType.Error);
+                }
+                return this.almLaser_2; 
+            }
+            set { this.SetProperty(ref this.almLaser_2, value); }
+        }
+        private ushort almLaser_2;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.wST_State_1")]
+        public ushort ProcessState
+        {
+            get 
+            {
+                switch(this.processState)
+                {
+                    case 1:
+                        EnterEvent("Создание усиления", EventLogEntryType.Information);
+                        break;
+                    case 4:
+                        EnterEvent("Измерение профиля шины под нагрузукой", EventLogEntryType.Information);
+                        break;
+                    case 5:
+                        EnterEvent("Испытание завершено", EventLogEntryType.Information);
+                        break;
+                    case 6:
+                        EnterEvent("Ослабление усилия", EventLogEntryType.Information);
+                        break;
+                    case 7:
+                        EnterEvent("Остановка испытания", EventLogEntryType.Information);
+                        break;
+                    case 8:
+                        EnterEvent("Измерение профиля шины без нагрузуки", EventLogEntryType.Information);
+                        break;
+                }
+                return this.processState; 
+            }
+            set { this.SetProperty(ref this.processState, value); }
+        }
+        private ushort processState;
+
+
+
     }
 }

@@ -24,6 +24,7 @@ namespace BelShina_HMI.ViewModels
         public ICommand ButtonLSStopCommand_1 { get; set; }
         public ICommand ButtonLSStopCommand_2 { get; set; }
         public ICommand ProcessStartStopCommand { get; set; }
+        public ICommand ButtonResetAlm { get; set; }
         Dictionary<ushort, TestType> TestTypeDic;
 
         public MainViewModel()
@@ -33,6 +34,7 @@ namespace BelShina_HMI.ViewModels
             ButtonLSStopCommand_1 = new RelayCommand(o => StopLaserCommand_1("ReportsButton"));
             ButtonLSStopCommand_2 = new RelayCommand(o => StopLaserCommand_2("ReportsButton"));
             ProcessStartStopCommand = new RelayCommand(o => StartStopProcess("ReportsButton"));
+            ButtonResetAlm = new RelayCommand(o => ResetAlm("ReportsButton"));
             TestTypes = new ObservableCollection<TestType>()
             {
                 
@@ -94,6 +96,12 @@ namespace BelShina_HMI.ViewModels
             //_testType = TestTypeDic[ProcessType];
             Messenger.Default.Register<SentDataTab>(this, Calculate);
 
+        }
+
+        private void ResetAlm(string v)
+        {
+            //MessageBox.Show("Application.HMI_Stepper.rLS_RealPos_1");
+            _ResetAlm = true;
         }
 
         public virtual void Calculate(SentDataTab dataTab)
@@ -782,6 +790,63 @@ namespace BelShina_HMI.ViewModels
             set { this.SetProperty(ref this.gS_State_2, value); }
         }
         private ushort gS_State_2;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Alm.wAnyAlm")]
+        public ushort AnyAlm
+        {
+            get 
+            { 
+                if (this.anyAlm > 0)
+                {
+                    Dictionary<string, ushort> almDict = new Dictionary<string, ushort>();
+                    almDict.Add("wAlmLaser_1", AlmLaser_1);
+                    almDict.Add("wAlmLaser_2", AlmLaser_2);
+                    almDict.Add("wForceStepAlm", ForceStepAlm);
+                    var generateReportsMessage = new SentDict(almDict);
+                    Messenger.Default.Send(generateReportsMessage);
+                }
+                return this.anyAlm; 
+            }
+            set { this.SetProperty(ref this.anyAlm, value); }
+        }
+        private ushort anyAlm;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Alm.wAlmLaser_1")]
+        public ushort AlmLaser_1
+        {
+            get { return this.almLaser_1; }
+            set { this.SetProperty(ref this.almLaser_1, value); }
+        }
+        private ushort almLaser_1;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Alm.wAlmLaser_2")]
+        public ushort AlmLaser_2
+        {
+            get { return this.almLaser_2; }
+            set { this.SetProperty(ref this.almLaser_2, value); }
+        }
+        private ushort almLaser_2;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Alm.wForceStepAlm")]
+        public ushort ForceStepAlm
+        {
+            get { return this.forceStepAlm; }
+            set { this.SetProperty(ref this.forceStepAlm, value); }
+        }
+        private ushort forceStepAlm;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Alm.xResetAlm")]
+        public bool _ResetAlm
+        {
+            get { return this.resetAlm; }
+            set { this.SetProperty(ref this.resetAlm, value); }
+        }
+        private bool resetAlm;
 
 
 

@@ -74,6 +74,7 @@
         <src:CurveStateConvertToColor x:Key="curveStateConvertToColor" />
         <src:StartBtnText x:Key="startBtnText" />
         <src:StartBtnColor x:Key="ctartBtnColor" />
+        <src:AlmVisible x:Key="almVisible" />
         <Style x:Key="MyBorderStyle" TargetType="Border">
             <Setter Property="BorderBrush" Value="Black" />
             <Setter Property="BorderThickness" Value="1" />
@@ -389,7 +390,15 @@
             HorizontalAlignment="Right"
             Background="#FFEAE5CF"
             BorderBrush="Black"
-            BorderThickness="1" />
+            BorderThickness="1">
+            <Label x:Name="label_Copy12" 
+                Content="АВАРИЯ" 
+                Background="red"
+                Height="28" 
+                VerticalAlignment="Top"
+                Visibility="{Binding AlmLaser_1, Converter={StaticResource almVisible}}"
+                Margin="154,41,141,0"/>
+        </Border>
         <TextBlock
             x:Name="textBlock_Copy24"
             Width="242"
@@ -506,7 +515,15 @@
             HorizontalAlignment="Right"
             Background="#FFEAE5CF"
             BorderBrush="Black"
-            BorderThickness="1" />
+            BorderThickness="1" >
+            <Label x:Name="label_Copy1" 
+                Content="АВАРИЯ" 
+                Background="red"
+                Height="28" 
+                VerticalAlignment="Top"
+                Visibility="{Binding AlmLaser_2, Converter={StaticResource almVisible}}"
+                Margin="154,41,141,0"/>
+        </Border>
         <TextBlock
             x:Name="textBlock_Copy15"
             Width="242"
@@ -625,7 +642,14 @@
             VerticalAlignment="Top"
             Background="#FFEAE5CF"
             BorderBrush="Black"
-            BorderThickness="1" d:LayoutOverrides="VerticalAlignment" />
+            
+            BorderThickness="1" d:LayoutOverrides="VerticalAlignment" >
+            <Label x:Name="label_Copy" 
+                Content="АВАРИЯ" 
+                Background="red"
+                Visibility="{Binding ForceStepAlm, Converter={StaticResource almVisible}}"
+                Margin="324,32,351,0" Height="28" VerticalAlignment="Top"/>
+        </Border>
         <TextBlock
             Width="92"
             Height="24"
@@ -1285,6 +1309,25 @@
             FontSize="16"
             Text="Этап для лазера 2:"
             TextWrapping="Wrap" Height="24" VerticalAlignment="Top" />
+        <TextBox
+            Width="225"
+            Height="24"
+            Margin="48,343,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Visibility="Hidden"
+            Text="{Binding AnyAlm, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <Button
+            x:Name="resetAlmBtn"
+            Width="183"
+            Height="35"
+            Margin="311,288,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Command="{Binding ButtonResetAlm}"
+            Content="Сброс аварий"
+            FontSize="16" />
 
 
 

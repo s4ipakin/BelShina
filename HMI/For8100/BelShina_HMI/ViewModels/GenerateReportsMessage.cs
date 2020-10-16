@@ -25,4 +25,19 @@ namespace BelShina_HMI.ViewModels
             set { dataTable = value; }
         }
     }
+
+    public class SentDict
+    {
+        Dictionary<string, ushort> almDict;
+
+        public SentDict(Dictionary<string, ushort> almDict)
+        {
+            this.almDict = almDict;
+        }
+        public Dictionary<string, ushort> AlmDict
+        {
+            get { return almDict; }
+            set { almDict = value; }
+        }
+    }
 }

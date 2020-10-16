@@ -77,13 +77,15 @@
             Margin="74,0,0,101"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
-            Content="{Binding ForceStepAlm}" />
+            Content="{Binding ForceStepAlm}"
+            Visibility="Hidden" />
         <Label
             x:Name="label_1"
             Margin="120,0,0,101"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
-            Content="{Binding FS_State}" />
+            Content="{Binding FS_State}"
+            Visibility="Hidden" />
         <Button
             x:Name="button"
             Width="134"
@@ -94,17 +96,18 @@
             Content="Прочитать историю" />
         <Button
             x:Name="buttonCurrent"
-            Margin="782,0,684,77"
+            Margin="0,0,658,77"
             VerticalAlignment="Bottom"
             Command="{Binding ButtonShowCurrentCommand}"
-            Content="Текущие" />
+            Content="Текущие" HorizontalAlignment="Right" Width="134" />
 
         <Label
             x:Name="label_2"
             Margin="89,0,0,101"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
-            Content="{Binding SelectedInde1}" />
+            Content="{Binding SelectedInde1}"
+            Visibility="Hidden" />
         <TextBox
             x:Name="TextBox2"
             Width="226"
@@ -112,20 +115,51 @@
             Margin="0,0,10,160"
             HorizontalAlignment="Right"
             VerticalAlignment="Bottom"
-            Text="{Binding SelectedIndex, ElementName=listView}" />
+            Text="{Binding SelectedIndex, ElementName=listView}"
+            Visibility="Hidden" />
+
+        <Label
+            x:Name="label_3"
+            Margin="89,0,0,101"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Content="{Binding AlmLaser_1}"
+            Visibility="Hidden" />
+        <Label
+            x:Name="label_4"
+            Margin="89,0,0,101"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Content="{Binding AlmLaser_2}"
+            Visibility="Hidden" />
+        <Label
+            x:Name="label_5"
+            Margin="89,0,0,101"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Content="{Binding ForceStepAlm}"
+            Visibility="Hidden" />
+        <Label
+            x:Name="label_6"
+            Margin="89,0,0,101"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Content="{Binding ProcessState}"
+            Visibility="Hidden" />
+
         <Button
             x:Name="button1"
             Width="75"
-            Margin="596,0,0,91"
+            Margin="702,0,0,77"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
             Command="{Binding ButtonAcknowlage}"
             Content="Квитировать" />
         <Button
             x:Name="button2"
-            Width="75"
-            Margin="0,0,319,77"
-            HorizontalAlignment="Right"
+            Width="117"
+            Margin="59,0,0,77"
+            HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
             Command="{Binding ButtonClear}"
             Content="Очистить историю" />

@@ -48,8 +48,8 @@
                 <lvc:LineSeries
                     Title="{Binding SeriesName}"
                     LineSmoothness="1"
-                    Stroke="Blue"
-                    StrokeThickness="3"
+                    
+                    
                     Values="{Binding ChartValues}" />
             </lvc:CartesianChart.Series>
             <lvc:CartesianChart.AxisY>
@@ -112,6 +112,7 @@
             Margin="393,0,0,70"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
+            Visibility="Hidden"
             Content="{Binding ProcType_1}" />
     </Grid>
 </Page>

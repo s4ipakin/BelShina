@@ -42,6 +42,7 @@ namespace BelShina_HMI.Pages
             Chart_P.AxisX[0].Separator.Step = 1;
             Chart_P.PreviewMouseRightButtonDown += Chart_P_PreviewMouseRightButtonDown;
             Chart_P.PreviewMouseRightButtonUp += Chart_P_PreviewMouseRightButtonUp;
+            
         }
 
         private void Chart_P_PreviewMouseRightButtonUp(object sender, MouseButtonEventArgs e)

@@ -37,6 +37,9 @@
   <NodeList>
     <Node name="Application">
       <Node name="HMI_Alm">
+        <Node name="wAlmLaser_1" type="T_WORD" access="ReadWrite" />
+        <Node name="wAlmLaser_2" type="T_WORD" access="ReadWrite" />
+        <Node name="wAnyAlm" type="T_WORD" access="ReadWrite" />
         <Node name="wForceStepAlm" type="T_WORD" access="ReadWrite" />
         <Node name="xResetAlm" type="T_BOOL" access="ReadWrite" />
       </Node>

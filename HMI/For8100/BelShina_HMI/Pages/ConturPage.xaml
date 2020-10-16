@@ -80,6 +80,7 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
             Content="CheckBox"
+            Visibility="Hidden"
             IsChecked="{Binding CurveStarted_1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <CheckBox
             x:Name="checkBox1"
@@ -87,6 +88,7 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
             Content="CheckBox"
+            Visibility="Hidden"
             IsChecked="{Binding CurveStarted_2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <CheckBox
             x:Name="checkBox2"
@@ -94,6 +96,7 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
             Content="CheckBox"
+            Visibility="Hidden"
             IsChecked="{Binding ReadOPC_1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <CheckBox
             x:Name="checkBox3"
@@ -101,36 +104,42 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
             Content="CheckBox"
+            Visibility="Hidden"
             IsChecked="{Binding ReadOPC_2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <Label
             x:Name="label"
             Margin="74,0,0,101"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
+            Visibility="Hidden"
             Content="{Binding ST_State_1}" />
         <Label
             x:Name="labe2"
             Margin="74,0,0,125"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
+            Visibility="Hidden"
             Content="{Binding LaserData_1}" />
         <Label
             x:Name="labe3"
             Margin="49,0,0,160"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
+            Visibility="Hidden"
             Content="{Binding LaserData_3}" />
         <Label
             x:Name="labe4"
             Margin="74,0,0,160"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
+            Visibility="Hidden"
             Content="{Binding StepPos_1}" />
         <Label
             x:Name="labe5"
             Margin="112,0,0,160"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
+            Visibility="Hidden"
             Content="{Binding StepPos_2}" />
         <Button
             x:Name="Распечать"
