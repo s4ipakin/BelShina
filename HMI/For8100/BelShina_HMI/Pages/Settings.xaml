@@ -67,13 +67,13 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
-            Text="Скорость"
+            Text="Скорость, [мм/мин.]"
             TextWrapping="Wrap" />
         <TextBlock
             x:Name="textBlock_Copy6"
             Width="138"
             Height="24"
-            Margin="544,306,0,0"
+            Margin="544,374,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -82,13 +82,11 @@
         <TextBlock
             x:Name="textBlock_Copy7"
             Width="138"
-            Height="24"
-            Margin="544,356,0,0"
+            Margin="544,424,0,0"
             HorizontalAlignment="Left"
-            VerticalAlignment="Top"
             FontSize="16"
             Text="Торможение"
-            TextWrapping="Wrap" />
+            TextWrapping="Wrap" Height="24" VerticalAlignment="Top" />
         <TextBox
             Width="120"
             Height="24"
@@ -124,19 +122,17 @@
         <TextBox
             Width="120"
             Height="24"
-            Margin="784,306,0,0"
+            Margin="784,374,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
             Text="{Binding SetAcceleration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBox
             Width="120"
-            Height="24"
-            Margin="784,356,0,0"
+            Margin="784,424,0,0"
             HorizontalAlignment="Left"
-            VerticalAlignment="Top"
             FontSize="16"
-            Text="{Binding SetDeceleration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            Text="{Binding SetDeceleration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="24" VerticalAlignment="Top" />
         <TextBlock
             x:Name="textBlock_Copy"
             Width="139"
@@ -359,24 +355,21 @@
             Text="{Binding K_4, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBox
             Width="120"
-            Height="24"
-            Margin="784,418,0,0"
+            Margin="784,0,0,390"
             HorizontalAlignment="Left"
-            VerticalAlignment="Top"
             FontSize="16"
-            Text="{Binding EncoderImpulseCount, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
+            Text="{Binding EncoderImpulseCount, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Height="24" VerticalAlignment="Bottom" />
         <TextBlock
             x:Name="textBlock_Copy21"
             Width="212"
-            Margin="544,406,0,0"
+            Margin="544,0,0,383"
             HorizontalAlignment="Left"
-            VerticalAlignment="Top"
             FontSize="16"
             Text="Количество импульсов энкодера на оборот"
-            TextWrapping="Wrap" />
+            TextWrapping="Wrap" VerticalAlignment="Bottom" />
         <TextBox
             Width="120"
-            Margin="784,484,0,0"
+            Margin="784,552,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -385,7 +378,7 @@
             x:Name="textBlock_Copy22"
             Width="224"
             Height="86"
-            Margin="544,456,0,0"
+            Margin="544,524,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -560,5 +553,80 @@
             VerticalAlignment="Top"
             FontSize="16"
             Text="{Binding DistanceBetweenLasers, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox
+            Width="120"
+            Height="24"
+            Margin="0,384,114,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="{Binding ScrewStepForce, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+    d:LayoutOverrides="VerticalAlignment" />
+        <TextBlock
+            x:Name="textBlock_Copy31"
+            Width="196"
+            Height="32"
+            Margin="0,384,278,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="Шаг резьбы вала, [mm]"
+            TextWrapping="Wrap"
+    d:LayoutOverrides="VerticalAlignment" />
+        <TextBox
+            Width="120"
+            Height="24"
+            Margin="0,425,114,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="{Binding ReductCoef, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+    d:LayoutOverrides="VerticalAlignment" />
+        <TextBlock
+            x:Name="textBlock_Copy32"
+            Width="196"
+            Height="32"
+            Margin="0,421,278,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="Коэффициент редукции"
+            TextWrapping="Wrap" />
+        <TextBox
+            Width="120"
+            Height="24"
+            Margin="0,470,114,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="{Binding StepAngleForce, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
+        <TextBlock
+            x:Name="textBlock_Copy33"
+            Width="196"
+            Height="32"
+            Margin="0,467,278,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="Угол шага, [град]"
+            TextWrapping="Wrap" />
+        <TextBlock
+            x:Name="textBlock_Copy34"
+            Width="224"
+            Height="24"
+            Margin="544,311,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="Обратная скорость, [мм/мин.]"
+            TextWrapping="Wrap" />
+        <TextBox
+            Width="120"
+            Height="24"
+            Margin="784,311,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="{Binding FS_SetBackSpeed, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
     </Grid>
 </Page>

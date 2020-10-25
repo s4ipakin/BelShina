@@ -46,17 +46,17 @@
                 MinWidth="150"
                 Margin="10,0,0,0"
                 Click="btnContClk_1"
-                Content="Контур 1" />
-            <Button
+                Content="Профиль боковины" />
+            <!--<Button
                 MinWidth="150"
                 Margin="10,0,0,0"
                 Click="btnContClk_2"
-                Content="Контур 2" />
+                Content="Контур 2" />-->
             <Button
                 MinWidth="150"
                 Margin="10,0,0,0"
                 Click="btnAlmClk"
-                Content="Аварии" />
+                Content="События/Аварии" />
         </StackPanel>
         <Frame Name="Main" NavigationUIVisibility="Hidden" />
     </Grid>

@@ -134,6 +134,10 @@ namespace BelShina_HMI.Converters
                     return " Остановка";
                 case 8:
                     return " Измерение контуров первичное";
+                case 9:
+                    return " Ожидание нагрузки";
+                case 10:
+                    return " Отправка данных";
 
 
                 default:
@@ -180,6 +184,9 @@ namespace BelShina_HMI.Converters
                     return (Brush)bc.ConvertFrom("#FFF7DEDB");
                 case 8:
                     return (Brush)bc.ConvertFrom("#FFA8F9A0");
+                case 9:
+                case 10:
+                    return (Brush)bc.ConvertFrom("#FFF3FB49");
 
 
                 default:
@@ -486,6 +493,108 @@ namespace BelShina_HMI.Converters
         }
     }
 
+    [ValueConversion(typeof(bool), typeof(Visibility))]
+    public class BoolVisible : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            bool visible = (bool)value;
+            if (visible)
+            {
+                return Visibility.Visible;
+            }
+            return Visibility.Hidden;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            string strValue = value as string;
+            bool resultUshort;
+            if (bool.TryParse(strValue, out resultUshort))
+            {
+                return resultUshort;
+            }
+            return DependencyProperty.UnsetValue;
+        }
+    }
+
+
+
+    [ValueConversion(typeof(ushort), typeof(Visibility))]
+    public class TypeVisible : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            ushort type = (ushort)value;
+            if (type == 1)
+            {
+                return Visibility.Visible;
+            }
+            return Visibility.Hidden;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            string strValue = value as string;
+            bool resultUshort;
+            if (bool.TryParse(strValue, out resultUshort))
+            {
+                return resultUshort;
+            }
+            return DependencyProperty.UnsetValue;
+        }
+    }
+
+    [ValueConversion(typeof(ushort), typeof(string))]
+    public class TypeTextSet : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            ushort type = (ushort)value;
+            if (type == 1)
+            {
+                return "Заданный момент, [H*м]";
+            }
+            return "Заданная сила, [H]";
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            string strValue = value as string;
+            bool resultUshort;
+            if (bool.TryParse(strValue, out resultUshort))
+            {
+                return resultUshort;
+            }
+            return DependencyProperty.UnsetValue;
+        }
+    }
+
+
+    [ValueConversion(typeof(ushort), typeof(string))]
+    public class TypeTextGet : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            ushort type = (ushort)value;
+            if (type == 1)
+            {
+                return "Измеренный момент, [H*м]";
+            }
+            return "Измеренная сила, [H]";
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            string strValue = value as string;
+            bool resultUshort;
+            if (bool.TryParse(strValue, out resultUshort))
+            {
+                return resultUshort;
+            }
+            return DependencyProperty.UnsetValue;
+        }
+    }
 
 
 }

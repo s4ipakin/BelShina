@@ -114,5 +114,12 @@
             VerticalAlignment="Bottom"
             Visibility="Hidden"
             Content="{Binding ProcType_1}" />
+        <CheckBox x:Name="checkBox" 
+                  Content="CheckBox" 
+                  HorizontalAlignment="Left" 
+                  Margin="78,0,0,156"
+                  IsChecked="{Binding Start}"
+                  Visibility="Hidden"
+                  VerticalAlignment="Bottom"/>
     </Grid>
 </Page>

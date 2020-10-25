@@ -150,7 +150,7 @@ namespace BelShina_HMI.Reports
 
             // Create the text frame for the address.
             _addressFrame = section.AddTextFrame();
-            _addressFrame.Height = "5.0cm";
+            _addressFrame.Height = "11.0cm";
             _addressFrame.Width = "15.0cm";
             _addressFrame.Left = ShapePosition.Center;
             _addressFrame.RelativeHorizontal = RelativeHorizontal.Margin;
@@ -175,7 +175,8 @@ namespace BelShina_HMI.Reports
             paragraph.AddFormattedText("Протокол испытаний", TextFormat.Bold);
             paragraph.AddTab();
             paragraph.AddText("Бобруйск, ");
-            paragraph.AddDateField("dd.MM.yyyy");
+            paragraph.AddText(DateTime.Now.ToString());
+            //paragraph.AddDateField("dd.MM.yyyy");
 
             // Create the item table.
             _table = section.AddTable();
@@ -202,7 +203,7 @@ namespace BelShina_HMI.Reports
             column = _table.AddColumn("2cm");
             column.Format.Alignment = ParagraphAlignment.Center;
 
-            column = _table.AddColumn("2cm");
+            column = _table.AddColumn("3cm");
             column.Format.Alignment = ParagraphAlignment.Center;
 
             // Create the header of the table.
@@ -232,7 +233,7 @@ namespace BelShina_HMI.Reports
             row.Cells[4].AddParagraph(testType.HalfWayName);
             row.Cells[4].Format.Alignment = ParagraphAlignment.Center;
             row.Cells[4].VerticalAlignment = VerticalAlignment.Center;
-            //row.Cells[4].MergeDown = 1;
+            row.Cells[4].MergeDown = 1;
             row.Cells[5].AddParagraph(testType.KoefName);
             row.Cells[5].Format.Alignment = ParagraphAlignment.Center;
             row.Cells[5].VerticalAlignment = VerticalAlignment.Center;
@@ -271,19 +272,34 @@ namespace BelShina_HMI.Reports
             //paragraph.AddLineBreak();
             //paragraph.AddText(GetValue(item, "address/postalCode") + " " + GetValue(item, "address/city"));
             var paragraph = _addressFrame.AddParagraph();
-            paragraph.AddText("Подразделение: " + dataTable.Rows[0][1].ToString());
-            paragraph.AddLineBreak();
+            //paragraph.AddText("Подразделение: " + dataTable.Rows[0][1].ToString());
+            //paragraph.AddLineBreak();
             paragraph.AddText("Оператор: " + dataTable.Rows[1][1].ToString());
             paragraph.AddLineBreak();
-            paragraph.AddText("Тип шины: " + dataTable.Rows[2][1].ToString());
+            paragraph.AddText("Размер шины: " + dataTable.Rows[4][1].ToString());
+            paragraph.AddLineBreak();
+            paragraph.AddText("Модель шины: " + dataTable.Rows[2][1].ToString());
             paragraph.AddLineBreak();
             paragraph.AddText("Номер шины: " + dataTable.Rows[3][1].ToString());
-            paragraph.AddLineBreak();
-            paragraph.AddText("Размер шины: " + dataTable.Rows[4][1].ToString());
             paragraph.AddLineBreak();
             paragraph.AddText("Методика: " + dataTable.Rows[5][1].ToString());
             paragraph.AddLineBreak();
             paragraph.AddText("Температура в помещении: " + dataTable.Rows[6][1].ToString() + "°С");
+            paragraph.AddLineBreak();
+            if (dataTable.Rows[5][1].ToString() == "Угловое")
+            {
+                
+                paragraph.AddText("Радиус стола: " + dataTable.Rows[19][1].ToString() + "м");
+                paragraph.AddLineBreak();
+                paragraph.AddText("Создаваемое усилие: " + dataTable.Rows[20][1].ToString() + "Н");
+                paragraph.AddLineBreak();
+            }
+            paragraph.AddText("Давление в шине: " + dataTable.Rows[21][1].ToString() + "кПа");
+            paragraph.AddLineBreak();
+            paragraph.AddText("Верхняя нагрузка: " + dataTable.Rows[22][1].ToString() + "кН");
+            paragraph.AddLineBreak();
+
+
             // Iterate the invoice items.
             double totalExtendedPrice = 0;
             //var iter = _navigator.Select("/invoice/items/*");

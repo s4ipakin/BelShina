@@ -83,15 +83,20 @@ namespace BelShina_HMI.ViewModels
         {
             isHystory = true;
             tbl.Clear();
-            using (EventLog eventLog = new EventLog("MyNewLog"))
+            try
             {
-                EventLog myLog = new EventLog();
-                myLog.Source = "MySourceOPC";
-                foreach (EventLogEntry entry in myLog.Entries)
+                using (EventLog eventLog = new EventLog("MyNewLog"))
                 {
-                    tbl.Rows.Add(entry.TimeWritten.ToString(), entry.Message, entry.EntryType);
+                    EventLog myLog = new EventLog();
+                    myLog.Source = "MySourceOPC";
+                    foreach (EventLogEntry entry in myLog.Entries)
+                    {
+                        tbl.Rows.Add(entry.TimeWritten.ToString(), entry.Message, entry.EntryType);
+                    }
                 }
             }
+            catch(Exception ex) { System.Windows.MessageBox.Show("Невозможно загрузить историю"); }
+            
             
         }
 
@@ -155,7 +160,7 @@ namespace BelShina_HMI.ViewModels
 
         
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.wFS_State")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.wFS_State")]
         public ushort FS_State
         {
             get 
@@ -171,7 +176,7 @@ namespace BelShina_HMI.ViewModels
         private ushort fS_State;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Alm.wForceStepAlm")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Alm.wForceStepAlm")]
         public ushort ForceStepAlm
         {
             get 
@@ -187,7 +192,7 @@ namespace BelShina_HMI.ViewModels
         private ushort forceStepAlm;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Alm.wAlmLaser_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Alm.wAlmLaser_1")]
         public ushort AlmLaser_1
         {
             get 
@@ -203,7 +208,7 @@ namespace BelShina_HMI.ViewModels
         private ushort almLaser_1;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Alm.wAlmLaser_2")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Alm.wAlmLaser_2")]
         public ushort AlmLaser_2
         {
             get 
@@ -219,7 +224,7 @@ namespace BelShina_HMI.ViewModels
         private ushort almLaser_2;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.wST_State_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.wST_State_1")]
         public ushort ProcessState
         {
             get 

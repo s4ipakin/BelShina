@@ -96,10 +96,12 @@
             Content="Прочитать историю" />
         <Button
             x:Name="buttonCurrent"
+            Width="134"
             Margin="0,0,658,77"
+            HorizontalAlignment="Right"
             VerticalAlignment="Bottom"
             Command="{Binding ButtonShowCurrentCommand}"
-            Content="Текущие" HorizontalAlignment="Right" Width="134" />
+            Content="Текущие" />
 
         <Label
             x:Name="label_2"

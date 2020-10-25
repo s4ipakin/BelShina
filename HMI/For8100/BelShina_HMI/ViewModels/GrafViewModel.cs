@@ -114,9 +114,9 @@ namespace BelShina_HMI.ViewModels
         protected Dictionary<string, string> itemDict = new Dictionary<string, string>();
 
 
-        /// /////////////////////// ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.wFS_ActualPos
+        /// /////////////////////// ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.wFS_ActualPos
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.rFS_GetForce_check")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.rFS_GetForce_check")]
         public virtual float ActualPosition
         {
             get { return this.actualPosition; }
@@ -128,7 +128,7 @@ namespace BelShina_HMI.ViewModels
         /// ///////////////////////////////////////////////
         
 
-        //[MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.rFS_GetForce")]
+        //[MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.rFS_GetForce")]
         public virtual float GetForse
         {
             get 
@@ -143,7 +143,7 @@ namespace BelShina_HMI.ViewModels
         private float getForse;
         /// ///////////////////////////////////////////////
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.wFS_State")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.wFS_State")]
         public virtual ushort FS_State
         {
             get { return this.fS_State; }
@@ -154,7 +154,7 @@ namespace BelShina_HMI.ViewModels
 
         
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.xProcFinished")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.xProcFinished")]
         public virtual bool ProcFinished
         {
             get {return this.procFinished;}
@@ -164,7 +164,7 @@ namespace BelShina_HMI.ViewModels
         protected bool procFinished;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.wGC_Distance_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.wGC_Distance_1")]
         public virtual ushort ProcType_1
         {
             get { return this.wProcType_1; }
@@ -172,6 +172,20 @@ namespace BelShina_HMI.ViewModels
         }
 
         private ushort wProcType_1;
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.xFS_Start")]
+        public virtual bool Start
+        {
+            get
+            {
+                
+                return this.start;
+            }
+            set { this.SetProperty(ref this.start, value); }
+        }
+        private bool start;
+
+        //private bool xStarted = false;
 
         protected async void Read(string name1, string name2)
         {
@@ -249,10 +263,10 @@ namespace BelShina_HMI.ViewModels
 
         }
 
-        protected void SentTabToMain()
+        protected void SentTabToMain(ushort procType)
         {
             //MessageBox.Show(ProcType_1.ToString());
-            if (ProcType_1 == 2)
+            if (ProcType_1 == procType)
             {
 
                 var generateReportsMessage = new SentDataTab(dataTable);
