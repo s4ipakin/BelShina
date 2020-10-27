@@ -150,6 +150,33 @@
             VerticalAlignment="Bottom"
             Click="Print_Click"
             Content="Печатать" />
+        <Button
+            x:Name="Распечать_Copy"
+            Width="212"
+            Height="39"
+            Margin="54,0,0,96"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Command="{Binding ButtonChooseFile}"
+            Content="Указать файл" />
+        <Button
+            x:Name="Распечать_Copy1"
+            Width="212"
+            Height="39"
+            Margin="282,0,0,96"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Command="{Binding ButtonBuidGraf}"
+            Content="Построить из файла" />
+        <Button
+            x:Name="Распечать_Copy2"
+            Width="212"
+            Height="39"
+            Margin="511,0,0,96"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Command="{Binding ButtonBuildBack}"
+            Content="Показать последний" />
 
     </Grid>
 </Page>

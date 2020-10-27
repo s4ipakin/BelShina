@@ -18,7 +18,7 @@ using Workstation.ServiceModel.Ua;
 
 namespace BelShina_HMI.ViewModels
 {
-    [Subscription(endpointUrl: "opc.tcp://192.168.1.17:4840", publishingInterval: 500, keepAliveCount: 20)]
+    [Subscription(endpointUrl: "opc.tcp://192.168.1.17:4840", publishingInterval: 500, keepAliveCount: 2)]
     public class GrafViewModel : SubscriptionBase
     {
         public SeriesCollection SeriesCollection { get; set; }
@@ -43,7 +43,11 @@ namespace BelShina_HMI.ViewModels
         protected OPC_UA_Client OPC_UA;
         protected string grafValueX;
         protected string grafValueY;
-       
+
+        public ICommand ButtonChooseFile { get; set; }
+        public ICommand ButtonBuidGraf { get; set; }
+        public ICommand ButtonBuildBack { get; set; }
+
         public GrafViewModel(GrafSet grafSet, string cSvPath)
         {
             this.grafSet = grafSet;
@@ -63,6 +67,10 @@ namespace BelShina_HMI.ViewModels
                 SeriesCollection.Add(arSeries[i].LineSeries);
             }
 
+            ButtonChooseFile = new RelayCommand(o => GetFileName("ReportsButton"));
+            ButtonBuidGraf = new RelayCommand(o => BuildFronCSV("ReportsButton"));
+            ButtonBuildBack = new RelayCommand(o => BuildBack("ReportsButton"));
+
             var mapper = Mappers.Xy<MeasureModel>()
                .X(model => model.ValueX)   
                .Y(model => model.ValueY);
@@ -74,6 +82,8 @@ namespace BelShina_HMI.ViewModels
             Messenger.Default.Register<GenerateReportsMessage>(this, GenerateReports);
             _ = Task();
         }
+
+        
 
         public ChartValues<MeasureModel> ChartValues { get; set; }
 
@@ -114,9 +124,9 @@ namespace BelShina_HMI.ViewModels
         protected Dictionary<string, string> itemDict = new Dictionary<string, string>();
 
 
-        /// /////////////////////// ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.wFS_ActualPos
+        /// /////////////////////// ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.wFS_ActualPos
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.rFS_GetForce_check")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.rFS_GetForce_check")]
         public virtual float ActualPosition
         {
             get { return this.actualPosition; }
@@ -128,7 +138,7 @@ namespace BelShina_HMI.ViewModels
         /// ///////////////////////////////////////////////
         
 
-        //[MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.rFS_GetForce")]
+        //[MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.rFS_GetForce")]
         public virtual float GetForse
         {
             get 
@@ -143,7 +153,7 @@ namespace BelShina_HMI.ViewModels
         private float getForse;
         /// ///////////////////////////////////////////////
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.wFS_State")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.wFS_State")]
         public virtual ushort FS_State
         {
             get { return this.fS_State; }
@@ -154,7 +164,7 @@ namespace BelShina_HMI.ViewModels
 
         
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.xProcFinished")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.xProcFinished")]
         public virtual bool ProcFinished
         {
             get {return this.procFinished;}
@@ -164,7 +174,7 @@ namespace BelShina_HMI.ViewModels
         protected bool procFinished;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.wGC_Distance_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.wGC_Distance_1")]
         public virtual ushort ProcType_1
         {
             get { return this.wProcType_1; }
@@ -173,7 +183,7 @@ namespace BelShina_HMI.ViewModels
 
         private ushort wProcType_1;
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.xFS_Start")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.xFS_Start")]
         public virtual bool Start
         {
             get
@@ -184,6 +194,15 @@ namespace BelShina_HMI.ViewModels
             set { this.SetProperty(ref this.start, value); }
         }
         private bool start;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.diDistanceForce")]
+        public virtual int DistanceForce
+        {
+            get { return this.distanceForce; }
+            set { this.SetProperty(ref this.distanceForce, value); }
+        }
+        private int distanceForce;
 
         //private bool xStarted = false;
 
@@ -258,6 +277,47 @@ namespace BelShina_HMI.ViewModels
             }
         }
 
+        protected void BuildFronCSV(object sender)
+        {
+            ChartValues.Clear();
+            DataTable dt = CSV_DataTable.ConvertCSVtoDataTable(fileName);
+            for (int i = 1; i < dt.Rows.Count; i++)
+            {
+                ChartValues.Add(new MeasureModel
+                {
+                    ValueX = Convert.ToDouble(dt.Rows[i][0]),
+                    ValueY = Convert.ToDouble(dt.Rows[i][1])
+                });
+            }
+        }
+
+        protected string fileName;
+
+        protected void GetFileName(object sender)
+        {
+            Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
+            openFileDialog.Filter = "CSV files (*.csv)|*.csv";
+            if (openFileDialog.ShowDialog() == true)
+            {
+                fileName = openFileDialog.FileName;
+                return;
+            }
+            return;
+        }
+
+        private void BuildBack(string v)
+        {
+            ChartValues.Clear();
+            for (int i = 1; i < dataTable.Rows.Count; i++)
+            {
+                ChartValues.Add(new MeasureModel
+                {
+                    ValueX = Convert.ToDouble(dataTable.Rows[i][0]),
+                    ValueY = Convert.ToDouble(dataTable.Rows[i][1])
+                });
+            }
+        }
+
         public virtual void GenerateReports(GenerateReportsMessage generate)
         {
 
@@ -273,5 +333,7 @@ namespace BelShina_HMI.ViewModels
                 Messenger.Default.Send(generateReportsMessage);
             }
         }
+
+
     }
 }

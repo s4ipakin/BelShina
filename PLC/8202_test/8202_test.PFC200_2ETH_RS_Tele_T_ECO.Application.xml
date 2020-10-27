@@ -44,6 +44,7 @@
         <Node name="xResetAlm" type="T_BOOL" access="ReadWrite" />
       </Node>
       <Node name="HMI_Process">
+        <Node name="diDistanceForce" type="T_DINT" access="ReadWrite" />
         <Node name="rDistance_1" type="T_REAL" access="ReadWrite" />
         <Node name="rDistance_2" type="T_REAL" access="ReadWrite" />
         <Node name="rDistanceBetweenLasers" type="T_REAL" access="ReadWrite" />

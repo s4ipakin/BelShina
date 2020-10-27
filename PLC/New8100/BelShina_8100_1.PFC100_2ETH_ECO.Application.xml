@@ -28,6 +28,10 @@
   </TypeList>
   <NodeList>
     <Node name="Application">
+      <Node name="AI_Sensors">
+        <Node name="xStopSwitchLeft" type="T_BOOL" access="ReadWrite" />
+        <Node name="xStopSwitchRight" type="T_BOOL" access="ReadWrite" />
+      </Node>
       <Node name="HMI_Alm">
         <Node name="wAlmLaser_1" type="T_WORD" access="ReadWrite" />
         <Node name="wAlmLaser_2" type="T_WORD" access="ReadWrite" />

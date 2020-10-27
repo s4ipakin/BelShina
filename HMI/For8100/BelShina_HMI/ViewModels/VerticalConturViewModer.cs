@@ -9,13 +9,15 @@ using BelShina_HMI.OPC;
 using LiveCharts;
 using System.Windows;
 using BelShina_HMI.Reports;
+using System.Data;
+using System.Windows.Input;
 
 namespace BelShina_HMI.ViewModels
 {
-    [Subscription(endpointUrl: "opc.tcp://192.168.1.17:4840", publishingInterval: 500, keepAliveCount: 20)]
+    [Subscription(endpointUrl: "opc.tcp://192.168.1.17:4840", publishingInterval: 500, keepAliveCount: 2)]
     public class VerticalConturViewModer : SubscriptionBase
     {
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.wST_State_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.wST_State_1")]
         public ushort ST_State_1
         {
             get 
@@ -41,7 +43,7 @@ namespace BelShina_HMI.ViewModels
         private ushort gT_State_1;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.wGS_State_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.wGS_State_1")]
         public ushort GS_State_1
         {
             get
@@ -54,7 +56,7 @@ namespace BelShina_HMI.ViewModels
         private ushort gS_State_1;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rLaserDistance_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rLaserDistance_1")]
         public float LaserDistance_1
         {
             get { return this.laserDistance_1; }
@@ -63,7 +65,7 @@ namespace BelShina_HMI.ViewModels
         private float laserDistance_1;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rLaserDistance_2")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rLaserDistance_2")]
         public float LaserDistance_2
         {
             get { return this.laserDistance_2; }
@@ -72,7 +74,7 @@ namespace BelShina_HMI.ViewModels
         private float laserDistance_2;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.rLS_RealPos_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.rLS_RealPos_1")]
         public float LS_RealPos_1
         {
             get { return this.lS_RealPos_1; }
@@ -81,7 +83,7 @@ namespace BelShina_HMI.ViewModels
         private float lS_RealPos_1;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.rLS_RealPos_2")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.rLS_RealPos_2")]
         public float LS_RealPos_2
         {
             get { return this.lS_RealPos_2; }
@@ -90,7 +92,7 @@ namespace BelShina_HMI.ViewModels
         private float lS_RealPos_2;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.xReadOPC_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.xReadOPC_1")]
         public bool ReadOPC_1
         {
             get 
@@ -116,7 +118,7 @@ namespace BelShina_HMI.ViewModels
 
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.xReadOPC_2")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.xReadOPC_2")]
         public bool ReadOPC_2
         {
             get
@@ -142,7 +144,7 @@ namespace BelShina_HMI.ViewModels
 
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.xCurveStarted_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.xCurveStarted_1")]
         public bool CurveStarted_1
         {
             get
@@ -162,7 +164,7 @@ namespace BelShina_HMI.ViewModels
         
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.xCurveStarted_2")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.xCurveStarted_2")]
         public bool CurveStarted_2
         {
             get 
@@ -181,7 +183,7 @@ namespace BelShina_HMI.ViewModels
 
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rStepPos_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rStepPos_1")]
         public float StepPos_1
         {
             get { return this.stepPos_1; }
@@ -190,7 +192,7 @@ namespace BelShina_HMI.ViewModels
         private float stepPos_1;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rStepPos_2")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rStepPos_2")]
         public float StepPos_2
         {
             get { return this.stepPos_2; }
@@ -199,7 +201,7 @@ namespace BelShina_HMI.ViewModels
         private float stepPos_2;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rLaserData_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rLaserData_1")]
         public float LaserData_1
         {
             get { return this.laserData_1; }
@@ -208,7 +210,7 @@ namespace BelShina_HMI.ViewModels
         private float laserData_1;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rLaserData_2")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rLaserData_2")]
         public float LaserData_2
         {
             get { return this.laserData_2; }
@@ -230,6 +232,10 @@ namespace BelShina_HMI.ViewModels
         public ChartValues<MeasureModel> ChartValuesBefore2 { get; set; }
         public ChartValues<MeasureModel> ChartValuesAfter1 { get; set; }
         public ChartValues<MeasureModel> ChartValuesAfter2 { get; set; }
+
+        public ICommand ButtonChooseFile { get; set; }
+        public ICommand ButtonBuidGraf { get; set; }
+        public ICommand ButtonBuildBack { get; set; }
         //public ChartValues<MeasureModel> ChartValues { get; set; }
 
 
@@ -257,10 +263,15 @@ namespace BelShina_HMI.ViewModels
             XaxesName = conturGrafSet.xAxesName;
             conturApprox_1 = new ConturApprox();
             conturApprox_2 = new ConturApprox();
+            ButtonChooseFile = new RelayCommand(o => GetFileName("ReportsButton"));
+            ButtonBuidGraf = new RelayCommand(o => BuildFronCSV("ReportsButton"));
+            ButtonBuildBack = new RelayCommand(o => BuildBack("ReportsButton"));
             ListOfItemsOPC listOfItemsOPC = new ListOfItemsOPC();
             OPC_UA = new OPC_UA_Client("192.168.1.17", 500d, listOfItemsOPC.GetOPCitems());
             _ = Task();
         }
+
+        
 
         protected string yaxesName;
         public string YaxesName
@@ -442,6 +453,103 @@ namespace BelShina_HMI.ViewModels
                 }
             }
         }
+
+
+        protected string fileName;
+
+        protected void GetFileName(object sender)
+        {
+            Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
+            openFileDialog.Filter = "CSV files (*.csv)|*.csv";
+            if (openFileDialog.ShowDialog() == true)
+            {
+                fileName = openFileDialog.FileName;
+                return;
+            }
+            return;
+        }
+
+        protected void BuildFronCSV(object sender)
+        {
+            ChartValuesBefore1.Clear();
+            ChartValuesBefore2.Clear();
+            ChartValuesAfter1.Clear();
+            ChartValuesAfter2.Clear();
+            DataTable dt = CSV_DataTable.ConvertCSVtoDataTable(fileName);
+            int step = dt.Rows.Count / 100;
+            for (int i = 1; i < dt.Rows.Count; i = i + step)
+            {
+                if(dt.Rows[i][1].ToString() != "")
+                {
+                    ChartValuesBefore1.Add(new MeasureModel
+                    {
+                        ValueX = Convert.ToDouble(dt.Rows[i][1]),
+                        ValueY = Convert.ToDouble(dt.Rows[i][0])
+                    });
+
+                    ChartValuesAfter1.Add(new MeasureModel
+                    {
+                        ValueX = Convert.ToDouble(dt.Rows[i][2]),
+                        ValueY = Convert.ToDouble(dt.Rows[i][0])
+                    });
+                }
+                if (dt.Rows[i][3].ToString() != "")
+                {
+                    ChartValuesBefore2.Add(new MeasureModel
+                    {
+                        ValueX = Convert.ToDouble(dt.Rows[i][3]),
+                        ValueY = Convert.ToDouble(dt.Rows[i][0])
+                    });
+
+                    ChartValuesAfter2.Add(new MeasureModel
+                    {
+                        ValueX = Convert.ToDouble(dt.Rows[i][4]),
+                        ValueY = Convert.ToDouble(dt.Rows[i][0])
+                    });
+                }
+                
+            }
+
+        }
+
+        private void BuildBack(string v)
+        {
+            ChartValuesBefore1.Clear();
+            ChartValuesBefore2.Clear();
+            ChartValuesAfter1.Clear();
+            ChartValuesAfter2.Clear();
+            int step = ValuesBefore1.Count / 100;
+            for (int i = 0; i < ValuesBefore1.Count; i = i + step)
+            {
+                ChartValuesBefore1.Add(new MeasureModel
+                {
+                    ValueX = ValuesBefore1[i],
+                    ValueY = Convert.ToDouble(i)
+                });
+
+                ChartValuesBefore2.Add(new MeasureModel
+                {
+                    ValueX = ValuesBefore2[i],
+                    ValueY = Convert.ToDouble(i)
+                });
+            }
+
+            for (int i = 0; i < ValuesAfter1.Count; i = i + step)
+            {
+                ChartValuesAfter1.Add(new MeasureModel
+                {
+                    ValueX = ValuesAfter1[i],
+                    ValueY = Convert.ToDouble(i)
+                });
+
+                ChartValuesAfter2.Add(new MeasureModel
+                {
+                    ValueX = ValuesAfter2[i],
+                    ValueY = Convert.ToDouble(i)
+                });
+            }
+        }
+
 
     }
 }

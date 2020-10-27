@@ -48,8 +48,6 @@
                 <lvc:LineSeries
                     Title="{Binding SeriesName}"
                     LineSmoothness="1"
-                    
-                    
                     Values="{Binding ChartValues}" />
             </lvc:CartesianChart.Series>
             <lvc:CartesianChart.AxisY>
@@ -112,14 +110,49 @@
             Margin="393,0,0,70"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
-            Visibility="Hidden"
-            Content="{Binding ProcType_1}" />
-        <CheckBox x:Name="checkBox" 
-                  Content="CheckBox" 
-                  HorizontalAlignment="Left" 
-                  Margin="78,0,0,156"
-                  IsChecked="{Binding Start}"
-                  Visibility="Hidden"
-                  VerticalAlignment="Bottom"/>
+            Content="{Binding ProcType_1}"
+            Visibility="Hidden" />
+        <Label
+            x:Name="label1"
+            Margin="393,0,0,51"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Content="{Binding DistanceForce}"
+            Visibility="Visible" Height="29" Width="199" />
+        <CheckBox
+            x:Name="checkBox"
+            Margin="78,0,0,156"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Content="CheckBox"
+            IsChecked="{Binding Start}"
+            Visibility="Hidden" />
+        <Button
+            x:Name="Распечать_Copy"
+            Width="212"
+            Height="39"
+            Margin="54,0,0,96"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Command="{Binding ButtonChooseFile}"
+            Content="Указать файл" />
+        <Button
+            x:Name="Распечать_Copy1"
+            Width="212"
+            Height="39"
+            Margin="282,0,0,96"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Command="{Binding ButtonBuidGraf}"
+            Content="Построить из файла" />
+        <Button
+            x:Name="Распечать_Copy2"
+            Width="212"
+            Height="39"
+            Margin="511,0,0,96"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Command="{Binding ButtonBuildBack}"
+            Content="Показать последний" />
     </Grid>
 </Page>

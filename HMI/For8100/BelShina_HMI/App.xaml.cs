@@ -7,6 +7,7 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Windows;
 using Workstation.ServiceModel.Ua;
+using System.Diagnostics;
 
 namespace BelShina_HMI
 {
@@ -19,13 +20,19 @@ namespace BelShina_HMI
 
         protected override void OnStartup(StartupEventArgs e)
         {
+            string thisProcessName = Process.GetCurrentProcess().ProcessName;
+            if (Process.GetProcesses().Count(p => p.ProcessName == thisProcessName) > 1)
+            {
+                MessageBox.Show("Приложение уже запущено");
+                return;
+            }
             // Build and run an OPC UA application instance.
             this.application = new UaApplicationBuilder()
                 .SetApplicationUri($"urn:{Dns.GetHostName()}:Workstation.StatusHmi")
                 .SetDirectoryStore($"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\Workstation.StatusHmi\\pki")
                 .SetIdentity(this.ShowSignInDialog)
                 .Build();
-
+            
             this.application.Run();
 
             // Create and show the main view.
