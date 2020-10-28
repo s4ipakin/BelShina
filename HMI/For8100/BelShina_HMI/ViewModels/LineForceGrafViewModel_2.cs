@@ -115,11 +115,14 @@ namespace BelShina_HMI.ViewModels
         {
             get
             {
-                float force = this.distanceForce / 10000;
-                grafValueY = force.ToString();
-                float distance = ((float)this.distanceForce - (force * 10000)) / 10;
-                grafValueX = distance.ToString();
-                GetGrafPoints();
+                if (wProcType_1 == 3)
+                {
+                    float force = this.distanceForce / 10000;
+                    grafValueY = force.ToString();
+                    float distance = ((float)this.distanceForce - (force * 10000)) / 10;
+                    grafValueX = distance.ToString();
+                    GetGrafPoints();
+                }
                 return this.distanceForce;
             }
             set { this.SetProperty(ref this.distanceForce, value); }

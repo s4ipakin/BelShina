@@ -238,15 +238,8 @@ namespace BelShina_HMI.ViewModels
         {
             //MessageBox.Show(start.ToString() + " ; " + dataTable.Rows.Count.ToString());
             if (start && dataTable.Rows.Count > 2)
-            {           
-                string year = System.DateTime.Now.Year.ToString();
-                string month = System.DateTime.Now.Month.ToString();
-                string day = System.DateTime.Now.Day.ToString();
-                string hour = System.DateTime.Now.Hour.ToString();
-                string minute = System.DateTime.Now.Minute.ToString();
-                string path = @"D:\Протоколы\" + name + @"\";
-                System.IO.Directory.CreateDirectory(path);
-                ReadWriteCSV readWriteCSV = new ReadWriteCSV(path + day + "_" + month + "_" + year + "_" + hour + "_" + minute + "_" + name + "_" + fileEnding + ".csv");
+            {                          
+                ReadWriteCSV readWriteCSV = new ReadWriteCSV(CreatePath.CreateReportPath(name, fileEnding));
                 readWriteCSV.WriteToCSV(column1, column2);
                 for (int i = 0; i < dataTable.Rows.Count; i++)
                 {
@@ -254,6 +247,7 @@ namespace BelShina_HMI.ViewModels
                 }
             }
         }
+
 
         protected bool run = false;
         protected void GetGrafPoints()

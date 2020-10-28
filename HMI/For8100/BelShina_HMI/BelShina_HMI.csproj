@@ -169,6 +169,7 @@
     <Compile Include="Chart\SeriesCollectionHandler.cs" />
     <Compile Include="Converters\ForceStateConvert.cs" />
     <Compile Include="Maths\BitWise.cs" />
+    <Compile Include="Maths\CalcCoef.cs" />
     <Compile Include="Maths\Round.cs" />
     <Compile Include="Maths\Transform.cs" />
     <Compile Include="OPC\ListOfItemsOPC.cs" />
@@ -185,6 +186,7 @@
     <Compile Include="Pages\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Reports\CreatePath.cs" />
     <Compile Include="Reports\PDF_Tab.cs" />
     <Compile Include="Reports\ReadWriteCSV.cs" />
     <Compile Include="TabHolder\TabHolder.cs" />

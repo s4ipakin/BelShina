@@ -343,7 +343,7 @@
             x:Name="textBlock_Copy19"
             Width="154"
             Height="24"
-            Margin="82,705,0,175"
+            Margin="82,705,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -357,23 +357,6 @@
             VerticalAlignment="Top"
             FontSize="16"
             Text="{Binding K_4, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-        <TextBox
-            Width="120"
-            Height="24"
-            Margin="784,0,0,390"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Bottom"
-            FontSize="16"
-            Text="{Binding EncoderImpulseCount, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
-        <TextBlock
-            x:Name="textBlock_Copy21"
-            Width="212"
-            Margin="544,0,0,383"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Bottom"
-            FontSize="16"
-            Text="Количество импульсов энкодера на оборот"
-            TextWrapping="Wrap" />
         <TextBox
             Width="120"
             Margin="784,552,0,0"
@@ -634,5 +617,77 @@
             VerticalAlignment="Top"
             FontSize="16"
             Text="{Binding FS_SetBackSpeed, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBlock
+            x:Name="textBlock_Copy21"
+            Width="224"
+            Height="47"
+            Margin="544,470,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="Количество импульсов энкодера на оборот"
+            TextWrapping="Wrap" />
+        <TextBox
+            Width="120"
+            Height="24"
+            Margin="784,480,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="{Binding EncoderImpulseCount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox
+            Width="120"
+            Height="24"
+            Margin="0,530,114,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="{Binding CycleForceOffset, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
+        <TextBlock
+            x:Name="textBlock_Copy35"
+            Width="224"
+            Height="46"
+            Margin="0,517,250,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="Каллибровочный сдвиг для угловой нагрузки, [Н]"
+            TextWrapping="Wrap" />
+        <TextBox
+            Width="120"
+            Height="24"
+            Margin="0,585,114,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="{Binding LineForceOffset_1, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
+        <TextBlock
+            x:Name="textBlock_Copy36"
+            Width="224"
+            Height="46"
+            Margin="0,575,250,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="Каллибровочный сдвиг для боковой нагрузки, [Н]"
+            TextWrapping="Wrap" />
+        <TextBox
+            Width="120"
+            Height="24"
+            Margin="0,640,114,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="{Binding LineForceOffset_2, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
+        <TextBlock
+            x:Name="textBlock_Copy37"
+            Width="224"
+            Height="46"
+            Margin="0,630,250,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="Каллибровочный сдвиг для тангенциальной нагрузки, [Н]"
+            TextWrapping="Wrap" />
     </Grid>
 </Page>

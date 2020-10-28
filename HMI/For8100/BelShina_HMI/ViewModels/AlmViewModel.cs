@@ -232,32 +232,66 @@ namespace BelShina_HMI.ViewModels
         private ushort almLaser_2;
 
 
+        string procName = "";
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.wProcType")]
+        public ushort ProcessType
+        {
+            get
+            {
+                switch(this.processType)
+                {
+                    case 1:
+                        procName = " Угловое усилие";
+                        break;
+                    case 2:
+                        procName = " Боковое усилие";
+                        break;
+                    case 3:
+                        procName = " Тангенциальное усилие";
+                        break;
+                    case 4:
+                        procName = " Сканирование";
+                        break;
+                }
+                return this.processType;
+            }
+            set{this.SetProperty(ref this.processType, value);}
+        }
+        private ushort processType;
+
+
+
+        bool justLoaded = true;
         [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.wST_State_1")]
         public ushort ProcessState
         {
             get 
             {
-                switch(this.processState)
+                if(!justLoaded)
                 {
-                    case 1:
-                        EnterEvent("Создание усиления", EventLogEntryType.Information);
-                        break;
-                    case 4:
-                        EnterEvent("Измерение профиля шины под нагрузукой", EventLogEntryType.Information);
-                        break;
-                    case 5:
-                        EnterEvent("Испытание завершено", EventLogEntryType.Information);
-                        break;
-                    case 6:
-                        EnterEvent("Ослабление усилия", EventLogEntryType.Information);
-                        break;
-                    case 7:
-                        EnterEvent("Остановка испытания", EventLogEntryType.Information);
-                        break;
-                    case 8:
-                        EnterEvent("Измерение профиля шины без нагрузуки", EventLogEntryType.Information);
-                        break;
+                    switch (this.processState)
+                    {
+                        case 1:
+                            EnterEvent("Создание усиления." + procName, EventLogEntryType.Information);
+                            break;
+                        case 4:
+                            EnterEvent("Измерение профиля шины под нагрузукой.", EventLogEntryType.Information);
+                            break;
+                        case 5:
+                            EnterEvent("Испытание завершено." + procName, EventLogEntryType.Information);
+                            break;
+                        case 6:
+                            EnterEvent("Ослабление усилия." + procName, EventLogEntryType.Information);
+                            break;
+                        case 7:
+                            EnterEvent("Остановка испытания." + procName, EventLogEntryType.Information);
+                            break;
+                        case 8:
+                            EnterEvent("Измерение профиля шины без нагрузуки.", EventLogEntryType.Information);
+                            break;
+                    }
                 }
+                justLoaded = false;
                 return this.processState; 
             }
             set { this.SetProperty(ref this.processState, value); }

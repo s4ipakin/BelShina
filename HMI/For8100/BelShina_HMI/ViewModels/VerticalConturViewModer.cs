@@ -437,19 +437,10 @@ namespace BelShina_HMI.ViewModels
 
         protected void SaveToCSV(bool start, string name, string column1, string column2, string column3, string column4)
         {
-            //MessageBox.Show(start.ToString() + " ; " + dataTable.Rows.Count.ToString());
             if (start && ValuesAfter1.Count > 2)
             {
-                string year = System.DateTime.Now.Year.ToString();
-                string month = System.DateTime.Now.Month.ToString();
-                string day = System.DateTime.Now.Day.ToString();
-                string hour = System.DateTime.Now.Hour.ToString();
-                string minute = System.DateTime.Now.Minute.ToString();
-                string path = @"D:\Протоколы\" + name + @"\";
-                System.IO.Directory.CreateDirectory(path);
-                ReadWriteCSV readWriteCSV = new ReadWriteCSV(path + day + "_" + month + "_" + year + "_" + hour + "_" + minute + "_" + name + "_" + fileEnding + ".csv");
+                ReadWriteCSV readWriteCSV = new ReadWriteCSV(CreatePath.CreateReportPath(name, fileEnding));
                 readWriteCSV.WriteToCSV("Height", column1, column2, column3, column4);
-                //MessageBox.Show(ValuesBefore1.Count.ToString());
                 for (int i = 0; i < ValuesBefore1.Count; i++)
                 {
                     if ((i < ValuesAfter1.Count))

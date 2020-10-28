@@ -1456,10 +1456,10 @@
             VerticalAlignment="Top"
             Background="#FFF1E8E8"
             FontSize="16"
-            Visibility="Hidden"
             RenderTransformOrigin="0.489,0.573"
             Text="{Binding DistanceForce, Mode=OneWay}"
-    d:LayoutOverrides="VerticalAlignment" />
+            Visibility="Hidden"
+            d:LayoutOverrides="VerticalAlignment" />
 
 
 

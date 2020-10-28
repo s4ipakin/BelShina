@@ -349,5 +349,32 @@ namespace BelShina_HMI.ViewModels
             set { this.SetProperty(ref this.distanceBetweenLasers, value); }
         }
         private float distanceBetweenLasers;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rCycleForceOffset")]
+        public float CycleForceOffset
+        {
+            get { return this.cycleForceOffset; }
+            set { this.SetProperty(ref this.cycleForceOffset, value); }
+        }
+        private float cycleForceOffset;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rLineForceOffset_1")]
+        public float LineForceOffset_1
+        {
+            get { return this.lineForceOffset_1; }
+            set { this.SetProperty(ref this.lineForceOffset_1, value); }
+        }
+        private float lineForceOffset_1;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rLineForceOffset_2")]
+        public float LineForceOffset_2
+        {
+            get { return this.lineForceOffset_2; }
+            set { this.SetProperty(ref this.lineForceOffset_2, value); }
+        }
+        private float lineForceOffset_2;
     }
 }
