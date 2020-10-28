@@ -169,6 +169,7 @@
     <Compile Include="Chart\SeriesCollectionHandler.cs" />
     <Compile Include="Converters\ForceStateConvert.cs" />
     <Compile Include="Maths\BitWise.cs" />
+    <Compile Include="Maths\Round.cs" />
     <Compile Include="Maths\Transform.cs" />
     <Compile Include="OPC\ListOfItemsOPC.cs" />
     <Compile Include="OPC\OPC_UA_Client.cs" />

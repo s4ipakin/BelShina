@@ -61,7 +61,7 @@
             TextWrapping="Wrap" />
         <TextBlock
             x:Name="textBlock_Copy5"
-            Width="138"
+            Width="162"
             Height="24"
             Margin="544,256,0,0"
             HorizontalAlignment="Left"
@@ -82,11 +82,13 @@
         <TextBlock
             x:Name="textBlock_Copy7"
             Width="138"
+            Height="24"
             Margin="544,424,0,0"
             HorizontalAlignment="Left"
+            VerticalAlignment="Top"
             FontSize="16"
             Text="Торможение"
-            TextWrapping="Wrap" Height="24" VerticalAlignment="Top" />
+            TextWrapping="Wrap" />
         <TextBox
             Width="120"
             Height="24"
@@ -129,10 +131,12 @@
             Text="{Binding SetAcceleration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBox
             Width="120"
+            Height="24"
             Margin="784,424,0,0"
             HorizontalAlignment="Left"
+            VerticalAlignment="Top"
             FontSize="16"
-            Text="{Binding SetDeceleration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="24" VerticalAlignment="Top" />
+            Text="{Binding SetDeceleration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBlock
             x:Name="textBlock_Copy"
             Width="139"
@@ -355,18 +359,21 @@
             Text="{Binding K_4, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBox
             Width="120"
+            Height="24"
             Margin="784,0,0,390"
             HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
             FontSize="16"
-            Text="{Binding EncoderImpulseCount, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Height="24" VerticalAlignment="Bottom" />
+            Text="{Binding EncoderImpulseCount, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
         <TextBlock
             x:Name="textBlock_Copy21"
             Width="212"
             Margin="544,0,0,383"
             HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
             FontSize="16"
             Text="Количество импульсов энкодера на оборот"
-            TextWrapping="Wrap" VerticalAlignment="Bottom" />
+            TextWrapping="Wrap" />
         <TextBox
             Width="120"
             Margin="784,552,0,0"
@@ -561,7 +568,7 @@
             VerticalAlignment="Top"
             FontSize="16"
             Text="{Binding ScrewStepForce, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
-    d:LayoutOverrides="VerticalAlignment" />
+            d:LayoutOverrides="VerticalAlignment" />
         <TextBlock
             x:Name="textBlock_Copy31"
             Width="196"
@@ -572,21 +579,20 @@
             FontSize="16"
             Text="Шаг резьбы вала, [mm]"
             TextWrapping="Wrap"
-    d:LayoutOverrides="VerticalAlignment" />
+            d:LayoutOverrides="VerticalAlignment" />
         <TextBox
             Width="120"
             Height="24"
-            Margin="0,425,114,0"
+            Margin="0,433,114,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             FontSize="16"
-            Text="{Binding ReductCoef, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
-    d:LayoutOverrides="VerticalAlignment" />
+            Text="{Binding ReductCoef, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
         <TextBlock
             x:Name="textBlock_Copy32"
             Width="196"
             Height="32"
-            Margin="0,421,278,0"
+            Margin="0,429,278,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             FontSize="16"
@@ -595,7 +601,7 @@
         <TextBox
             Width="120"
             Height="24"
-            Margin="0,470,114,0"
+            Margin="0,478,114,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             FontSize="16"
@@ -604,7 +610,7 @@
             x:Name="textBlock_Copy33"
             Width="196"
             Height="32"
-            Margin="0,467,278,0"
+            Margin="0,475,278,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             FontSize="16"

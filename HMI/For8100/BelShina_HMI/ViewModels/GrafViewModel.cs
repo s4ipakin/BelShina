@@ -44,8 +44,10 @@ namespace BelShina_HMI.ViewModels
         protected string grafValueX;
         protected string grafValueY;
 
-        public ICommand ButtonChooseFile { get; set; }
-        public ICommand ButtonBuidGraf { get; set; }
+        public ICommand ButtonChooseFile_1 { get; set; }
+        public ICommand ButtonBuidGraf_1 { get; set; }
+        public ICommand ButtonChooseFile_2 { get; set; }
+        public ICommand ButtonBuidGraf_2 { get; set; }
         public ICommand ButtonBuildBack { get; set; }
 
         public GrafViewModel(GrafSet grafSet, string cSvPath)
@@ -67,8 +69,10 @@ namespace BelShina_HMI.ViewModels
                 SeriesCollection.Add(arSeries[i].LineSeries);
             }
 
-            ButtonChooseFile = new RelayCommand(o => GetFileName("ReportsButton"));
-            ButtonBuidGraf = new RelayCommand(o => BuildFronCSV("ReportsButton"));
+            ButtonChooseFile_1 = new RelayCommand(o => OpenFile_1("ReportsButton"));
+            ButtonBuidGraf_1 = new RelayCommand(o => ShowFromCSV_1("ReportsButton"));
+            ButtonChooseFile_2 = new RelayCommand(o => OpenFile_2("ReportsButton"));
+            ButtonBuidGraf_2 = new RelayCommand(o => ShowFromCSV_2("ReportsButton"));
             ButtonBuildBack = new RelayCommand(o => BuildBack("ReportsButton"));
 
             var mapper = Mappers.Xy<MeasureModel>()
@@ -80,10 +84,16 @@ namespace BelShina_HMI.ViewModels
             OPC_UA = new OPC_UA_Client("192.168.1.17", 2000d, listOfItemsOPC.GetOPCitems());
             //OPC_UA.ItemsChanged += OPC_UA_ItemsChanged;
             Messenger.Default.Register<GenerateReportsMessage>(this, GenerateReports);
+            Messenger.Default.Register<SentModelName>(this, SetFileNameEnding);
             _ = Task();
         }
 
-        
+        protected string fileEnding = "";
+
+        protected void SetFileNameEnding(SentModelName obj)
+        {
+            fileEnding = obj.ModelName;
+        }
 
         public ChartValues<MeasureModel> ChartValues { get; set; }
 
@@ -236,7 +246,7 @@ namespace BelShina_HMI.ViewModels
                 string minute = System.DateTime.Now.Minute.ToString();
                 string path = @"D:\Протоколы\" + name + @"\";
                 System.IO.Directory.CreateDirectory(path);
-                ReadWriteCSV readWriteCSV = new ReadWriteCSV(path + day + "_" + month + "_" + year + "_" + hour + "_" + minute + "_" + name + ".csv");
+                ReadWriteCSV readWriteCSV = new ReadWriteCSV(path + day + "_" + month + "_" + year + "_" + hour + "_" + minute + "_" + name + "_" + fileEnding + ".csv");
                 readWriteCSV.WriteToCSV(column1, column2);
                 for (int i = 0; i < dataTable.Rows.Count; i++)
                 {
@@ -277,7 +287,17 @@ namespace BelShina_HMI.ViewModels
             }
         }
 
-        protected void BuildFronCSV(object sender)
+        protected void ShowFromCSV_1(object sender)
+        {
+            BuildFromCSV(fileName_1);
+        }
+
+        protected void ShowFromCSV_2(object sender)
+        {
+            BuildFromCSV(fileName_2);
+        }
+
+        protected void BuildFromCSV(string fileName)
         {
             ChartValues.Clear();
             DataTable dt = CSV_DataTable.ConvertCSVtoDataTable(fileName);
@@ -291,32 +311,53 @@ namespace BelShina_HMI.ViewModels
             }
         }
 
-        protected string fileName;
+        protected string fileName_1;
+        protected string fileName_2;
 
-        protected void GetFileName(object sender)
+        protected void OpenFile_1(object sender)
+        {
+            fileName_1 = GetFileName();
+            BuildFromCSV(fileName_1);
+        }
+
+        protected void OpenFile_2(object sender)
+        {
+            fileName_2 = GetFileName();
+            BuildFromCSV(fileName_2);
+        }
+
+        protected string GetFileName()
         {
             Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
             openFileDialog.Filter = "CSV files (*.csv)|*.csv";
             if (openFileDialog.ShowDialog() == true)
             {
-                fileName = openFileDialog.FileName;
-                return;
+                return openFileDialog.FileName;
+                
             }
-            return;
+            return "";
         }
+
 
         private void BuildBack(string v)
         {
             ChartValues.Clear();
-            for (int i = 1; i < dataTable.Rows.Count; i++)
+            try
             {
-                ChartValues.Add(new MeasureModel
+                for (int i = 1; i < dataTable.Rows.Count; i++)
                 {
-                    ValueX = Convert.ToDouble(dataTable.Rows[i][0]),
-                    ValueY = Convert.ToDouble(dataTable.Rows[i][1])
-                });
+                    ChartValues.Add(new MeasureModel
+                    {
+                        ValueX = Convert.ToDouble(dataTable.Rows[i][0]),
+                        ValueY = Convert.ToDouble(dataTable.Rows[i][1])
+                    });
+                }
             }
+            catch(Exception ex) { MessageBox.Show(ex.Message); }
+            
         }
+
+
 
         public virtual void GenerateReports(GenerateReportsMessage generate)
         {

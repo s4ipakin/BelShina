@@ -99,8 +99,8 @@
         <Button
             x:Name="Распечать"
             Width="212"
-            Height="39"
-            Margin="0,0,270,96"
+            Height="26"
+            Margin="0,0,269,109"
             HorizontalAlignment="Right"
             VerticalAlignment="Bottom"
             Click="Print_Click"
@@ -114,11 +114,13 @@
             Visibility="Hidden" />
         <Label
             x:Name="label1"
+            Width="199"
+            Height="29"
             Margin="393,0,0,51"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
             Content="{Binding DistanceForce}"
-            Visibility="Visible" Height="29" Width="199" />
+            Visibility="Hidden" />
         <CheckBox
             x:Name="checkBox"
             Margin="78,0,0,156"
@@ -129,30 +131,46 @@
             Visibility="Hidden" />
         <Button
             x:Name="Распечать_Copy"
-            Width="212"
-            Height="39"
-            Margin="54,0,0,96"
+            Width="129"
+            Height="26"
+            Margin="54,0,0,109"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
-            Command="{Binding ButtonChooseFile}"
-            Content="Указать файл" />
+            Command="{Binding ButtonChooseFile_1}"
+            Content="Указать файл 1" />
         <Button
             x:Name="Распечать_Copy1"
-            Width="212"
-            Height="39"
-            Margin="282,0,0,96"
+            Width="155"
+            Height="26"
+            Margin="191,0,0,109"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
-            Command="{Binding ButtonBuidGraf}"
-            Content="Построить из файла" />
+            Command="{Binding ButtonBuidGraf_1}"
+            Content="Построить из файла 1" />
         <Button
             x:Name="Распечать_Copy2"
-            Width="212"
-            Height="39"
-            Margin="511,0,0,96"
-            HorizontalAlignment="Left"
+            Height="26"
+            Margin="714,0,674,109"
             VerticalAlignment="Bottom"
             Command="{Binding ButtonBuildBack}"
             Content="Показать последний" />
+        <Button
+            x:Name="Распечать_Copy3"
+            Width="129"
+            Height="26"
+            Margin="384,0,0,109"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Command="{Binding ButtonChooseFile_2}"
+            Content="Указать файл 2" />
+        <Button
+            x:Name="Распечать_Copy4"
+            Width="155"
+            Height="26"
+            Margin="521,0,0,109"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Command="{Binding ButtonBuidGraf_2}"
+            Content="Построить из файла 2" />
     </Grid>
 </Page>

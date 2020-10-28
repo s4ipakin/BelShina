@@ -183,6 +183,8 @@ namespace BelShina_HMI.ViewModels
                     halfForce = fHalfForce;//(float)dHalfForce;
                     //halfWay = (float)(dHalfPos);
                     halfWay = (float)Maths.Transform.LinTrafo(fHalfForce, dHalfForce, dHalfForceprevious, dHalfPos, dHalfPosPrevious);
+                    halfWay = (float)Math.Round(Convert.ToDecimal(halfWay), 1);
+                    way = (float)Math.Round(Convert.ToDecimal(way), 1);
                     break;
                 }
             }
@@ -1021,7 +1023,12 @@ namespace BelShina_HMI.ViewModels
         public string TireType
         {
             get { return this.tireType; }
-            set { this.SetProperty(ref this.tireType, value); }
+            set 
+            {
+                var sentModelName = new SentModelName(value);
+                Messenger.Default.Send(sentModelName);
+                this.SetProperty(ref this.tireType, value); 
+            }
         }
         private string tireType;
 

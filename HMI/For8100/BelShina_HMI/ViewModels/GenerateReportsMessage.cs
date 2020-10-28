@@ -40,4 +40,19 @@ namespace BelShina_HMI.ViewModels
             set { almDict = value; }
         }
     }
+
+    public class SentModelName
+    {
+        string modelName;
+
+        public SentModelName(string modelName)
+        {
+            this.modelName = modelName;
+        }
+        public string ModelName
+        {
+            get { return modelName; }
+            set { modelName = value; }
+        }
+    }
 }

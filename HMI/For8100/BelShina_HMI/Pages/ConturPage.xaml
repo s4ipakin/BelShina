@@ -80,103 +80,119 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
             Content="CheckBox"
-            Visibility="Hidden"
-            IsChecked="{Binding CurveStarted_1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            IsChecked="{Binding CurveStarted_1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            Visibility="Hidden" />
         <CheckBox
             x:Name="checkBox1"
             Margin="236,0,0,127"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
             Content="CheckBox"
-            Visibility="Hidden"
-            IsChecked="{Binding CurveStarted_2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            IsChecked="{Binding CurveStarted_2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            Visibility="Hidden" />
         <CheckBox
             x:Name="checkBox2"
             Margin="236,0,0,95"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
             Content="CheckBox"
-            Visibility="Hidden"
-            IsChecked="{Binding ReadOPC_1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            IsChecked="{Binding ReadOPC_1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            Visibility="Hidden" />
         <CheckBox
             x:Name="checkBox3"
             Margin="236,0,0,61"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
             Content="CheckBox"
-            Visibility="Hidden"
-            IsChecked="{Binding ReadOPC_2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            IsChecked="{Binding ReadOPC_2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            Visibility="Hidden" />
         <Label
             x:Name="label"
             Margin="74,0,0,101"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
-            Visibility="Hidden"
-            Content="{Binding ST_State_1}" />
+            Content="{Binding ST_State_1}"
+            Visibility="Hidden" />
         <Label
             x:Name="labe2"
             Margin="74,0,0,125"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
-            Visibility="Hidden"
-            Content="{Binding LaserData_1}" />
+            Content="{Binding LaserData_1}"
+            Visibility="Hidden" />
         <Label
             x:Name="labe3"
             Margin="49,0,0,160"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
-            Visibility="Hidden"
-            Content="{Binding LaserData_3}" />
+            Content="{Binding LaserData_3}"
+            Visibility="Hidden" />
         <Label
             x:Name="labe4"
             Margin="74,0,0,160"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
-            Visibility="Hidden"
-            Content="{Binding StepPos_1}" />
+            Content="{Binding StepPos_1}"
+            Visibility="Hidden" />
         <Label
             x:Name="labe5"
             Margin="112,0,0,160"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
-            Visibility="Hidden"
-            Content="{Binding StepPos_2}" />
+            Content="{Binding StepPos_2}"
+            Visibility="Hidden" />
         <Button
             x:Name="Распечать"
             Width="212"
-            Height="39"
-            Margin="0,0,270,96"
+            Height="26"
+            Margin="0,0,272,109"
             HorizontalAlignment="Right"
             VerticalAlignment="Bottom"
             Click="Print_Click"
             Content="Печатать" />
         <Button
             x:Name="Распечать_Copy"
-            Width="212"
-            Height="39"
-            Margin="54,0,0,96"
+            Width="129"
+            Height="26"
+            Margin="54,0,0,109"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
-            Command="{Binding ButtonChooseFile}"
-            Content="Указать файл" />
+            Command="{Binding ButtonChooseFile_1}"
+            Content="Указать файл 1" />
         <Button
             x:Name="Распечать_Copy1"
-            Width="212"
-            Height="39"
-            Margin="282,0,0,96"
+            Width="155"
+            Height="26"
+            Margin="191,0,0,109"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
-            Command="{Binding ButtonBuidGraf}"
-            Content="Построить из файла" />
+            Command="{Binding ButtonBuidGraf_1}"
+            Content="Построить из файла 1" />
         <Button
             x:Name="Распечать_Copy2"
-            Width="212"
-            Height="39"
-            Margin="511,0,0,96"
-            HorizontalAlignment="Left"
+            Height="26"
+            Margin="714,0,674,109"
             VerticalAlignment="Bottom"
             Command="{Binding ButtonBuildBack}"
             Content="Показать последний" />
+        <Button
+            x:Name="Распечать_Copy3"
+            Width="129"
+            Height="26"
+            Margin="384,0,0,109"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Command="{Binding ButtonChooseFile_2}"
+            Content="Указать файл 2" />
+        <Button
+            x:Name="Распечать_Copy4"
+            Width="155"
+            Height="26"
+            Margin="521,0,0,109"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Command="{Binding ButtonBuidGraf_2}"
+            Content="Построить из файла 2" />
 
     </Grid>
 </Page>
