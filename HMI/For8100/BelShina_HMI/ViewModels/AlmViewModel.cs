@@ -160,7 +160,7 @@ namespace BelShina_HMI.ViewModels
 
         
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.wFS_State")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.wFS_State")]
         public ushort FS_State
         {
             get 
@@ -176,7 +176,7 @@ namespace BelShina_HMI.ViewModels
         private ushort fS_State;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Alm.wForceStepAlm")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Alm.wForceStepAlm")]
         public ushort ForceStepAlm
         {
             get 
@@ -200,7 +200,7 @@ namespace BelShina_HMI.ViewModels
         private ushort forceStepAlm;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Alm.wAlmLaser_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Alm.wAlmLaser_1")]
         public ushort AlmLaser_1
         {
             get 
@@ -216,7 +216,7 @@ namespace BelShina_HMI.ViewModels
         private ushort almLaser_1;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Alm.wAlmLaser_2")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Alm.wAlmLaser_2")]
         public ushort AlmLaser_2
         {
             get 
@@ -233,7 +233,7 @@ namespace BelShina_HMI.ViewModels
 
 
         string procName = "";
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.wProcType")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.wProcType")]
         public ushort ProcessType
         {
             get
@@ -262,7 +262,7 @@ namespace BelShina_HMI.ViewModels
 
 
         bool justLoaded = true;
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.wST_State_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.wST_State_1")]
         public ushort ProcessState
         {
             get 

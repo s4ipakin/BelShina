@@ -120,7 +120,7 @@ namespace BelShina_HMI.Converters
                 case 0:
                     return " Остановлен";
                 case 1:
-                    return " Установка усиления";
+                    return " Установка усилия";
                 case 2:                    
                 case 3:
                     return " Расчеты";

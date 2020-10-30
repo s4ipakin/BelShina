@@ -31,17 +31,17 @@
                 MinWidth="150"
                 Margin="10,0,0,0"
                 Click="btnGragClk_1"
-                Content=" График кругового усиления " />
+                Content=" График углового усилия " />
             <Button
                 MinWidth="150"
                 Margin="10,0,0,0"
                 Click="btnGragClk_2"
-                Content=" График бокового усиления " />
+                Content=" График бокового усилия " />
             <Button
                 MinWidth="150"
                 Margin="10,0,0,0"
                 Click="btnGragClk_3"
-                Content=" График тангенциального усиления " />
+                Content=" График тангенциального усилия " />
             <Button
                 MinWidth="150"
                 Margin="10,0,0,0"

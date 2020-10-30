@@ -1460,6 +1460,38 @@
             Text="{Binding DistanceForce, Mode=OneWay}"
             Visibility="Hidden"
             d:LayoutOverrides="VerticalAlignment" />
+        <TextBox
+            Width="69"
+            Height="24"
+            Margin="317,750,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="{Binding Max_1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBlock
+            x:Name="textBlock_Copy51"
+            Width="296"
+            Height="24"
+            Margin="10,750,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="top"
+            FontSize="16"
+            Text="Максимальное значение для пересчета"
+            TextWrapping="Wrap" />
+        <Button x:Name="button" 
+                Content="Пересчитать с новым значением" 
+                HorizontalAlignment="Left" 
+                Margin="394,750,0,0" 
+                VerticalAlignment="Top" 
+                Width="248" 
+                Command="{Binding ButtonRecount_1}"
+                Height="24"/>
+        <Button x:Name="button_Copy2" 
+            Content="Пересчитать по измеренному максимуму" 
+            Margin="394,779,0,0" 
+            VerticalAlignment="Top" 
+            Command="{Binding ButtonCountAgain}"
+            Height="24" HorizontalAlignment="Left" Width="248"/>
 
 
 

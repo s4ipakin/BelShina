@@ -22,7 +22,7 @@ namespace BelShina_HMI.ViewModels
             
         }
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.rFS_GetForce")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.rFS_GetForce")]
         public override float GetForse
         {
             get { return this._getForse; } 
@@ -30,7 +30,7 @@ namespace BelShina_HMI.ViewModels
         }
         private float _getForse;
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.rFS_CycledWay")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.rFS_CycledWay")]
         public override float ActualPosition
         {
             get
@@ -51,7 +51,7 @@ namespace BelShina_HMI.ViewModels
 
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.wProcType")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.wProcType")]
         public override ushort ProcType_1
         {
             get { return this.wProcType_1; }
@@ -60,7 +60,7 @@ namespace BelShina_HMI.ViewModels
 
         private ushort wProcType_1;
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.wFS_State")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.wFS_State")]
         public override ushort FS_State
         {
             get
@@ -91,14 +91,14 @@ namespace BelShina_HMI.ViewModels
         private float _actualPosition;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.xProcFinished")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.xProcFinished")]
         public override bool ProcFinished
         {
             get{return false;}
             set { this.SetProperty(ref this.procFinished, value); }
         }
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.xFS_Start")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.xFS_Start")]
         public override bool Start
         {
             get
@@ -115,7 +115,10 @@ namespace BelShina_HMI.ViewModels
                         SaveToCSV(true, cSvPath, "Angle", "Force");
                         SentTabToMain(1);
                     }
-                        
+                    if (!this.start)
+                    {
+                        previousPosition = 0f;
+                    }
                 }
                 return this.start;
             }
@@ -126,18 +129,25 @@ namespace BelShina_HMI.ViewModels
         private bool xStarted = false;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.diDistanceForce")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.diDistanceForce")]
         public override int DistanceForce
         {
             get
             {
-                if (wProcType_1 == 1)
+                if ((wProcType_1 == 1) && (FS_State != 0) && (FS_State < 5))
                 {
                     float force = this.distanceForce / 10000;
                     grafValueY = force.ToString();
-                    float distance = ((float)this.distanceForce - (force * 10000)) / 10;
+                    float distance = ((float)this.distanceForce - (force * 10000)) / 100;
+                    distance = (float)Math.Round(Convert.ToDecimal(distance), 1);
                     grafValueX = distance.ToString();
-                    GetGrafPoints();
+
+                    if (distance > previousPosition)
+                    {
+                        previousPosition = distance;
+                        GetGrafPoints();
+                    }
+
                 }
                 return this.distanceForce;
             }

@@ -18,7 +18,7 @@ namespace BelShina_HMI.ViewModels
     [Subscription(endpointUrl: "opc.tcp://192.168.1.17:4840", publishingInterval: 500, keepAliveCount: 2)]
     public class VerticalConturViewModer : SubscriptionBase
     {
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.wST_State_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.wST_State_1")]
         public ushort ST_State_1
         {
             get 
@@ -44,7 +44,7 @@ namespace BelShina_HMI.ViewModels
         private ushort gT_State_1;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.wGS_State_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.wGS_State_1")]
         public ushort GS_State_1
         {
             get
@@ -57,7 +57,7 @@ namespace BelShina_HMI.ViewModels
         private ushort gS_State_1;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rLaserDistance_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rLaserDistance_1")]
         public float LaserDistance_1
         {
             get { return this.laserDistance_1; }
@@ -66,7 +66,7 @@ namespace BelShina_HMI.ViewModels
         private float laserDistance_1;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rLaserDistance_2")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rLaserDistance_2")]
         public float LaserDistance_2
         {
             get { return this.laserDistance_2; }
@@ -75,7 +75,7 @@ namespace BelShina_HMI.ViewModels
         private float laserDistance_2;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.rLS_RealPos_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.rLS_RealPos_1")]
         public float LS_RealPos_1
         {
             get { return this.lS_RealPos_1; }
@@ -84,7 +84,7 @@ namespace BelShina_HMI.ViewModels
         private float lS_RealPos_1;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.rLS_RealPos_2")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.rLS_RealPos_2")]
         public float LS_RealPos_2
         {
             get { return this.lS_RealPos_2; }
@@ -93,7 +93,7 @@ namespace BelShina_HMI.ViewModels
         private float lS_RealPos_2;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.xReadOPC_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.xReadOPC_1")]
         public bool ReadOPC_1
         {
             get 
@@ -119,7 +119,7 @@ namespace BelShina_HMI.ViewModels
 
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.xReadOPC_2")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.xReadOPC_2")]
         public bool ReadOPC_2
         {
             get
@@ -145,7 +145,7 @@ namespace BelShina_HMI.ViewModels
 
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.xCurveStarted_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.xCurveStarted_1")]
         public bool CurveStarted_1
         {
             get
@@ -165,7 +165,7 @@ namespace BelShina_HMI.ViewModels
         
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.xCurveStarted_2")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.xCurveStarted_2")]
         public bool CurveStarted_2
         {
             get 
@@ -184,7 +184,7 @@ namespace BelShina_HMI.ViewModels
 
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rStepPos_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rStepPos_1")]
         public float StepPos_1
         {
             get { return this.stepPos_1; }
@@ -193,7 +193,7 @@ namespace BelShina_HMI.ViewModels
         private float stepPos_1;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rStepPos_2")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rStepPos_2")]
         public float StepPos_2
         {
             get { return this.stepPos_2; }
@@ -202,7 +202,7 @@ namespace BelShina_HMI.ViewModels
         private float stepPos_2;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rLaserData_1")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rLaserData_1")]
         public float LaserData_1
         {
             get { return this.laserData_1; }
@@ -211,7 +211,7 @@ namespace BelShina_HMI.ViewModels
         private float laserData_1;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rLaserData_2")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rLaserData_2")]
         public float LaserData_2
         {
             get { return this.laserData_2; }

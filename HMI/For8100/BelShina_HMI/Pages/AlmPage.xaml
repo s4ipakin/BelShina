@@ -165,11 +165,14 @@
             VerticalAlignment="Bottom"
             Command="{Binding ButtonClear}"
             Content="Очистить историю" />
-        <Label x:Name="label1" 
-               Content="{Binding ProcessType}" 
-               HorizontalAlignment="Right" 
-               Height="35" Margin="0,0,350,101"
-               Visibility="Hidden"
-               VerticalAlignment="Bottom" Width="79"/>
+        <Label
+            x:Name="label1"
+            Width="79"
+            Height="35"
+            Margin="0,0,350,101"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Content="{Binding ProcessType}"
+            Visibility="Hidden" />
     </Grid>
 </Page>

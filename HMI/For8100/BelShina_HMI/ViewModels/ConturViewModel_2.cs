@@ -17,7 +17,7 @@ namespace BelShina_HMI.ViewModels
         public ConturViewModel_2(GrafSet grafSet, string cSvPath) : base(grafSet, cSvPath)
         { }
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Process.rLaserDistance_2")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rLaserDistance_2")]
         public override float GetForse
         {
             get { return this._getForse; }
@@ -25,7 +25,7 @@ namespace BelShina_HMI.ViewModels
         }
         private float _getForse;
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.rLS_RealPos_2")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.rLS_RealPos_2")]
         public override float ActualPosition
         {
             get
@@ -45,7 +45,7 @@ namespace BelShina_HMI.ViewModels
         }
         private float _actualPosition;
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8202 PFC200 2ETH RS Tele T ECO.Application.HMI_Stepper.wLS_StepperState_2")]
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.wLS_StepperState_2")]
         public override ushort FS_State
         {
             get { return this.lS_State; }

@@ -296,7 +296,7 @@ namespace BelShina_HMI.Reports
             }
             paragraph.AddText("Давление в шине: " + dataTable.Rows[21][1].ToString() + "кПа");
             paragraph.AddLineBreak();
-            paragraph.AddText("Верхняя нагрузка: " + dataTable.Rows[22][1].ToString() + "кН");
+            paragraph.AddText("Вертикальная нагрузка: " + dataTable.Rows[22][1].ToString() + "кН");
             paragraph.AddLineBreak();
 
 

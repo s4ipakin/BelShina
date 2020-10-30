@@ -140,8 +140,8 @@ namespace BelShina_HMI.OPC
             channel = new UaTcpSessionChannel(
             clientDescription,
             null, // no x509 certificates
-            new AnonymousIdentity(),
-            //new UserNameIdentity("admin", "wago"),
+            //new AnonymousIdentity(),
+            new UserNameIdentity("admin", "wago"),
             url,
             SecurityPolicyUris.None);
 
