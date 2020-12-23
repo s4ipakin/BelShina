@@ -129,10 +129,14 @@
         <Node name="rFS_LinedWay_2" type="T_REAL" access="ReadWrite" />
         <Node name="rFS_Sensativity" type="T_REAL" access="ReadWrite" />
         <Node name="rFS_SetForce" type="T_REAL" access="ReadWrite" />
+        <Node name="rGetWidth" type="T_REAL" access="ReadWrite" />
         <Node name="rLS_RealPos_1" type="T_REAL" access="ReadWrite" />
         <Node name="rLS_RealPos_2" type="T_REAL" access="ReadWrite" />
         <Node name="rReductCoef" type="T_REAL" access="ReadWrite" />
+        <Node name="rSetCallWidth" type="T_REAL" access="ReadWrite" />
         <Node name="rStepAngleForce" type="T_REAL" access="ReadWrite" />
+        <Node name="rTanleAddKoef_1" type="T_REAL" access="ReadWrite" />
+        <Node name="rTanleAddKoef_2" type="T_REAL" access="ReadWrite" />
         <Node name="ScrewStep_1" type="T_REAL" access="ReadWrite" />
         <Node name="ScrewStep_2" type="T_REAL" access="ReadWrite" />
         <Node name="ScrewStepForce" type="T_REAL" access="ReadWrite" />
@@ -158,6 +162,7 @@
         <Node name="wLS_SetSpeed_2" type="T_WORD" access="ReadWrite" />
         <Node name="wLS_StepperState_1" type="T_WORD" access="ReadWrite" />
         <Node name="wLS_StepperState_2" type="T_WORD" access="ReadWrite" />
+        <Node name="xCallibrate" type="T_BOOL" access="ReadWrite" />
         <Node name="xFS_DirNeg" type="T_BOOL" access="ReadWrite" />
         <Node name="xFS_JogLeft" type="T_BOOL" access="ReadWrite" />
         <Node name="xFS_JogRight" type="T_BOOL" access="ReadWrite" />

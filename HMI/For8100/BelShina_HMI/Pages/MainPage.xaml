@@ -662,7 +662,7 @@
         <TextBlock
             Width="92"
             Height="24"
-            Margin="0,148,30,0"
+            Margin="0,188,30,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             Background="#FFF1E8E8"
@@ -697,7 +697,7 @@
             x:Name="textBlock_Copy22"
             Width="90"
             Height="24"
-            Margin="0,148,270,0"
+            Margin="0,188,287,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             FontSize="16"
@@ -795,9 +795,9 @@
             Style="{StaticResource myCheckboxStyle}"
             d:LayoutOverrides="VerticalAlignment" />
         <TextBox
-            Width="120"
+            Width="89"
             Height="24"
-            Margin="0,148,398,0"
+            Margin="0,148,429,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             FontSize="16"
@@ -824,9 +824,9 @@
             OpacityMask="#FF080808"
             Text="{Binding LS_GetPos_2, Mode=OneWay}" />
         <TextBlock
-            Width="120"
+            Width="89"
             Height="24"
-            Margin="0,188,398,0"
+            Margin="0,188,429,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             Background="#FFF1E8E8"
@@ -848,9 +848,9 @@
 
         <TextBlock
             x:Name="textBlock_Copy112"
-            Width="262"
+            Width="246"
             Height="24"
-            Margin="0,252,366,0"
+            Margin="0,252,382,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             Background="{Binding FS_State, Converter={StaticResource processStateConvertToColor}}"
@@ -863,7 +863,7 @@
             x:Name="textBlock_Copy"
             Width="242"
             Height="24"
-            Margin="0,188,118,0"
+            Margin="0,220,135,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             FontSize="16"
@@ -873,7 +873,7 @@
         <TextBlock
             Width="92"
             Height="24"
-            Margin="0,188,30,0"
+            Margin="0,220,30,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             Background="#FFF1E8E8"
@@ -885,7 +885,7 @@
             x:Name="textBlock_Copy8"
             Width="242"
             Height="24"
-            Margin="0,228,118,0"
+            Margin="0,251,135,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             FontSize="16"
@@ -895,7 +895,7 @@
         <TextBlock
             Width="92"
             Height="24"
-            Margin="0,228,30,0"
+            Margin="0,251,30,0"
             HorizontalAlignment="Right"
             VerticalAlignment="top"
             Background="#FFF1E8E8"
@@ -1399,9 +1399,9 @@
             Visibility="{Binding ProcessType, Converter={StaticResource typeVisible}}"
             d:LayoutOverrides="VerticalAlignment" />
         <TextBlock
-            Width="120"
+            Width="89"
             Height="24"
-            Margin="0,220,398,0"
+            Margin="0,220,429,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             Background="#FFF1E8E8"
@@ -1492,6 +1492,17 @@
             VerticalAlignment="Top" 
             Command="{Binding ButtonCountAgain}"
             Height="24" HorizontalAlignment="Left" Width="248"/>
+        <TextBlock
+            x:Name="textBlock_Copy52"
+            Width="90"
+            Height="24"
+            Margin="0,148,319,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="Угол, [град.]"
+            TextWrapping="Wrap"
+    d:LayoutOverrides="VerticalAlignment" />
 
 
 

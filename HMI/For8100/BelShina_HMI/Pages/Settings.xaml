@@ -18,13 +18,13 @@
     <Grid>
         <Border
             Width="465"
-            Margin="36,10,0,80"
+            Margin="36,10,0,60"
             HorizontalAlignment="Left"
             Background="#FFEAE5CF"
             BorderBrush="Black"
             BorderThickness="1" />
         <Border
-            Margin="516,10,10,80"
+            Margin="516,10,10,180"
             Background="#FFEAE5CF"
             BorderBrush="Black"
             BorderThickness="1" />
@@ -151,7 +151,7 @@
             x:Name="textBlock_Copy1"
             Width="139"
             Height="24"
-            Margin="82,112,0,0"
+            Margin="82,100,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -161,7 +161,7 @@
             x:Name="textBlock_Copy8"
             Width="139"
             Height="24"
-            Margin="82,151,0,0"
+            Margin="82,130,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -178,7 +178,7 @@
         <TextBox
             Width="120"
             Height="24"
-            Margin="323,112,0,0"
+            Margin="323,100,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -186,7 +186,7 @@
         <TextBox
             Width="120"
             Height="24"
-            Margin="323,151,0,0"
+            Margin="323,130,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -195,7 +195,7 @@
             x:Name="textBlock_Copy9"
             Width="139"
             Height="24"
-            Margin="82,325,0,0"
+            Margin="82,279,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -205,7 +205,7 @@
             x:Name="textBlock_Copy10"
             Width="139"
             Height="24"
-            Margin="82,367,0,0"
+            Margin="82,310,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -215,7 +215,7 @@
             x:Name="textBlock_Copy11"
             Width="139"
             Height="24"
-            Margin="82,406,0,0"
+            Margin="82,340,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -224,7 +224,7 @@
         <TextBox
             Width="120"
             Height="24"
-            Margin="323,325,0,0"
+            Margin="323,279,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -232,14 +232,14 @@
         <TextBox
             Width="120"
             Height="24"
-            Margin="323,367,0,0"
+            Margin="323,310,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Text="{Binding LS_Acceleration_2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBox
             Width="120"
             Height="24"
-            Margin="323,406,0,0"
+            Margin="323,340,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -256,30 +256,30 @@
             TextWrapping="Wrap" />
         <TextBlock
             x:Name="textBlock_Copy13"
-            Width="197"
+            Width="217"
             Height="24"
             Margin="167,30,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="18"
-            Text="Настройки лазера 1"
+            Text="Настройки ШД лазера 1"
             TextWrapping="Wrap" />
         <TextBlock
             x:Name="textBlock_Copy14"
-            Width="197"
+            Width="210"
             Height="24"
-            Margin="187,285,0,0"
+            Margin="187,236,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="18"
-            Text="Настройки лазера 2"
+            Text="Настройки ШД лазера 2"
             TextWrapping="Wrap" />
 
         <TextBlock
             x:Name="textBlock_Copy15"
             Width="442"
             Height="32"
-            Margin="46,540,0,0"
+            Margin="46,457,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="18"
@@ -289,7 +289,7 @@
             x:Name="textBlock_Copy16"
             Width="139"
             Height="24"
-            Margin="82,579,0,0"
+            Margin="82,515,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -299,7 +299,7 @@
             x:Name="textBlock_Copy17"
             Width="139"
             Height="24"
-            Margin="82,622,0,0"
+            Margin="82,545,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -309,7 +309,7 @@
             x:Name="textBlock_Copy18"
             Width="154"
             Height="24"
-            Margin="82,665,0,0"
+            Margin="82,642,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -318,7 +318,7 @@
         <TextBox
             Width="120"
             Height="24"
-            Margin="323,580,0,0"
+            Margin="323,515,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -326,7 +326,7 @@
         <TextBox
             Width="120"
             Height="24"
-            Margin="323,624,0,0"
+            Margin="323,545,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -334,7 +334,7 @@
         <TextBox
             Width="120"
             Height="24"
-            Margin="323,667,0,0"
+            Margin="323,642,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -343,7 +343,7 @@
             x:Name="textBlock_Copy19"
             Width="154"
             Height="24"
-            Margin="82,705,0,0"
+            Margin="82,672,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -352,7 +352,7 @@
         <TextBox
             Width="120"
             Height="24"
-            Margin="323,706,0,0"
+            Margin="323,672,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -458,7 +458,7 @@
             x:Name="textBlock_Copy26"
             Width="223"
             Height="24"
-            Margin="82,195,0,0"
+            Margin="82,160,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -467,7 +467,7 @@
         <TextBox
             Width="120"
             Height="24"
-            Margin="323,191,0,0"
+            Margin="323,160,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -476,7 +476,7 @@
             x:Name="textBlock_Copy27"
             Width="223"
             Height="24"
-            Margin="82,239,0,0"
+            Margin="82,190,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -485,7 +485,7 @@
         <TextBox
             Width="120"
             Height="24"
-            Margin="323,235,0,0"
+            Margin="323,190,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -494,7 +494,7 @@
             x:Name="textBlock_Copy28"
             Width="223"
             Height="24"
-            Margin="82,450,0,0"
+            Margin="82,370,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -503,7 +503,7 @@
         <TextBox
             Width="120"
             Height="24"
-            Margin="323,451,0,0"
+            Margin="323,370,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -512,7 +512,7 @@
             x:Name="textBlock_Copy29"
             Width="223"
             Height="24"
-            Margin="82,495,0,0"
+            Margin="82,400,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -521,7 +521,7 @@
         <TextBox
             Width="120"
             Height="24"
-            Margin="323,496,0,0"
+            Margin="323,400,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="top"
             Text="{Binding ScrewStep_2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
@@ -529,7 +529,7 @@
             x:Name="textBlock_Copy30"
             Width="223"
             Height="24"
-            Margin="82,745,0,0"
+            Margin="82,767,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -538,7 +538,7 @@
         <TextBox
             Width="120"
             Height="24"
-            Margin="323,746,0,0"
+            Margin="323,767,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="16"
@@ -688,6 +688,141 @@
             VerticalAlignment="Top"
             FontSize="16"
             Text="Каллибровочный сдвиг для тангенциальной нагрузки, [Н]"
+            TextWrapping="Wrap" />
+        <TextBox
+            Width="120"
+            Height="24"
+            Margin="323,732,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="{Binding LaserSetPos_2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBlock
+            x:Name="textBlock_Copy38"
+            Width="154"
+            Height="24"
+            Margin="82,732,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="Сдвиг лазера 2"
+            TextWrapping="Wrap" />
+        <TextBox
+            Width="120"
+            Height="24"
+            Margin="323,702,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="{Binding LaserSetPos_1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBlock
+            x:Name="textBlock_Copy39"
+            Width="154"
+            Height="24"
+            Margin="82,702,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="Сдвиг лазера 1"
+            TextWrapping="Wrap" />
+        <Border
+            Margin="516,0,10,60"
+            Background="#FFEAE5CF"
+            BorderBrush="Black"
+            BorderThickness="1" Height="115" VerticalAlignment="Bottom" />
+        <TextBlock
+            x:Name="textBlock_Copy40"
+            Width="459"
+            Height="24"
+            Margin="0,0,274,151"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            FontSize="18"
+            Text="Каллибровка измерения ширины профиля боковины"
+            TextWrapping="Wrap" />
+        <TextBlock
+            x:Name="textBlock_Copy41"
+            Width="196"
+            Height="24"
+            Margin="544,0,0,103"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            FontSize="16"
+            Text="Измеренная ширина [мм]"
+            TextWrapping="Wrap" />
+        <TextBox
+            Width="120"
+            Height="24"
+            Margin="0,0,245,101"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            FontSize="16"
+            Text="{Binding SetCallWidth, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" RenderTransformOrigin="0.517,0.375" />
+        <TextBlock
+            x:Name="textBlock_Copy42"
+            Width="196"
+            Height="32"
+            Margin="0,0,405,95"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            FontSize="16"
+            Text="Эталонная ширина [мм]"
+            TextWrapping="Wrap" />
+        <Button
+            x:Name="resetAlmBtn"
+            Width="183"
+            Height="35"
+            Margin="0,0,31,95"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Command="{Binding ButtonCallibrateCommand}"
+            Content="Каллибровка"
+            FontSize="16" />
+        <TextBlock
+            Height="24"
+            Width="120"
+            Margin="784,0,0,100"
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Left"
+            Background="#FFF1E8E8"
+            FontSize="16"
+            RenderTransformOrigin="0.489,0.573"
+            Text="{Binding GetWidth, Mode=OneWay}" />
+        <TextBox
+            Width="120"
+            Height="24"
+            Margin="323,578,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="{Binding TanleAddKoef_1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox
+            Width="120"
+            Height="24"
+            Margin="323,608,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="{Binding TanleAddKoef_2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBlock
+            x:Name="textBlock_Copy43"
+            Width="139"
+            Height="24"
+            Margin="82,578,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="Линейка 1 сдвиг"
+            TextWrapping="Wrap" />
+        <TextBlock
+            x:Name="textBlock_Copy44"
+            Width="139"
+            Height="24"
+            Margin="82,608,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Text="Линейка 2 сдвиг"
             TextWrapping="Wrap" />
     </Grid>
 </Page>

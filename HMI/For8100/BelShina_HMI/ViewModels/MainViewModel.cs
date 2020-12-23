@@ -50,7 +50,7 @@ namespace BelShina_HMI.ViewModels
             {
                 
               new TestType(){   Id=1, 
-                                Name="Угловое", 
+                                Name="Угловая жесткость", 
                                 Formula="Кугл=(Mα2-Mα1)/(α2-α2)", 
                                 HalfForceName = "Mα1, [H*m]",
                                 HalfWayName = "α1, [град]",
@@ -66,7 +66,7 @@ namespace BelShina_HMI.ViewModels
                             }
                     ,new TestType(){
                                         Id=2,
-                                        Name="Боковая",
+                                        Name="Боковая жесткость",
                                         Formula="Кбок=(Fhб2-Fhб1)/(hб2-hб1)",
                                         HalfForceName = "Fhб1, [H]",
                                         HalfWayName = "hб1, [mm]",
@@ -82,7 +82,7 @@ namespace BelShina_HMI.ViewModels
                                     }
                     ,new TestType(){
                                         Id=3 , 
-                                        Name="Тангенциальное",
+                                        Name="Тангенциальная жесткость",
                                         Formula="Ктанг=(Fhт2-Fhт1)/(hт2-hт1)",
                                         HalfForceName = "Fhт1, [H]",
                                         HalfWayName = "hт1, [mm]",
@@ -98,7 +98,7 @@ namespace BelShina_HMI.ViewModels
                                     }
                     ,new TestType(){
                                         Id=4 ,
-                                        Name="Сканирование",
+                                        Name="Построение профиля",
                                         Formula="Ктанг=(Fhт2-Fhт1)/(hт2-hт1)",
                                         HalfForceName = "Fhт1, [H]",
                                         HalfWayName = "hт1, [mm]",

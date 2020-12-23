@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Workstation.ServiceModel.Ua;
 
 namespace BelShina_HMI.ViewModels
@@ -10,6 +11,60 @@ namespace BelShina_HMI.ViewModels
     [Subscription(endpointUrl: "opc.tcp://192.168.1.17:4840", publishingInterval: 500, keepAliveCount: 2)]
     public class SettingsViewModel : SubscriptionBase
     {
+        public ICommand ButtonCallibrateCommand { get; set; }
+
+        public SettingsViewModel()
+        {
+            ButtonCallibrateCommand = new RelayCommand(o => CallButtonClick("CallButton"));
+        }
+
+        private void CallButtonClick(string v)
+        {
+            Callibrate = true;
+        }
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.rTanleAddKoef_1")]
+        public float TanleAddKoef_1
+        {
+            get { return this.tanleAddKoef_1; }
+            set { this.SetProperty(ref this.tanleAddKoef_1, value); }
+        }
+        private float tanleAddKoef_1;
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.rTanleAddKoef_2")]
+        public float TanleAddKoef_2
+        {
+            get { return this.tanleAddKoef_2; }
+            set { this.SetProperty(ref this.tanleAddKoef_2, value); }
+        }
+        private float tanleAddKoef_2;
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.rGetWidth")]
+        public float GetWidth
+        {
+            get { return this.getWidth; }
+            set { this.SetProperty(ref this.getWidth, value); }
+        }
+        private float getWidth;
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.rSetCallWidth")]
+        public float SetCallWidth
+        {
+            get { return this.setCallWidth; }
+            set { this.SetProperty(ref this.setCallWidth, value); }
+        }
+        private float setCallWidth;
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.xCallibrate")]
+        public bool Callibrate
+        {
+            get { return this.callibrate; }
+            set { this.SetProperty(ref this.callibrate, value); }
+        }
+        private bool callibrate;
+
+
+
         [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.wFS_RoughApprox")]
         public ushort RoughApprox
         {
@@ -376,5 +431,23 @@ namespace BelShina_HMI.ViewModels
             set { this.SetProperty(ref this.lineForceOffset_2, value); }
         }
         private float lineForceOffset_2;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rLaserSetPos_1")]
+        public float LaserSetPos_1
+        {
+            get { return this.laserSetPos_1; }
+            set { this.SetProperty(ref this.laserSetPos_1, value); }
+        }
+        private float laserSetPos_1;
+
+
+        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rLaserSetPos_2")]
+        public float LaserSetPos_2
+        {
+            get { return this.laserSetPos_2; }
+            set { this.SetProperty(ref this.laserSetPos_2, value); }
+        }
+        private float laserSetPos_2;
     }
 }

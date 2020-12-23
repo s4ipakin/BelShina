@@ -134,7 +134,7 @@ namespace BelShina_HMI.ViewModels
                     float force = this.distanceForce / 10000;
                     grafValueY = force.ToString();
                     float distance = ((float)this.distanceForce - (force * 10000)) / 100;
-                    distance =(float)Math.Round(Convert.ToDecimal(distance), 1);
+                    //distance =(float)Math.Round(Convert.ToDecimal(distance), 1);
                     grafValueX = distance.ToString();
                     
                     if (distance > previousPosition)

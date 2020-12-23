@@ -209,6 +209,10 @@ namespace BelShina_HMI.ViewModels
                 {
                     EnterEvent("Авария двигателя лазерного датчика 1", EventLogEntryType.Error);
                 }
+                if (Maths.BitWise.IsBitSet(this.almLaser_1, 1))
+                {
+                    EnterEvent("Произошел наезд на датчик огранечения движения", EventLogEntryType.Error);
+                }
                 return this.almLaser_1; 
             }
             set { this.SetProperty(ref this.almLaser_1, value); }
@@ -224,6 +228,10 @@ namespace BelShina_HMI.ViewModels
                 if (this.almLaser_2 > 0)
                 {
                     EnterEvent("Авария двигателя лазерного датчика 2", EventLogEntryType.Error);
+                }
+                if (Maths.BitWise.IsBitSet(this.almLaser_2, 1))
+                {
+                    EnterEvent("Произошел наезд на датчик огранечения движения", EventLogEntryType.Error);
                 }
                 return this.almLaser_2; 
             }

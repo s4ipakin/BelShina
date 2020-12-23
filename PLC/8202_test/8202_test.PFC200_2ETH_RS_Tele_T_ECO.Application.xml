@@ -12,16 +12,6 @@
     <TypeSimple name="T_INT" size="2" swapsize="2" typeclass="Int" iecname="INT" />
     <TypeSimple name="T_REAL" size="4" swapsize="4" typeclass="Real" iecname="REAL" />
     <TypeSimple name="T_WORD" size="2" swapsize="2" typeclass="Word" iecname="WORD" />
-    <TypeUserDef name="T_CurveStates" size="2" nativesize="2" swapsize="2" typeclass="Enum" iecname="CurveStates" basetype="T_INT">
-      <UserDefElement type="T_CurveStates" iecname="CS_Stop" enumvalue="0" />
-      <UserDefElement type="T_CurveStates" iecname="CS_Done" enumvalue="1" />
-      <UserDefElement type="T_CurveStates" iecname="CS_Stopping" enumvalue="2" />
-      <UserDefElement type="T_CurveStates" iecname="CS_SetStep" enumvalue="3" />
-      <UserDefElement type="T_CurveStates" iecname="CS_WaitInitial" enumvalue="4" />
-      <UserDefElement type="T_CurveStates" iecname="CS_SetMeassure" enumvalue="5" />
-      <UserDefElement type="T_CurveStates" iecname="CS_Measuring" enumvalue="6" />
-      <UserDefElement type="T_CurveStates" iecname="CS_ReadingOPC" enumvalue="7" />
-    </TypeUserDef>
     <TypeUserDef name="T_StiffnessTestStates" size="2" nativesize="2" swapsize="2" typeclass="Enum" iecname="StiffnessTestStates" basetype="T_INT">
       <UserDefElement type="T_StiffnessTestStates" iecname="ST_Proc_Stop" enumvalue="0" />
       <UserDefElement type="T_StiffnessTestStates" iecname="ST_Proc_GettingForce" enumvalue="1" />
@@ -32,6 +22,8 @@
       <UserDefElement type="T_StiffnessTestStates" iecname="ST_Proc_Releasing" enumvalue="6" />
       <UserDefElement type="T_StiffnessTestStates" iecname="ST_Proc_Stopping" enumvalue="7" />
       <UserDefElement type="T_StiffnessTestStates" iecname="ST_Proc_GettingFirstCurve" enumvalue="8" />
+      <UserDefElement type="T_StiffnessTestStates" iecname="ST_Proc_Pause" enumvalue="9" />
+      <UserDefElement type="T_StiffnessTestStates" iecname="ST_SendingData" enumvalue="10" />
     </TypeUserDef>
   </TypeList>
   <NodeList>
@@ -45,6 +37,7 @@
       </Node>
       <Node name="HMI_Process">
         <Node name="diDistanceForce" type="T_DINT" access="ReadWrite" />
+        <Node name="rCycleForceOffset" type="T_REAL" access="ReadWrite" />
         <Node name="rDistance_1" type="T_REAL" access="ReadWrite" />
         <Node name="rDistance_2" type="T_REAL" access="ReadWrite" />
         <Node name="rDistanceBetweenLasers" type="T_REAL" access="ReadWrite" />
@@ -55,7 +48,13 @@
         <Node name="rLaserData_2" type="T_REAL" access="ReadWrite" />
         <Node name="rLaserDistance_1" type="T_REAL" access="ReadWrite" />
         <Node name="rLaserDistance_2" type="T_REAL" access="ReadWrite" />
+        <Node name="rLaserSetPos_1" type="T_REAL" access="ReadWrite" />
+        <Node name="rLaserSetpos_2" type="T_REAL" access="ReadWrite" />
+        <Node name="rLineForceOffset_1" type="T_REAL" access="ReadWrite" />
+        <Node name="rLineForceOffset_2" type="T_REAL" access="ReadWrite" />
         <Node name="rRadius" type="T_REAL" access="ReadWrite" />
+        <Node name="rRealGetForce" type="T_REAL" access="ReadWrite" />
+        <Node name="rRealGetForceMax" type="T_REAL" access="ReadWrite" />
         <Node name="rST_Force_1" type="T_REAL" access="ReadWrite" />
         <Node name="rST_Force_2" type="T_REAL" access="ReadWrite" />
         <Node name="rST_Force_3" type="T_REAL" access="ReadWrite" />
@@ -81,8 +80,8 @@
         <Node name="wGC_EndPos_2" type="T_WORD" access="ReadWrite" />
         <Node name="wGC_InitialPos_1" type="T_WORD" access="ReadWrite" />
         <Node name="wGC_InitialPos_2" type="T_WORD" access="ReadWrite" />
-        <Node name="wGS_State_1" type="T_CurveStates" access="ReadWrite" />
-        <Node name="wGS_State_2" type="T_CurveStates" access="ReadWrite" />
+        <Node name="wGS_State_1" type="T_WORD" access="ReadWrite" />
+        <Node name="wGS_State_2" type="T_WORD" access="ReadWrite" />
         <Node name="wGS_WaitTillDone_1" type="T_WORD" access="ReadWrite" />
         <Node name="wGS_WaitTillDone_2" type="T_WORD" access="ReadWrite" />
         <Node name="wProcType" type="T_WORD" access="ReadWrite" />
@@ -97,6 +96,7 @@
         <Node name="wST_State_3" type="T_StiffnessTestStates" access="ReadWrite" />
         <Node name="wTyreSizeAfter" type="T_WORD" access="ReadWrite" />
         <Node name="wTyreSizeFirst" type="T_WORD" access="ReadWrite" />
+        <Node name="xContinue" type="T_BOOL" access="ReadWrite" />
         <Node name="xCurveStarted_1" type="T_BOOL" access="ReadWrite" />
         <Node name="xCurveStarted_2" type="T_BOOL" access="ReadWrite" />
         <Node name="xGC_Start_1" type="T_BOOL" access="ReadWrite" />
@@ -139,6 +139,7 @@
         <Node name="wFS_ActualPos" type="T_DWORD" access="ReadWrite" />
         <Node name="wFS_RoughApprox" type="T_WORD" access="ReadWrite" />
         <Node name="wFS_SetAcceleration" type="T_WORD" access="ReadWrite" />
+        <Node name="wFS_SetBackSpeed" type="T_WORD" access="ReadWrite" />
         <Node name="wFS_SetDeceleration" type="T_WORD" access="ReadWrite" />
         <Node name="wFS_SetSpeed" type="T_WORD" access="ReadWrite" />
         <Node name="wFS_State" type="T_WORD" access="ReadWrite" />

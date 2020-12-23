@@ -74,7 +74,7 @@ namespace BelShina_HMI.Maths
                     //halfWay = (float)(dHalfPos);
                     halfWay = (float)Maths.Transform.LinTrafo(fHalfForce, dHalfForce, dHalfForceprevious, dHalfPos, dHalfPosPrevious);
                     
-                    way = (float)Math.Round(Convert.ToDecimal(way), 1);
+                    //way = (float)Math.Round(Convert.ToDecimal(way), 1);
                     break;
                 }
             }

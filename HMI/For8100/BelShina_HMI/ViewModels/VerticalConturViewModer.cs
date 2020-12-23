@@ -517,7 +517,7 @@ namespace BelShina_HMI.ViewModels
                             ValueY = Convert.ToDouble(dt.Rows[i][0])
                         });
 
-                        ChartValuesAfter1.Add(new MeasureModel
+                        ChartValuesBefore2.Add(new MeasureModel
                         {
                             ValueX = Convert.ToDouble(dt.Rows[i][2]),
                             ValueY = Convert.ToDouble(dt.Rows[i][0])
@@ -525,7 +525,7 @@ namespace BelShina_HMI.ViewModels
                     }
                     if (dt.Rows[i][3].ToString() != "")
                     {
-                        ChartValuesBefore2.Add(new MeasureModel
+                        ChartValuesAfter1.Add(new MeasureModel
                         {
                             ValueX = Convert.ToDouble(dt.Rows[i][3]),
                             ValueY = Convert.ToDouble(dt.Rows[i][0])

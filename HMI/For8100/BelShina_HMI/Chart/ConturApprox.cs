@@ -35,6 +35,8 @@ namespace BelShina_HMI.Chart
                 {
                     _stepper = previousStepper + 1;
                     _laser = previousLaser - (((i + 1)/ (stepper - previousStepper)) * (previousLaser - laser));
+                    
+                    _laser =(float) Math.Round(Convert.ToDecimal(_laser), 1);
                     //MessageBox.Show(_laser.ToString());
                     list.Add(new ValuePair(_stepper, _laser));
                 }
