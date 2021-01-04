@@ -10,7 +10,7 @@ namespace BelShina_HMI.Maths
 {
     public class CalcCoef
     {
-        public static float Calc(DataTable dataTab, object targetClass, string forceName, string wayName, string halfForceName, string halfWayName, bool setMax = false, string max = "0")
+        public static float Calc(DataTable dataTab, object targetClass, string forceName, string wayName, string halfForceName, string halfWayName, bool setMax = false, string max = "0", string min = "0")
         {
             string sForce;
             string sWay = "0";

@@ -17,9 +17,10 @@ namespace BelShina_HMI.ViewModels
     public class CycleForceGrafViewModel : GrafViewModel 
     {
         //OPC_UA_Client OPC_UA;
-        public CycleForceGrafViewModel(GrafSet grafSet, string cSvPath) : base(grafSet, cSvPath)
+        
+        public CycleForceGrafViewModel(GrafSet grafSet, string cSvPath, ushort procNomber) : base(grafSet, cSvPath)
         {
-            
+            this.procNomber = procNomber;
         }
 
         [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.rFS_GetForce")]
@@ -110,10 +111,10 @@ namespace BelShina_HMI.ViewModels
                 else if (xStarted)
                 {
                     xStarted = false;
-                    if (ProcType_1 == 1)
+                    if (ProcType_1 == procNomber)
                     {
                         SaveToCSV(true, cSvPath, "Angle", "Force");
-                        SentTabToMain(1);
+                        SentTabToMain(procNomber, dataTable);
                     }
                     if (!this.start)
                     {

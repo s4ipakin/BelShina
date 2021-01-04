@@ -27,11 +27,17 @@ namespace BelShina_HMI.ViewModels
         public ICommand ButtonResetAlm { get; set; }
         public ICommand ButtonContinue { get; set; }
         public ICommand ButtonRecount_1 { get; set; }
-        public ICommand ButtonCountAgain { get; set; }
+        public ICommand ButtonCountAgain_1 { get; set; }
+        public ICommand ButtonRecount_2 { get; set; }
+        public ICommand ButtonCountAgain_2 { get; set; }
+        public ICommand ButtonRecount_3 { get; set; }
+        public ICommand ButtonCountAgain_3 { get; set; }
         //public ICommand ButtonRecount_2 { get; set; }
         //public ICommand ButtonRecount_3 { get; set; }
         Dictionary<ushort, TestType> TestTypeDic;
-        DataTable currentTab = new DataTable();
+        DataTable currentTab_1 = new DataTable();
+        DataTable currentTab_2 = new DataTable();
+        DataTable currentTab_3 = new DataTable();
 
         public MainViewModel()
         {
@@ -42,8 +48,12 @@ namespace BelShina_HMI.ViewModels
             ProcessStartStopCommand = new RelayCommand(o => StartStopProcess("ReportsButton"));
             ButtonResetAlm = new RelayCommand(o => ResetAlm("ReportsButton"));
             ButtonContinue = new RelayCommand(o => ContinueProc("ReportsButton"));
-            ButtonRecount_1 = new RelayCommand(o => Recount(Max_1));
-            ButtonCountAgain = new RelayCommand(o => CountAgain(Max_1));
+            ButtonRecount_1 = new RelayCommand(o => Recount(currentTab_1, Max_1, 1));
+            ButtonCountAgain_1 = new RelayCommand(o => CountAgain(currentTab_1, 1));
+            ButtonRecount_2 = new RelayCommand(o => Recount(currentTab_2, Max_2, 2));
+            ButtonCountAgain_2 = new RelayCommand(o => CountAgain(currentTab_2, 2));
+            ButtonRecount_3 = new RelayCommand(o => Recount(currentTab_3, Max_3, 3));
+            ButtonCountAgain_3 = new RelayCommand(o => CountAgain(currentTab_3, 3));
             //ButtonRecount_2 = new RelayCommand(o => Recount(Max_2));
             //ButtonRecount_3 = new RelayCommand(o => Recount(Max_3));
             TestTypes = new ObservableCollection<TestType>()
@@ -125,16 +135,16 @@ namespace BelShina_HMI.ViewModels
 
         }
 
-        private void CountAgain(string max_1)
+        private void CountAgain(DataTable currentTab, ushort procNomber)
         {
-            CalcCoef(currentTab);
+            CalcCoef(currentTab, procNomber);
         }
 
-        private void Recount(string max)
+        private void Recount(DataTable currentTab, string max, ushort procNumber)
         {
             if (currentTab.Rows.Count > 1)
             {
-                switch (ProcessType)
+                switch (procNumber)
                 {
 
                     case 1:
@@ -165,15 +175,27 @@ namespace BelShina_HMI.ViewModels
 
         public virtual void Calculate(SentDataTab dataTab)
         {
-            currentTab = dataTab.DataTable.Copy();
-            CalcCoef(dataTab.DataTable);
+            
+            switch (dataTab.ProcNumber)
+            {
+                case 1:
+                    currentTab_1 = dataTab.DataTable.Copy();
+                    break;
+                case 2:
+                    currentTab_2 = dataTab.DataTable.Copy();
+                    break;
+                case 3:
+                    currentTab_3 = dataTab.DataTable.Copy();
+                    break;
+            }
+            CalcCoef(dataTab.DataTable, dataTab.ProcNumber);
         }
 
-        public virtual void CalcCoef(DataTable dataTab)
+        public virtual void CalcCoef(DataTable dataTab, ushort procNomber)
         {
             if (dataTab.Rows.Count > 1)
             {
-                switch (ProcessType)
+                switch (/*ProcessType*/procNomber)
                 {
 
                     case 1:
@@ -355,20 +377,24 @@ namespace BelShina_HMI.ViewModels
             {
                 //_testType = TestTypeDic[this.processType];
                 //_testType = TestTypes[this.processType];
+
+               
+                return this.processType;
                 
-                                     
-                return this.processType; 
+
             }
             set 
             {
                 //_testType = TestTypeDic[value];
-                this.SetProperty(ref this.processType, value); 
+                
+                this.SetProperty(ref this.processType, value);
+                
             }
         }
         private ushort processType;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.wST_HalfPos_1")]
+        //[MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.wST_HalfPos_1")]
         public float HalfPos_1
         {
             get 
@@ -384,7 +410,7 @@ namespace BelShina_HMI.ViewModels
         private float halfPos_1;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.wST_HalfPos_2")]
+        //[MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.wST_HalfPos_2")]
         public float HalfPos_2
         {
             get
@@ -400,7 +426,7 @@ namespace BelShina_HMI.ViewModels
         private float halfPos_2;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.wST_HalfPos_3")]
+        //[MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.wST_HalfPos_3")]
         public float HalfPos_3
         {
             get
@@ -416,7 +442,7 @@ namespace BelShina_HMI.ViewModels
         private float halfPos_3;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.wST_HalfForce_1")]
+        //[MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.wST_HalfForce_1")]
         public float HalfForce_1
         {
             get 
@@ -432,7 +458,7 @@ namespace BelShina_HMI.ViewModels
         private float halfForce_1;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.wST_HalfForce_2")]
+        //[MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.wST_HalfForce_2")]
         public float HalfForce_2
         {
             get
@@ -448,7 +474,7 @@ namespace BelShina_HMI.ViewModels
         private float halfForce_2;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.wST_HalfForce_3")]
+        //[MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.wST_HalfForce_3")]
         public float HalfForce_3
         {
             get
@@ -464,7 +490,7 @@ namespace BelShina_HMI.ViewModels
         private float halfForce_3;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rST_Koef_1")]
+        //[MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rST_Koef_1")]
         public float Koef_1
         {
             get 
@@ -480,7 +506,7 @@ namespace BelShina_HMI.ViewModels
         private float koef_1;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rST_Koef_2")]
+        //[MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rST_Koef_2")]
         public float Koef_2
         {
             get
@@ -496,7 +522,7 @@ namespace BelShina_HMI.ViewModels
         private float koef_2;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rST_Koef_3")]
+        //[MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rST_Koef_3")]
         public float Koef_3
         {
             get
@@ -681,7 +707,7 @@ namespace BelShina_HMI.ViewModels
         private bool lS_Stop_2;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rST_Force_1")]
+        //[MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rST_Force_1")]
         public float ST_Force_1
         {
             get { return this.sT_Force_1; }
@@ -690,7 +716,7 @@ namespace BelShina_HMI.ViewModels
         private float sT_Force_1;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rST_Force_2")]
+        //[MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rST_Force_2")]
         public float ST_Force_2
         {
             get { return this.sT_Force_2; }
@@ -699,7 +725,7 @@ namespace BelShina_HMI.ViewModels
         private float sT_Force_2;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rST_Force_3")]
+        //[MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rST_Force_3")]
         public float ST_Force_3
         {
             get { return this.sT_Force_3; }
@@ -708,7 +734,7 @@ namespace BelShina_HMI.ViewModels
         private float sT_Force_3;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rST_Way_1")]
+        //[MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rST_Way_1")]
         public float ST_Way_1
         {
             get { return this.sT_Way_1; }
@@ -717,7 +743,7 @@ namespace BelShina_HMI.ViewModels
         private float sT_Way_1;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rST_Way_2")]
+        //[MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rST_Way_2")]
         public float ST_Way_2
         {
             get { return this.sT_Way_2; }
@@ -726,7 +752,7 @@ namespace BelShina_HMI.ViewModels
         private float sT_Way_2;
 
 
-        [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rST_Way_3")]
+        //[MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Process.rST_Way_3")]
         public float ST_Way_3
         {
             get { return this.sT_Way_3; }
@@ -986,7 +1012,10 @@ namespace BelShina_HMI.ViewModels
             set 
             { 
                 _testType = value;
-                ProcessType = _testType.Id;
+                
+                
+                ProcessType = _testType.Id;           
+                
             }
         }
 
@@ -1071,6 +1100,27 @@ namespace BelShina_HMI.ViewModels
             set { this.SetProperty(ref this.max_3, value); }
         }
         private string max_3;
+
+        public string Min_1
+        {
+            get { return this.min_1; }
+            set { this.SetProperty(ref this.min_1, value); }
+        }
+        private string min_1;
+
+        public string Min_2
+        {
+            get { return this.min_2; }
+            set { this.SetProperty(ref this.min_2, value); }
+        }
+        private string min_2;
+
+        public string Min_3
+        {
+            get { return this.min_3; }
+            set { this.SetProperty(ref this.min_3, value); }
+        }
+        private string min_3;
 
 
         public string UpperLoad

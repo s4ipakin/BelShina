@@ -27,7 +27,7 @@ namespace BelShina_HMI.Pages
             
 
         }
-        
 
+        
     }
 }

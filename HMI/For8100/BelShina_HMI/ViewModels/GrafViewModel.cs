@@ -1,4 +1,5 @@
 ﻿using BelShina_HMI.Chart;
+using BelShina_HMI.Maths;
 using BelShina_HMI.OPC;
 using BelShina_HMI.Reports;
 using GalaSoft.MvvmLight.Messaging;
@@ -44,6 +45,7 @@ namespace BelShina_HMI.ViewModels
         protected string grafValueX;
         protected string grafValueY;
         protected float previousPosition;
+        protected ushort procNomber;
 
         public ICommand ButtonChooseFile_1 { get; set; }
         public ICommand ButtonBuidGraf_1 { get; set; }
@@ -284,15 +286,17 @@ namespace BelShina_HMI.ViewModels
 
         protected void ShowFromCSV_1(object sender)
         {
-            BuildFromCSV(fileName_1);
+            dataTable = BuildFromCSV(fileName_1);
+            SentTabToMain(procNomber, dataTable);
         }
 
         protected void ShowFromCSV_2(object sender)
         {
-            BuildFromCSV(fileName_2);
+            dataTable = BuildFromCSV(fileName_2);
+            SentTabToMain(procNomber, dataTable);
         }
 
-        protected void BuildFromCSV(string fileName)
+        protected DataTable BuildFromCSV(string fileName)
         {
             ChartValues.Clear();
             DataTable dt = CSV_DataTable.ConvertCSVtoDataTable(fileName);
@@ -304,6 +308,157 @@ namespace BelShina_HMI.ViewModels
                     ValueY = Convert.ToDouble(dt.Rows[i][1])
                 });
             }
+            return dt;
+        }
+
+
+        protected decimal k_Smooth;
+        public decimal K_Smooth
+        {
+            get { return k_Smooth; }
+            set { k_Smooth = value; }
+        }
+
+        protected int period_Smooth;
+        public int Period_Smooth
+        {
+            get { return period_Smooth; }
+            set { period_Smooth = value; }
+        }
+
+
+        protected bool movingAverage;
+        public bool MovingAverage
+        {
+            get { return movingAverage; }
+            set { movingAverage = value; }
+        }
+
+
+
+        protected void SmoothData()
+        {
+            //int period = 6;
+            //double[] inputDoubles = new double[dataTable.Rows.Count];
+            //for (int i = 1; i < dataTable.Rows.Count; i++)
+            //{
+            //    inputDoubles[i-1] = Convert.ToDouble(dataTable.Rows[i][1]);
+            //}
+            //IEnumerable<double> outputDoubles = inputDoubles.MovingAverage(period);
+
+
+            //double[] arroutputDoubles = inputDoubles.MovingAverage(period).ToArray();
+            //for (int i = 0; i < arroutputDoubles.Length; i++)
+            //{
+            //    dataTable.Rows[i][1] = arroutputDoubles[i].ToString();
+            //}
+
+
+            /////////////////////////////////////////////////////////////////////////////////////////
+            ///
+
+
+            if (MovingAverage)
+            {
+                double k = Convert.ToDouble(K_Smooth);
+                double[] inputDoubles = new double[dataTable.Rows.Count];
+                for (int i = 1; i < dataTable.Rows.Count; i++)
+                {
+                    inputDoubles[i - 1] = Convert.ToDouble(dataTable.Rows[i][1]);
+                }
+                double fOut = 0;
+                double[] arroutputDoubles = new double[inputDoubles.Length];
+                for (int i = 0; i < inputDoubles.Length - 1; i++)
+                {
+                    fOut = (1 - k) * inputDoubles[i] + k * fOut;
+                    arroutputDoubles[i] = fOut;
+                }
+                for (int i = 1; i < arroutputDoubles.Length; i++)
+                {
+                    dataTable.Rows[i][1] = arroutputDoubles[i - 1].ToString();
+                }
+            }
+
+
+            
+
+
+            /////////////////////////////////////////////////////////////////////
+
+            //double[] inputDoubles = new double[dataTable.Rows.Count];
+            //for (int i = 1; i < dataTable.Rows.Count; i++)
+            //{
+            //    inputDoubles[i - 1] = Convert.ToDouble(dataTable.Rows[i][1]);
+            //}
+            //double[] arroutputDoubles = new double[inputDoubles.Length];
+            //for (int i = 0; i < inputDoubles.Length - 1; i++)
+            //{
+            //    if (i >= Period_Smooth - 1)
+            //    {
+            //        double total = 0;
+            //        for (int x = i; x > (i - Period_Smooth); x--)
+            //            total += inputDoubles[x];
+            //        double average = total / Period_Smooth;
+            //        arroutputDoubles[i] = average;
+            //    }
+
+            //}
+            //for (int i = 1; i < arroutputDoubles.Length; i++)
+            //{
+            //    dataTable.Rows[i][1] = arroutputDoubles[i - 1].ToString();
+            //}
+
+
+            //////////////////////////////////////////////////////////////////////////////////
+
+            //var sums = new double[4];
+            //var trendlinePoints = new List<double>();
+            //var dataLen = dataTable.Rows.Count;
+
+            //for (var i = 1; i < dataLen; i++)
+            //{
+            //    var logX = Math.Log(Convert.ToDouble(dataTable.Rows[i][0]));
+            //    var logY = Math.Log(Convert.ToDouble(dataTable.Rows[i][1]));
+            //    sums[0] += logX;
+            //    sums[1] += logY;
+            //    sums[2] += logX * logY;
+            //    sums[3] += Math.Pow(logX, 2);
+            //}
+
+            //var b = (dataLen * sums[2] - sums[0] * sums[1]) / (dataLen * sums[3] - Math.Pow(sums[0], 2));
+            //var a = Math.Pow(Math.E, (sums[1] - b * sums[0]) / dataLen);
+
+            //for (int i = 1; i < dataTable.Rows.Count; i++)
+            //{
+            //    double pointY = a * Math.Pow(Convert.ToDouble(dataTable.Rows[i][0]), b);
+            //    dataTable.Rows[i][1] = pointY.ToString();
+
+            //}
+
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///
+
+            else
+            {
+                double[] buffer = new double[Period_Smooth];
+                double[] output = new double[dataTable.Rows.Count];
+                int current_index = 0;
+                for (int i = 1; i < dataTable.Rows.Count; i++)
+                {
+                    buffer[current_index] = Convert.ToDouble(dataTable.Rows[i][1]) / Period_Smooth;
+                    double ma = 0.0;
+                    for (int j = 0; j < Period_Smooth; j++)
+                    {
+                        ma += buffer[j];
+                    }
+                    output[i] = ma;
+                    dataTable.Rows[i][1] = ma.ToString();
+                    current_index = (current_index + 1) % Period_Smooth;
+                }
+            }
+            
+            
         }
 
         protected string fileName_1;
@@ -312,13 +467,15 @@ namespace BelShina_HMI.ViewModels
         protected void OpenFile_1(object sender)
         {
             fileName_1 = GetFileName();
-            BuildFromCSV(fileName_1);
+            dataTable = BuildFromCSV(fileName_1);
+            SentTabToMain(procNomber, dataTable);
         }
 
         protected void OpenFile_2(object sender)
         {
             fileName_2 = GetFileName();
-            BuildFromCSV(fileName_2);
+            dataTable = BuildFromCSV(fileName_2);
+            SentTabToMain(procNomber, dataTable);
         }
 
         protected string GetFileName()
@@ -336,6 +493,7 @@ namespace BelShina_HMI.ViewModels
 
         private void BuildBack(string v)
         {
+            SmoothData();
             ChartValues.Clear();
             try
             {
@@ -347,6 +505,7 @@ namespace BelShina_HMI.ViewModels
                         ValueY = Convert.ToDouble(dataTable.Rows[i][1])
                     });
                 }
+                SentTabToMain(procNomber, dataTable);
             }
             catch(Exception ex) { MessageBox.Show(ex.Message); }
             
@@ -359,15 +518,15 @@ namespace BelShina_HMI.ViewModels
 
         }
 
-        protected void SentTabToMain(ushort procType)
+        protected void SentTabToMain(ushort procType, DataTable dataTable)
         {
-            //MessageBox.Show(ProcType_1.ToString());
-            if (ProcType_1 == procType)
-            {
+            
+            //if (ProcType_1 == procType)
+            //{
 
-                var generateReportsMessage = new SentDataTab(dataTable);
+                var generateReportsMessage = new SentDataTab(dataTable, procNomber);
                 Messenger.Default.Send(generateReportsMessage);
-            }
+            //}
         }
 
 

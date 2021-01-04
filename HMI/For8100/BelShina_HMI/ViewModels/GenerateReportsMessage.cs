@@ -14,15 +14,22 @@ namespace BelShina_HMI.ViewModels
     public class SentDataTab
     {
         private DataTable dataTable;
+        private ushort procNumber;
 
-        public SentDataTab(DataTable dataTable)
+        public SentDataTab(DataTable dataTable, ushort procNumber)
         {
             this.dataTable = dataTable;
+            this.procNumber = procNumber;
         }
         public DataTable DataTable
         {
             get { return dataTable; }
             set { dataTable = value; }
+        }
+        public ushort ProcNumber
+        {
+            get { return procNumber; }
+            set { procNumber = value; }
         }
     }
 

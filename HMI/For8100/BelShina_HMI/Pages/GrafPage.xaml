@@ -100,7 +100,7 @@
             x:Name="Распечать"
             Width="212"
             Height="26"
-            Margin="0,0,269,109"
+            Margin="0,0,44,109"
             HorizontalAlignment="Right"
             VerticalAlignment="Bottom"
             Click="Print_Click"
@@ -152,8 +152,9 @@
             Height="26"
             Margin="714,0,674,109"
             VerticalAlignment="Bottom"
+            HorizontalAlignment="Left"
             Command="{Binding ButtonBuildBack}"
-            Content="Показать последний" />
+            Content="Показать линию тренда" />
         <Button
             x:Name="Распечать_Copy3"
             Width="129"
@@ -172,5 +173,48 @@
             VerticalAlignment="Bottom"
             Command="{Binding ButtonBuidGraf_2}"
             Content="Построить из файла 2" />
+        <TextBox
+            Width="120"
+            Height="24"
+            Margin="0,0,440,109"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            FontSize="16"
+            Text="{Binding K_Smooth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox
+            Width="120"
+            Height="24"
+            Margin="0,0,274,109"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            FontSize="16"
+            Text="{Binding Period_Smooth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBlock
+            x:Name="textBlock_Copy28"
+            Width="120"
+            Height="48"
+            Margin="0,0,438,138"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            FontSize="16"
+            Text="Коэффициент 
+            сглаживания"
+            TextWrapping="Wrap" />
+        <TextBlock
+            x:Name="textBlock_Copy"
+            Width="120"
+            Height="48"
+            Margin="0,0,270,138"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            FontSize="16"
+            Text="Период усреднения"
+            TextWrapping="Wrap" />
+        <CheckBox x:Name="checkBox1" 
+                  Content="Экспоненц. скользящая средняя"
+                  IsChecked="{Binding MovingAverage}"
+                  HorizontalAlignment="Right" 
+                  Margin="0,0,58,156" 
+                  VerticalAlignment="Bottom" />
     </Grid>
 </Page>

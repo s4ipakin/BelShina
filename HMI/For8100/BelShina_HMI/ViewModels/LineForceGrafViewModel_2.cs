@@ -13,8 +13,11 @@ namespace BelShina_HMI.ViewModels
     [Subscription(endpointUrl: "opc.tcp://192.168.1.17:4840", publishingInterval: 500, keepAliveCount: 2)]
     public class LineForceGrafViewModel_2 : GrafViewModel
     {
-        public LineForceGrafViewModel_2(GrafSet grafSet, string cSvPath) : base(grafSet, cSvPath)
-        { }
+        
+        public LineForceGrafViewModel_2(GrafSet grafSet, string cSvPath, ushort procNomber) : base(grafSet, cSvPath)
+        {
+            this.procNomber = procNomber;
+        }
 
         [MonitoredItem(nodeId: "ns=4;s=|var|WAGO 750-8100 PFC100 2ETH ECO.Application.HMI_Stepper.rFS_GetForce")]
         public override float GetForse
@@ -105,10 +108,10 @@ namespace BelShina_HMI.ViewModels
                 else if (xStarted)
                 {
                     xStarted = false;
-                    if (ProcType_1 == 3)
+                    if (ProcType_1 == procNomber)
                     {
                         SaveToCSV(true, cSvPath, "Distance", "Force");
-                        SentTabToMain(3);
+                        SentTabToMain(procNomber, dataTable);
                     }
                 }
                 if (!this.start)

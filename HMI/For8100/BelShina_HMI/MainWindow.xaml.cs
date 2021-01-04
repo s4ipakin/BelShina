@@ -56,9 +56,9 @@ namespace BelShina_HMI
             forceGrafSetLine_2 = new ForceGrafSetLine_2();
             conturGrafSet = new ConturGrafSet();
             //grafViewModel_1 = new GrafViewModel(forceGrafSet);
-            grafViewModel_1 = new CycleForceGrafViewModel(forceGrafSet, "Угловое перемещение");
-            lineForceGrafViewModel_1 = new LineForceGrafViewModel_1(forceGrafSetLine_1, "Боковое перемещение");
-            lineForceGrafViewModel_2 = new LineForceGrafViewModel_2(forceGrafSetLine_2, "Тангенциальное перемещение");
+            grafViewModel_1 = new CycleForceGrafViewModel(forceGrafSet, "Угловое перемещение", 1);
+            lineForceGrafViewModel_1 = new LineForceGrafViewModel_1(forceGrafSetLine_1, "Боковое перемещение", 2);
+            lineForceGrafViewModel_2 = new LineForceGrafViewModel_2(forceGrafSetLine_2, "Тангенциальное перемещение", 3);
             conturViewModel_1 = new ConturViewModel_1(conturGrafSet, "Продольный контур");
             conturViewModel_2 = new ConturViewModel_2(conturGrafSet, "Поперечный контур");
             grafPage_1 = new GrafPage(grafViewModel_1);

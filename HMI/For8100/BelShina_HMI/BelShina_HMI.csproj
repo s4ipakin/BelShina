@@ -170,6 +170,8 @@
     <Compile Include="Converters\ForceStateConvert.cs" />
     <Compile Include="Maths\BitWise.cs" />
     <Compile Include="Maths\CalcCoef.cs" />
+    <Compile Include="Maths\MovingAverage.cs" />
+    <Compile Include="Maths\MovingAverageExtensions.cs" />
     <Compile Include="Maths\Round.cs" />
     <Compile Include="Maths\Transform.cs" />
     <Compile Include="OPC\ListOfItemsOPC.cs" />
